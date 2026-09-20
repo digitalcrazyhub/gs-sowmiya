@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       eyebrow: 'WHAT WE BUILD',
       title: 'OUR SERVICES',
       breadcrumb: 'HOME / SERVICES',
-      desc: 'Structured construction solutions for residential, commercial and industrial building requirements with organized execution and uncompromising quality.',
+      desc: 'Verified second-generation construction solutions for residential apartments, landowner joint ventures, turnkey contracts, and structural renovations across Chennai.',
       bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1600&q=80'
     }
   });

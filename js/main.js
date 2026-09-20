@@ -21,7 +21,7 @@ export {
 if (typeof window !== 'undefined') {
   window.GS_BUILDERS = window.GS_BUILDERS || {
     version: '2.0.0',
-    company: 'GS Sowmiya Builders',
-    contact: '+91 98400 12345'
+    company: 'GS Sowmiya Builders Private Limited',
+    contact: '+91 70105 17729'
   };
 }

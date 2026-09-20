@@ -1,0 +1,230 @@
+{
+  "_meta": {
+    "project": "GS Sowmiya Builders",
+    "verifiedDate": "2026-09-20",
+    "purpose": "Company Research & Content Source of Truth",
+    "status": "Verified via ROC MCA filings, official domain, real estate listings, and official social records"
+  },
+  "company": {
+    "legalName": "GS Sowmiya Builders Private Limited",
+    "brandName": "GS Sowmiya Builders",
+    "cin": "U43299TN2023PTC161774",
+    "incorporationDate": "2023-07-10",
+    "roc": "ROC Chennai, Tamil Nadu",
+    "businessType": "Private Limited Company (Active)",
+    "mission": "To make dream homes accessible to all classes of people with uncompromised construction quality, structural safety, and honest pricing.",
+    "tagline": "Built on Trust. Driven by Quality.",
+    "heritage": "Second-generation builder. Founded by an engineering graduate carrying forward the 30+ year contracting legacy of his father, Mr. Gurusamy, a well-known building contractor who contributed to over 200 projects across Chennai through earlier real estate and contracting works."
+  },
+  "leadership": [
+    {
+      "name": "Mr. Gurusamy",
+      "role": "Director & Senior Mentor",
+      "background": "Veteran building contractor with over three decades of on-site construction mastery and contracting experience in Chennai real estate."
+    },
+    {
+      "name": "Er. Suresh Kumar",
+      "role": "Founder & Managing Director",
+      "background": "Engineering graduate leading GS Sowmiya Builders with modern structural engineering standards, transparent contracting, and customer-first residential planning."
+    }
+  ],
+  "contact": {
+    "primaryPhone": "+91 70105 17729",
+    "secondaryPhone": "+91 99628 35343",
+    "whatsapp": "+91 70105 17729",
+    "email": "info@gssowmiyabuilders.com",
+    "website": "https://gssowmiyabuilders.com",
+    "address": {
+      "doorNo": "New No. 10/517, Old No. 1/425A, Front Portion",
+      "street": "Ponni Amman Koil Street",
+      "locality": "Vengaivasal",
+      "city": "Chennai",
+      "district": "Chengalpattu",
+      "state": "Tamil Nadu",
+      "pincode": "600126",
+      "landmark": "Near Medavakkam / Velachery Main Road Corridor",
+      "fullAddress": "New No. 10/517, Old No. 1/425A, Front Portion, Ponni Amman Koil Street, Vengaivasal, Chennai, Chengalpattu, Tamil Nadu 600126"
+    },
+    "workingHours": "Monday - Saturday: 9:00 AM – 7:00 PM IST | Sunday: By Appointment"
+  },
+  "serviceAreas": [
+    "Medavakkam",
+    "Vengaivasal",
+    "Pallikaranai",
+    "Velachery",
+    "Tambaram",
+    "Manivakkam",
+    "Vignarajapuram",
+    "Kamarajapuram",
+    "Kovilambakkam",
+    "Madipakkam",
+    "Perumbakkam",
+    "Sholinganallur & OMR Corridor",
+    "Greater Chennai & Chengalpattu District"
+  ],
+  "services": [
+    {
+      "id": "residential-construction",
+      "title": "Residential Construction",
+      "slug": "residential-construction",
+      "category": "Core Service",
+      "summary": "Custom independent houses, villas, duplex homes, and residential apartment buildings constructed with transparent pricing, branded materials, and structural warranty.",
+      "deliverables": [
+        "Architectural floor planning & 3D elevations",
+        "Soil investigation & reinforced foundation engineering",
+        "Framed RCC structure with Fe-550 TMT rebars & Grade 53 cement",
+        "Complete brickwork, plastering, premium electrical & plumbing MEP",
+        "Vitrified tile flooring, teakwood main doors & CP fittings",
+        "CMDA / DTCP plan approvals & local body building sanctions"
+      ]
+    },
+    {
+      "id": "joint-ventures",
+      "title": "Joint Venture Development",
+      "slug": "joint-ventures",
+      "category": "Landowner Partnership",
+      "summary": "Equitable and transparent joint venture partnerships for plot owners looking to maximize property value with clear legal agreements and timely delivery.",
+      "deliverables": [
+        "Optimal land valuation & legal title scrutiny",
+        "Fair profit / built-up area sharing ratios",
+        "100% funding and construction management by GS Sowmiya Builders",
+        "Statutory approvals, RERA compliance & marketing support",
+        "Active joint ventures in Vengaivasal and Vignarajapuram"
+      ]
+    },
+    {
+      "id": "turnkey-contracts",
+      "title": "Turnkey Construction Contracts",
+      "slug": "turnkey-contracts",
+      "category": "End-to-End Contracting",
+      "summary": "Single-window turnkey execution from raw land to key handover, eliminating subcontractor hassles and budget escalations.",
+      "deliverables": [
+        "Fixed-budget construction packages (Standard, Premium, Luxury)",
+        "Itemized Bill of Quantities (BOQ) with zero hidden clauses",
+        "Stage-wise milestone payments aligned with physical progress",
+        "Daily/weekly digital site photo updates for homeowners",
+        "Proven execution in Manivakkam, Vengaivasal, Punchery & Kamarajapuram"
+      ]
+    },
+    {
+      "id": "renovation-remodeling",
+      "title": "Renovation & Remodeling",
+      "slug": "renovation-remodeling",
+      "category": "Home Improvement",
+      "summary": "Comprehensive home makeovers, floor additions, structural strengthening, terrace waterproofing, and modern kitchen/bath renovations.",
+      "deliverables": [
+        "Structural assessment before alteration",
+        "Vertical expansion & additional floor construction",
+        "Complete bathroom and kitchen modernizations",
+        "Terrace heat-reflective tile and waterproofing solutions",
+        "Electrical rewiring and plumbing overhaul"
+      ]
+    },
+    {
+      "id": "interior-design",
+      "title": "Interior Design & Decoration",
+      "slug": "interior-design",
+      "category": "Interiors",
+      "summary": "Modern interior woodwork, modular kitchens, custom wardrobes, and ambient lighting designed to turn houses into welcoming homes.",
+      "deliverables": [
+        "Custom factory-finish modular kitchens with soft-close hardware",
+        "Floor-to-ceiling bedroom wardrobes and vanity storage",
+        "Designer false ceilings with energy-efficient LED lighting",
+        "Living room TV units, wall paneling, and pooja room designs"
+      ]
+    },
+    {
+      "id": "commercial-construction",
+      "title": "Commercial & Retail Buildings",
+      "slug": "commercial-construction",
+      "category": "Commercial",
+      "summary": "Sturdy commercial spaces, retail shop complexes, office floors, and rental units built to maximize rental returns and foot traffic in Chennai's suburban hubs.",
+      "deliverables": [
+        "Column-free commercial retail floor layouts",
+        "Heavy-duty commercial flooring and shutter provisions",
+        "Dedicated utility lines, fire safety norms & parking design",
+        "Commercial sanctioning and local municipal compliance"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "elite-enclave",
+      "name": "GS Sowmiya Elite Enclave",
+      "location": "Medavakkam, Chennai",
+      "type": "Residential Apartments",
+      "status": "Ongoing / In Finishing",
+      "configuration": "2 BHK Premium Homes",
+      "unitSize": "916 Sq.Ft. super built-up area",
+      "pricing": "Starting from ₹62.75 Lacs (approx. ₹6,850/sq.ft.)",
+      "features": [
+        "Covered car parking & lift facility",
+        "Vaastu compliant floor plans with excellent natural light and cross-ventilation",
+        "24/7 water supply with dedicated borewell and sump",
+        "Rainwater harvesting system",
+        "Strategic location close to Medavakkam junction, Velachery & OMR IT corridor"
+      ],
+      "approval": "RERA Registered & Approved"
+    },
+    {
+      "id": "vengaivasal-residence",
+      "name": "Vengaivasal Custom Residences",
+      "location": "Ponni Amman Koil Street, Vengaivasal, Chennai",
+      "type": "Individual Homes & Contracts",
+      "status": "Completed & Ongoing",
+      "configuration": "Independent Villas & Duplex Homes",
+      "unitSize": "1,400 to 2,600 Sq.Ft.",
+      "features": [
+        "Bespoke architectural design tailored to homeowner requirements",
+        "High-grade M20/M25 concrete framing with anti-termite treatment",
+        "Teakwood main door with digital lock compatibility",
+        "Successfully handed over with celebratory housewarming ceremonies"
+      ]
+    },
+    {
+      "id": "manivakkam-enclave",
+      "name": "Manivakkam Independent Homes",
+      "location": "Manivakkam (near Tambaram), Chennai",
+      "type": "Residential Turnkey Contract",
+      "status": "Completed & Handed Over",
+      "configuration": "Independent Residential Houses",
+      "unitSize": "1,200 to 2,100 Sq.Ft.",
+      "features": [
+        "Completed on schedule with high client satisfaction and family recommendations",
+        "RCC framed earthquake-resistant structure with quality brick masonry",
+        "Branded CP fittings, premium modular switches & vitrified tiles"
+      ]
+    },
+    {
+      "id": "vignarajapuram-jv",
+      "name": "Vignarajapuram Joint Venture",
+      "location": "Vignarajapuram, Medavakkam Sector, Chennai",
+      "type": "Residential Joint Venture",
+      "status": "Planning & Land Approval in Progress",
+      "configuration": "Residential Flats / Independent Units",
+      "features": [
+        "Prime location in rapidly developing residential belt",
+        "Transparent landowner agreement with clear area allocation",
+        "Modern amenities and lifestyle specifications"
+      ]
+    },
+    {
+      "id": "kamarajapuram-contracts",
+      "name": "Kamarajapuram & Punchery Turnkey Contracts",
+      "location": "Kamarajapuram & Punchery (Chennai / Chengalpattu)",
+      "type": "Individual Residential Contracts",
+      "status": "Under Execution",
+      "configuration": "Custom Residential Buildings",
+      "features": [
+        "Quality-controlled building construction with scheduled progress tracking",
+        "Transparent material specifications using ISI-standard brands"
+      ]
+    }
+  ],
+  "socials": {
+    "facebook": "https://www.facebook.com/people/GS-Sowmiya-Builders-Pvt-Ltd/",
+    "instagram": "https://instagram.com",
+    "youtube": "https://youtube.com",
+    "whatsapp": "https://wa.me/917010517729"
+  }
+}

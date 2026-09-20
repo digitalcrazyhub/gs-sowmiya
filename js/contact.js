@@ -228,7 +228,7 @@ function initEnquiryForm() {
                 statusBox.className = 'form-status-box is-error';
                 if (statusTitle) statusTitle.textContent = "SUBMISSION NOTICE";
                 if (statusDesc) {
-                    statusDesc.textContent = "We encountered a temporary network issue. Please call us directly at +91 98400 12345 or contact us via WhatsApp.";
+                    statusDesc.textContent = `We encountered a temporary network issue. Please call us directly at ${SITE_CONFIG.contact.phone} or contact us via WhatsApp.`;
                 }
             }
         } finally {
@@ -282,8 +282,8 @@ function initInteractionTriggers() {
     waButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            const phone = "919840012345";
-            const text = encodeURIComponent("Hello GS Sowmiya Builders, I would like to schedule an architectural consultation for an upcoming construction project.");
+            const phone = SITE_CONFIG.contact.whatsappRaw || "917010517729";
+            const text = encodeURIComponent("Hello GS Sowmiya Builders, I would like to enquire about an upcoming construction / joint venture project in Chennai.");
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank', 'noopener,noreferrer');
         });
     });

@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadGlobalComponents({
         activeNav: 'about',
         banner: {
-            title: 'ENGINEERING PRECISION.<br>ARCHITECTURAL SOUL.',
-            eyebrow: 'Corporate Heritage & Engineering Philosophy',
+            title: 'SECOND-GENERATION CRAFTSMANSHIP.<br>ENGINEERING RIGOR.',
+            eyebrow: 'Corporate Heritage & Engineering Integrity',
             breadcrumb: 'ABOUT US',
-            desc: 'For 15 years, GS Sowmiya Builders has translated complex structural challenges into timeless residential estates and Grade-A commercial landmarks across Tamil Nadu.',
+            desc: 'Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.',
             bgImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80'
         }
     });

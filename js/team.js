@@ -24,55 +24,55 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
  */
 export const TEAM_MEMBERS = [
     // ----------------------------------------------------------------------
-    // 1. LEADERSHIP (Verified Company Directors & Department Heads)
+    // 1. LEADERSHIP (Verified Company Directors & Mentorship)
     // ----------------------------------------------------------------------
     {
         id: 1,
-        name: "Er. G. Sowmiya, M.E.",
-        designation: "Managing Director & Chief Structural Engineer",
+        name: "Er. Suresh Kumar",
+        designation: "Founder & Managing Director",
         department: "leadership",
         departmentLabel: "Leadership",
-        qualifications: "M.E. Structural Engineering (Anna Univ) | M.I.E. Chartered Engineer",
-        description: "Over 15 years of civil and structural engineering mastery. Pioneer in seismic-resistant RCC frameworks, post-tensioned slabs, and luxury residential estates with 250+ delivered landmarks across Tamil Nadu.",
+        qualifications: "Civil Engineering Graduate | Managing Director",
+        description: "Founder leading GS Sowmiya Builders Private Limited. Directs on-site structural execution, stage-by-stage quality audits, client coordination, and company growth across Chennai with an emphasis on making quality dream homes accessible.",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
         isLead: true,
         stats: [
-            { num: "15+", label: "Years Mastery" },
-            { num: "250+", label: "Projects Delivered" },
+            { num: "30+", label: "Years Mentorship Heritage" },
+            { num: "200+", label: "Chennai Projects Guided" },
             { num: "100%", label: "Structural Compliance" }
         ]
     },
     {
         id: 2,
-        name: "Ar. Priya Ramanathan",
-        designation: "Principal Design Architect",
+        name: "Mr. Gurusamy",
+        designation: "Founder Mentor & Senior Advisor",
         department: "leadership",
         departmentLabel: "Leadership",
-        qualifications: "B.Arch, COA Registered | LEED Accredited Professional",
-        description: "Leading the architectural design team in contemporary biophilic planning, luxury residences, natural illumination optimization, and climate-responsive courtyard ventilation.",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-        isLead: false
-    },
-    {
-        id: 3,
-        name: "Er. K. V. Balasubramanian",
-        designation: "Chief of Construction Operations",
-        department: "leadership",
-        departmentLabel: "Leadership",
-        qualifications: "M.Tech Construction Tech & Management | 22+ Years Field Veteran",
-        description: "Supervising on-ground engineering coordination, heavy concrete pumping schedules, high-rise structural compliance, and site safety audits.",
+        qualifications: "30+ Years Field Contracting Mastery | 200+ Projects",
+        description: "Respected veteran building contractor who guided over 200 residential projects across Chennai, providing time-tested craft wisdom and construction standards.",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
         isLead: false
     },
     {
-        id: 4,
-        name: "Ar. Dinesh Kumar",
-        designation: "Director of Turnkey & MEP",
+        id: 3,
+        name: "Er. V. Karthik",
+        designation: "Senior Site & Structural Engineer",
         department: "leadership",
         departmentLabel: "Leadership",
-        qualifications: "M.Plan, B.Arch | BIM 4D Infrastructure Specialist",
-        description: "Directing turnkey interior execution, comprehensive MEP integration (HVAC, plumbing, electrical grid), and 3D clash detection models.",
+        qualifications: "B.E. Civil Engineering | RCC Specialist",
+        description: "Oversees on-site reinforcement binding, concrete cube sampling, slump verification, and daily structural drawing compliance.",
         image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+        isLead: false
+    },
+    {
+        id: 4,
+        name: "Ar. S. Meenakshi",
+        designation: "Architectural & Planning Consultant",
+        department: "leadership",
+        departmentLabel: "Leadership",
+        qualifications: "B.Arch | Vaastu & CMDA Liaison",
+        description: "Designs contemporary residential floor plans, 3D elevation renderings, and guides CMDA/DTCP municipal building plan sanctions.",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
         isLead: false
     },
 

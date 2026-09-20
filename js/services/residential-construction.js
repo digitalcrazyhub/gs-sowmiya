@@ -7,7 +7,7 @@ import { loadGlobalComponents } from '/js/components.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Initialize global components (Navbar with dropdown, Footer, Floating Actions)
-    await loadGlobalComponents();
+    await loadGlobalComponents({ activeNav: 'service-residential' });
 
     // 2. Initialize FAQ Accordion with accessible single-open and keyboard support
     initFaqAccordion();

@@ -24,6 +24,21 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
  */
 export const PROJECTS_DATA = [
   {
+    id: "p0",
+    name: "GS Sowmiya Elite Enclave",
+    location: "Medavakkam, Chennai",
+    category: "residential",
+    categoryLabel: "Residential",
+    type: "2 BHK Premium Apartments",
+    area: "Medavakkam Prime",
+    year: "2024 - 2025",
+    status: "Completed / Ongoing",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85",
+    description: "Our signature residential development in Medavakkam offering thoughtfully engineered 2 BHK homes with covered car parking, automatic lift, 24/7 CCTV surveillance, and 100% Vaastu compliance.",
+    link: "#"
+  },
+  {
     id: "p1",
     name: "Vaibhavam Grande",
     location: "Thirukalukundram",

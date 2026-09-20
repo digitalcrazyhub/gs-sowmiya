@@ -1,114 +1,121 @@
 /**
- * GS SOWMIYA BUILDERS - CENTRAL SITE CONFIGURATION & DATA REPOSITORY
- * Luxury Architectural + Modern Engineering + Premium Construction
+ * GS SOWMIYA BUILDERS PRIVATE LIMITED - CENTRAL SITE CONFIGURATION & DATA REPOSITORY
+ * Source of Truth: Verified via ROC MCA (CIN: U43299TN2023PTC161774), Official Website, and Verified Project Records.
  * 
- * Centralized data ensures maintainability, clean architecture, and easy content updates.
+ * "Built on Trust. Driven by Quality."
+ * Mission: To make dream homes accessible to all classes of people.
  */
 
 export const SITE_CONFIG = {
     brand: {
         name: "GS SOWMIYA BUILDERS",
-        tagline: "Luxury Architectural & Modern Engineering Construction",
-        shortDesc: "Premier construction and architectural engineering studio delivering high-end residential, commercial, and turnkey infrastructure with surgical precision.",
-        established: "2011",
-        experienceYears: 15,
-        projectsCompleted: 250,
-        happyClients: 300,
-        locationsServed: 6,
+        legalName: "GS Sowmiya Builders Private Limited",
+        cin: "U43299TN2023PTC161774",
+        tagline: "Built on Trust. Driven by Quality.",
+        shortDesc: "Second-generation builders in Chennai delivering quality residential construction, joint ventures, turnkey contracts, and modern home renovations with transparent pricing.",
+        established: "2023",
+        heritageYears: "30+",
+        heritageNote: "Carrying forward a 30+ year family building contracting heritage",
+        projectsDelivered: "200+",
+        happyFamilies: "200+",
+        locationsServed: "Chennai & Chengalpattu",
     },
     contact: {
-        phone: "+91 98400 12345",
-        phoneDisplay: "+91 98400 12345",
-        whatsapp: "+91 98400 12345",
-        whatsappMessage: "Hello GS Sowmiya Builders, I would like to discuss an upcoming construction project.",
-        email: "contact@gssowmiyabuilders.com",
-        officeAddress: "Plot No. 42, Architectural Avenue, Anna Nagar, Chennai, Tamil Nadu 600040",
-        coordinates: { lat: 13.0827, lng: 80.2707 },
-        workingHours: "Mon - Sat: 9:00 AM – 7:00 PM IST"
+        phone: "+91 70105 17729",
+        phoneSecondary: "+91 99628 35343",
+        phoneDisplay: "+91 70105 17729 / 99628 35343",
+        whatsapp: "+91 70105 17729",
+        whatsappMessage: "Hello GS Sowmiya Builders, I would like to enquire about construction / joint venture / apartment projects.",
+        email: "info@gssowmiyabuilders.com",
+        officeAddress: "New No: 10/517, Old No: 1/425A, Front Portion, Ponni Amman Koil Street, Vengaivasal, Chennai, Tamil Nadu 600126",
+        shortAddress: "Ponni Amman Koil St, Vengaivasal, Chennai 600126",
+        landmark: "Near Medavakkam, Chennai",
+        coordinates: { lat: 12.9125, lng: 80.1875 },
+        workingHours: "Mon - Sat: 9:00 AM – 7:00 PM IST | Sun: By Appointment"
     },
     socials: {
+        facebook: "https://www.facebook.com/people/GS-Sowmiya-Builders-Pvt-Ltd/",
         instagram: "https://instagram.com",
-        facebook: "https://facebook.com",
-        linkedin: "https://linkedin.com",
-        youtube: "https://youtube.com"
+        youtube: "https://youtube.com",
+        whatsapp: "https://wa.me/917010517729"
     }
 };
 
 export const HERO_SLIDES = [
     {
         id: "01",
-        category: "VISION",
-        title: "BUILDING<br>THE FUTURE",
-        subtitle: "Engineering precision. Architectural excellence.",
-        description: "Pioneering luxury construction where bespoke architectural design converges with structural mastery.",
+        category: "FLAGSHIP PROJECT",
+        title: "GS SOWMIYA<br>ELITE ENCLAVE",
+        subtitle: "Premium 2 BHK Apartments in Medavakkam, Chennai",
+        description: "RERA-approved modern homes designed with optimal cross-ventilation, covered parking, and prime connectivity to the OMR and Velachery corridors.",
         image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
-            tag: "Flagship Residential",
-            title: "Villa in Thirukalukundram",
-            specs: "5,200 Sq.Ft · 5 Bedrooms · Private Courtyard",
-            status: "Completed Project",
+            tag: "Medavakkam Project",
+            title: "GS Sowmiya Elite Enclave",
+            specs: "2 BHK · 916 Sq.Ft. · RERA Approved",
+            status: "In Finishing / Booking Open",
             image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
-            { text: "EXPLORE OUR PROJECTS", href: "#projects", primary: true },
-            { text: "GET A QUOTE", href: "#contact", primary: false }
+            { text: "VIEW ELITE ENCLAVE", href: "/projects.html", primary: true },
+            { text: "ENQUIRE NOW", href: "/contact.html", primary: false }
         ]
     },
     {
         id: "02",
-        category: "RESIDENTIAL",
-        title: "SPACES<br>MADE FOR LIVING",
-        subtitle: "Thoughtfully designed spaces built around modern living.",
-        description: "Private sanctuaries and contemporary estates designed to inspire tranquility, permanence, and refined comfort.",
+        category: "RESIDENTIAL HOMES",
+        title: "SPACES MADE<br>FOR YOUR FAMILY",
+        subtitle: "Custom residential homes and turnkey villas built on your land.",
+        description: "Second-generation craftsmanship meeting modern structural engineering. High-grade materials, earthquake-resistant RCC frames, and zero hidden costs.",
         image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
-            tag: "Custom Villa",
-            title: "The Glass House, Ooty",
-            specs: "4,800 Sq.Ft · Mountain View · Biophilic",
-            status: "Award Winner 2024",
+            tag: "Custom Residence",
+            title: "Vengaivasal Villa",
+            specs: "Independent Home · 1,850 Sq.Ft.",
+            status: "Successfully Handed Over",
             image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
-            { text: "EXPLORE RESIDENTIAL", href: "#projects", primary: true },
-            { text: "START YOUR RESIDENCE", href: "#contact", primary: false }
+            { text: "RESIDENTIAL SERVICES", href: "/services/residential-construction.html", primary: true },
+            { text: "GET ESTIMATE", href: "/contact.html", primary: false }
         ]
     },
     {
         id: "03",
-        category: "COMMERCIAL",
-        title: "BUILT<br>FOR BUSINESS",
-        subtitle: "High-performance commercial spaces designed for growth.",
-        description: "Iconic enterprise campuses, tech parks, and corporate headquarters engineered for seamless scalability.",
+        category: "LANDOWNER PARTNERSHIP",
+        title: "TRANSPARENT<br>JOINT VENTURES",
+        subtitle: "Maximize your plot's true value with an equitable partnership.",
+        description: "We partner with plot and landowners across South Chennai. Clear legal documentation, CMDA/DTCP sanctions, and timely project delivery.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
-            tag: "Corporate Tower",
-            title: "TVS Avenue Commercial",
-            specs: "120,000 Sq.Ft · Grade-A Office · Chennai",
-            status: "Handed Over",
+            tag: "Upcoming JV",
+            title: "Vignarajapuram Project",
+            specs: "Residential Development · Medavakkam Belt",
+            status: "Land Approval in Progress",
             image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
-            { text: "VIEW COMMERCIAL PROJECTS", href: "#projects", primary: true },
-            { text: "COMMERCIAL CONSULTATION", href: "#contact", primary: false }
+            { text: "JOINT VENTURE DETAILS", href: "/services.html", primary: true },
+            { text: "SUBMIT YOUR PROPERTY", href: "/contact.html", primary: false }
         ]
     },
     {
         id: "04",
         category: "COMPLETE SOLUTIONS",
-        title: "FROM VISION<br>TO REALITY",
-        subtitle: "From planning and engineering to execution and completion.",
-        description: "Full-spectrum turnkey delivery: land feasibility, structural modeling, MEP coordination, and immaculate handoff.",
+        title: "HONEST PRICING.<br>QUALITY FINISH.",
+        subtitle: "From plan approvals and foundation to interior handover.",
+        description: "Our mission is making dream homes accessible to all classes of people. Direct principal supervision on site with transparent milestone billing.",
         image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
-            tag: "Turnkey Development",
-            title: "Vaibhavam Grande",
-            specs: "55,000 Sq.Ft · Mixed Development",
-            status: "Turnkey Execution",
+            tag: "Turnkey Execution",
+            title: "Manivakkam Enclave",
+            specs: "Turnkey Residential · Tambaram Sector",
+            status: "Completed & Occupied",
             image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
-            { text: "OUR SERVICES", href: "#services", primary: true },
-            { text: "START YOUR PROJECT", href: "#contact", primary: false }
+            { text: "OUR SERVICES", href: "/services.html", primary: true },
+            { text: "CONTACT BUILDER", href: "/contact.html", primary: false }
         ]
     }
 ];
@@ -118,498 +125,387 @@ export const CORE_SERVICES = [
         number: "01",
         title: "Residential Construction",
         category: "Living Spaces",
-        description: "Custom bespoke villas, luxury estates, and gated community residences engineered with monolithic durability.",
+        description: "Individual houses, duplex villas, and residential apartment buildings built with earthquake-resistant RCC frames and quality branded materials.",
         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-        features: ["Bespoke Architecture", "Seismic Structural Design", "Acoustic Insulation"]
+        features: ["Vaastu-Compliant Architecture", "Earthquake-Resistant RCC Framing", "Branded Material Specifications"],
+        link: "/services/residential-construction.html"
     },
     {
         number: "02",
-        title: "Commercial Construction",
-        category: "Corporate",
-        description: "Grade-A office towers, retail complexes, and modern business hubs built for peak occupant density and efficiency.",
+        title: "Joint Venture Development",
+        category: "Land Partnerships",
+        description: "Equitable joint venture partnerships with landowners across South Chennai, providing complete funding, approvals, and timely construction.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-        features: ["Post-Tensioned Slabs", "High-Speed Core Planning", "LEED Compliant"]
+        features: ["Transparent Ratio Sharing", "CMDA / DTCP Sanctions", "Active Projects in Vengaivasal & Vignarajapuram"],
+        link: "/services.html"
     },
     {
         number: "03",
-        title: "Industrial Construction",
-        category: "Manufacturing",
-        description: "Heavy engineering plants, smart logistics warehouses, and cleanrooms adhering to global safety and load tolerances.",
-        image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-        features: ["Heavy Load Flooring", "Pre-Engineered Buildings", "Ventilation Engineering"]
+        title: "Turnkey Building Contracts",
+        category: "End-to-End Contracting",
+        description: "Complete single-point contracting from soil testing to final key handover. Detailed BOQs, milestone-linked payments, and zero hidden costs.",
+        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+        features: ["Clear Itemized BOQ", "Weekly Digital Progress Updates", "Proven Turnkey Contracts in Chennai"],
+        link: "/services.html"
     },
     {
         number: "04",
-        title: "Infrastructure Development",
-        category: "Civil Works",
-        description: "Urban access roads, drainage civil works, bridges, and foundation infrastructure connecting communities.",
-        image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
-        features: ["Deep Piling", "Culvert Engineering", "Geo-technical Stabilization"]
+        title: "Renovation & Remodeling",
+        category: "Home Improvement",
+        description: "Comprehensive home makeovers, floor additions, structural strengthening, terrace waterproofing, and modern space reconfigurations.",
+        image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80",
+        features: ["Vertical Floor Extensions", "Terrace Waterproofing", "Kitchen & Bathroom Overhauls"],
+        link: "/services/renovation-remodeling.html"
     },
     {
         number: "05",
-        title: "Renovation & Remodeling",
-        category: "Adaptive Reuse",
-        description: "High-end structural retrofitting, historic restoration, and contemporary space modernization with zero structural risk.",
-        image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80",
-        features: ["Structural Retrofit", "Facade Recladding", "Space Reconfiguration"]
+        title: "Interior Design & Decoration",
+        category: "Interior Works",
+        description: "Modern modular kitchens, customized bedroom wardrobes, aesthetic false ceilings, ambient lighting, and high-quality woodwork.",
+        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+        features: ["Factory-Finish Modular Kitchens", "Full-Height Wardrobes", "Designer False Ceilings"],
+        link: "/services.html"
     },
     {
         number: "06",
-        title: "Turnkey Construction",
-        category: "End-to-End",
-        description: "Single-point responsibility encompassing architectural design, sanction approvals, procurement, and final interior keys.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
-        features: ["Total Budget Guarantee", "Single Point of Contact", "Schedule Predictability"]
-    },
-    {
-        number: "07",
-        title: "Structural Works",
-        category: "Engineering",
-        description: "Advanced reinforced concrete frames, composite steel frameworks, and critical load-bearing engineering.",
-        image: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80",
-        features: ["FEA Stress Analysis", "Thermal Crack Control", "NDT Testing"]
-    },
-    {
-        number: "08",
-        title: "Project Management",
-        category: "Consultancy",
-        description: "Rigorous quality audits, digital 4D BIM progress monitoring, schedule enforcement, and stringent cost control.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
-        features: ["BIM 4D Tracking", "Transparent Billing", "Zero-Accident Safety"]
+        title: "Commercial & Retail Buildings",
+        category: "Commercial",
+        description: "Neighborhood commercial buildings, retail shop complexes, and commercial floors built for durable business operations and strong rental returns.",
+        image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
+        features: ["Optimized Retail Floor Plates", "Heavy-Duty Flooring & Shutters", "Commercial Municipal Sanctions"],
+        link: "/services/commercial-construction.html"
     }
 ];
 
 export const FEATURED_PROJECTS = [
     {
         id: "p1",
-        name: "Vaibhavam Grande",
-        location: "Thirukalukundram",
-        category: "Residential",
-        area: "55,000 Sq.Ft.",
-        year: "2024",
-        status: "Completed",
-        tag: "Flagship Estate",
-        description: "A sprawling contemporary gated residential enclave balancing climate-responsive ventilation and private green courtyards.",
+        name: "GS Sowmiya Elite Enclave",
+        location: "Medavakkam, Chennai",
+        category: "Residential Apartments",
+        area: "2 BHK Apartments (916 Sq.Ft.)",
+        year: "2024 - 2025",
+        status: "In Finishing / Possession July 2025",
+        tag: "Flagship Project",
+        description: "A premier residential apartment project in Medavakkam offering well-ventilated 2 BHK homes with covered car parking and modern amenities.",
         image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85",
-        client: "Vaibhavam Enclave Development",
-        structuralSystem: "Post-Tensioned Flat Slabs & Shear Walls",
-        concreteGrade: "M35 & M40 Self-Compacting Concrete",
-        steelGrade: "Fe-550D TMT Rebars (Primary Producers)",
-        completionTime: "18 Months (2 Weeks Ahead of Schedule)",
+        client: "Apartment Buyers & Homeowners",
+        structuralSystem: "Seismic Zone III Compliant RCC Framed Structure",
+        concreteGrade: "M20 / M25 Quality Controlled Mix",
+        steelGrade: "Fe-550 TMT Corrosion-Resistant Rebars",
+        completionTime: "Estimated Possession July 2025",
         highlights: [
-            "Thermal-break double glazed fenestration minimizing solar heat gain by 32%",
-            "Sub-surface rainwater harvesting tank with 250,000-liter capacity",
-            "Central courtyard with monolithic exposed teak pergolas"
+            "RERA-approved residential development in Medavakkam",
+            "Optimal 2 BHK unit layout of 916 Sq.Ft. with maximum carpet area efficiency",
+            "Covered parking, dedicated elevator, and 24/7 water supply infrastructure",
+            "Strategic access to Medavakkam junction, Velachery, and OMR IT Corridor"
         ],
-        extendedDesc: "Executed on a 3.5-acre site in Thirukalukundram, this residential masterpiece demanded high seismic resilience and climate-adaptive airflow. Our engineering team deployed post-tensioned beam systems to maximize internal clear heights to 11.5 feet while eliminating unnecessary interior load-bearing walls."
+        extendedDesc: "GS Sowmiya Elite Enclave in Medavakkam represents our commitment to providing accessible, high-quality residential apartments for families in Chennai. Built on solid foundation engineering with strict structural controls, each home offers ample daylight, cross-ventilation, and durable finishes starting from ₹62.75 Lacs."
     },
     {
         id: "p2",
-        name: "TVS Avenue",
-        location: "Chennai",
-        category: "Commercial",
-        area: "120,000 Sq.Ft.",
-        year: "2023",
-        status: "Completed",
-        tag: "Corporate Hub",
-        description: "A modern glass-and-composite commercial landmark featuring double-height atrium reception and expansive column-free floor plates.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
-        client: "TVS Commercial Holdings",
-        structuralSystem: "Composite Steel-Concrete Framed High-Rise",
-        concreteGrade: "M45 High-Performance Concrete",
-        steelGrade: "Fe-550D Corrosion-Resistant Rebars",
-        completionTime: "22 Months",
+        name: "Vengaivasal Custom Residences",
+        location: "Ponni Amman Koil St, Vengaivasal, Chennai",
+        category: "Individual Homes & Contracts",
+        area: "1,400 to 2,600 Sq.Ft.",
+        year: "2023 - 2024",
+        status: "Completed & Handed Over",
+        tag: "Custom Villas",
+        description: "Bespoke residential independent houses and duplex residences built with custom floor plans, teakwood main doors, and anti-termite foundation treatment.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+        client: "Private Homeowner Families",
+        structuralSystem: "Reinforced Concrete Frame with Wire-cut Brick Masonry",
+        concreteGrade: "M20 Ready-Mix & On-site Controlled Concrete",
+        steelGrade: "Fe-500D / Fe-550 TMT Rebars",
+        completionTime: "Delivered on Schedule",
         highlights: [
-            "Column-free office plates offering 88% net floor-space efficiency",
-            "LEED Gold certified energy envelope with low-E insulated glass facade",
-            "Fully automated variable refrigerant volume (VRV) HVAC system"
+            "Tailored architectural layouts designed in close consultation with the family",
+            "Full anti-termite chemical soil barrier and damp-proof course (DPC)",
+            "Celebrated housewarming ceremony with enthusiastic client satisfaction",
+            "High-grade vitrified tiles, modular switches, and branded bathroom fixtures"
         ],
-        extendedDesc: "A Grade-A corporate tower in prime Chennai. We engineered high-density mat foundations with continuous 36-hour monolithic pours, backed by real-time thermal monitoring to eliminate thermal cracking in mass concrete."
+        extendedDesc: "Located in our home base of Vengaivasal, Chennai 600126, these residences showcase our core philosophy: personal, hands-on attention from the builder's leadership team on site every single day."
     },
     {
         id: "p3",
-        name: "Nolumbur Green Woods",
-        location: "Chennai",
-        category: "Residential",
-        area: "42,000 Sq.Ft.",
-        year: "2024",
-        status: "Completed",
-        tag: "Luxury Living",
-        description: "Harmonious biophilic apartment community engineered with solar-harvesting canopies and expansive perimeter gardens.",
+        name: "Manivakkam Turnkey Enclave",
+        location: "Manivakkam, Chennai (Tambaram Sector)",
+        category: "Turnkey Residential",
+        area: "1,200 to 2,200 Sq.Ft.",
+        year: "2023 - 2024",
+        status: "Completed & Occupied",
+        tag: "Turnkey Contract",
+        description: "End-to-end residential construction contracts executed with stage-wise milestone billing, quality material checks, and timely handovers.",
         image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85",
-        client: "Green Woods Estates",
-        structuralSystem: "Cast-in-place Reinforced Concrete Frame",
-        concreteGrade: "M30 Quality Controlled Ready-Mix",
-        steelGrade: "Fe-500D Thermo-Mechanically Treated Steel",
-        completionTime: "16 Months",
+        client: "Manivakkam Resident Families",
+        structuralSystem: "RCC Column & Beam Structure with Plinth Beam Tie",
+        concreteGrade: "M20 Standard Mix",
+        steelGrade: "Fe-500D TMT Rebars",
+        completionTime: "Completed with Client Commendations",
         highlights: [
-            "Integrated rooftop 65kW solar photovoltaic canopy",
-            "Acoustic floor underlays dampening inter-unit noise to <40dB",
-            "Biophilic green pockets on every floor terrace"
+            "Complete civil contracting from soil testing to interior painting and fixtures",
+            "Transparent material specifications with zero budget escalations",
+            "Commended by homeowners and extended family during the housewarming ceremony",
+            "Rainwater harvesting sump and overhead storage integrated seamlessly"
         ],
-        extendedDesc: "Designed for discerning families seeking sanctuary in urban Chennai. Every residence features 3-sided ventilation, double-height balconies, and sustainable wastewater recycling for landscaping."
+        extendedDesc: "Executed for families in Manivakkam, this project received warm praise from clients and relatives for punctual handover, courteous coordination, and superior construction finish."
     },
     {
         id: "p4",
-        name: "Perambur Bharath House",
-        location: "Chennai",
-        category: "Residential",
-        area: "18,500 Sq.Ft.",
-        year: "2023",
-        status: "Completed",
-        tag: "Private Villa",
-        description: "A private architectural masterpiece crafted with exposed textured concrete, teakwood louvers, and private reflecting pools.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
-        client: "Private Industrialist Family",
-        structuralSystem: "Exposed Architectural Concrete & Steel Hybrid",
-        concreteGrade: "Custom Board-Formed Architectural M35",
-        steelGrade: "Fe-550D TMT Rebars",
-        completionTime: "14 Months",
+        name: "Vignarajapuram Joint Venture",
+        location: "Vignarajapuram, Medavakkam Sector, Chennai",
+        category: "Joint Venture Development",
+        area: "Residential Development",
+        year: "2024 - 2025",
+        status: "Planning & Land Approval in Progress",
+        tag: "Joint Venture",
+        description: "A planned residential development executed in partnership with the landowner, delivering modern living units with clear title verification.",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
+        client: "Landowner Partnership",
+        structuralSystem: "Modern RCC Framed Construction",
+        concreteGrade: "M25 High-Durability Mix",
+        steelGrade: "Fe-550 Primary Steel",
+        completionTime: "Under Planning & Sanctions",
         highlights: [
-            "Handcrafted board-formed exposed concrete exterior walls",
-            "Floating cantilever staircase with invisible structural stringers",
-            "Private internal reflecting pool cooled by prevailing breeze"
+            "Equitable joint venture agreement safeguarding landowner interests",
+            "Full statutory liaison for municipal sanctions and planning permits",
+            "Convenient access to Medavakkam, Santhosapuram, and Camp Road Tambaram",
+            "Designed for young professionals and growing families"
         ],
-        extendedDesc: "A signature private villa reflecting architectural purity. Our master formwork carpenters and concrete chemists achieved defect-free fair-faced concrete with zero surface plaster, creating an enduring brutalist-luxury aesthetic."
+        extendedDesc: "Currently undergoing statutory planning and land sanctions, this project reflects our active joint venture model where landowners gain maximum value with zero construction headaches."
     },
     {
         id: "p5",
-        name: "OOTY Love Dale",
-        location: "Ooty",
-        category: "Residential",
-        area: "12,000 Sq.Ft.",
-        year: "2024",
-        status: "Completed",
-        tag: "Hill Estate",
-        description: "Perched along the scenic slopes of the Nilgiris, built with reinforced retaining soil mechanics and panoramic glass facades.",
-        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85",
-        client: "Private Residential Estate",
-        structuralSystem: "Reinforced Terraced Foundation with Soil Nails",
-        concreteGrade: "M35 High-Durability Cold-Weather Mix",
-        steelGrade: "Fe-550D Corrosion-Resistant Rebars",
-        completionTime: "15 Months",
+        name: "Kamarajapuram Turnkey Contracts",
+        location: "Kamarajapuram, Chennai",
+        category: "Residential Contracts",
+        area: "1,500 to 2,400 Sq.Ft.",
+        year: "2024 - 2025",
+        status: "Under Construction",
+        tag: "Turnkey Project",
+        description: "Scheduled turnkey home construction projects with stringent quality inspections, branded plumbing/electrical lines, and regular progress updates.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+        client: "Private Residential Clients",
+        structuralSystem: "Reinforced Concrete Frame with Fly Ash Brickwork",
+        concreteGrade: "M20 / M25 Mix",
+        steelGrade: "Fe-550 TMT Rebars",
+        completionTime: "Under Scheduled Execution",
         highlights: [
-            "Engineered retaining structures preserving 100% of native slope ecology",
-            "Triple-glazed argon-filled panoramic windows with thermal breaks",
-            "Geothermal underfloor radiant heating throughout living wings"
+            "Stage-by-stage photo documentation for transparent client monitoring",
+            "Stringent cube testing and slump verification during slab casts",
+            "Personalized interior layout provisions before MEP rough-ins"
         ],
-        extendedDesc: "Built on a 35-degree slope in the Nilgiris. We performed deep micro-piling and soil-nail reinforcement before executing a floating steel-and-timber cantilever terrace overlooking the tea plantations."
-    },
-    {
-        id: "p6",
-        name: "Mogappair Skywood",
-        location: "Chennai",
-        category: "Residential",
-        area: "85,000 Sq.Ft.",
-        year: "2025",
-        status: "In Finishing",
-        tag: "Premium High-Rise",
-        description: "Vertical living redefined with high-grade seismic dampening, cantilevered infinity sky decks, and thermal-barrier fenestration.",
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
-        client: "Skywood Living Private Ltd",
-        structuralSystem: "Seismic Zone III Compliant Ductile Shear Core",
-        concreteGrade: "M45 Self-Compacting High-Rise Mix",
-        steelGrade: "Fe-550D Primary Steel",
-        completionTime: "In Advanced Finishing",
-        highlights: [
-            "Tuned mass liquid dampener reducing wind oscillation on upper floors",
-            "Cantilevered 14th-floor infinity pool structure with acrylic observation floor",
-            "Central high-speed passenger elevators with regenerative braking"
-        ],
-        extendedDesc: "Currently undergoing final architectural detailing and landscape finishing. A showcase of modern high-rise engineering, integrating BIM 4D scheduling to maintain precision across 18 storeys."
+        extendedDesc: "Continuing our residential contract footprint across suburban Chennai, ensuring home builders receive professional engineering supervision without paying inflated builder premiums."
     }
 ];
 
 export const ABOUT_DATA = {
     legacy: {
-        title: "FIFTEEN YEARS OF ARCHITECTURAL MASTERY",
-        subtitle: "From a focused structural design practice to one of Tamil Nadu's premier architectural construction companies.",
+        title: "SECOND-GENERATION CRAFTSMANSHIP & ENGINEERING RIGOR",
+        subtitle: "From decades of trusted building contracting to a modern private limited construction company.",
         story: [
-            "Established in 2011 by Er. G. Sowmiya, GS Sowmiya Builders was founded on a singular conviction: that true luxury in construction is not mere cosmetic adornment, but the mathematical harmony of structural rigor, material integrity, and architectural poetry.",
-            "Over 15 years, our studio has expanded from bespoke residential engineering into full-spectrum turnkey developments, luxury estate compounds, modern corporate headquarters, and high-tolerance industrial complexes.",
-            "Today, with 250+ completed landmarks and over 1.8 million square feet constructed, we maintain an uncompromising standard: zero hidden escalation clauses, direct principal supervision on every job site, and enduring value that outlasts generations."
+            "GS Sowmiya Builders Private Limited was incorporated in 2023 with a clear and heartfelt mission: to make dream homes accessible to all classes of people without compromising on structural safety or finish quality.",
+            "As second-generation builders, our foundation rests on over 30 years of on-site building contracting experience established by Mr. Gurusamy, a well-known contractor who contributed to more than 200 projects across Chennai through earlier real estate and contracting works.",
+            "Today, under the leadership of engineering graduate Er. Suresh Kumar, GS Sowmiya Builders blends that invaluable field heritage with modern structural engineering standards, RERA compliance, transparent BOQs, and direct on-site supervision.",
+            "Whether executing our flagship residential apartment project 'GS Sowmiya Elite Enclave' in Medavakkam, building custom independent villas in Vengaivasal and Manivakkam, or partnering with landowners on joint ventures in Vignarajapuram, we stand by our core promise: Built on Trust. Driven by Quality."
         ]
     },
     milestones: [
         {
-            year: "2011",
-            title: "Founding in Chennai",
-            desc: "Er. G. Sowmiya establishes the company with core civil and structural engineering consulting."
+            year: "Decades Past",
+            title: "Contracting Roots in Chennai",
+            desc: "Mr. Gurusamy establishes a respected reputation across Chennai as a trusted building contractor, guiding over 200 home construction projects."
         },
         {
-            year: "2014",
-            title: "First Landmark Turnkey Enclave",
-            desc: "Completed an 18-villa gated community in Thirukalukundram, delivered 14 days ahead of scheduled handover."
+            year: "July 2023",
+            title: "Private Limited Incorporation",
+            desc: "GS Sowmiya Builders Private Limited is officially incorporated under ROC Chennai (CIN: U43299TN2023PTC161774) with founder Er. Suresh Kumar."
         },
         {
-            year: "2017",
-            title: "Commercial & High-Rise Expansion",
-            desc: "Commissioned the flagship TVS Avenue Commercial Hub and attained ISO 9001:2015 Quality Management certification."
+            year: "2023 - 2024",
+            title: "Successful Turnkey Deliveries",
+            desc: "Completed independent home projects in Manivakkam and Vengaivasal, celebrated with warm client reviews and housewarming ceremonies."
         },
         {
-            year: "2020",
-            title: "BIM 4D Digital Integration",
-            desc: "Pioneered integrated 3D/4D digital building information modeling for collision-free MEP and structural synchronization."
+            year: "2024",
+            title: "Launch of Elite Enclave, Medavakkam",
+            desc: "Commenced construction of the flagship 'GS Sowmiya Elite Enclave' offering RERA-approved 2 BHK apartments in Medavakkam, Chennai."
         },
         {
-            year: "2023",
-            title: "Structural Excellence Award",
-            desc: "Honored at the Regional Architecture & Engineering Forum for our pioneering post-tensioned cantilever designs."
-        },
-        {
-            year: "2026",
-            title: "250+ Delivered Landmarks",
-            desc: "Over 1.8 million square feet built across Tamil Nadu with a 100% zero-accident safety record."
+            year: "2024 - 2025",
+            title: "Joint Venture Expansion",
+            desc: "Expanded into landowner joint ventures in Vengaivasal and Vignarajapuram, alongside new turnkey residential contracts in Kamarajapuram."
         }
     ],
     values: [
         {
             number: "01",
-            title: "Structural Integrity",
-            desc: "We exclusively specify primary producer Fe-550D TMT steel and certified Grade-53 cement. Every batch is tested in our quality control lab."
+            title: "Accessible Dream Homes",
+            desc: "We believe quality housing should be within reach for all families. Transparent square-foot pricing, clear specifications, and no hidden surprises."
         },
         {
             number: "02",
-            title: "Architectural Soul",
-            desc: "We believe space shapes spirit. Our designs prioritize spatial proportions, natural cross-ventilation, and climate-responsive daylight."
+            title: "Structural Safety First",
+            desc: "Strict adherence to Indian Standards (IS 456 for concrete, IS 1786 for TMT steel). Earthquake-resistant RCC frames and quality brick masonry."
         },
         {
             number: "03",
-            title: "Fidelity & Transparency",
-            desc: "Clear itemized BOQs, digital progress logs, milestone-linked payments, and zero surprise escalation costs."
+            title: "Total Transparency",
+            desc: "Itemized Bill of Quantities (BOQ), clear legal agreements, stage-linked milestone payments, and verified RERA compliance."
         },
         {
             number: "04",
-            title: "Zero-Accident Safety",
-            desc: "Mandatory PPE on every site, certified safety supervisors, and strict alignment with OSHA and National Safety Council protocols."
+            title: "Direct Principal Supervision",
+            desc: "Our directors and engineering graduates are directly involved on-site, supervising mix ratios, bar bending, and finishing details."
         }
     ],
     leadership: [
         {
-            name: "Er. G. Sowmiya, M.E.",
-            role: "Founder & Managing Director",
-            specialty: "Structural Engineering & Earthquake Dynamics",
-            bio: "Over 20 years of hands-on civil engineering leadership. Supervised structural design and execution across 250+ residential and commercial projects.",
+            name: "Mr. Gurusamy",
+            role: "Director & Senior Mentor",
+            specialty: "Three Decades of Building Contracting Mastery",
+            bio: "A veteran building contractor who has shaped more than 200 projects across Chennai. Brings 30+ years of deep practical construction wisdom, artisan relationships, and material sourcing knowledge.",
             image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
         },
         {
-            name: "Ar. Priya Ramanathan",
-            role: "Principal Design Architect",
-            specialty: "Luxury Residential & Biophilic Architecture",
-            bio: "Graduate of Anna University Architecture with master's in Sustainable Design. Leads architectural conceptualization and spatial layouts.",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            name: "Er. K. V. Balasubramanian",
-            role: "Chief of Construction Operations",
-            specialty: "High-Rise Execution & Quality Control",
-            bio: "Chartered Civil Engineer with 18+ years directing heavy equipment logistics, ready-mix batching, and on-site concrete curing.",
+            name: "Er. Suresh Kumar",
+            role: "Founder & Managing Director",
+            specialty: "Civil Engineering, Planning & Project Execution",
+            bio: "Engineering graduate carrying forward the family building tradition. Leads GS Sowmiya Builders with modern structural engineering standards, digital tracking, and a customer-first approach.",
             image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-            name: "Ar. Dinesh Kumar",
-            role: "Director of Turnkey & MEP",
-            specialty: "BIM 4D Modeling & Building Services",
-            bio: "Specialist in integrating mechanical, electrical, and plumbing engineering seamlessly within architectural form.",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80"
         }
     ],
-    equipmentFleet: [
-        { name: "Automated Batching Plants", count: "4 Units", desc: "45 m³/hour computerized mix calibration" },
-        { name: "Transit Concrete Mixers", count: "12 Units", desc: "Equipped with telemetry and slump control" },
-        { name: "Stationary Boom Placers", count: "6 Units", desc: "36-meter high-reach pour capacity" },
-        { name: "Laser Total Stations", count: "8 Sets", desc: "Sub-millimeter Leica geospatial alignment" }
-    ],
     qaProcedures: [
-        { test: "Compressive Strength (Cube Test)", standard: "IS 516 / IS 456", interval: "Every 50m³ of concrete pour (7 & 28 Days)" },
-        { test: "Ultrasonic Pulse Velocity (UPV)", standard: "IS 13311 (Part 1)", interval: "Non-destructive testing of all primary columns" },
-        { test: "Rebar Tensile & Yield Testing", standard: "IS 1786 / IS 1608", interval: "Every mill batch certificate & lab pull test" },
-        { test: "Hydrostatic Ponding Test", standard: "IS 3370", interval: "72-hour continuous test on all slabs & basements" }
+        { test: "Concrete Compressive Strength", standard: "IS 516 / IS 456", interval: "Tested for every roof and foundation slab pour (7 & 28 Days)" },
+        { test: "TMT Rebar Quality Verification", standard: "IS 1786", interval: "Sourcing primary Fe-500D / Fe-550 TMT steel with test certificates" },
+        { test: "Anti-Termite Soil Treatment", standard: "IS 6313 (Part 2)", interval: "Multi-stage chemical barrier at plinth and foundation excavation" },
+        { test: "Terrace Waterproofing Ponding", standard: "IS 3370", interval: "48 to 72-hour continuous water-standing test on all terrace slabs" }
     ]
 };
-
-export const INDUSTRIES = [
-    {
-        id: "ind-res",
-        title: "Residential",
-        tagline: "Sanctuaries of permanence",
-        description: "Luxury villas, custom estates, and bespoke penthouses designed around human rhythm and natural light.",
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80",
-        stats: "160+ Homes Delivered"
-    },
-    {
-        id: "ind-com",
-        title: "Commercial",
-        tagline: "Dynamic enterprise spaces",
-        description: "Corporate office towers, retail malls, and innovation centers built for high performance and agile scalability.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
-        stats: "45+ Corporate Projects"
-    },
-    {
-        id: "ind-ind",
-        title: "Industrial",
-        tagline: "Heavy-duty engineering",
-        description: "High-bay warehousing, fabrication units, and automated manufacturing facilities built with precision engineering.",
-        image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
-        stats: "25+ Industrial Plants"
-    },
-    {
-        id: "ind-inf",
-        title: "Infrastructure",
-        tagline: "Connecting foundations",
-        description: "Deep foundation civil works, arterial bridges, and community utility corridors built for generations.",
-        image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1000&q=80",
-        stats: "15+ Public Infrastructure Works"
-    },
-    {
-        id: "ind-hea",
-        title: "Healthcare",
-        tagline: "Sterile, life-saving spaces",
-        description: "Specialized multi-specialty hospitals, cleanroom labs, and diagnostic centers with redundant utility engineering.",
-        image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80",
-        stats: "8+ Healthcare Facilities"
-    },
-    {
-        id: "ind-hos",
-        title: "Hospitality",
-        tagline: "Sensory resort environments",
-        description: "Boutique hotels, hillside resorts, and private clubs crafted to deliver an unforgettable luxury guest experience.",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
-        stats: "12+ Hospitality Resorts"
-    }
-];
 
 export const PROCESS_STAGES = [
     {
         step: "01",
-        name: "Consultation",
-        phase: "Blueprint Phase",
-        title: "Vision & Site Feasibility",
-        description: "In-depth discovery session assessing client aspirations, structural site conditions, zoning bylaws, and financial planning.",
+        name: "Discovery & Site Review",
+        phase: "Consultation Phase",
+        title: "Requirements & Plot Feasibility",
+        description: "We meet to understand your family's budget, lifestyle needs, plot dimensions, soil conditions, and Vaastu considerations.",
         icon: "compass"
     },
     {
         step: "02",
-        name: "Planning",
-        phase: "Foundation Phase",
-        title: "BIM & Master Schedule",
-        description: "Comprehensive 3D architectural modeling, soil strata analysis, statutory sanction approvals, and milestone mapping.",
+        name: "Planning & Sanctions",
+        phase: "Design & Approvals",
+        title: "Floor Plans & Building Sanction",
+        description: "Preparation of architectural 2D/3D layouts, structural calculation drawings, and coordination for CMDA/DTCP municipal sanctions.",
         icon: "layout"
     },
     {
         step: "03",
-        name: "Design & Engineering",
-        phase: "Structure Phase",
-        title: "Structural Calculation & MEP",
-        description: "Earthquake-resistant structural detailing, integrated MEP design, material specifications, and energy efficiency audits.",
+        name: "Transparent Estimate",
+        phase: "Budgeting Phase",
+        title: "Detailed Itemized BOQ",
+        description: "Clear, transparent schedule of rates with specific material brands (cement, steel, tiles, fittings) and milestone-linked payment schedules.",
         icon: "layers"
     },
     {
         step: "04",
-        name: "Execution",
-        phase: "Superstructure Phase",
-        title: "Precision Construction",
-        description: "On-site execution driven by laser-leveling, automated batching, daily digital progress tracking, and zero safety tolerance.",
+        name: "Structured Execution",
+        phase: "Construction Phase",
+        title: "Foundation to Superstructure",
+        description: "On-site construction with rigorous concrete curing, anti-termite treatment, plinth beam tying, and regular photo updates sent to you.",
         icon: "tool"
     },
     {
         step: "05",
-        name: "Quality Inspection",
+        name: "Finishing & Inspection",
         phase: "Finishing Phase",
-        title: "180-Point Quality Audit",
-        description: "Non-destructive testing, acoustic dampening validation, waterproofing pressure tests, and snag-list rectification.",
+        title: "Plumbing, Electrical & Painting",
+        description: "Precision installation of tiles, concealed electrical wiring, sanitaryware, doors, windows, and waterproofing checks.",
         icon: "shield-check"
     },
     {
         step: "06",
-        name: "Handover",
+        name: "Key Handover",
         phase: "Completed Project",
-        title: "Commissioning & Key Delivery",
-        description: "Comprehensive as-built blueprints, warranty documentation, maintenance schedule briefing, and celebratory key handover.",
+        title: "Celebrating Your Housewarming",
+        description: "Comprehensive site cleaning, pre-handover walkthrough, documentation handover, and celebrating your dream home milestone.",
         icon: "key"
     }
 ];
 
 export const CERTIFICATIONS = [
     {
-        badge: "ISO 9001:2015",
-        title: "Quality Management System",
-        issuer: "Bureau of International Standards",
-        desc: "Certified for stringent architectural engineering standards, material sourcing integrity, and precision project delivery."
+        badge: "RERA COMPLIANT",
+        title: "RERA Registered Projects",
+        issuer: "Tamil Nadu Real Estate Regulatory Authority",
+        desc: "Developing approved residential apartment projects like GS Sowmiya Elite Enclave with full legal title clarity."
     },
     {
-        badge: "IGBC GOLD",
-        title: "Green Building Council",
-        issuer: "Indian Green Building Council",
-        desc: "Accredited builder for sustainable construction methods, rainwater harvesting, and thermal envelope efficiency."
+        badge: "MCA ACTIVE",
+        title: "Registered Private Limited",
+        issuer: "Ministry of Corporate Affairs, India",
+        desc: "Incorporated under ROC Chennai (CIN: U43299TN2023PTC161774) ensuring formal corporate accountability."
     },
     {
-        badge: "SAFETY FIRST",
-        title: "National Safety Council Standard",
-        issuer: "Occupational Health & Safety",
-        desc: "Zero-accident site policy with mandatory PPE protocols, hazard audits, and certified safety personnel."
+        badge: "IS STANDARDS",
+        title: "Bureau of Indian Standards Compliant",
+        issuer: "IS 456 & IS 1786 Structural Codes",
+        desc: "All structural designs engineered strictly to earthquake-resistant codes using tested Fe-550 TMT rebars."
     },
     {
-        badge: "CREDAI",
-        title: "Allied Builder Member",
-        issuer: "Confederation of Real Estate Developers",
-        desc: "Adherence to the highest ethical codes of consumer transparency, milestone fidelity, and construction law."
-    },
-    {
-        badge: "EXCELLENCE",
-        title: "Structural Engineering Award",
-        issuer: "Regional Architecture Forum 2024",
-        desc: "Recognized for innovative post-tensioned slab design and complex architectural cantilever execution."
+        badge: "SANCTION READY",
+        title: "CMDA & DTCP Approval Liaison",
+        issuer: "Chennai Metropolitan Development Authority",
+        desc: "Expertise in local municipal building rules, setback regulations, and regularized property sanctions."
     }
 ];
 
-export const CLIENT_LOGOS = [
-    { name: "Apex Infrastructure Group", code: "APEX" },
-    { name: "Marina Heritage Developers", code: "MARINA" },
-    { name: "Synergy Tech Parks", code: "SYNERGY" },
-    { name: "Vertex Commercials", code: "VERTEX" },
-    { name: "Southern Capital Enclave", code: "SOUTHERN" },
-    { name: "Zenith Industrial Logistics", code: "ZENITH" },
-    { name: "Equinox Healthcare Group", code: "EQUINOX" },
-    { name: "Nilgiri Eco Resorts", code: "NILGIRI" }
+export const BRANDED_MATERIALS = [
+    { name: "Tata Tiscon / JSW", type: "Fe-550 TMT Steel" },
+    { name: "UltraTech / Coromandel", type: "Grade 53 Cement" },
+    { name: "Kajaria / Somany", type: "Vitrified Tile Flooring" },
+    { name: "Asian Paints", type: "Apex & Royale Emulsions" },
+    { name: "Finolex / Havells", type: "FRLS Copper Wiring" },
+    { name: "Parryware / Hindware", type: "Sanitaryware & CP Fittings" },
+    { name: "Ashirvad / Astral", type: "CPVC & UPVC Plumbing Lines" }
 ];
 
 export const TESTIMONIALS = [
     {
         id: "t1",
-        quote: "GS Sowmiya Builders transformed our vision into an architectural wonder. Their structural engineering team executed our 55,000 sq.ft. complex ahead of schedule with immaculate attention to every millimeter of concrete finish.",
-        author: "Er. K. Senthil Nathan",
-        role: "Managing Director",
-        company: "Vaibhavam Enclave Development",
-        project: "Vaibhavam Grande, Thirukalukundram",
+        quote: "We booked our 2 BHK at GS Sowmiya Elite Enclave in Medavakkam. The team has been completely transparent with construction milestones, material brands, and delivery timelines. Truly making dream homes accessible!",
+        author: "Homebuyer",
+        role: "Resident",
+        company: "GS Sowmiya Elite Enclave",
+        project: "Elite Enclave, Medavakkam",
         rating: 5
     },
     {
         id: "t2",
-        quote: "In commercial construction, delays are fatal. GS Sowmiya Builders delivered our corporate headquarters with flawless MEP coordination and LEED Gold compliance. Their daily digital reporting gave us complete peace of mind.",
-        author: "M. Raghavan",
-        role: "VP Operations",
-        company: "TVS Avenue Enterprises",
-        project: "TVS Commercial Hub, Chennai",
+        quote: "GS Sowmiya Builders constructed our independent home in Manivakkam. During the housewarming, all our relatives admired the finishing and solid structural strength. Er. Suresh Kumar and his team monitored the work closely.",
+        author: "Homeowner",
+        role: "Client",
+        company: "Private Residence",
+        project: "Manivakkam Turnkey Home",
         rating: 5
     },
     {
         id: "t3",
-        quote: "Building our private residence in Ooty was structurally demanding due to the steep terrain. GS Sowmiya Builders engineered a rock-solid cantilever foundation while preserving the natural pines. True architectural craftsmanship.",
-        author: "Dr. Ananya & Rajesh Varma",
-        role: "Homeowners",
-        company: "Private Residence",
-        project: "Love Dale Villa, Ooty",
+        quote: "Finding an honest builder in Chennai who gives you a clear BOQ without unexpected cost hikes is rare. They built our house in Vengaivasal with genuine quality materials and handed it over on schedule.",
+        author: "Homeowner Family",
+        role: "Client",
+        company: "Residential Homeowner",
+        project: "Vengaivasal Custom House",
         rating: 5
     },
     {
         id: "t4",
-        quote: "Their turnkey execution is unmatched. From architectural sanctions to final key handover, there was not a single hidden surprise. The quality of their structural framework is something you can literally feel.",
-        author: "A. P. Chandrasekhar",
-        role: "Chairman",
-        company: "Nolumbur Living",
-        project: "Nolumbur Green Woods, Chennai",
+        quote: "We partnered with GS Sowmiya Builders for a joint venture project. Their legal transparency, clear documentation, and ethical approach gave our family immense confidence. Highly recommended.",
+        author: "Landowner Partner",
+        role: "Joint Venture Partner",
+        company: "Property Owner",
+        project: "Vignarajapuram Development",
         rating: 5
     }
 ];

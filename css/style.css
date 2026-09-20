@@ -366,9 +366,43 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Brand Logo */
 .brand-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+}
+
+.brand-logo-img {
+    height: 48px;
+    width: auto;
+    max-height: 52px;
+    max-width: 220px;
+    object-fit: contain;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.brand-logo:hover .brand-logo-img {
+    transform: scale(1.02);
+}
+
+.footer-brand-logo {
+    display: inline-flex;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.footer-logo-img {
+    height: 68px;
+    width: auto;
+    max-height: 76px;
+    max-width: 260px;
+    object-fit: contain;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.footer-brand-logo:hover .footer-logo-img {
+    transform: scale(1.02);
+    opacity: 0.95;
 }
 
 .brand-mark {
