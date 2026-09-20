@@ -1,0 +1,125 @@
+/* ==========================================================================
+   GS SOWMIYA BUILDERS — GLOBAL REUSABLE ANIMATIONS & TRANSITIONS (animations.css)
+   Architectural Cinematic Motion System
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. Core Motion Variables
+   -------------------------------------------------------------------------- */
+:root {
+  --anim-ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --anim-ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --anim-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --anim-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* --------------------------------------------------------------------------
+   02. Scroll Reveal Utility Classes
+   -------------------------------------------------------------------------- */
+[data-reveal],
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--anim-ease-out-expo),
+              transform 0.8s var(--anim-ease-out-expo);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-revealed,
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays for Grid Children */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* --------------------------------------------------------------------------
+   03. Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 162, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(217, 162, 74, 0);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   04. Micro-Interactions & Hover Dynamics
+   -------------------------------------------------------------------------- */
+.hover-lift {
+  transition: transform 0.35s var(--anim-ease-out-expo), box-shadow 0.35s var(--anim-ease-out-expo);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hover-scale-img img {
+  transition: transform 0.65s var(--anim-ease-out-expo);
+}
+
+.hover-scale-img:hover img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   05. Accessibility: Respect Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
