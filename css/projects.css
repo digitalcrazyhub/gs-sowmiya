@@ -76,9 +76,9 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--container-max, 1440px);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-gutter, 24px);
 }
 
 .projects-hero-breadcrumb {
@@ -203,9 +203,9 @@
 }
 
 .projects-intro-container {
-  max-width: 1280px;
+  max-width: var(--container-max, 1440px);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-gutter, 24px);
 }
 
 .projects-intro-grid {
@@ -379,9 +379,9 @@
 }
 
 .projects-filter-container {
-  max-width: 1280px;
+  max-width: var(--container-max, 1440px);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-gutter, 24px);
 }
 
 .projects-filter-header {
@@ -513,9 +513,9 @@
 }
 
 .projects-gallery-container {
-  max-width: 1280px;
+  max-width: var(--container-max, 1440px);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-gutter, 24px);
 }
 
 /* CSS Grid layout for architectural rhythm */

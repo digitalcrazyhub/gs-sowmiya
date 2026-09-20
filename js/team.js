@@ -12,6 +12,7 @@
  */
 
 import { loadGlobalComponents } from '/js/components.js';
+import { initCardTilt, initCounterAnimation } from '/js/animations.js';
 
 // Respect user accessibility preference
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -404,6 +405,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Initialize Department Filter Bar
     initDepartmentFilter();
 
-    // 3. Initialize GSAP Scroll Reveals
+    // 3. Initialize GSAP Scroll Reveals & 3D Pointer Tilt
     initTeamAnimations();
+    initCounterAnimation();
+    initCardTilt();
 });

@@ -12,6 +12,7 @@
 
 import { loadGlobalComponents } from '/js/components.js';
 import { SITE_CONFIG } from '/js/config.js';
+import { initScrollReveal, initCardTilt } from '/js/animations.js';
 
 // Configuration endpoint (Leave empty for instant client-side verified flow)
 const CONTACT_FORM_ENDPOINT = "";
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 3. Initialize Interactive Triggers & Smooth Scrolling
     initInteractionTriggers();
+
+    // 4. Scroll Reveals & 3D Card Tilt
+    initScrollReveal();
+    initCardTilt();
 });
 
 /**

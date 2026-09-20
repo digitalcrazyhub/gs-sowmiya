@@ -44,36 +44,34 @@ export const SITE_CONFIG = {
 export const HERO_SLIDES = [
     {
         id: "01",
-        category: "FLAGSHIP PROJECT",
-        title: "GS SOWMIYA<br>ELITE ENCLAVE",
-        subtitle: "Premium 2 BHK Apartments in Medavakkam, Chennai",
-        description: "RERA-approved modern homes designed with optimal cross-ventilation, covered parking, and prime connectivity to the OMR and Velachery corridors.",
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
+        category: "AFFORDABLE EXCELLENCE",
+        title: "BUILDING THE<br>FUTURE",
+        subtitle: "Premium Residential Developments & Turnkey Homes across Chennai",
+        description: "GS Sowmiya Builders Private Limited is dedicated to making dream homes accessible to all classes of people across Chennai. Engineered with earthquake-resistant durability, transparent pricing, and timely handover.",
         featuredCard: {
             tag: "Medavakkam Project",
             title: "GS Sowmiya Elite Enclave",
             specs: "2 BHK · 916 Sq.Ft. · RERA Approved",
             status: "In Finishing / Booking Open",
-            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+            image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
-            { text: "VIEW ELITE ENCLAVE", href: "/projects.html", primary: true },
-            { text: "ENQUIRE NOW", href: "/contact.html", primary: false }
+            { text: "EXPLORE OUR PROJECTS", href: "#projects", primary: true },
+            { text: "BOOK CONSULTATION", href: "/contact.html", primary: false }
         ]
     },
     {
         id: "02",
         category: "RESIDENTIAL HOMES",
-        title: "SPACES MADE<br>FOR YOUR FAMILY",
+        title: "SPACES MADE<br>FOR LIVING",
         subtitle: "Custom residential homes and turnkey villas built on your land.",
         description: "Second-generation craftsmanship meeting modern structural engineering. High-grade materials, earthquake-resistant RCC frames, and zero hidden costs.",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
             tag: "Custom Residence",
             title: "Vengaivasal Villa",
             specs: "Independent Home · 1,850 Sq.Ft.",
             status: "Successfully Handed Over",
-            image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80"
+            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
             { text: "RESIDENTIAL SERVICES", href: "/services/residential-construction.html", primary: true },
@@ -82,17 +80,16 @@ export const HERO_SLIDES = [
     },
     {
         id: "03",
-        category: "LANDOWNER PARTNERSHIP",
-        title: "TRANSPARENT<br>JOINT VENTURES",
+        category: "LANDOWNER & COMMERCIAL",
+        title: "BUILT FOR<br>BUSINESS",
         subtitle: "Maximize your plot's true value with an equitable partnership.",
         description: "We partner with plot and landowners across South Chennai. Clear legal documentation, CMDA/DTCP sanctions, and timely project delivery.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
             tag: "Upcoming JV",
             title: "Vignarajapuram Project",
             specs: "Residential Development · Medavakkam Belt",
             status: "Land Approval in Progress",
-            image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
         },
         buttons: [
             { text: "JOINT VENTURE DETAILS", href: "/services.html", primary: true },
@@ -102,10 +99,9 @@ export const HERO_SLIDES = [
     {
         id: "04",
         category: "COMPLETE SOLUTIONS",
-        title: "HONEST PRICING.<br>QUALITY FINISH.",
+        title: "FROM VISION<br>TO REALITY",
         subtitle: "From plan approvals and foundation to interior handover.",
         description: "Our mission is making dream homes accessible to all classes of people. Direct principal supervision on site with transparent milestone billing.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85",
         featuredCard: {
             tag: "Turnkey Execution",
             title: "Manivakkam Enclave",

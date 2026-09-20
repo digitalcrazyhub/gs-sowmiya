@@ -85,7 +85,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   04. Micro-Interactions & Hover Dynamics
+   04. Micro-Interactions, 3D Architectural Depth & Dynamics
    -------------------------------------------------------------------------- */
 .hover-lift {
   transition: transform 0.35s var(--anim-ease-out-expo), box-shadow 0.35s var(--anim-ease-out-expo);
@@ -102,6 +102,29 @@
 
 .hover-scale-img:hover img {
   transform: scale(1.05);
+}
+
+/* 3D Perspective & Tilt Standards */
+.tilt-card,
+[data-tilt],
+.project-card,
+.primary-service-item,
+.technical-service-card,
+.team-card,
+.contact-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-depth-layer {
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
+}
+
+.card-depth-layer-deep {
+  transform: translateZ(40px);
+  transform-style: preserve-3d;
 }
 
 /* --------------------------------------------------------------------------

@@ -30,7 +30,7 @@
 }
 
 .about-metric-number {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
   color: var(--brand-gold, #d9a24a);
@@ -129,7 +129,7 @@
 }
 
 .about-iso-badge strong {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   display: block;
   color: var(--brand-gold, #d9a24a);
@@ -167,7 +167,7 @@
 }
 
 .milestone-year {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-display);
   font-size: 2.25rem;
   font-weight: 700;
   color: var(--brand-burgundy, #741719);
@@ -259,7 +259,7 @@
 }
 
 .fleet-count {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--brand-burgundy, #741719);

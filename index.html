@@ -88,69 +88,110 @@
     <main id="main-content">
 
       <!-- ==========================================================================
-           02. 4-SLIDE CINEMATIC HERO (REFERENCE MATCH)
+           02. ONE COMMON PERSISTENT BACKGROUND VIDEO + 4-SLIDE CONTENT HERO
            ========================================================================== -->
-      <section class="hero-section" id="hero" aria-label="Cinematic Architectural Hero">
-        <div class="site-container">
+      <section class="hero-section hero" id="hero" aria-label="Cinematic Architectural Hero">
+        
+        <!-- Layer 1: ONE Common Persistent Full-Screen Background Video -->
+        <video class="hero__background-video" autoplay muted loop playsinline poster="/videos/hero-poster.jpg" preload="auto" aria-hidden="true">
+          <source src="/videos/Netword.mp4" type="video/mp4">
+          <source src="/videos/Netword.mp4" type="video/webm">
+        </video>
+
+        <!-- Layer 2: Dark Cinematic Overlay with Edge Vignette -->
+        <div class="hero__overlay hero-dark-overlay" aria-hidden="true"></div>
+
+        <!-- Layer 3: Soft Lightbox & Architectural Glow Overlay -->
+        <div class="hero-glow-overlay" aria-hidden="true"></div>
+
+        <!-- Layer 4: Subtle Architectural Grid Overlay -->
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+        <!-- Foreground Content & Controls Wrapper -->
+        <div class="site-container hero-container-inner">
           <div class="hero-frame" id="hero-frame">
             
-            <!-- Dynamic Background Image/Video Slider -->
-            <div class="hero-slider" aria-hidden="true"></div>
-
-            <!-- Foreground Content Layer -->
-            <div class="hero-content-wrap">
-              <!-- Top Row inside Hero Container -->
-              <div class="hero-top-bar">
-                <div class="hero-badge-pill">
-                  <span class="pill-dot"></span>
-                  <span>30+ Years Family Legacy &amp; Mentorship</span>
-                </div>
-                <div class="hero-counter" aria-live="polite">01 / 04</div>
+            <!-- Top Bar: Badge pill + Slide Counter (01 / 04) -->
+            <div class="hero-top-bar">
+              <div class="hero-badge-pill">
+                <span class="pill-dot"></span>
+                <span>30+ Years Family Legacy &amp; Mentorship</span>
               </div>
+              <div class="hero-counter" aria-live="polite">01 / 04</div>
+            </div>
 
-              <!-- Center/Body Row: Primary Editorial Heading -->
-              <div class="hero-body">
-                <span class="hero-category-label">AFFORDABLE EXCELLENCE</span>
-                <!-- ONLY H1 ON THE HOMEPAGE -->
-                <h1 class="hero-title">DREAM HOMES<br>FOR ALL</h1>
-                <p class="hero-description">
-                  GS Sowmiya Builders Private Limited is dedicated to making dream homes accessible to all classes of people across Chennai. Engineered with earthquake-resistant durability, transparent pricing, and timely handover.
-                </p>
-                <div class="hero-cta-group">
-                  <a href="#projects" class="btn btn-gold hero-primary-cta">
-                    <span>EXPLORE OUR PROJECTS</span>
-                    <span class="btn-icon-circle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                      </svg>
-                    </span>
-                  </a>
-                  <a href="/contact.html" class="btn btn-outline-white" aria-label="Book a free construction consultation">
-                    <span>Book Consultation</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
+            <!-- Layer 5: Hero Content Slider & 3D Interactive Content Card -->
+            <div class="hero__content-slider hero-content-slider" id="hero-content-slider">
+              <div class="hero-content-card" id="hero-content-card">
+                <!-- 3D Light Highlight / Sheen following pointer -->
+                <div class="hero-card-sheen" aria-hidden="true"></div>
+
+                <!-- Editorial Body Content -->
+                <div class="hero-body">
+                  <span class="hero-category-label">AFFORDABLE EXCELLENCE</span>
+                  <!-- ONLY H1 ON THE HOMEPAGE -->
+                  <h1 class="hero-title">BUILDING THE FUTURE</h1>
+                  <p class="hero-description">
+                    GS Sowmiya Builders Private Limited is dedicated to making dream homes accessible to all classes of people across Chennai. Engineered with earthquake-resistant durability, transparent pricing, and timely handover.
+                  </p>
+                  <div class="hero-cta-group">
+                    <a href="#projects" class="btn btn-gold hero-primary-cta">
+                      <span>EXPLORE OUR PROJECTS</span>
+                      <span class="btn-icon-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </span>
+                    </a>
+                    <a href="/contact.html" class="btn btn-outline-white hero-secondary-cta" aria-label="Book a free construction consultation">
+                      <span>Book Consultation</span>
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <!-- Bottom Row Controls inside Hero Frame -->
+            <!-- Layer 6: Hero Navigation Controls & Featured Card -->
+            <div class="hero-bottom-bar">
               <div class="hero-controls">
-                <button class="hero-nav-btn hero-prev-btn" type="button" aria-label="Previous Slide">
+                <button class="hero-nav-btn hero-prev-btn" type="button" aria-label="Previous slide">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                 </button>
-                <div class="hero-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div class="hero-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Slide Progress">
                   <div class="hero-progress-fill"></div>
                 </div>
-                <button class="hero-nav-btn hero-next-btn" type="button" aria-label="Next Slide">
+                <button class="hero-nav-btn hero-next-btn" type="button" aria-label="Next slide">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </button>
               </div>
 
-              <!-- Floating Featured Villa Card (Reference Authority: Bottom-Right) -->
+              <!-- Slide Indicators (01, 02, 03, 04) -->
+              <div class="hero-slide-indicators" aria-label="Slide Navigation">
+                <button class="hero-indicator is-active" data-index="0" type="button" aria-label="Slide 1: Building the Future">
+                  <span class="indicator-num">01</span>
+                  <span class="indicator-line"></span>
+                </button>
+                <button class="hero-indicator" data-index="1" type="button" aria-label="Slide 2: Spaces Made for Living">
+                  <span class="indicator-num">02</span>
+                  <span class="indicator-line"></span>
+                </button>
+                <button class="hero-indicator" data-index="2" type="button" aria-label="Slide 3: Built for Business">
+                  <span class="indicator-num">03</span>
+                  <span class="indicator-line"></span>
+                </button>
+                <button class="hero-indicator" data-index="3" type="button" aria-label="Slide 4: From Vision to Reality">
+                  <span class="indicator-num">04</span>
+                  <span class="indicator-line"></span>
+                </button>
+              </div>
+
+              <!-- Floating Featured Villa Card (Bottom-Right) -->
               <div class="hero-featured-card" id="hero-featured-card">
                 <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="GS Sowmiya Elite Enclave Medavakkam" class="featured-card-thumb" loading="eager">
                 <div class="featured-card-info">
@@ -165,9 +206,10 @@
                   </svg>
                 </a>
               </div>
-
             </div>
+
           </div>
+        </div>
 
           <!-- Floating Category Filter Pill Bar Below Hero Frame (Reference Match) -->
           <div class="hero-bottom-pills" role="tablist" aria-label="Filter Architectural Categories">

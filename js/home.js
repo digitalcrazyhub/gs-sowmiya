@@ -10,7 +10,7 @@ import { initHeroSlider } from './hero.js';
 import { initCostCalculator } from './calculator.js';
 import { initTestimonials } from './testimonials.js';
 import { initProjectModal } from './project-modal.js';
-import { initScrollReveal, initCounterAnimation } from './animations.js';
+import { initScrollReveal, initCounterAnimation, initCardTilt, initHeroDepth } from './animations.js';
 import { FEATURED_PROJECTS } from './config.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -36,7 +36,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   initScrollReveal();
   initCounterAnimation();
 
-  // 8. Video Showreel Modal Controller
+  // 8. 3D Architectural Depth & Pointer Tilts
+  initHeroDepth();
+  initCardTilt();
+
+  // 9. Video Showreel Modal Controller
   initVideoModal();
 });
 
@@ -119,6 +123,7 @@ function initProjectsSlider() {
     });
 
     updateCarousel();
+    initCardTilt();
   }
 
   function updateCarousel() {

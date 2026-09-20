@@ -14,6 +14,7 @@
  */
 
 import { loadGlobalComponents } from '/js/components.js';
+import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
 
 // Respect system accessibility setting
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -291,8 +292,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 5. Initialize Lightbox Modal System
   initProjectLightbox();
 
-  // 6. Scroll Trigger Animations
+  // 6. Scroll Trigger Animations & Numeric Counters
+  initScrollReveal();
+  initCounterAnimation();
   initScrollEffects();
+  initCardTilt();
 });
 
 /**
@@ -464,6 +468,9 @@ function renderProjectsGrid(projectsList) {
       { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "power2.out" }
     );
   }
+
+  // Attach 3D architectural card tilt
+  initCardTilt();
 }
 
 /**

@@ -4,6 +4,7 @@
  */
 
 import { loadGlobalComponents } from '/js/components.js';
+import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Initialize global components (Navbar with dropdown, Footer, Floating Actions)
@@ -12,8 +13,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Initialize FAQ Accordion with accessible single-open and keyboard support
     initFaqAccordion();
 
-    // 3. Scroll Reveal observer
-    initScrollReveals();
+    // 3. Scroll Reveal observer & 3D card tilt
+    initScrollReveal();
+    initCounterAnimation();
+    initCardTilt();
 });
 
 function initFaqAccordion() {

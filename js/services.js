@@ -13,6 +13,7 @@
  */
 
 import { loadGlobalComponents } from '/js/components.js';
+import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
 
 // Respect system accessibility setting
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -38,6 +39,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   initProcessTimeline();
   initIndustryPanels();
   initScrollAnimations();
+  initScrollReveal();
+  initCounterAnimation();
+  initCardTilt();
 });
 
 /**

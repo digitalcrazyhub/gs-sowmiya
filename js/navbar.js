@@ -15,7 +15,7 @@ export function initNavbar() {
   const mobileAccordions = document.querySelectorAll('.mobile-nav-accordion');
   const dropdownContainers = document.querySelectorAll('.nav-item-dropdown');
 
-  // --- 1. Sticky Header on Scroll ---
+  // --- 1. Sticky Header on Scroll (Transparent Glass -> Solid Background) ---
   let isScrolled = false;
   const handleScroll = () => {
     const shouldScroll = window.scrollY > 20;
@@ -23,9 +23,9 @@ export function initNavbar() {
       isScrolled = shouldScroll;
       if (header) {
         if (isScrolled) {
-          header.classList.add('scrolled');
+          header.classList.add('scrolled', 'is-scrolled');
         } else {
-          header.classList.remove('scrolled');
+          header.classList.remove('scrolled', 'is-scrolled');
         }
       }
     }
