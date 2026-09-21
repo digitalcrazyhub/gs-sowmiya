@@ -202,7 +202,7 @@ export function initHeroDepth() {
     if (frame.dataset.depthActive === 'true') return;
     frame.dataset.depthActive = 'true';
 
-    const bgLayer = frame.querySelector('.hero-slider, .hero-slide.is-active .hero-slide-bg, .projects-hero-bg, .contact-hero-bg, .page-banner-bg');
+    const bgLayer = frame.querySelector('.hero-slider, .hero-slide.is-active .hero-slide-bg, .hero__background-video, .projects-hero-bg, .contact-hero-bg, .page-banner-bg');
     const badge = frame.querySelector('.hero-badge-pill, .hero-counter, .projects-hero-eyebrow, .page-banner-eyebrow');
     const featuredCard = frame.querySelector('.hero-featured-card');
 
