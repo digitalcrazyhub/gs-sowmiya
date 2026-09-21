@@ -58,27 +58,32 @@ function initProjectsSlider() {
 
   let currentCategory = 'ALL';
   let currentIndex = 0;
+  let activeListLength = 0;
+  let autoplayTimer = null;
+  let isPaused = false;
+  let isTransitioning = false;
+
+  const AUTOPLAY_DELAY = 3500;
 
   function getFilteredProjects() {
     if (currentCategory === 'ALL') return FEATURED_PROJECTS;
     if (currentCategory.toLowerCase() === 'residential') {
-      return FEATURED_PROJECTS.filter(p => 
-        p.category.toLowerCase().includes('residential') || 
+      return FEATURED_PROJECTS.filter(p =>
+        p.category.toLowerCase().includes('residential') ||
         p.category.toLowerCase().includes('living')
       );
     }
     if (currentCategory.toLowerCase() === 'commercial') {
-      return FEATURED_PROJECTS.filter(p => 
-        p.category.toLowerCase().includes('commercial') || 
+      return FEATURED_PROJECTS.filter(p =>
+        p.category.toLowerCase().includes('commercial') ||
         p.category.toLowerCase().includes('joint')
       );
     }
     return FEATURED_PROJECTS;
   }
 
-  function renderCards() {
-    const list = getFilteredProjects();
-    track.innerHTML = list.map((proj, idx) => `
+  function renderCard(proj) {
+    return `
       <div class="project-card" data-project-id="${proj.id}" style="cursor: pointer;">
         <div class="project-card-visual">
           <img src="${proj.image}" alt="${proj.name}" loading="lazy">
@@ -87,7 +92,7 @@ function initProjectsSlider() {
         <div class="project-card-content">
           <div>
             <div class="project-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
@@ -110,9 +115,81 @@ function initProjectsSlider() {
           </div>
         </div>
       </div>
-    `).join('');
+    `;
+  }
 
-    // Attach click handlers to open modal
+  function getCardWidth() {
+    const card = track.firstElementChild;
+    if (!card) return 340;
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || '24') || 24;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function updateCounter(listLength) {
+    if (!counterEl || !listLength) return;
+    const logicalIndex = ((currentIndex - listLength) % listLength + listLength) % listLength;
+    counterEl.textContent =
+      `${String(logicalIndex + 1).padStart(2, '0')} / ${String(listLength).padStart(2, '0')}`;
+  }
+
+  function updateCarousel(animate = true) {
+    const list = getFilteredProjects();
+    if (!list.length) return;
+
+    const cardWidth = getCardWidth();
+    track.style.transitionDuration = animate ? '' : '0ms';
+    track.style.transform = `translate3d(-${currentIndex * cardWidth}px, 0, 0)`;
+    updateCounter(list.length);
+
+    if (!animate) {
+      // Force the browser to apply the no-transition position before restoring it.
+      track.offsetHeight;
+      track.style.transitionDuration = '';
+    }
+  }
+
+  function resetAutoplay() {
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = window.setInterval(() => {
+      if (!isPaused && !document.hidden) moveNext();
+    }, AUTOPLAY_DELAY);
+  }
+
+  function moveNext() {
+    const list = getFilteredProjects();
+    if (list.length <= 1 || isTransitioning) return;
+
+    isTransitioning = true;
+    currentIndex += 1;
+    updateCarousel(true);
+  }
+
+  function movePrevious() {
+    const list = getFilteredProjects();
+    if (list.length <= 1 || isTransitioning) return;
+
+    isTransitioning = true;
+    currentIndex -= 1;
+    updateCarousel(true);
+  }
+
+  function renderCards() {
+    const list = getFilteredProjects();
+    activeListLength = list.length;
+
+    if (!list.length) {
+      track.innerHTML = '';
+      if (counterEl) counterEl.textContent = '00 / 00';
+      return;
+    }
+
+    // Three copies make the carousel appear continuous in both directions.
+    // We start on the middle copy so the user can loop indefinitely.
+    track.innerHTML = [...list, ...list, ...list].map(renderCard).join('');
+    currentIndex = list.length;
+    isTransitioning = false;
+
     track.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.getAttribute('data-project-id');
@@ -122,39 +199,37 @@ function initProjectsSlider() {
       });
     });
 
-    updateCarousel();
+    updateCarousel(false);
     initCardTilt();
   }
 
-  function updateCarousel() {
+  track.addEventListener('transitionend', (event) => {
+    if (event.propertyName !== 'transform') return;
+
     const list = getFilteredProjects();
-    const cardWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 24 : 340;
-    const maxIndex = Math.max(0, list.length - 1);
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (!list.length) return;
 
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-    if (counterEl) {
-      const currentFormatted = String(currentIndex + 1).padStart(2, '0');
-      const totalFormatted = String(list.length).padStart(2, '0');
-      counterEl.textContent = `${currentFormatted} / ${totalFormatted}`;
+    // When we leave the middle copy, silently jump back to its equivalent
+    // card in the middle copy. The visible content stays exactly the same.
+    if (currentIndex >= list.length * 2) {
+      currentIndex -= list.length;
+      updateCarousel(false);
+    } else if (currentIndex < list.length) {
+      currentIndex += list.length;
+      updateCarousel(false);
     }
-  }
+
+    isTransitioning = false;
+  });
 
   prevBtn?.addEventListener('click', () => {
-    const list = getFilteredProjects();
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
+    movePrevious();
+    resetAutoplay();
   });
 
   nextBtn?.addEventListener('click', () => {
-    const list = getFilteredProjects();
-    if (currentIndex < list.length - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
+    moveNext();
+    resetAutoplay();
   });
 
   filterTabs.forEach(tab => {
@@ -163,16 +238,35 @@ function initProjectsSlider() {
         t.classList.remove('is-active');
         t.setAttribute('aria-selected', 'false');
       });
+
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
       currentCategory = tab.getAttribute('data-category') || 'ALL';
-      currentIndex = 0;
+
       renderCards();
+      resetAutoplay();
     });
   });
 
+  // Pause automatic movement while the user is interacting with the cards.
+  const pause = () => { isPaused = true; };
+  const resume = () => { isPaused = false; };
+
+  track.addEventListener('mouseenter', pause);
+  track.addEventListener('mouseleave', resume);
+  track.addEventListener('focusin', pause);
+  track.addEventListener('focusout', resume);
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) resetAutoplay();
+  });
+
+  window.addEventListener('resize', () => {
+    updateCarousel(false);
+  });
+
   renderCards();
-  window.addEventListener('resize', updateCarousel);
+  resetAutoplay();
 }
 
 /**

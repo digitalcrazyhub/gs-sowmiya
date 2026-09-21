@@ -1,20 +1,72 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# GS Sowmiya Builders
 
-# Run and deploy your AI Studio app
+Production website for **GS Sowmiya Builders Private Limited**.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/d0b467e4-eb54-477f-8bea-5126ba262669
+- Vite
+- Vanilla HTML/CSS/JavaScript
+- GSAP animations
+- Static multi-page build
 
-## Run Locally
+## Requirements
 
-**Prerequisites:**  Node.js
+- Node.js 20.19+ (or the version required by the installed Vite release)
+- npm
 
+## Development
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm ci
+npm run dev
+```
+
+The development server runs on port `3000`.
+
+## Production build
+
+```bash
+npm ci
+npm run build
+npm run preview
+```
+
+The production output is generated in `dist/`.
+
+Do **not** commit `node_modules/` or `dist/`.
+
+## Contact form
+
+The contact form reads `VITE_CONTACT_FORM_ENDPOINT`.
+
+```env
+VITE_CONTACT_FORM_ENDPOINT=https://your-domain.example/api/contact
+```
+
+The endpoint must validate and sanitize submissions server-side and include rate limiting/spam protection.
+
+## Project structure
+
+```text
+components/    Shared HTML components
+css/           Site and page styles
+js/            Page and feature JavaScript
+public/        Images, videos, favicon, sitemap and robots.txt
+*.html         Multi-page website entries
+vite.config.ts Vite configuration
+```
+
+## Deployment
+
+```bash
+npm ci
+npm run build
+```
+
+Deploy the contents of `dist/` to your static host/CDN.
+
+## Notes
+
+- Keep API keys and private credentials out of source control.
+- Analytics loads only after user consent.
+- Verify all business/project claims and portfolio imagery before publication.
