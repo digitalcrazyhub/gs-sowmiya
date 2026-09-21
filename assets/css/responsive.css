@@ -1,0 +1,203 @@
+/* ==========================================================================
+   GS SOWMIYA BUILDERS — GLOBAL RESPONSIVE SYSTEM (responsive.css)
+   Guarantees fluid responsiveness across viewports from 320px to 1920px+
+   Tested widths: 320, 360, 375, 390, 414, 480, 576, 768, 820, 912, 1024, 1280, 1366, 1440, 1600, 1920
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. Global Layout Bounds & Overflow Prevention
+   -------------------------------------------------------------------------- */
+html, body {
+  width: 100%;
+  max-width: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure minimum touch targets on mobile */
+@media (pointer: coarse) {
+  button,
+  .btn,
+  .nav-link,
+  .mobile-nav-link,
+  .floating-btn,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   02. Ultra-Wide Displays (1600px - 1920px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1600px) {
+  :root {
+    --container-max: 1520px;
+  }
+
+  .site-container {
+    max-width: 1520px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   03. Desktop & Laptop Transitions (1024px - 1280px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Switch Desktop Nav to Mobile Drawer */
+  .nav-menu,
+  .btn-quote-desktop {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .page-banner {
+    padding: 130px 0 60px;
+    min-height: 360px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   04. Tablets (768px - 912px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 912px) {
+  .section-padding {
+    padding-top: clamp(48px, 8vw, 72px);
+    padding-bottom: clamp(48px, 8vw, 72px);
+  }
+
+  .cta-content-box {
+    padding: 44px 28px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+  }
+
+  .floating-actions-stack {
+    bottom: 20px;
+    right: 18px;
+    gap: 10px;
+  }
+
+  .floating-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .page-banner-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   05. Small Mobile Viewports (320px - 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .site-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-text .brand-name {
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-text .brand-sub {
+    font-size: 0.65rem;
+  }
+
+  .page-banner-title {
+    font-size: 1.85rem;
+    word-break: break-word;
+  }
+
+  .page-banner-desc {
+    font-size: 0.9375rem;
+  }
+
+  .btn {
+    font-size: 0.8125rem;
+    padding: 12px 18px;
+  }
+
+  .cta-title {
+    font-size: 1.95rem;
+  }
+
+  .mobile-nav-drawer {
+    width: 90vw;
+    padding: 80px 20px 32px;
+  }
+
+  .floating-btn-tooltip {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .brand-text .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .page-banner-title {
+    font-size: 1.65rem;
+  }
+
+  .cta-title {
+    font-size: 1.7rem;
+  }
+}

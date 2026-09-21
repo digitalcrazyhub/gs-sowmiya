@@ -10,9 +10,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com" />
 
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/png" href="/gssb_logo.png" />
-    <link rel="alternate icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/gssb_logo.png" />
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.svg" />
+    <link rel="alternate icon" href="/assets/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/icons/favicon.svg" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -33,10 +33,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/home.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -94,8 +94,8 @@
       <section class="hero-section hero" id="hero" aria-label="Cinematic Architectural Hero">
         
         <!-- Layer 1: ONE Common Persistent Full-Screen Background Video -->
-        <video class="hero__background-video" autoplay muted loop playsinline poster="/videos/hero-poster.jpg" preload="auto" aria-hidden="true">
-          <source src="/videos/Netword.mp4" type="video/mp4">
+        <video class="hero__background-video" autoplay muted loop playsinline poster="/assets/videos/hero-poster.jpg" preload="auto" aria-hidden="true">
+          <source src="/assets/videos/Netword.mp4" type="video/mp4">
         </video>
 
         <!-- Layer 2: Dark Cinematic Overlay with Edge Vignette -->
@@ -779,7 +779,7 @@
           <!-- Horizontal Draggable & Navigable Projects Track -->
           <div class="projects-slider-container">
             <div class="projects-track" role="region" aria-label="Projects Carousel">
-              <!-- Rendered dynamically by /js/projects.js -->
+              <!-- Rendered dynamically by /assets/js/projects.js -->
             </div>
 
             <!-- Slider Controls (01 / 06 & Arrows) -->
@@ -1146,7 +1146,7 @@
           <div class="testimonial-stage" data-reveal>
             <div class="testimonial-quote-icon" aria-hidden="true">“</div>
             <div class="testimonial-slider" role="region" aria-label="Testimonial reviews">
-              <!-- Injected by /js/testimonials.js -->
+              <!-- Injected by /assets/js/testimonials.js -->
             </div>
 
             <!-- Controls -->
@@ -1553,6 +1553,8 @@
     </div>
 
     <!-- JavaScript Application Entry Point -->
-    <script type="module" src="/js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script type="module" src="/assets/js/home.js"></script>
   </body>
 </html>
