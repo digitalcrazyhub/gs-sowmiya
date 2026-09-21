@@ -1,0 +1,1250 @@
+/* ==========================================================================
+   GS SOWMIYA BUILDERS — TEAM PAGE DEDICATED STYLESHEET
+   Aesthetic: Luxury Architectural + Modern Structural Engineering
+   Colors: Ivory (#FAF9F7), Charcoal (#252525), Burgundy (#741719), Gold (#D9A24A)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION
+   -------------------------------------------------------------------------- */
+.team-hero {
+    position: relative;
+    min-height: 520px;
+    padding: clamp(140px, 18vw, 190px) 0 clamp(60px, 8vw, 90px);
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 80% 20%, rgba(116, 23, 25, 0.45) 0%, transparent 60%),
+                      radial-gradient(circle at 20% 80%, rgba(217, 162, 74, 0.12) 0%, transparent 50%);
+    overflow: hidden;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+}
+
+.team-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center 35%;
+    opacity: 0.28;
+    filter: grayscale(35%) contrast(110%);
+    transform: scale(1.04);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, 
+                rgba(18, 18, 18, 0.82) 0%, 
+                rgba(18, 18, 18, 0.94) 65%, 
+                var(--bg-dark) 100%);
+}
+
+.team-hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    pointer-events: none;
+}
+
+.team-hero-content {
+    position: relative;
+    z-index: 4;
+    max-width: 920px;
+}
+
+.team-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    margin-bottom: 24px;
+}
+
+.team-breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.team-breadcrumb a:hover {
+    color: var(--brand-gold-light);
+}
+
+.team-breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+}
+
+.team-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-gold);
+    margin-bottom: 16px;
+}
+
+.team-hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--brand-gold);
+}
+
+.team-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text-white);
+    margin-bottom: 24px;
+}
+
+.team-hero-desc {
+    font-size: clamp(1.0625rem, 1.3vw, 1.25rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 760px;
+    font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   2. FILTER NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+.team-nav-bar {
+    position: sticky;
+    top: 72px;
+    z-index: 40;
+    background: rgba(250, 249, 247, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    padding: 14px 0;
+    transition: all var(--transition-smooth);
+}
+
+.team-filter-scroll-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 2px;
+}
+
+.team-filter-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.team-filter-btn {
+    white-space: nowrap;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-primary);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.team-filter-btn:hover {
+    color: var(--brand-burgundy);
+    background: rgba(116, 23, 25, 0.04);
+}
+
+.team-filter-btn.active {
+    color: var(--text-white);
+    background: var(--brand-burgundy);
+    border-color: var(--brand-burgundy);
+    box-shadow: 0 4px 12px rgba(116, 23, 25, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. TEAM INTRODUCTION SECTION
+   -------------------------------------------------------------------------- */
+.team-intro-section {
+    padding: clamp(70px, 10vw, 110px) 0;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.team-intro-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+}
+
+.team-intro-content {
+    max-width: 650px;
+}
+
+.team-intro-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-gold-dark);
+    margin-bottom: 14px;
+}
+
+.team-intro-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--brand-gold);
+}
+
+.team-intro-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+}
+
+.team-intro-body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.team-intro-visual {
+    position: relative;
+}
+
+.team-intro-img-frame {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+}
+
+.team-intro-img-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.team-intro-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--brand-burgundy);
+    color: var(--text-white);
+    padding: 24px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 40px rgba(116, 23, 25, 0.35);
+    border: 2px solid var(--brand-gold);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.team-intro-badge-num {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--brand-gold-light);
+    line-height: 1;
+}
+
+.team-intro-badge-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-white);
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION HEADER SYSTEM
+   -------------------------------------------------------------------------- */
+.team-section-header {
+    margin-bottom: clamp(36px, 6vw, 56px);
+    max-width: 800px;
+}
+
+.team-section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-gold-dark);
+    margin-bottom: 12px;
+}
+
+.team-section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: var(--brand-gold);
+}
+
+.team-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.team-section-desc {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Dark mode section headers */
+.team-section-dark .team-section-eyebrow {
+    color: var(--brand-gold-light);
+}
+
+.team-section-dark .team-section-title {
+    color: var(--text-white);
+}
+
+.team-section-dark .team-section-desc {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   5. LEADERSHIP SECTION
+   -------------------------------------------------------------------------- */
+.team-leadership-section {
+    padding: clamp(70px, 10vw, 110px) 0;
+    background: var(--bg-off-white);
+}
+
+.team-leader-hero-card {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(32px, 5vw, 56px);
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-card);
+    padding: clamp(28px, 4vw, 48px);
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-leader-hero-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-burgundy) 0%, var(--brand-gold) 100%);
+}
+
+.team-leader-hero-img-wrap {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-dark);
+}
+
+.team-leader-hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    filter: contrast(105%);
+}
+
+.team-leader-badge-pill {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--brand-gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-gold);
+}
+
+.team-leader-hero-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-leader-role-tag {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-burgundy);
+    margin-bottom: 8px;
+}
+
+.team-leader-name {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 6px;
+}
+
+.team-leader-qualifications {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--brand-gold-dark);
+    margin-bottom: 20px;
+}
+
+.team-leader-desc {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.team-leader-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+}
+
+.team-leader-meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-leader-meta-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-burgundy);
+}
+
+.team-leader-meta-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+/* 3-Column Leadership Grid */
+.team-leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 32px);
+}
+
+.team-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--border-gold);
+}
+
+.team-card-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3.8;
+    overflow: hidden;
+    background: var(--bg-light);
+}
+
+.team-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-cinematic);
+}
+
+.team-card:hover .team-card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.team-card-dept-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--brand-gold-light);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(217, 162, 74, 0.4);
+}
+
+.team-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.team-card-role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-burgundy);
+    margin-bottom: 6px;
+}
+
+.team-card-name {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 4px;
+}
+
+.team-card-qual {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--brand-gold-dark);
+    margin-bottom: 14px;
+}
+
+.team-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. ARCHITECTURAL DATA PLACEHOLDER CARDS (Rule 12 & 41 Compliant)
+   -------------------------------------------------------------------------- */
+.team-placeholder-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-smooth);
+    position: relative;
+}
+
+.team-placeholder-card:hover {
+    border-style: solid;
+    border-color: var(--brand-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+.team-placeholder-img-frame {
+    aspect-ratio: 4/3.2;
+    background: #F7F5F2;
+    background-image: 
+        radial-gradient(circle, rgba(116, 23, 25, 0.05) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 20px 20px, 40px 40px, 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.team-placeholder-icon-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1.5px solid var(--brand-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-burgundy);
+    background: var(--bg-white);
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.team-placeholder-tag {
+    font-family: var(--font-primary);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+}
+
+.team-placeholder-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.team-placeholder-role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-burgundy);
+    margin-bottom: 6px;
+}
+
+.team-placeholder-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+}
+
+.team-placeholder-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   7. MANAGEMENT TEAM SECTION (3 COLUMNS)
+   -------------------------------------------------------------------------- */
+.team-management-section {
+    padding: clamp(70px, 10vw, 110px) 0;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border-light);
+}
+
+.team-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 32px);
+}
+
+/* --------------------------------------------------------------------------
+   8. ENGINEERING TEAM SECTION (DARK TECHNICAL BLUEPRINT)
+   -------------------------------------------------------------------------- */
+.team-engineering-section {
+    padding: clamp(80px, 11vw, 120px) 0;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-engineering-blueprint-bg {
+    position: absolute;
+    inset: 0;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(217, 162, 74, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(217, 162, 74, 0.08) 1px, transparent 1px);
+    pointer-events: none;
+}
+
+.team-card-engineering {
+    background: var(--bg-dark-surface);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+    position: relative;
+}
+
+.team-card-engineering::before {
+    content: '+';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-family: monospace;
+    font-size: 14px;
+    color: var(--brand-gold);
+    opacity: 0.5;
+}
+
+.team-card-engineering:hover {
+    border-color: var(--brand-gold);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.team-card-engineering .team-placeholder-img-frame {
+    background: #1c1c1c;
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.team-card-engineering .team-placeholder-icon-ring {
+    background: #252525;
+    border-color: var(--brand-gold);
+    color: var(--brand-gold-light);
+}
+
+.team-card-engineering .team-placeholder-tag {
+    background: rgba(217, 162, 74, 0.12);
+    color: var(--brand-gold-light);
+}
+
+.team-card-engineering .team-placeholder-name {
+    color: var(--text-white);
+}
+
+.team-card-engineering .team-placeholder-role {
+    color: var(--brand-gold);
+}
+
+.team-card-engineering .team-placeholder-desc {
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid var(--border-dark);
+}
+
+/* --------------------------------------------------------------------------
+   9. PROJECT MANAGEMENT SECTION (EDITORIAL HORIZONTAL)
+   -------------------------------------------------------------------------- */
+.team-pm-section {
+    padding: clamp(70px, 10vw, 110px) 0;
+    background: var(--bg-off-white);
+    border-top: 1px solid var(--border-light);
+}
+
+.team-pm-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+}
+
+.team-pm-feature-box {
+    position: sticky;
+    top: 140px;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.team-pm-feature-img {
+    height: 320px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-pm-feature-content {
+    padding: 32px;
+}
+
+.team-pm-feature-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-gold-dark);
+    margin-bottom: 8px;
+}
+
+.team-pm-feature-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.team-pm-feature-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.team-pm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.team-pm-row-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+}
+
+.team-pm-row-card:hover {
+    border-color: var(--brand-gold);
+    box-shadow: var(--shadow-soft);
+    transform: translateX(4px);
+}
+
+.team-pm-row-thumb {
+    background: #F7F5F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border-light);
+    color: var(--brand-burgundy);
+}
+
+.team-pm-row-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-pm-row-role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-burgundy);
+    margin-bottom: 4px;
+}
+
+.team-pm-row-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.team-pm-row-desc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. TECHNICAL TEAM SECTION (LIGHT ARCHITECTURAL GRID)
+   -------------------------------------------------------------------------- */
+.team-technical-section {
+    padding: clamp(70px, 10vw, 110px) 0;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border-light);
+}
+
+/* --------------------------------------------------------------------------
+   11. SITE TEAM SECTION (CINEMATIC GROUND EXECUTION)
+   -------------------------------------------------------------------------- */
+.team-site-section {
+    padding: clamp(80px, 11vw, 120px) 0;
+    background: #161616;
+    color: var(--text-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-site-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.16;
+    filter: grayscale(40%);
+    pointer-events: none;
+}
+
+.team-site-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 32px);
+}
+
+.team-card-site {
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+}
+
+.team-card-site:hover {
+    border-color: var(--brand-gold);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.team-card-site .team-placeholder-img-frame {
+    background: rgba(40, 40, 40, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-card-site .team-placeholder-icon-ring {
+    background: #202020;
+    border-color: var(--brand-gold);
+    color: var(--brand-gold-light);
+}
+
+.team-card-site .team-placeholder-name {
+    color: var(--text-white);
+}
+
+.team-card-site .team-placeholder-role {
+    color: var(--brand-gold-light);
+}
+
+.team-card-site .team-placeholder-desc {
+    color: rgba(255, 255, 255, 0.55);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   12. OUR CULTURE SECTION
+   -------------------------------------------------------------------------- */
+.team-culture-section {
+    padding: clamp(80px, 11vw, 130px) 0;
+    background-color: var(--brand-burgundy-dark);
+    background-image: 
+        radial-gradient(circle at 85% 15%, rgba(217, 162, 74, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(18, 18, 18, 0.6) 0%, transparent 60%);
+    color: var(--text-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-culture-pattern {
+    position: absolute;
+    inset: 0;
+    background-size: 48px 48px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    pointer-events: none;
+}
+
+.team-culture-header {
+    max-width: 840px;
+    margin-bottom: clamp(48px, 7vw, 72px);
+    position: relative;
+    z-index: 2;
+}
+
+.team-culture-header .team-section-eyebrow {
+    color: var(--brand-gold-light);
+}
+
+.team-culture-header .team-section-title {
+    color: var(--text-white);
+}
+
+.team-culture-header .team-section-desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+}
+
+.team-culture-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+}
+
+.team-culture-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-smooth);
+    position: relative;
+}
+
+.team-culture-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--brand-gold);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+.team-culture-card-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-gold-light);
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.team-culture-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+}
+
+.team-culture-card-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   13. CAREERS CTA SECTION
+   -------------------------------------------------------------------------- */
+.team-cta-section {
+    padding: clamp(80px, 10vw, 120px) 0;
+    background: var(--bg-off-white);
+}
+
+.team-cta-box {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-card);
+    padding: clamp(40px, 6vw, 72px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--brand-burgundy) 0%, var(--brand-gold) 100%);
+}
+
+.team-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-burgundy);
+    margin-bottom: 12px;
+}
+
+.team-cta-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: var(--brand-burgundy);
+}
+
+.team-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.team-cta-desc {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.team-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   14. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .team-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .team-leader-hero-card {
+        grid-template-columns: 1fr;
+    }
+
+    .team-leadership-grid,
+    .team-grid-3,
+    .team-site-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-pm-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .team-pm-feature-box {
+        position: static;
+        margin-bottom: 32px;
+    }
+
+    .team-cta-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .team-leadership-grid,
+    .team-grid-3,
+    .team-site-grid,
+    .team-culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-leader-meta-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .team-pm-row-card {
+        grid-template-columns: 1fr;
+    }
+
+    .team-pm-row-thumb {
+        height: 100px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .team-intro-badge {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .team-cta-actions {
+        width: 100%;
+    }
+
+    .team-cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   15. GUARANTEED CARD & SECTION ITEM VISIBILITY
+   -------------------------------------------------------------------------- */
+.team-leadership-section,
+.team-management-section,
+.team-engineering-section,
+.team-pm-section,
+.team-technical-section,
+.team-site-section,
+.team-culture-section {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.team-card,
+.team-placeholder-card,
+.team-card-engineering,
+.team-card-site,
+.team-pm-row-card,
+.team-culture-card,
+.team-leader-hero-card,
+.team-section-header,
+.final-cta-section,
+.cta-content-box {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.final-cta-section {
+    display: block !important;
+    position: relative;
+    z-index: 5;
+    background: #0d0d0d;
+}
+
+.final-cta-section [data-reveal],
+.final-cta-section .cta-content-box {
+    opacity: 1 !important;
+    transform: none !important;
+}

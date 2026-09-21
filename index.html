@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Primary SEO & Title -->
     <title>GS Sowmiya Builders | Second-Generation Construction & Apartments in Chennai</title>
@@ -10,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com" />
 
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/png" href="/assets/icons/favicon.svg" />
-    <link rel="alternate icon" href="/assets/icons/favicon.svg" />
-    <link rel="apple-touch-icon" href="/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -20,7 +24,6 @@
     <meta property="og:description" content="Dedicated to making dream homes accessible to all classes of people. Backed by 30+ years family building heritage in Chennai. Explore GS Sowmiya Elite Enclave in Medavakkam, custom homes & joint ventures." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" />
     <meta property="og:site_name" content="GS Sowmiya Builders" />
-    <meta property="og:url" content="https://gssowmiyabuilders.com/" />
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,10 +36,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/home.css" />
-    <link rel="stylesheet" href="/assets/css/animations.css" />
-    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -94,8 +97,9 @@
       <section class="hero-section hero" id="hero" aria-label="Cinematic Architectural Hero">
         
         <!-- Layer 1: ONE Common Persistent Full-Screen Background Video -->
-        <video class="hero__background-video" autoplay muted loop playsinline poster="/assets/videos/hero-poster.jpg" preload="auto" aria-hidden="true">
-          <source src="/assets/videos/Netword.mp4" type="video/mp4">
+        <video class="hero__background-video" autoplay muted loop playsinline poster="/videos/hero-poster.jpg" preload="auto" aria-hidden="true">
+          <source src="/videos/hero-background.mp4" type="video/mp4">
+          <source src="/videos/hero-background.webm" type="video/webm">
         </video>
 
         <!-- Layer 2: Dark Cinematic Overlay with Edge Vignette -->
@@ -115,7 +119,7 @@
             <div class="hero-top-bar">
               <div class="hero-badge-pill">
                 <span class="pill-dot"></span>
-                <span>15+ Years Family Legacy &amp; Mentorship</span>
+                <span>30+ Years Family Legacy &amp; Mentorship</span>
               </div>
               <div class="hero-counter" aria-live="polite">01 / 04</div>
             </div>
@@ -504,7 +508,7 @@
                   </div>
                 </div>
                 <div class="service-card-footer">
-                  <a href="/services/commercial-construction.html" class="service-link-text">Explore Service</a>
+                  <a href="/services.html#service-commercial" class="service-link-text">Explore Service</a>
                   <div class="service-arrow-btn">↗</div>
                 </div>
               </div>
@@ -779,12 +783,13 @@
           <!-- Horizontal Draggable & Navigable Projects Track -->
           <div class="projects-slider-container">
             <div class="projects-track" role="region" aria-label="Projects Carousel">
-              <!-- Rendered dynamically by /assets/js/projects.js -->
+              <!-- Rendered dynamically by /js/projects.js -->
             </div>
 
-            <!-- Slider Controls (01 / 06 & Arrows) -->
+            <!-- Slider Controls (01 / 05 & Arrows) -->
             <div class="projects-slider-footer">
-              <div class="slider-pagination-count" aria-live="polite">01 / 06</div>
+              <div class="slider-pagination-count" aria-live="polite">01 / 05</div>
+              <div class="projects-loop-indicators" role="tablist" aria-label="Projects carousel indicators"></div>
               <div class="slider-nav-arrows">
                 <button class="slider-arrow-btn projects-prev-btn" type="button" aria-label="Previous Project">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1146,7 +1151,7 @@
           <div class="testimonial-stage" data-reveal>
             <div class="testimonial-quote-icon" aria-hidden="true">“</div>
             <div class="testimonial-slider" role="region" aria-label="Testimonial reviews">
-              <!-- Injected by /assets/js/testimonials.js -->
+              <!-- Injected by /js/testimonials.js -->
             </div>
 
             <!-- Controls -->
@@ -1202,157 +1207,6 @@
                 <span>GET A QUOTE</span>
                 <span>→</span>
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           CONSTRUCTION COST & ENGINEERING ESTIMATOR (INTERACTIVE TOOL)
-           ========================================================================== -->
-      <section class="calculator-section section-padding" id="calculator" aria-label="Construction Cost & Feasibility Calculator">
-        <div class="site-container">
-          <div class="section-header-flex" data-reveal>
-            <div>
-              <div class="section-eyebrow">
-                <span>Interactive Engineering Tool</span>
-              </div>
-              <h2 class="section-title">CONSTRUCTION COST & FEASIBILITY ESTIMATOR</h2>
-              <p class="section-subtitle">
-                Calibrate your residential or commercial project parameters for instant budget projections, engineering material approximations, and timeline benchmarks.
-              </p>
-            </div>
-          </div>
-
-          <div class="calc-grid" data-reveal>
-            <!-- Form Controls Card -->
-            <div class="calc-controls-card">
-              <form id="construction-calculator-form" onsubmit="return false;">
-                
-                <!-- Project Type -->
-                <div class="form-group" style="margin-bottom: 20px;">
-                  <label for="calc-project-type" style="display: block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; color: var(--text-primary);">
-                    Structure Classification
-                  </label>
-                  <select id="calc-project-type" class="form-input" style="background: var(--bg-off-white);">
-                    <option value="villa" selected>Luxury Villa & Private Estate</option>
-                    <option value="home">Premium Independent Residence</option>
-                    <option value="commercial">Commercial Office & Corporate Hub</option>
-                    <option value="turnkey">Turnkey Monolithic Residence</option>
-                    <option value="industrial">Industrial Facility / Logistics Warehouse</option>
-                  </select>
-                </div>
-
-                <!-- Built-Up Area Slider & Input -->
-                <div class="form-group" style="margin-bottom: 24px;">
-                  <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                    <label for="calc-area-range" style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-primary);">
-                      Total Built-Up Area (Sq.Ft.)
-                    </label>
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                      <input type="number" id="calc-area-number" value="4000" min="500" max="50000" step="100" class="form-input" style="width: 110px; padding: 6px 10px; font-weight: 700; text-align: right; background: var(--bg-off-white);">
-                      <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600;">Sq.Ft.</span>
-                    </div>
-                  </div>
-                  <div class="calc-slider-wrap">
-                    <input type="range" id="calc-area-range" min="1000" max="25000" step="250" value="4000" class="calc-range-input" aria-label="Built-up Area in square feet">
-                    <div class="calc-range-markers">
-                      <span>1,000 Sq.Ft.</span>
-                      <span>10,000 Sq.Ft.</span>
-                      <span>25,000+ Sq.Ft.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Construction Quality Tier -->
-                <div class="form-group" style="margin-bottom: 20px;">
-                  <span style="display: block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; color: var(--text-primary);">
-                    Engineering Specification Tier
-                  </span>
-                  <div class="calc-tier-grid">
-                    <label class="calc-tier-label">
-                      <input type="radio" name="calc-quality-tier" value="standard">
-                      <span class="tier-name">Standard Structural</span>
-                      <span class="tier-desc">Fe-500D steel, M25/M30 concrete, premium vitrified finishes</span>
-                    </label>
-                    <label class="calc-tier-label">
-                      <input type="radio" name="calc-quality-tier" value="luxury" checked>
-                      <span class="tier-name">Luxury Architectural</span>
-                      <span class="tier-desc">Fe-550D primary steel, M35 SCC, double-glazed fenestration, teak accents</span>
-                    </label>
-                    <label class="calc-tier-label">
-                      <input type="radio" name="calc-quality-tier" value="ultra">
-                      <span class="tier-name">Monolithic Ultra-Prestige</span>
-                      <span class="tier-desc">Exposed fair-faced concrete, post-tensioned slabs, Italian marble, VRV HVAC</span>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- Number of Floors -->
-                <div class="form-group">
-                  <label for="calc-floors" style="display: block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; color: var(--text-primary);">
-                    Vertical Storey Structure
-                  </label>
-                  <select id="calc-floors" class="form-input" style="background: var(--bg-off-white);">
-                    <option value="1">Ground Floor (G)</option>
-                    <option value="2" selected>Ground + 1 Floor (G+1)</option>
-                    <option value="3">Ground + 2 Floors (G+2)</option>
-                    <option value="4">Ground + 3 Floors (G+3)</option>
-                    <option value="5">Ground + 4+ Floors (G+4+)</option>
-                  </select>
-                </div>
-
-              </form>
-            </div>
-
-            <!-- Live Calculation Summary Panel -->
-            <div class="calc-summary-panel">
-              <span class="calc-summary-heading">Preliminary Engineering Estimate</span>
-              
-              <div class="calc-budget-display">
-                <div class="calc-budget-range">
-                  <span id="calc-budget-low">₹ 1.25 Cr</span> – <span id="calc-budget-high">₹ 1.45 Cr</span>
-                </div>
-                <div class="calc-budget-sub">Estimated Turnkey Construction Cost Range (excl. land cost)</div>
-              </div>
-
-              <div class="calc-stats-row">
-                <div class="calc-stat-box">
-                  <span class="calc-stat-lbl">ESTIMATED TIMELINE</span>
-                  <span class="calc-stat-val" id="calc-timeline-val">12 - 14 Months</span>
-                </div>
-                <div class="calc-stat-box">
-                  <span class="calc-stat-lbl">CEMENT REQUIRED</span>
-                  <span class="calc-stat-val" id="calc-cement-bags">1,600 Bags</span>
-                </div>
-                <div class="calc-stat-box">
-                  <span class="calc-stat-lbl">TMT PRIMARY STEEL</span>
-                  <span class="calc-stat-val" id="calc-steel-tonnes">15.6 Tonnes</span>
-                </div>
-                <div class="calc-stat-box">
-                  <span class="calc-stat-lbl">CONCRETE VOLUME</span>
-                  <span class="calc-stat-val" id="calc-concrete-volume">136 m³</span>
-                </div>
-              </div>
-
-              <div class="calc-action-stack">
-                <button type="button" class="btn btn-gold" id="calc-apply-quote-btn" style="width: 100%;">
-                  <span>APPLY TO ENQUIRY FORM</span>
-                  <span class="btn-icon-circle">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </span>
-                </button>
-                <button type="button" class="btn btn-outline-white" id="calc-whatsapp-btn" style="width: 100%;">
-                  <span>DISCUSS ESTIMATE ON WHATSAPP</span>
-                </button>
-              </div>
-
-              <p style="font-size: 0.6875rem; color: rgba(255, 255, 255, 0.45); margin-top: 16px; line-height: 1.4;">
-                *Indicative estimation based on current Chennai/Tamil Nadu CPWD/PWD schedule of rates and primary producer steel indices. Actual engineering BOQ provided after architectural soil and structural review.
-              </p>
             </div>
           </div>
         </div>
@@ -1553,8 +1407,6 @@
     </div>
 
     <!-- JavaScript Application Entry Point -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script type="module" src="/assets/js/home.js"></script>
+    <script type="module" src="/js/home.js"></script>
   </body>
 </html>

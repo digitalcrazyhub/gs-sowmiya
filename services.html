@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Primary SEO & Title -->
     <title>Construction Services | GS Sowmiya Builders Private Limited</title>
@@ -10,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com/services.html" />
     
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-    <link rel="alternate icon" href="/assets/icons/favicon.svg" />
-    <link rel="apple-touch-icon" href="/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -20,11 +24,6 @@
     <meta property="og:description" content="Residential construction, landowner joint ventures, turnkey contracts, and renovations delivered with 30+ years construction mentorship." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1200&q=80" />
     <meta property="og:site_name" content="GS Sowmiya Builders Private Limited" />
-    <meta property="og:url" content="https://gssowmiyabuilders.com/services.html" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Construction Services | GS Sowmiya Builders" />
-    <meta name="twitter:description" content="Explore residential, commercial, industrial, turnkey, joint venture, and renovation services in Chennai." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1200&q=80" />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -36,7 +35,7 @@
         "@type": "HomeAndConstructionBusiness",
         "name": "GS Sowmiya Builders Private Limited",
         "telephone": "+917010517729",
-        "email": "info@gssowmiyabuilders.com",
+        "email": "gssowmiyabuilders@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "New No: 10/517, Old No: 1/425A, Front Portion, Ponni Amman Koil Street, Vengaivasal",
@@ -96,10 +95,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets: Centralized Global Systems & Scoped Services Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/responsive.css" />
-    <link rel="stylesheet" href="/assets/css/animations.css" />
-    <link rel="stylesheet" href="/assets/css/services.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/services.css" />
   </head>
 
   <body class="services-page">
@@ -114,29 +113,31 @@
          02. COMMON PAGE BANNER (LOADED VIA COMPONENT LOADER)
          ========================================================================== -->
     <div id="page-banner" data-component="page-banner">
-      <section class="page-banner" aria-label="Page Banner">
-        <div class="page-banner-bg" id="page-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1800&q=80'); opacity: 0.28;"></div>
-        <div class="page-banner-overlay"></div>
-        <div class="page-banner-accent-gold"></div>
-        <div class="page-banner-accent-burgundy"></div>
-        <div class="site-container page-banner-container">
-          <nav class="page-banner-breadcrumb" aria-label="Breadcrumb">
-            <ol class="breadcrumb-list">
-              <li class="breadcrumb-item"><a href="/">HOME</a></li>
-              <li class="breadcrumb-separator" aria-hidden="true">/</li>
-              <li class="breadcrumb-item active" id="banner-breadcrumb-current" aria-current="page">SERVICES</li>
-            </ol>
-          </nav>
-          <div class="page-banner-eyebrow">
-            <span class="eyebrow-accent-dot"></span>
-            <span id="banner-eyebrow-text">COMPREHENSIVE CAPABILITIES SPECTRUM</span>
+      <section class="page-hero" aria-label="Services Hero">
+        <div class="page-hero-bg" id="page-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1800&q=80');" aria-hidden="true"></div>
+        <div class="page-hero-overlay" aria-hidden="true"></div>
+        <div class="page-hero-grid-pattern" aria-hidden="true"></div>
+
+        <div class="site-container">
+          <div class="page-hero-content">
+            <nav class="page-breadcrumb" aria-label="Breadcrumb Navigation">
+              <a href="/">HOME</a>
+              <span class="page-breadcrumb-sep">/</span>
+              <span class="page-breadcrumb-current" id="banner-breadcrumb-current">SERVICES</span>
+            </nav>
+
+            <div class="page-hero-eyebrow">
+              <span id="banner-eyebrow-text">WHAT WE BUILD</span>
+            </div>
+
+            <h1 class="page-hero-title" id="banner-title-text">
+              CONSTRUCTION SERVICES<br>FOR TAMIL NADU.
+            </h1>
+
+            <p class="page-hero-desc" id="banner-desc-text">
+              Comprehensive architectural, structural, and turnkey solutions engineered to uncompromising standards across Chennai and Tamil Nadu.
+            </p>
           </div>
-          <h1 class="page-banner-title" id="banner-title-text">
-            CONSTRUCTION SERVICES
-          </h1>
-          <p class="page-banner-desc" id="banner-desc-text">
-            Comprehensive architectural, structural, and turnkey solutions engineered to uncompromising standards across Tamil Nadu.
-          </p>
         </div>
       </section>
     </div>
@@ -965,7 +966,39 @@
       <!-- ==========================================================================
            11. COMMON FINAL CTA (LOADED VIA COMPONENT LOADER)
            ========================================================================== -->
-      <div id="final-cta" data-component="final-cta"></div>
+      <section class="final-cta-section" id="final-cta" data-component="final-cta" aria-label="Call to Action">
+        <div class="cta-backdrop-image" aria-hidden="true"></div>
+        <div class="cta-gold-accent-line" aria-hidden="true"></div>
+        
+        <div class="site-container">
+          <div class="cta-content-box" data-reveal>
+            <div class="section-eyebrow eyebrow-dark">
+              <span>Initiate Your Project</span>
+            </div>
+            <h2 class="cta-title">
+              LET’S BUILD<br>SOMETHING<br>EXCEPTIONAL.
+            </h2>
+            <p class="cta-desc">
+              Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
+            </p>
+            <div class="cta-actions">
+              <a href="/contact.html" class="btn btn-gold">
+                <span>TALK TO OUR TEAM</span>
+                <span class="btn-icon-circle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </a>
+              <a href="/contact.html" class="btn btn-outline-white">
+                <span>GET A QUOTE</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </main>
 
@@ -980,8 +1013,6 @@
     <div id="floating-actions"></div>
 
     <!-- JavaScript Page Entry Point -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script type="module" src="/assets/js/services.js"></script>
+    <script type="module" src="/js/services.js"></script>
   </body>
 </html>

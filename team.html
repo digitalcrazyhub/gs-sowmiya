@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Primary SEO & Title -->
     <title>Our Team | GS Sowmiya Builders Private Limited – Leadership &amp; Engineering</title>
@@ -10,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com/team.html" />
 
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-    <link rel="alternate icon" href="/assets/icons/favicon.svg" />
-    <link rel="apple-touch-icon" href="/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -20,7 +24,6 @@
     <meta property="og:description" content="Meet the leadership and engineering team combining 30+ years of construction wisdom with modern engineering precision." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80" />
     <meta property="og:site_name" content="GS Sowmiya Builders Private Limited" />
-    <meta property="og:url" content="https://gssowmiyabuilders.com/team.html" />
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,10 +36,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/team.css" />
-    <link rel="stylesheet" href="/assets/css/animations.css" />
-    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/team.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -54,7 +57,7 @@
           "jobTitle": "Founder & Managing Director"
         },
         "telephone": "+917010517729",
-        "email": "info@gssowmiyabuilders.com",
+        "email": "gssowmiyabuilders@gmail.com",
         "department": [
           {
             "@type": "Department",
@@ -814,26 +817,26 @@
       </section>
 
       <!-- ==========================================================================
-           11. CAREERS CTA SECTION
+           11. FINAL CTA (FULL-WIDTH DARK CINEMATIC)
            ========================================================================== -->
-      <section class="team-cta-section" id="careers-cta" aria-label="Join Our Team">
+      <section class="final-cta-section" id="final-cta" data-component="final-cta" aria-label="Call to Action">
+        <div class="cta-backdrop-image" aria-hidden="true"></div>
+        <div class="cta-gold-accent-line" aria-hidden="true"></div>
+        
         <div class="site-container">
-          <div class="team-cta-box">
-            <div class="team-cta-text">
-              <div class="team-cta-eyebrow">
-                <span>JOIN OUR TEAM</span>
-              </div>
-              <h2 class="team-cta-title">
-                BUILD YOUR CAREER<br>WITH US.
-              </h2>
-              <p class="team-cta-desc">
-                If you are interested in contributing to construction, engineering, project coordination or technical execution, we would be interested in hearing from you.
-              </p>
+          <div class="cta-content-box" data-reveal>
+            <div class="section-eyebrow eyebrow-dark">
+              <span>Initiate Your Project</span>
             </div>
-
-            <div class="team-cta-actions">
-              <a href="/contact.html" class="btn btn-gold" style="padding: 14px 28px;">
-                <span>GET IN TOUCH</span>
+            <h2 class="cta-title">
+              LET’S BUILD<br>SOMETHING<br>EXCEPTIONAL.
+            </h2>
+            <p class="cta-desc">
+              Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
+            </p>
+            <div class="cta-actions">
+              <a href="/contact.html" class="btn btn-gold">
+                <span>TALK TO OUR TEAM</span>
                 <span class="btn-icon-circle">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -841,12 +844,8 @@
                   </svg>
                 </span>
               </a>
-              <a href="https://wa.me/917010517729?text=Hello%20GS%20Sowmiya%20Builders,%20I%20am%20interested%20in%20career%20opportunities%20with%20your%20team." 
-                 class="btn btn-outline" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 style="padding: 14px 28px;">
-                <span>WHATSAPP US</span>
+              <a href="/contact.html" class="btn btn-outline-white">
+                <span>GET A QUOTE</span>
                 <span>→</span>
               </a>
             </div>
@@ -867,8 +866,6 @@
     <div id="floating-actions"></div>
 
     <!-- Application Script Entry Point -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script type="module" src="/assets/js/team.js"></script>
+    <script type="module" src="/js/team.js"></script>
   </body>
 </html>
