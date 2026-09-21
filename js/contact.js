@@ -14,8 +14,8 @@ import { loadGlobalComponents } from '/js/components.js';
 import { SITE_CONFIG } from '/js/config.js';
 import { initScrollReveal, initCardTilt } from '/js/animations.js';
 
-// Configuration endpoint (Leave empty for instant client-side verified flow)
-const CONTACT_FORM_ENDPOINT = "";
+// Configure a real server-side endpoint before enabling production submissions.
+const CONTACT_FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT?.trim() || "";
 
 /**
  * Initialize page components and interactions
@@ -203,23 +203,14 @@ function initEnquiryForm() {
                 });
                 if (!response.ok) throw new Error("Failed to submit enquiry.");
             } else {
-                // Verified Client-Side Handshake
-                await new Promise((resolve) => setTimeout(resolve, 800));
-
-                // Save to local session log for safety
-                try {
-                    const submissions = JSON.parse(localStorage.getItem('gs_enquiries') || '[]');
-                    submissions.push(formData);
-                    localStorage.setItem('gs_enquiries', JSON.stringify(submissions));
-                } catch (storageErr) {
-                    // Ignore localStorage privacy quota limits
-                }
+                throw new Error('Contact form endpoint is not configured.');
             }
 
             // Success Transition
             form.style.display = 'none';
             if (statusBox) {
                 statusBox.className = 'form-status-box is-success';
+                window.gssbTrack?.('generate_lead', { form_name: 'project_enquiry' });
                 if (statusTitle) statusTitle.textContent = "THANK YOU";
                 if (statusDesc) {
                     statusDesc.textContent = "Your enquiry has been received. Our team will review your requirements and get in touch with you soon.";
@@ -228,12 +219,16 @@ function initEnquiryForm() {
             }
 
         } catch (submitErr) {
-            console.error('Submission error:', submitErr);
+            if (CONTACT_FORM_ENDPOINT) {
+                console.error('Submission error:', submitErr);
+            } else {
+                console.warn('Contact form endpoint is not configured.');
+            }
             if (statusBox) {
                 statusBox.className = 'form-status-box is-error';
                 if (statusTitle) statusTitle.textContent = "SUBMISSION NOTICE";
                 if (statusDesc) {
-                    statusDesc.textContent = `We encountered a temporary network issue. Please call us directly at ${SITE_CONFIG.contact.phone} or contact us via WhatsApp.`;
+                    statusDesc.textContent = `Online submission is not configured yet. Please call us directly at ${SITE_CONFIG.contact.phone} or contact us via WhatsApp.`;
                 }
             }
         } finally {

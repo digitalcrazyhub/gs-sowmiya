@@ -375,6 +375,7 @@ const COMPONENT_FALLBACKS = {
           <li><a href="/services/renovation-remodeling.html">Renovation &amp; Remodeling</a></li>
           <li><a href="/services.html#interior-design">Interior Design &amp; Modular Woodwork</a></li>
           <li><a href="/services/commercial-construction.html">Commercial Construction</a></li>
+          <li><a href="/services.html#faq">Frequently Asked Questions</a></li>
         </ul>
       </div>
 
@@ -393,9 +394,8 @@ const COMPONENT_FALLBACKS = {
     <div class="footer-bottom-bar">
       <p>© <span class="dynamic-copyright-year">2026</span> GS Sowmiya Builders Private Limited. All Rights Reserved.</p>
       <div class="footer-legal-links">
-        <a href="/contact.html">Privacy Policy</a>
-        <a href="/contact.html">Terms &amp; Conditions</a>
-        <a href="/contact.html">Sitemap</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
       </div>
     </div>
   </div>
@@ -560,4 +560,64 @@ export async function loadGlobalComponents(options = {}) {
     // Initialize floating actions functionality
     initFloatingActions();
   }
+
+  initPrivacyAndAnalytics();
+}
+
+function initPrivacyAndAnalytics() {
+  if (window.__gssbAnalyticsInitialized) return;
+  window.__gssbAnalyticsInitialized = true;
+
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
+  if (!measurementId) return;
+
+  const consentKey = 'gssb-analytics-consent';
+  const loadAnalytics = () => {
+    if (window.gtag) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, { anonymize_ip: true });
+  };
+
+  window.gssbTrack = (eventName, params = {}) => {
+    if (window.gtag) window.gtag('event', eventName, params);
+  };
+
+  const consent = localStorage.getItem(consentKey);
+  if (consent === 'accepted') {
+    loadAnalytics();
+  } else if (consent !== 'rejected') {
+    const banner = document.createElement('aside');
+    banner.className = 'cookie-consent';
+    banner.setAttribute('aria-label', 'Analytics consent');
+    banner.innerHTML = `
+      <p>We use optional analytics to understand website usage. Read our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+      <div class="cookie-consent-actions">
+        <button type="button" class="btn btn-outline-white cookie-reject">Necessary only</button>
+        <button type="button" class="btn btn-gold cookie-accept">Accept analytics</button>
+      </div>`;
+    document.body.appendChild(banner);
+
+    const close = (choice) => {
+      localStorage.setItem(consentKey, choice);
+      banner.remove();
+      if (choice === 'accepted') loadAnalytics();
+    };
+    banner.querySelector('.cookie-accept')?.addEventListener('click', () => close('accepted'));
+    banner.querySelector('.cookie-reject')?.addEventListener('click', () => close('rejected'));
+  }
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('https://wa.me/')) window.gssbTrack('whatsapp_click');
+    if (href.startsWith('tel:')) window.gssbTrack('phone_click');
+    if (link.matches('.btn, [data-action="scroll-to-enquiry"]')) window.gssbTrack('cta_click', { destination: href });
+  });
 }

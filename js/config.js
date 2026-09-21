@@ -35,8 +35,8 @@ export const SITE_CONFIG = {
     },
     socials: {
         facebook: "https://www.facebook.com/people/GS-Sowmiya-Builders-Pvt-Ltd/",
-        instagram: "https://instagram.com",
-        youtube: "https://youtube.com",
+        instagram: "",
+        youtube: "",
         whatsapp: "https://wa.me/917010517729"
     }
 };

@@ -368,7 +368,32 @@ export function initHeroSlider() {
         }
     }
 
+    // Reveal the initial hero composition before autoplay begins.
+    function initHeroEntranceAnimation() {
+        if (prefersReducedMotion) return;
+
+        const entranceElements = [
+            heroFrame?.querySelector('.hero-top-bar'),
+            contentCard,
+            heroFrame?.querySelector('.hero-bottom-bar'),
+            document.querySelector('.hero-bottom-pills')
+        ].filter(Boolean);
+
+        gsap.fromTo(entranceElements,
+            { opacity: 0, y: 24 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: 'power3.out',
+                clearProps: 'transform,opacity'
+            }
+        );
+    }
+
     // Initialize 3D Card Tilt on foreground card
+    initHeroEntranceAnimation();
     init3DCardTilt();
 
     // Start Autoplay Progress
