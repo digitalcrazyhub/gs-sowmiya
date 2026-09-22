@@ -491,7 +491,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
 @media (max-width: 480px) {
   .stats-ribbon {
-    grid-template-columns: 1fr !important;
+    text-align: center;
+    grid-template-columns: 3fr !important;
     gap: 20px;
   }
 
