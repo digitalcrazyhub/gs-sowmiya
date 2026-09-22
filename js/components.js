@@ -28,25 +28,17 @@ const COMPONENT_FALLBACKS = {
         
         <!-- About Us Dropdown -->
         <div class="nav-item-dropdown" data-dropdown="about">
-          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-nav="about">
+          <a href="/about.html" class="nav-link nav-dropdown-trigger" data-nav="about">
             <span>ABOUT US</span>
             <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </button>
+          </a>
           
           <div class="nav-dropdown-menu" role="menu" aria-label="About Menu">
             <div class="nav-dropdown-inner">
-              <a href="/about.html" class="nav-dropdown-link" role="menuitem" data-nav="about-us">
-                <span class="nav-dropdown-num">01</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">ABOUT US</span>
-                  <span class="nav-dropdown-desc">15+ years of engineering mastery &amp; values</span>
-                </div>
-              </a>
-              
               <a href="/team.html" class="nav-dropdown-link" role="menuitem" data-nav="team">
-                <span class="nav-dropdown-num">02</span>
+                <span class="nav-dropdown-num">01</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">OUR TEAM</span>
                   <span class="nav-dropdown-desc">Meet our senior engineering directors</span>
@@ -58,59 +50,53 @@ const COMPONENT_FALLBACKS = {
 
         <!-- Services Dropdown -->
         <div class="nav-item-dropdown" data-dropdown="services">
-          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-nav="services">
-            <span>SERVICES</span>
+          <a href="/services.html" class="nav-link nav-dropdown-trigger" data-nav="services">
+            <span>SERVICE</span>
             <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </button>
+          </a>
           
           <div class="nav-dropdown-menu" role="menu" aria-label="Services Menu">
             <div class="nav-dropdown-inner">
-              <a href="/services.html" class="nav-dropdown-link" role="menuitem" data-nav="all-services">
-                <span class="nav-dropdown-num">00</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">ALL SERVICES</span>
-                  <span class="nav-dropdown-desc">Comprehensive architectural &amp; structural spectrum</span>
-                </div>
-              </a>
-
               <a href="/services/residential-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-residential">
                 <span class="nav-dropdown-num">01</span>
                 <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">RESIDENTIAL CONSTRUCTION</span>
+                  <span class="nav-dropdown-title">RESIDENTIAL BUILDING CONSTRUCTION</span>
                   <span class="nav-dropdown-desc">Custom luxury estates, villas &amp; residences</span>
                 </div>
               </a>
               
-              <a href="/services/commercial-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-commercial">
+              <a href="/services.html#service-joint-venture" class="nav-dropdown-link" role="menuitem" data-nav="service-joint-venture">
                 <span class="nav-dropdown-num">02</span>
                 <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">COMMERCIAL CONSTRUCTION</span>
-                  <span class="nav-dropdown-desc">Grade-A corporate towers &amp; business complexes</span>
+                  <span class="nav-dropdown-title">JOINT VENTURE</span>
+                  <span class="nav-dropdown-desc">Landowner partnerships &amp; equitable developments</span>
                 </div>
               </a>
               
-              <a href="/services/industrial-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-industrial">
+              <a href="/services.html#technical-services" class="nav-dropdown-link" role="menuitem" data-nav="service-project-management">
                 <span class="nav-dropdown-num">03</span>
                 <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">INDUSTRIAL CONSTRUCTION</span>
-                  <span class="nav-dropdown-desc">Heavy industrial parks &amp; logistical facilities</span>
+                  <span class="nav-dropdown-title">PROJECT MANAGEMENT</span>
+                  <span class="nav-dropdown-desc">Timeline coordination, quality audits &amp; site execution</span>
                 </div>
               </a>
               
-              <a href="/services/renovation-remodeling.html" class="nav-dropdown-link" role="menuitem" data-nav="service-renovation">
+              <a href="/services.html#secondary-services" class="nav-dropdown-link" role="menuitem" data-nav="service-consultancy">
                 <span class="nav-dropdown-num">04</span>
                 <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">RENOVATION &amp; REMODELING</span>
-                  <span class="nav-dropdown-desc">Structural transformation &amp; interior renewal</span>
+                  <span class="nav-dropdown-title">CONSULTANCY &amp; DESIGN</span>
+                  <span class="nav-dropdown-desc">Architectural planning, 2D/3D elevations &amp; approvals</span>
                 </div>
               </a>
-            </div>
-            <div class="nav-dropdown-footer">
-              <a href="/services.html" class="nav-dropdown-footer-link">
-                <span>View Full Capabilities Spectrum</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+
+              <a href="/services/renovation-remodeling.html" class="nav-dropdown-link" role="menuitem" data-nav="service-interiors">
+                <span class="nav-dropdown-num">05</span>
+                <div class="nav-dropdown-info">
+                  <span class="nav-dropdown-title">INTERIORS</span>
+                  <span class="nav-dropdown-desc">Bespoke interior architecture, modular spaces &amp; styling</span>
+                </div>
               </a>
             </div>
           </div>
@@ -167,20 +153,17 @@ const COMPONENT_FALLBACKS = {
       
       <!-- Mobile Submenu Accordion for About Us -->
       <div class="mobile-nav-accordion" id="mobile-about-accordion">
-        <button type="button" class="mobile-nav-link mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-about-sub" data-nav="about">
-          <span>ABOUT US</span>
-          <span class="mobile-accordion-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="mobile-nav-sublist" id="mobile-about-sub">
-          <a href="/about.html" class="mobile-sublink" data-nav="about-us">
-            <span class="mobile-sublink-num">01</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">About Us</span>
-              <span class="mobile-sublink-desc">15+ years of architectural excellence</span>
-            </div>
+        <div class="mobile-accordion-header">
+          <a href="/about.html" class="mobile-nav-link" data-nav="about">
+            <span>ABOUT US</span>
           </a>
+          <button type="button" class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-about-sub" aria-label="Toggle About Us submenu">
+            <span class="mobile-accordion-icon" aria-hidden="true">+</span>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist" id="mobile-about-sub">
           <a href="/team.html" class="mobile-sublink" data-nav="team">
-            <span class="mobile-sublink-num">02</span>
+            <span class="mobile-sublink-num">01</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Our Team</span>
               <span class="mobile-sublink-desc">Meet the engineering directors</span>
@@ -191,44 +174,48 @@ const COMPONENT_FALLBACKS = {
 
       <!-- Mobile Submenu Accordion for Services -->
       <div class="mobile-nav-accordion" id="mobile-services-accordion">
-        <button type="button" class="mobile-nav-link mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" data-nav="services">
-          <span>SERVICES</span>
-          <span class="mobile-accordion-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="mobile-nav-sublist" id="mobile-services-sub">
-          <a href="/services.html" class="mobile-sublink" data-nav="all-services">
-            <span class="mobile-sublink-num">00</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">All Services</span>
-              <span class="mobile-sublink-desc">Full construction capabilities</span>
-            </div>
+        <div class="mobile-accordion-header">
+          <a href="/services.html" class="mobile-nav-link" data-nav="services">
+            <span>SERVICE</span>
           </a>
+          <button type="button" class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" aria-label="Toggle Service submenu">
+            <span class="mobile-accordion-icon" aria-hidden="true">+</span>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist" id="mobile-services-sub">
           <a href="/services/residential-construction.html" class="mobile-sublink" data-nav="service-residential">
             <span class="mobile-sublink-num">01</span>
             <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Residential Construction</span>
+              <span class="mobile-sublink-title">Residential Building Construction</span>
               <span class="mobile-sublink-desc">Custom luxury homes &amp; villas</span>
             </div>
           </a>
-          <a href="/services/commercial-construction.html" class="mobile-sublink" data-nav="service-commercial">
+          <a href="/services.html#service-joint-venture" class="mobile-sublink" data-nav="service-joint-venture">
             <span class="mobile-sublink-num">02</span>
             <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Commercial Construction</span>
-              <span class="mobile-sublink-desc">Towers, hubs &amp; offices</span>
+              <span class="mobile-sublink-title">Joint Venture</span>
+              <span class="mobile-sublink-desc">Landowner partnerships &amp; developments</span>
             </div>
           </a>
-          <a href="/services/industrial-construction.html" class="mobile-sublink" data-nav="service-industrial">
+          <a href="/services.html#technical-services" class="mobile-sublink" data-nav="service-project-management">
             <span class="mobile-sublink-num">03</span>
             <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Industrial Construction</span>
-              <span class="mobile-sublink-desc">Industrial plants &amp; logistics</span>
+              <span class="mobile-sublink-title">Project Management</span>
+              <span class="mobile-sublink-desc">Timeline coordination &amp; site execution</span>
             </div>
           </a>
-          <a href="/services/renovation-remodeling.html" class="mobile-sublink" data-nav="service-renovation">
+          <a href="/services.html#secondary-services" class="mobile-sublink" data-nav="service-consultancy">
             <span class="mobile-sublink-num">04</span>
             <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Renovation &amp; Remodeling</span>
-              <span class="mobile-sublink-desc">Restoration &amp; renewal</span>
+              <span class="mobile-sublink-title">Consultancy &amp; Design</span>
+              <span class="mobile-sublink-desc">Architectural planning &amp; approvals</span>
+            </div>
+          </a>
+          <a href="/services/renovation-remodeling.html" class="mobile-sublink" data-nav="service-interiors">
+            <span class="mobile-sublink-num">05</span>
+            <div class="mobile-sublink-text">
+              <span class="mobile-sublink-title">Interiors</span>
+              <span class="mobile-sublink-desc">Bespoke interior architecture &amp; styling</span>
             </div>
           </a>
         </div>
@@ -279,12 +266,12 @@ const COMPONENT_FALLBACKS = {
         <span class="page-breadcrumb-current" id="banner-breadcrumb-current">ABOUT US</span>
       </nav>
 
-      <div class="page-hero-eyebrow">
-        <span id="banner-eyebrow-text">CORPORATE HERITAGE &amp; ENGINEERING INTEGRITY</span>
-      </div>
+      // <div class="page-hero-eyebrow">
+      //   <span id="banner-eyebrow-text">CORPORATE HERITAGE &amp; ENGINEERING INTEGRITY</span>
+      // </div>
 
       <h1 class="page-hero-title" id="banner-title-text">
-        Second-Generation Craftsmanship.<br>Engineering Rigor.
+        About Us
       </h1>
 
       <p class="page-hero-desc" id="banner-desc-text">
@@ -305,9 +292,7 @@ const COMPONENT_FALLBACKS = {
       <div class="section-eyebrow eyebrow-dark">
         <span>Initiate Your Project</span>
       </div>
-      <h2 class="cta-title">
-        Let’s Build<br>Something<br>Exceptional.
-      </h2>
+      <h2 class="cta-title">Let’s Build Something Exceptional.</h2>
       <p class="cta-desc">
         Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
       </p>
@@ -320,10 +305,6 @@ const COMPONENT_FALLBACKS = {
               <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
           </span>
-        </a>
-        <a href="/contact.html" class="btn btn-outline-white" id="final-cta-contact-btn">
-          <span>GET A QUOTE</span>
-          <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>

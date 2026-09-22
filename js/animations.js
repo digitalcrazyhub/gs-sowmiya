@@ -100,6 +100,8 @@ export function initCardTilt() {
 
   const cardSelectors = [
     '[data-tilt]',
+    '.award-tilt-card',
+    '.award-card',
     '.project-card',
     '.projects-catalog-card',
     '.hero-featured-card',

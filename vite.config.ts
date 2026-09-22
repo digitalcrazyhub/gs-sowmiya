@@ -43,6 +43,8 @@ function custom404Plugin(): Plugin {
           '/terms-and-conditions.html': '/terms-of-service.html',
           '/terms-conditions': '/terms-of-service.html',
           '/terms-service': '/terms-of-service.html',
+          '/service': '/services.html',
+          '/service.html': '/services.html',
         };
 
         const cleanTarget = target.startsWith('/') ? target : `/${target}`;
@@ -94,6 +96,8 @@ function custom404Plugin(): Plugin {
           '/terms-and-conditions.html': '/terms-of-service.html',
           '/terms-conditions': '/terms-of-service.html',
           '/terms-service': '/terms-of-service.html',
+          '/service': '/services.html',
+          '/service.html': '/services.html',
         };
 
         const cleanTarget = target.startsWith('/') ? target : `/${target}`;

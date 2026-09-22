@@ -492,7 +492,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 @media (max-width: 480px) {
   .stats-ribbon {
     text-align: center;
-    grid-template-columns: 3fr !important;
+    grid-template-columns: 2fr !important;
     gap: 20px;
   }
 
@@ -1139,6 +1139,13 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
   .cta-content-box {
     padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 44px);
+    max-width: 100% !important;
+  }
+
+  .cta-title {
+    font-size: clamp(1.35rem, 4vw, 2.75rem) !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
   }
 }
 
@@ -1176,6 +1183,12 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     gap: 8px 16px;
   }
 
+  .cta-title {
+    font-size: clamp(1.1rem, 4.4vw, 1.85rem) !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+
   .cta-actions {
     flex-direction: column;
     width: 100%;
@@ -1203,6 +1216,13 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
   .page-banner-title {
     font-size: 1.6rem;
+  }
+
+  .cta-title {
+    font-size: clamp(0.88rem, 4.3vw, 1.05rem) !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+    letter-spacing: -0.025em !important;
   }
 
   .hero-title {
