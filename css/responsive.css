@@ -97,8 +97,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
 /* Safe area handling for Mobile Drawer on iPhones with notch/island */
 .mobile-nav-drawer {
-  padding-top: max(84px, calc(var(--safe-area-top) + 60px)) !important;
-  padding-bottom: max(32px, calc(var(--safe-area-bottom) + 24px)) !important;
+  padding-top: max(24px, calc(var(--safe-area-top) + 16px)) !important;
+  padding-bottom: max(28px, calc(var(--safe-area-bottom) + 16px)) !important;
   padding-left: max(24px, var(--safe-area-left)) !important;
   padding-right: max(24px, var(--safe-area-right)) !important;
   -webkit-overflow-scrolling: touch;
@@ -110,19 +110,20 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   right: max(20px, calc(var(--safe-area-right) + 14px)) !important;
 }
 
-/* Laptop & Desktop Navigation Transition (1025px - 1280px) */
+/* Laptop & Desktop Navigation Transition (1081px - 1280px) */
 @media (max-width: 1280px) {
   .nav-menu {
-    gap: clamp(12px, 1.6vw, 22px);
+    gap: clamp(10px, 1.3vw, 18px);
   }
   
   .nav-link {
     font-size: 0.8125rem;
-    padding: 6px 4px;
+    padding: 6px 2px;
+    letter-spacing: 0.02em;
   }
 
   .btn-whatsapp-nav {
-    padding: 8px 14px;
+    padding: 8px 12px;
     font-size: 0.8125rem;
   }
 }
@@ -140,6 +141,19 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
   .nav-actions {
     gap: 12px;
+  }
+}
+
+/* Mobile Screen Brand & Header Optimization (<= 480px) */
+@media (max-width: 480px) {
+  .brand-logo-img {
+    max-height: 40px;
+    max-width: 155px;
+  }
+  
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
   }
 }
 

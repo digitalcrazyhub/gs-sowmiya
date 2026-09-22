@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadGlobalComponents({
         activeNav: 'about',
         banner: {
-            title: 'SECOND-GENERATION CRAFTSMANSHIP.<br>ENGINEERING RIGOR.',
+            title: 'Second-Generation Craftsmanship.<br>Engineering Rigor.',
             eyebrow: 'Corporate Heritage & Engineering Integrity',
             breadcrumb: 'ABOUT US',
             desc: 'Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.',

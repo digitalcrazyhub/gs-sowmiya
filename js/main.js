@@ -22,6 +22,9 @@ if (typeof window !== 'undefined') {
   window.GS_BUILDERS = window.GS_BUILDERS || {
     version: '2.0.0',
     company: 'GS Sowmiya Builders Private Limited',
-    contact: '+91 70105 17729'
+    phone: '+91 90431 56670',
+    whatsapp: '+91 70105 17729',
+    email: 'md@sowmiyabuilders.com',
+    address: 'No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.'
   };
 }

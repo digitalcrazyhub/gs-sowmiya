@@ -246,7 +246,6 @@
   line-height: 1.2;
   color: var(--text-primary);
   margin-bottom: 8px;
-  text-transform: uppercase;
   letter-spacing: -0.01em;
 }
 
@@ -441,7 +440,6 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   color: #ffffff;
-  text-transform: uppercase;
   margin: 0;
 }
 
@@ -532,7 +530,6 @@
   line-height: 1.35;
   color: var(--text-primary);
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
 .technical-service-desc {
@@ -645,7 +642,6 @@
   color: #ffffff;
   letter-spacing: 0.05em;
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
 .process-step-desc {
@@ -751,7 +747,6 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
-  text-transform: uppercase;
 }
 
 .why-services-point-content p {
@@ -838,7 +833,6 @@
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 1.8vw, 1.625rem);
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 16px;
   letter-spacing: -0.01em;
 }

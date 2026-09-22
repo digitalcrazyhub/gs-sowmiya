@@ -14,104 +14,86 @@ export const SITE_CONFIG = {
         tagline: "Built on Trust. Driven by Quality.",
         shortDesc: "Second-generation builders in Chennai delivering quality residential construction, joint ventures, turnkey contracts, and modern home renovations with transparent pricing.",
         established: "2023",
-        heritageYears: "30+",
-        heritageNote: "Carrying forward a 30+ year family building contracting heritage",
+        heritageYears: "15+",
+        heritageNote: "Backed by 15+ years of dedicated building contracting excellence",
+        companyExperience: "15+ Year",
         projectsDelivered: "200+",
         happyFamilies: "200+",
         locationsServed: "Chennai & Chengalpattu",
     },
     contact: {
-        phone: "+91 70105 17729",
-        phoneSecondary: "+91 99628 35343",
-        phoneDisplay: "+91 70105 17729 / 99628 35343",
+        phone: "+91 90431 56670",
+        phoneSecondary: "+91 70105 17729",
+        phoneDisplay: "+91 90431 56670",
         whatsapp: "+91 70105 17729",
+        whatsappRaw: "917010517729",
         whatsappMessage: "Hello GS Sowmiya Builders, I would like to enquire about construction / joint venture / apartment projects.",
-        email: "info@gssowmiyabuilders.com",
-        officeAddress: "New No: 10/517, Old No: 1/425A, Front Portion, Ponni Amman Koil Street, Vengaivasal, Chennai, Tamil Nadu 600126",
-        shortAddress: "Ponni Amman Koil St, Vengaivasal, Chennai 600126",
-        landmark: "Near Medavakkam, Chennai",
-        coordinates: { lat: 12.9125, lng: 80.1875 },
+        email: "md@sowmiyabuilders.com",
+        officeAddress: "No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.",
+        shortAddress: "No 106, Nallasamy Tower, Velachery Main Rd, Pallikaranai, Chennai 600 100",
+        landmark: "Nallasamy Tower, Velachery Main Road, Pallikaranai",
+        mapUrl: "https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7",
+        website: "https://gssowmiyabuilders.com",
+        coordinates: { lat: 12.9366, lng: 80.2087 },
         workingHours: "Mon - Sat: 9:00 AM – 7:00 PM IST | Sun: By Appointment"
     },
     socials: {
-        facebook: "https://www.facebook.com/people/GS-Sowmiya-Builders-Pvt-Ltd/",
-        instagram: "https://instagram.com",
-        youtube: "https://youtube.com",
-        whatsapp: "https://wa.me/917010517729"
+        facebook: "https://www.facebook.com/share/1A3vYczzvJ/",
+        instagram: "https://www.instagram.com/gs_sowmiya_builders?igsi=eG1oNDJhcjAxN2hq",
+        youtube: "https://youtube.com/@sowmiyaconstruction6689?si=HtmzhtXbHHGSQuVm",
+        whatsapp: "https://wa.me/917010517729",
+        website: "https://gssowmiyabuilders.com",
+        officeLocation: "https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7"
     }
 };
 
 export const HERO_SLIDES = [
     {
         id: "01",
-        category: "AFFORDABLE EXCELLENCE",
-        title: "BUILDING THE<br>FUTURE",
-        subtitle: "Premium Residential Developments & Turnkey Homes across Chennai",
-        description: "GS Sowmiya Builders Private Limited is dedicated to making dream homes accessible to all classes of people across Chennai. Engineered with earthquake-resistant durability, transparent pricing, and timely handover.",
-        featuredCard: {
-            tag: "Medavakkam Project",
-            title: "GS Sowmiya Elite Enclave",
-            specs: "2 BHK · 916 Sq.Ft. · RERA Approved",
-            status: "In Finishing / Booking Open",
-            image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
-        },
+        label: "Residential Construction",
+        category: "CONSTRUCTION SERVICES",
+        title: "Reliable Construction<br>Services",
+        subtitle: "Making dream homes accessible to all classes of people across Chennai",
+        description: "We provide reliable, high-quality residential construction and turnkey solutions to keep your dream home durable, safe, and built to last always.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85",
         buttons: [
-            { text: "EXPLORE OUR PROJECTS", href: "#projects", primary: true },
-            { text: "BOOK CONSULTATION", href: "/contact.html", primary: false }
+            { text: "Our Services »", href: "#services", primary: true }
         ]
     },
     {
         id: "02",
-        category: "RESIDENTIAL HOMES",
-        title: "SPACES MADE<br>FOR LIVING",
-        subtitle: "Custom residential homes and turnkey villas built on your land.",
-        description: "Second-generation craftsmanship meeting modern structural engineering. High-grade materials, earthquake-resistant RCC frames, and zero hidden costs.",
-        featuredCard: {
-            tag: "Custom Residence",
-            title: "Vengaivasal Villa",
-            specs: "Independent Home · 1,850 Sq.Ft.",
-            status: "Successfully Handed Over",
-            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
-        },
+        label: "Living Spaces & Homes",
+        category: "CUSTOM HOMES",
+        title: "Spaces Made<br>For Living",
+        subtitle: "Custom residential homes and turnkey villas built on your land",
+        description: "Custom residential homes and turnkey villas built on your land with second-generation craftsmanship, branded materials, and earthquake-resistant RCC frames.",
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85",
         buttons: [
-            { text: "RESIDENTIAL SERVICES", href: "/services/residential-construction.html", primary: true },
-            { text: "GET ESTIMATE", href: "/contact.html", primary: false }
+            { text: "Our Services »", href: "/services/residential-construction.html", primary: true }
         ]
     },
     {
         id: "03",
-        category: "LANDOWNER & COMMERCIAL",
-        title: "BUILT FOR<br>BUSINESS",
-        subtitle: "Maximize your plot's true value with an equitable partnership.",
-        description: "We partner with plot and landowners across South Chennai. Clear legal documentation, CMDA/DTCP sanctions, and timely project delivery.",
-        featuredCard: {
-            tag: "Upcoming JV",
-            title: "Vignarajapuram Project",
-            specs: "Residential Development · Medavakkam Belt",
-            status: "Land Approval in Progress",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
-        },
+        label: "Joint Ventures",
+        category: "LAND & COMMERCIAL",
+        title: "Equitable<br>Joint Ventures",
+        subtitle: "Maximize your plot's true value with an equitable partnership",
+        description: "Partnering with landowners and plot owners across South Chennai with transparent CMDA/DTCP sanctions, clear legal agreements, and maximum land value.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85",
         buttons: [
-            { text: "JOINT VENTURE DETAILS", href: "/services.html", primary: true },
-            { text: "SUBMIT YOUR PROPERTY", href: "/contact.html", primary: false }
+            { text: "Our Services »", href: "/services.html", primary: true }
         ]
     },
     {
         id: "04",
+        label: "Turnkey Solutions",
         category: "COMPLETE SOLUTIONS",
-        title: "FROM VISION<br>TO REALITY",
-        subtitle: "From plan approvals and foundation to interior handover.",
-        description: "Our mission is making dream homes accessible to all classes of people. Direct principal supervision on site with transparent milestone billing.",
-        featuredCard: {
-            tag: "Turnkey Execution",
-            title: "Manivakkam Enclave",
-            specs: "Turnkey Residential · Tambaram Sector",
-            status: "Completed & Occupied",
-            image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80"
-        },
+        title: "From Vision<br>To Reality",
+        subtitle: "From plan approvals and foundation to interior handover",
+        description: "From architectural planning and structural engineering to turnkey interior handover, delivered on schedule with direct principal site supervision.",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2400&q=85",
         buttons: [
-            { text: "OUR SERVICES", href: "/services.html", primary: true },
-            { text: "CONTACT BUILDER", href: "/contact.html", primary: false }
+            { text: "Our Services »", href: "/contact.html", primary: true }
         ]
     }
 ];
@@ -360,7 +342,7 @@ export const ABOUT_DATA = {
             name: "Mr. Gurusamy",
             role: "Director & Senior Mentor",
             specialty: "Three Decades of Building Contracting Mastery",
-            bio: "A veteran building contractor who has shaped more than 200 projects across Chennai. Brings 30+ years of deep practical construction wisdom, artisan relationships, and material sourcing knowledge.",
+            bio: "A veteran building contractor who has shaped more than 200 projects across Chennai. Brings 15+ years of deep practical construction wisdom, artisan relationships, and material sourcing knowledge.",
             image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
         },
         {

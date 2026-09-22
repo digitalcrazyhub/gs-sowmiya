@@ -147,11 +147,23 @@ const COMPONENT_FALLBACKS = {
 <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
 <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
   <div class="mobile-nav-top">
-    <a href="/" class="brand-logo" style="margin-bottom: 24px;" aria-label="GS Sowmiya Builders Home">
-      <img src="/gssb-logo.svg" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="180" height="48" />
-    </a>
-    <nav class="mobile-nav-links">
-      <a href="/" class="mobile-nav-link" data-nav="home">HOME <span>→</span></a>
+    <div class="mobile-drawer-header">
+      <a href="/" class="brand-logo mobile-drawer-logo" aria-label="GS Sowmiya Builders Home">
+        <img src="/Gssb_logo.jpg" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="160" height="42" />
+      </a>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav-links" aria-label="Mobile Menu Links">
+      <a href="/" class="mobile-nav-link" data-nav="home">
+        <span>HOME</span>
+        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+      </a>
       
       <!-- Mobile Submenu Accordion for About Us -->
       <div class="mobile-nav-accordion" id="mobile-about-accordion">
@@ -222,8 +234,14 @@ const COMPONENT_FALLBACKS = {
         </div>
       </div>
 
-      <a href="/projects.html" class="mobile-nav-link" data-nav="projects">PROJECTS <span>→</span></a>
-      <a href="/contact.html" class="mobile-nav-link" data-nav="contact">CONTACT US <span>→</span></a>
+      <a href="/projects.html" class="mobile-nav-link" data-nav="projects">
+        <span>PROJECTS</span>
+        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="/contact.html" class="mobile-nav-link" data-nav="contact">
+        <span>CONTACT US</span>
+        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+      </a>
     </nav>
   </div>
   <div class="mobile-nav-footer">
@@ -237,8 +255,11 @@ const COMPONENT_FALLBACKS = {
       </svg>
       <span>WHATSAPP: +91 70105 17729</span>
     </a>
-    <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: 14px;">
-      Vengaivasal, Chennai • Tamil Nadu
+    <a href="tel:+919043156670" style="display: block; text-align: center; color: var(--gold-light, #d9a24a); font-size: 0.875rem; margin-top: 10px; font-weight: 600; text-decoration: none;">
+      CALL: +91 90431 56670
+    </a>
+    <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.4;">
+      No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.
     </p>
   </div>
 </aside>
@@ -263,11 +284,11 @@ const COMPONENT_FALLBACKS = {
       </div>
 
       <h1 class="page-hero-title" id="banner-title-text">
-        SECOND-GENERATION CRAFTSMANSHIP.<br>ENGINEERING RIGOR.
+        Second-Generation Craftsmanship.<br>Engineering Rigor.
       </h1>
 
       <p class="page-hero-desc" id="banner-desc-text">
-        Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.
+        Backed by 15+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.
       </p>
     </div>
   </div>
@@ -285,7 +306,7 @@ const COMPONENT_FALLBACKS = {
         <span>Initiate Your Project</span>
       </div>
       <h2 class="cta-title">
-        LET’S BUILD<br>SOMETHING<br>EXCEPTIONAL.
+        Let’s Build<br>Something<br>Exceptional.
       </h2>
       <p class="cta-desc">
         Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
@@ -319,12 +340,25 @@ const COMPONENT_FALLBACKS = {
           <img src="/gssb-logo-dark.svg" alt="GS Sowmiya Builders Pvt. Ltd" class="footer-logo-img" width="220" height="68" />
         </a>
         <p class="footer-brand-desc">
-          GS Sowmiya Builders Private Limited is a second-generation Chennai builder dedicated to making quality homes accessible to all classes of people, backed by a 30+ year family construction legacy.
+          GS Sowmiya Builders Private Limited is a second-generation builder in Chennai dedicated to making dream homes accessible to all classes of people, backed by 15+ years of building contracting excellence.
         </p>
         <div class="footer-social-links" aria-label="Social Media">
-          <a href="https://www.facebook.com/people/GS-Sowmiya-Builders-Pvt-Ltd/" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on Facebook" class="social-icon-btn">
+          <a href="https://www.facebook.com/share/1A3vYczzvJ/" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on Facebook" class="social-icon-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/gs_sowmiya_builders?igsi=eG1oNDJhcjAxN2hq" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on Instagram" class="social-icon-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://youtube.com/@sowmiyaconstruction6689?si=HtmzhtXbHHGSQuVm" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on YouTube" class="social-icon-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
             </svg>
           </a>
           <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on WhatsApp" class="social-icon-btn">
@@ -332,7 +366,7 @@ const COMPONENT_FALLBACKS = {
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
             </svg>
           </a>
-          <a href="mailto:info@gssowmiyabuilders.com" aria-label="Email GS Sowmiya Builders" class="social-icon-btn">
+          <a href="mailto:md@sowmiyabuilders.com" aria-label="Email GS Sowmiya Builders" class="social-icon-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
@@ -368,10 +402,15 @@ const COMPONENT_FALLBACKS = {
       <div>
         <h4 class="footer-col-title">Registered Office</h4>
         <ul class="footer-links-list">
-          <li><span style="color: #777; font-size: 0.8125rem;">Address:</span> New No: 10/517, Old No: 1/425A, Front Portion, Ponni Amman Koil Street, Vengaivasal, Chennai 600126</li>
-          <li><span style="color: #777; font-size: 0.8125rem;">Phone:</span> <a href="tel:+917010517729">+91 70105 17729</a></li>
+          <li>
+            <span style="color: #777; font-size: 0.8125rem; display: block; margin-bottom: 2px;">Address:</span>
+            No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.
+            <a href="https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7" target="_blank" rel="noopener noreferrer" style="color: #d9a24a; display: block; margin-top: 4px; font-size: 0.8125rem;">View on Google Maps →</a>
+          </li>
+          <li><span style="color: #777; font-size: 0.8125rem;">Phone:</span> <a href="tel:+919043156670">+91 90431 56670</a></li>
           <li><span style="color: #777; font-size: 0.8125rem;">WhatsApp:</span> <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer">+91 70105 17729</a></li>
-          <li><span style="color: #777; font-size: 0.8125rem;">Email:</span> <a href="mailto:info@gssowmiyabuilders.com">info@gssowmiyabuilders.com</a></li>
+          <li><span style="color: #777; font-size: 0.8125rem;">Email:</span> <a href="mailto:md@sowmiyabuilders.com">md@sowmiyabuilders.com</a></li>
+          <li><span style="color: #777; font-size: 0.8125rem;">Website:</span> <a href="https://gssowmiyabuilders.com" target="_blank" rel="noopener noreferrer">gssowmiyabuilders.com</a></li>
           <li><span style="color: #777; font-size: 0.8125rem;">CIN:</span> U43299TN2023PTC161774</li>
         </ul>
       </div>
@@ -380,9 +419,9 @@ const COMPONENT_FALLBACKS = {
     <div class="footer-bottom-bar">
       <p>© <span class="dynamic-copyright-year">2026</span> GS Sowmiya Builders Private Limited. All Rights Reserved.</p>
       <div class="footer-legal-links">
-        <a href="/contact.html">Privacy Policy</a>
-        <a href="/contact.html">Terms &amp; Conditions</a>
-        <a href="/contact.html">Sitemap</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+        <a href="/contact.html">RERA Compliance</a>
       </div>
     </div>
   </div>
@@ -402,13 +441,13 @@ const COMPONENT_FALLBACKS = {
     <span class="floating-btn-tooltip">WhatsApp</span>
   </a>
 
-  <a href="tel:+917010517729" 
+  <a href="tel:+919043156670" 
      class="floating-btn floating-phone" 
-     aria-label="Call GS Sowmiya Builders directly on +91 70105 17729">
+     aria-label="Call GS Sowmiya Builders directly on +91 90431 56670">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
     </svg>
-    <span class="floating-btn-tooltip">Call +91 70105 17729</span>
+    <span class="floating-btn-tooltip">Call +91 90431 56670</span>
   </a>
 
   <button class="floating-btn floating-scroll-top" aria-label="Scroll to top of page" type="button">
@@ -470,9 +509,16 @@ export async function loadGlobalComponents(options = {}) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     });
-    if (activeNav === 'team' || activeNav === 'about-us') {
+    if (activeNav === 'about-us' || activeNav === 'about') {
       navbarEl.querySelectorAll('[data-nav="about"]').forEach(link => {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      });
+    }
+    if (activeNav.startsWith('service-') || activeNav === 'services') {
+      navbarEl.querySelectorAll('[data-nav="services"]').forEach(link => {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       });
     }
 

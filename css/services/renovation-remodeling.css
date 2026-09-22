@@ -96,7 +96,6 @@
     line-height: 1.08;
     letter-spacing: -0.01em;
     color: #FFFFFF;
-    text-transform: uppercase;
     margin-bottom: 24px;
     max-width: 950px;
 }
@@ -189,8 +188,7 @@
     font-weight: 800;
     line-height: 1.15;
     color: var(--text-primary, #161616);
-    text-transform: uppercase;
-}
+    }
 
 .intro-body-copy {
     font-size: 1.0625rem;
@@ -279,7 +277,6 @@
     font-weight: 800;
     line-height: 1.15;
     color: var(--text-primary, #161616);
-    text-transform: uppercase;
     margin-bottom: 16px;
 }
 
@@ -359,8 +356,7 @@
     font-weight: 700;
     color: var(--text-primary, #161616);
     margin-bottom: 10px;
-    text-transform: uppercase;
-}
+    }
 
 .build-card-desc {
     font-size: 0.875rem;
@@ -435,8 +431,7 @@
     font-weight: 700;
     color: var(--text-primary, #161616);
     margin-bottom: 8px;
-    text-transform: uppercase;
-}
+    }
 
 .app-box-desc {
     font-size: 0.875rem;
@@ -504,8 +499,7 @@
     font-weight: 700;
     color: var(--text-primary, #161616);
     margin-bottom: 12px;
-    text-transform: uppercase;
-}
+    }
 
 .approach-step-desc {
     font-size: 0.875rem;
@@ -583,8 +577,7 @@
     font-weight: 700;
     color: var(--text-primary, #161616);
     margin-bottom: 12px;
-    text-transform: uppercase;
-}
+    }
 
 .scope-card-desc {
     font-size: 0.875rem;
@@ -676,7 +669,6 @@
     font-weight: 700;
     color: #FFFFFF;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     margin-bottom: 12px;
 }
 
@@ -748,8 +740,7 @@
     font-size: 1.125rem;
     font-weight: 700;
     color: #FFFFFF;
-    text-transform: uppercase;
-}
+    }
 
 /* 09. Related Verified Projects */
 .related-projects-section {
@@ -991,7 +982,6 @@
     font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.15;
-    text-transform: uppercase;
     color: #FFFFFF;
     margin-bottom: 20px;
 }
@@ -1057,8 +1047,7 @@
     font-weight: 700;
     color: var(--text-primary, #161616);
     margin-bottom: 8px;
-    text-transform: uppercase;
-}
+    }
 
 .related-service-desc {
     font-size: 0.8125rem;

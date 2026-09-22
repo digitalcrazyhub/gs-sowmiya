@@ -1,13 +1,12 @@
 /**
- * GS SOWMIYA BUILDERS - ONE PERSISTENT BACKGROUND VIDEO + 4-SLIDE ARCHITECTURAL HERO
- * Master Controller:
- * 1. ONE common full-screen background video (plays continuously, never reloaded)
- * 2. 4 content slides (Building the Future, Spaces Made for Living, Built for Business, From Vision to Reality)
- * 3. 3D Pointer Tilt & Dynamic Light Sheen on foreground content panel only (video never tilts)
- * 4. Staggered cinematic GSAP transitions for foreground content
- * 5. Autoplay (7s), progress bar, slide counter (01 / 04), previous/next buttons
- * 6. Touch swipe support (left/right) with zero vertical scroll interference
- * 7. Keyboard navigation (ArrowLeft / ArrowRight) & Reduced-motion compliance
+ * GS SOWMIYA BUILDERS - FULL-SCREEN CAROUSEL HERO CONTROLLER
+ * Matching User's Reference Layout:
+ * 1. 4 Full-Screen High-Resolution Carousel Background Images with Ken Burns scale & smooth crossfade
+ * 2. Left-aligned content: Red Brand Icon badge, bold white heading, clean description, red CTA button
+ * 3. Bottom-Left Target Dots (◎ • • •) with click navigation
+ * 4. Bottom-Right Service Tabs with active white underline indicator and click navigation
+ * 5. Lightbox modal viewer for high-res architectural viewing
+ * 6. Touch-swipe gestures and keyboard navigation
  */
 
 import { HERO_SLIDES } from './config.js';
@@ -15,28 +14,25 @@ import gsap from 'gsap';
 
 export function initHeroSlider() {
     const heroSection = document.querySelector('.hero-section');
-    const heroFrame = document.querySelector('.hero-frame');
-    const contentCard = document.getElementById('hero-content-card');
+    const bgSlides = document.querySelectorAll('.hero-bg-slide');
+    const contentWrap = document.querySelector('.hero-content-wrap');
     const titleEl = document.querySelector('.hero-title');
-    const categoryEl = document.querySelector('.hero-category-label');
     const descEl = document.querySelector('.hero-description');
-    const ctaGroup = document.querySelector('.hero-cta-group');
-    const primaryCta = document.querySelector('.hero-primary-cta');
-    const secondaryCta = document.querySelector('.hero-secondary-cta');
-    const counterEl = document.querySelector('.hero-counter');
-    const progressFill = document.querySelector('.hero-progress-fill');
-    const prevBtn = document.querySelector('.hero-prev-btn');
-    const nextBtn = document.querySelector('.hero-next-btn');
-    const indicators = document.querySelectorAll('.hero-indicator');
-    const pills = document.querySelectorAll('.pill-filter-item');
-    
-    // Featured Card Elements
-    const featuredCard = document.getElementById('hero-featured-card');
-    const featuredThumb = featuredCard?.querySelector('.featured-card-thumb');
-    const featuredTag = featuredCard?.querySelector('.featured-card-tag');
-    const featuredTitle = featuredCard?.querySelector('.featured-card-title');
-    const featuredSpecs = featuredCard?.querySelector('.featured-card-specs');
-    const featuredBtn = featuredCard?.querySelector('.featured-card-btn');
+    const ctaBtn = document.getElementById('hero-cta-btn') || document.querySelector('.hero-primary-cta');
+    const dots = document.querySelectorAll('.hero-dot');
+    const tabItems = document.querySelectorAll('.hero-tab-item');
+
+    // Lightbox Elements
+    const lightboxTrigger = document.getElementById('hero-lightbox-btn');
+    const lightboxEl = document.getElementById('hero-lightbox');
+    const lightboxBackdrop = document.getElementById('hero-lightbox-backdrop');
+    const lightboxClose = document.getElementById('hero-lightbox-close');
+    const lightboxImg = document.getElementById('hero-lightbox-img');
+    const lightboxTitle = document.getElementById('hero-lightbox-title');
+    const lightboxDesc = document.getElementById('hero-lightbox-desc');
+    const lightboxCounter = document.getElementById('hero-lightbox-counter');
+    const lightboxPrev = document.getElementById('hero-lightbox-prev');
+    const lightboxNext = document.getElementById('hero-lightbox-next');
 
     if (!heroSection || !titleEl) return;
 
@@ -44,141 +40,113 @@ export function initHeroSlider() {
     const totalSlides = HERO_SLIDES.length;
     let isTransitioning = false;
     let isPaused = false;
-    const AUTOPLAY_DURATION = 7000; // 7 seconds per slide
+    let isLightboxOpen = false;
+    let autoplayTimer = null;
+    const AUTOPLAY_INTERVAL = 6000; // 6 seconds
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // --- 1. Content Slide Transitions (Video stays playing continuously) ---
+    // --- 1. Update Slide Transition ---
     function updateSlide(index, direction = 'next') {
         if (isTransitioning) return;
         isTransitioning = true;
 
         const data = HERO_SLIDES[index];
 
-        // Update Counter Display (e.g. 01 / 04)
-        if (counterEl) {
-            counterEl.textContent = `${data.id} / 0${totalSlides}`;
+        // A. Background Slides Crossfade & Scale
+        bgSlides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('is-active');
+                slide.setAttribute('aria-hidden', 'false');
+                const img = slide.querySelector('.hero-bg-img');
+                if (img && !prefersReducedMotion) {
+                    gsap.fromTo(img, 
+                        { scale: 1.05 }, 
+                        { scale: 1.0, duration: AUTOPLAY_INTERVAL / 1000, ease: 'power1.out' }
+                    );
+                }
+            } else {
+                slide.classList.remove('is-active');
+                slide.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // B. Update Bottom Left Dots (◎ • • •)
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('is-active');
+                dot.setAttribute('aria-selected', 'true');
+            } else {
+                dot.classList.remove('is-active');
+                dot.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // C. Update Bottom Right Service Tabs (with underline indicator)
+        tabItems.forEach((tab, i) => {
+            if (i === index) {
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+            } else {
+                tab.classList.remove('is-active');
+                tab.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // D. Update Lightbox if open
+        if (isLightboxOpen) {
+            updateLightboxContent(index);
         }
 
-        // Update Slide Indicators (01, 02, 03, 04)
-        indicators.forEach((ind, i) => {
-            if (i === index) {
-                ind.classList.add('is-active');
-                ind.setAttribute('aria-current', 'true');
-            } else {
-                ind.classList.remove('is-active');
-                ind.removeAttribute('aria-current');
-            }
-        });
-
-        // Sync Bottom Architectural Pills
-        pills.forEach(pill => {
-            const cat = pill.dataset.category;
-            if (cat === data.category || (cat === 'ALL' && index === 0)) {
-                pill.classList.add('is-active');
-                pill.setAttribute('aria-selected', 'true');
-            } else {
-                pill.classList.remove('is-active');
-                pill.setAttribute('aria-selected', 'false');
-            }
-        });
-
+        // E. Text Content Transition
         if (prefersReducedMotion) {
-            // Simplified instant crossfade for reduced-motion accessibility
-            categoryEl.textContent = data.category;
             titleEl.innerHTML = data.title;
             descEl.textContent = data.description;
-            if (primaryCta && data.buttons[0]) {
-                const textSpan = primaryCta.querySelector('span:first-child');
-                if (textSpan) textSpan.textContent = data.buttons[0].text;
-                primaryCta.setAttribute('href', data.buttons[0].href);
-            }
-            if (secondaryCta && data.buttons[1]) {
-                const secSpan = secondaryCta.querySelector('span:first-child');
-                if (secSpan) secSpan.textContent = data.buttons[1].text;
-                secondaryCta.setAttribute('href', data.buttons[1].href);
-            }
-            if (featuredCard && data.featuredCard) {
-                featuredThumb.src = data.featuredCard.image;
-                featuredThumb.alt = data.featuredCard.title;
-                featuredTag.textContent = data.featuredCard.tag;
-                featuredTitle.textContent = data.featuredCard.title;
-                featuredSpecs.textContent = data.featuredCard.specs;
+            if (ctaBtn && data.buttons[0]) {
+                const span = ctaBtn.querySelector('span');
+                if (span) span.textContent = data.buttons[0].text;
+                ctaBtn.setAttribute('href', data.buttons[0].href);
             }
             currentIndex = index;
             isTransitioning = false;
-            restartAutoplayProgress();
+            resetAutoplay();
             return;
         }
 
-        // Cinematic GSAP Transition: Exit current content
-        const exitElements = [categoryEl, titleEl, descEl, ctaGroup, featuredCard].filter(Boolean);
-        const yExit = direction === 'next' ? -18 : 18;
+        // Smooth GSAP text entrance & exit
+        const exitElements = [titleEl, descEl, ctaBtn].filter(Boolean);
+        const yExit = direction === 'next' ? -14 : 14;
 
         gsap.to(exitElements, {
             y: yExit,
             opacity: 0,
-            duration: 0.32,
+            duration: 0.24,
             stagger: 0.03,
             ease: 'power2.in',
             onComplete: () => {
-                // Update Foreground Data
-                categoryEl.textContent = data.category;
                 titleEl.innerHTML = data.title;
                 descEl.textContent = data.description;
 
-                // Update Primary & Secondary CTA
-                if (primaryCta && data.buttons[0]) {
-                    const textSpan = primaryCta.querySelector('span:first-child');
-                    if (textSpan) {
-                        textSpan.textContent = data.buttons[0].text;
-                    }
-                    primaryCta.setAttribute('href', data.buttons[0].href);
-                }
-                if (secondaryCta && data.buttons[1]) {
-                    const secSpan = secondaryCta.querySelector('span:first-child');
-                    if (secSpan) {
-                        secSpan.textContent = data.buttons[1].text;
-                    }
-                    secondaryCta.setAttribute('href', data.buttons[1].href);
+                if (ctaBtn && data.buttons[0]) {
+                    const span = ctaBtn.querySelector('span');
+                    if (span) span.textContent = data.buttons[0].text;
+                    ctaBtn.setAttribute('href', data.buttons[0].href);
                 }
 
-                // Update Featured Card (Bottom Right)
-                if (featuredCard && data.featuredCard) {
-                    if (featuredThumb) {
-                        featuredThumb.src = data.featuredCard.image;
-                        featuredThumb.alt = data.featuredCard.title;
-                    }
-                    if (featuredTag) featuredTag.textContent = data.featuredCard.tag;
-                    if (featuredTitle) featuredTitle.textContent = data.featuredCard.title;
-                    if (featuredSpecs) featuredSpecs.textContent = data.featuredCard.specs;
-                    if (featuredBtn && data.buttons[0]) {
-                        featuredBtn.setAttribute('href', data.buttons[0].href);
-                    }
-                }
-
-                // Staggered Cinematic Reveal In
-                const yEnter = direction === 'next' ? 22 : -22;
-                gsap.fromTo([categoryEl, titleEl, descEl, ctaGroup],
+                const yEnter = direction === 'next' ? 18 : -18;
+                gsap.fromTo([titleEl, descEl, ctaBtn].filter(Boolean),
                     { y: yEnter, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.65, stagger: 0.08, ease: 'power3.out' }
+                    { y: 0, opacity: 1, duration: 0.55, stagger: 0.06, ease: 'power3.out' }
                 );
-
-                if (featuredCard) {
-                    gsap.fromTo(featuredCard,
-                        { y: 16, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.7, delay: 0.12, ease: 'power3.out' }
-                    );
-                }
 
                 currentIndex = index;
                 setTimeout(() => {
                     isTransitioning = false;
-                }, 400);
-
-                restartAutoplayProgress();
+                }, 300);
             }
         });
+
+        resetAutoplay();
     }
 
     function nextSlide() {
@@ -191,142 +159,159 @@ export function initHeroSlider() {
         updateSlide(prevIdx, 'prev');
     }
 
-    // --- 2. Autoplay & Progress Bar ---
-    function restartAutoplayProgress() {
-        if (!progressFill) return;
-        gsap.killTweensOf(progressFill);
-        gsap.fromTo(progressFill, 
-            { width: '0%' },
-            { 
-                width: '100%', 
-                duration: AUTOPLAY_DURATION / 1000, 
-                ease: 'none',
-                onComplete: () => {
-                    if (!isPaused) {
-                        nextSlide();
-                    }
-                }
+    // --- 2. Autoplay Loop ---
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+            if (!isPaused && !isLightboxOpen) {
+                nextSlide();
             }
-        );
+        }, AUTOPLAY_INTERVAL);
     }
 
-    // --- 3. 3D Tilt & Light Response (Only on Foreground Content Card, NOT Video) ---
-    function init3DCardTilt() {
-        if (prefersReducedMotion) return;
-        const isTouch = window.matchMedia('(pointer: coarse)').matches;
-        if (isTouch || window.innerWidth < 1024) return;
-        if (!contentCard || !heroFrame) return;
-
-        let rafId = null;
-        let targetRotateX = 0;
-        let targetRotateY = 0;
-        let pointerXPercent = 50;
-        let pointerYPercent = 50;
-
-        function onMouseMove(e) {
-            const rect = heroFrame.getBoundingClientRect();
-            const relX = e.clientX - rect.left;
-            const relY = e.clientY - rect.top;
-            const normX = Math.max(0, Math.min(1, relX / rect.width));
-            const normY = Math.max(0, Math.min(1, relY / rect.height));
-
-            // Restrained, subtle architectural angles (max ±3.5 degrees)
-            targetRotateY = (normX - 0.5) * 6;
-            targetRotateX = (0.5 - normY) * 5;
-
-            pointerXPercent = (normX * 100).toFixed(1);
-            pointerYPercent = (normY * 100).toFixed(1);
-
-            if (!rafId) {
-                rafId = requestAnimationFrame(updateCardTransform);
-            }
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
         }
+    }
 
-        function updateCardTransform() {
-            // Apply 3D perspective and subtle depth rotation
-            contentCard.style.transform = `perspective(1200px) rotateX(${targetRotateX.toFixed(2)}deg) rotateY(${targetRotateY.toFixed(2)}deg) translateZ(12px)`;
-            
-            // Update CSS custom properties for the subtle dynamic light sheen
-            contentCard.style.setProperty('--pointer-x', `${pointerXPercent}%`);
-            contentCard.style.setProperty('--pointer-y', `${pointerYPercent}%`);
-            
-            rafId = null;
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    // --- 3. Lightbox Functionality ---
+    function openLightbox(idx = currentIndex) {
+        if (!lightboxEl) return;
+        isLightboxOpen = true;
+        stopAutoplay();
+
+        updateLightboxContent(idx);
+
+        lightboxEl.classList.add('is-open');
+        lightboxEl.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            lightboxClose?.focus();
+        }, 100);
+    }
+
+    function closeLightbox() {
+        if (!lightboxEl) return;
+        isLightboxOpen = false;
+        lightboxEl.classList.remove('is-open');
+        lightboxEl.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        if (!isPaused) {
+            startAutoplay();
         }
+        lightboxTrigger?.focus();
+    }
 
-        function onMouseLeave() {
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-                rafId = null;
-            }
-            // Silky smooth reset back to neutral
-            gsap.to(contentCard, {
-                rotateX: 0,
-                rotateY: 0,
-                z: 0,
-                duration: 0.6,
-                ease: 'power2.out',
-                onUpdate: () => {
-                    contentCard.style.setProperty('--pointer-x', '50%');
-                    contentCard.style.setProperty('--pointer-y', '50%');
-                }
-            });
+    function updateLightboxContent(idx) {
+        const data = HERO_SLIDES[idx];
+        if (!data) return;
+
+        if (lightboxImg) {
+            lightboxImg.src = data.image;
+            lightboxImg.alt = `${data.title.replace(/<br>/g, ' ')} - Architectural Detail`;
         }
+        if (lightboxTitle) {
+            lightboxTitle.innerHTML = data.title;
+        }
+        if (lightboxDesc) {
+            lightboxDesc.textContent = data.description;
+        }
+        if (lightboxCounter) {
+            lightboxCounter.textContent = `${data.id} / 0${totalSlides}`;
+        }
+    }
 
-        heroFrame.addEventListener('mousemove', onMouseMove, { passive: true });
-        heroFrame.addEventListener('mouseleave', onMouseLeave);
+    function nextLightboxImage() {
+        const nextIdx = (currentIndex + 1) % totalSlides;
+        updateSlide(nextIdx, 'next');
+    }
+
+    function prevLightboxImage() {
+        const prevIdx = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlide(prevIdx, 'prev');
     }
 
     // --- 4. Event Listeners ---
-    nextBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        nextSlide();
-    });
 
-    prevBtn?.addEventListener('click', (e) => {
-        e.preventDefault();
-        prevSlide();
-    });
-
-    // Indicator clicks (01, 02, 03, 04)
-    indicators.forEach((indicator) => {
-        indicator.addEventListener('click', (e) => {
+    // Click Dots Navigation (◎ • • •)
+    dots.forEach((dot) => {
+        dot.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetIdx = parseInt(indicator.dataset.index, 10);
+            const targetIdx = parseInt(dot.dataset.index, 10);
             if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
                 updateSlide(targetIdx, targetIdx > currentIndex ? 'next' : 'prev');
             }
         });
     });
 
-    // Bottom Filter Pills click
-    pills.forEach((pill) => {
-        pill.addEventListener('click', () => {
-            const cat = pill.dataset.category;
-            let targetIdx = 0;
-            if (cat === 'RESIDENTIAL') targetIdx = 1;
-            else if (cat === 'COMMERCIAL') targetIdx = 2;
-            else if (cat === 'SOLUTIONS') targetIdx = 3;
-            else targetIdx = 0;
-
-            if (targetIdx !== currentIndex) {
+    // Click Service Tabs Navigation
+    tabItems.forEach((tab) => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetIdx = parseInt(tab.dataset.index, 10);
+            if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
                 updateSlide(targetIdx, targetIdx > currentIndex ? 'next' : 'prev');
             }
         });
     });
 
-    // Pause autoplay on hover over hero frame
-    heroFrame?.addEventListener('mouseenter', () => {
+    // Lightbox Controls
+    lightboxTrigger?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(currentIndex);
+    });
+
+    lightboxClose?.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeLightbox();
+    });
+
+    lightboxBackdrop?.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeLightbox();
+    });
+
+    lightboxPrev?.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevLightboxImage();
+    });
+
+    lightboxNext?.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextLightboxImage();
+    });
+
+    // Pause Autoplay on Hover over Hero Content
+    contentWrap?.addEventListener('mouseenter', () => {
         isPaused = true;
-        gsap.getTweensOf(progressFill).forEach(t => t.pause());
     });
 
-    heroFrame?.addEventListener('mouseleave', () => {
+    contentWrap?.addEventListener('mouseleave', () => {
         isPaused = false;
-        gsap.getTweensOf(progressFill).forEach(t => t.play());
     });
 
-    // Keyboard navigation (ArrowLeft / ArrowRight when hero in view)
+    // Keyboard Navigation
     document.addEventListener('keydown', (e) => {
+        if (isLightboxOpen) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                nextLightboxImage();
+            } else if (e.key === 'ArrowLeft') {
+                prevLightboxImage();
+            }
+            return;
+        }
+
         if (window.scrollY < window.innerHeight * 0.75) {
             if (e.key === 'ArrowRight') {
                 nextSlide();
@@ -336,7 +321,7 @@ export function initHeroSlider() {
         }
     });
 
-    // Touch Swipe Navigation for mobile devices
+    // Touch Swipe Navigation for mobile
     let touchStartX = 0;
     let touchStartY = 0;
     let touchEndX = 0;
@@ -356,21 +341,15 @@ export function initHeroSlider() {
     function handleSwipe() {
         const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
-        // Require horizontal swipe to be distinct and significantly larger than vertical movement
-        if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4) {
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
             if (deltaX < 0) {
-                // Swiped Left -> Next Slide
                 nextSlide();
             } else {
-                // Swiped Right -> Previous Slide
                 prevSlide();
             }
         }
     }
 
-    // Initialize 3D Card Tilt on foreground card
-    init3DCardTilt();
-
-    // Start Autoplay Progress
-    restartAutoplayProgress();
+    // Start Autoplay
+    startAutoplay();
 }

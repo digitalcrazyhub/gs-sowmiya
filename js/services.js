@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     activeNav: 'services',
     banner: {
       eyebrow: 'WHAT WE BUILD',
-      title: 'CONSTRUCTION SERVICES<br>FOR TAMIL NADU.',
+      title: 'Construction Services<br>For Tamil Nadu.',
       breadcrumb: 'SERVICES',
       desc: 'Verified second-generation construction solutions for residential apartments, landowner joint ventures, turnkey contracts, and structural renovations across Chennai.',
       bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1800&q=80'

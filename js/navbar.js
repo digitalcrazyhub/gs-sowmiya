@@ -2,9 +2,9 @@
  * GS SOWMIYA BUILDERS - GLOBAL NAVIGATION CONTROLLER
  * Handles:
  * 1. Sticky Header & Scroll Elevation
- * 2. Mobile Drawer Open / Close / Overlay State
- * 3. Mobile Navigation Accordion Submenus (About & Individual Services)
- * 4. Desktop Navigation Dropdown Accessibility
+ * 2. Desktop Dropdowns (Hover + Keyboard + Click-outside)
+ * 3. Mobile Drawer Open/Close/Overlay & Touch Accessibility
+ * 4. Mobile Drawer Accordions (+/- Submenu expand)
  */
 
 export function initNavbar() {
@@ -12,10 +12,9 @@ export function initNavbar() {
   const navToggleBtn = document.getElementById('nav-toggle-btn') || document.querySelector('.nav-toggle');
   const mobileDrawer = document.getElementById('mobile-nav-drawer') || document.querySelector('.mobile-nav-drawer');
   const mobileOverlay = document.getElementById('mobile-nav-overlay') || document.querySelector('.mobile-nav-overlay');
-  const mobileAccordions = document.querySelectorAll('.mobile-nav-accordion');
-  const dropdownContainers = document.querySelectorAll('.nav-item-dropdown');
+  const mobileCloseBtn = document.getElementById('mobile-drawer-close') || (mobileDrawer ? mobileDrawer.querySelector('.mobile-drawer-close') : null);
 
-  // --- 1. Sticky Header on Scroll (Transparent Glass -> Solid Background) ---
+  // --- 1. Sticky Header on Scroll (Transparent Glass -> Solid Elevated Background) ---
   let isScrolled = false;
   const handleScroll = () => {
     const shouldScroll = window.scrollY > 20;
@@ -33,7 +32,49 @@ export function initNavbar() {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // --- 2. Mobile Drawer State Management ---
+  // --- 2. Desktop Dropdown Accessibility & Click-Toggle ---
+  const dropdownWrappers = document.querySelectorAll('.nav-item-dropdown');
+  dropdownWrappers.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    if (!trigger) return;
+
+    // Hover is handled by CSS, but we support click/touch & keyboard focus
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      closeAllDropdowns();
+      if (!isExpanded) {
+        dropdown.classList.add('is-active');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Handle Escape key to close
+    dropdown.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        dropdown.classList.remove('is-active');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
+  });
+
+  function closeAllDropdowns() {
+    dropdownWrappers.forEach(drop => {
+      drop.classList.remove('is-active');
+      const trigger = drop.querySelector('.nav-dropdown-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Close desktop dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item-dropdown')) {
+      closeAllDropdowns();
+    }
+  });
+
+  // --- 3. Mobile Drawer State Management ---
   function openMobileNav() {
     if (!mobileDrawer) return;
     mobileDrawer.classList.add('is-open');
@@ -43,6 +84,7 @@ export function initNavbar() {
       navToggleBtn.classList.add('is-active');
     }
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   }
 
   function closeMobileNav() {
@@ -54,6 +96,7 @@ export function initNavbar() {
       navToggleBtn.classList.remove('is-active');
     }
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }
 
   if (navToggleBtn) {
@@ -68,14 +111,21 @@ export function initNavbar() {
     });
   }
 
+  if (mobileCloseBtn) {
+    mobileCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileNav();
+    });
+  }
+
   if (mobileOverlay) {
     mobileOverlay.addEventListener('click', closeMobileNav);
   }
 
-  // Close drawer on link click (unless clicking an accordion trigger button)
+  // Close drawer on link click (unless it's an accordion toggle button)
   if (mobileDrawer) {
-    const regularLinks = mobileDrawer.querySelectorAll('a');
-    regularLinks.forEach(link => {
+    const navLinks = mobileDrawer.querySelectorAll('a');
+    navLinks.forEach(link => {
       link.addEventListener('click', () => {
         closeMobileNav();
       });
@@ -86,94 +136,72 @@ export function initNavbar() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeMobileNav();
-      dropdownContainers.forEach(container => {
-        container.classList.remove('is-active');
-        const trigger = container.querySelector('.nav-dropdown-trigger');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      });
+      closeAllDropdowns();
     }
   });
 
-  // --- 3. Mobile Submenu Accordions ---
-  mobileAccordions.forEach(accordion => {
-    const accordionBtn = accordion.querySelector('.mobile-accordion-btn');
-    if (accordionBtn) {
-      accordionBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isCurrentlyExpanded = accordion.classList.contains('is-expanded');
-        
-        // Optionally close sibling accordions
-        mobileAccordions.forEach(sibling => {
-          if (sibling !== accordion) {
-            sibling.classList.remove('is-expanded');
-            const siblingBtn = sibling.querySelector('.mobile-accordion-btn');
-            if (siblingBtn) siblingBtn.setAttribute('aria-expanded', 'false');
-            const siblingIcon = sibling.querySelector('.mobile-accordion-icon');
-            if (siblingIcon) siblingIcon.textContent = '+';
-          }
+  // --- 4. Mobile Drawer Accordion Submenus ---
+  const accordionButtons = document.querySelectorAll('.mobile-accordion-btn');
+  accordionButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const accordionParent = btn.closest('.mobile-nav-accordion');
+      if (!accordionParent) return;
+
+      const isExpanded = accordionParent.classList.contains('is-expanded');
+      
+      // Toggle current accordion
+      if (isExpanded) {
+        accordionParent.classList.remove('is-expanded');
+        btn.setAttribute('aria-expanded', 'false');
+        const icon = btn.querySelector('.mobile-accordion-icon');
+        if (icon) icon.textContent = '+';
+      } else {
+        // Close other accordions
+        document.querySelectorAll('.mobile-nav-accordion').forEach(acc => {
+          acc.classList.remove('is-expanded');
+          const accBtn = acc.querySelector('.mobile-accordion-btn');
+          if (accBtn) accBtn.setAttribute('aria-expanded', 'false');
+          const accIcon = acc.querySelector('.mobile-accordion-icon');
+          if (accIcon) accIcon.textContent = '+';
         });
 
-        if (isCurrentlyExpanded) {
-          accordion.classList.remove('is-expanded');
-          accordionBtn.setAttribute('aria-expanded', 'false');
-          const icon = accordion.querySelector('.mobile-accordion-icon');
-          if (icon) icon.textContent = '+';
-        } else {
-          accordion.classList.add('is-expanded');
-          accordionBtn.setAttribute('aria-expanded', 'true');
-          const icon = accordion.querySelector('.mobile-accordion-icon');
-          if (icon) icon.textContent = '−';
-        }
-      });
-    }
-  });
-
-  // --- 4. Desktop Dropdown Accessibility & Click Support ---
-  dropdownContainers.forEach(container => {
-    const trigger = container.querySelector('.nav-dropdown-trigger');
-    if (!trigger) return;
-
-    trigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-      
-      // Close other dropdowns
-      dropdownContainers.forEach(other => {
-        if (other !== container) {
-          other.classList.remove('is-active');
-          const otherTrigger = other.querySelector('.nav-dropdown-trigger');
-          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      if (isExpanded) {
-        container.classList.remove('is-active');
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        container.classList.add('is-active');
-        trigger.setAttribute('aria-expanded', 'true');
+        accordionParent.classList.add('is-expanded');
+        btn.setAttribute('aria-expanded', 'true');
+        const icon = btn.querySelector('.mobile-accordion-icon');
+        if (icon) icon.textContent = '−';
       }
     });
-
-    container.addEventListener('mouseenter', () => {
-      trigger.setAttribute('aria-expanded', 'true');
-    });
-
-    container.addEventListener('mouseleave', () => {
-      trigger.setAttribute('aria-expanded', 'false');
-      container.classList.remove('is-active');
-    });
   });
 
-  // Click outside closes desktop dropdowns
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-item-dropdown')) {
-      dropdownContainers.forEach(container => {
-        container.classList.remove('is-active');
-        const trigger = container.querySelector('.nav-dropdown-trigger');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      });
+  // Optional swipe-to-close on mobile drawer
+  if (mobileDrawer) {
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+
+    mobileDrawer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    mobileDrawer.addEventListener('touchmove', (e) => {
+      touchCurrentX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    mobileDrawer.addEventListener('touchend', () => {
+      // Swiping right by 60px or more closes the right-aligned drawer
+      if (touchCurrentX - touchStartX > 60 && touchStartX > 0) {
+        closeMobileNav();
+      }
+      touchStartX = 0;
+      touchCurrentX = 0;
+    }, { passive: true });
+  }
+
+  // Auto-close mobile nav if viewport is resized to desktop (>= 1081px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1080 && mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+      closeMobileNav();
     }
-  });
+  }, { passive: true });
 }
