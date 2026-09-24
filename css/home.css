@@ -373,6 +373,7 @@
         width: 100%;
         gap: 24px;
         padding-bottom: 6px;
+        flex-direction: column;
     }
 }
 
@@ -917,6 +918,10 @@
 .stat-metric-card {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #d9a24a;
+    border-radius: 8px;
     gap: 6px;
 }
 
@@ -1842,7 +1847,7 @@
     margin-bottom: 16px;
 }
 
-.industry-stat-tag {
+/* .industry-stat-tag {
     display: inline-flex;
     padding: 6px 14px;
     border-radius: var(--radius-pill);
@@ -1853,7 +1858,7 @@
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-white);
-}
+} */
 
 @media (max-width: 991px) {
     .industries-accordion-wrap {
@@ -2098,7 +2103,7 @@
 }
 
 .company-marquee-text {
-    font-family: var(--font-display, 'Cinzel', serif);
+    font-family: var(--font-primary);
     font-size: clamp(2.25rem, 5.2vw, 4.25rem);
     font-weight: 800;
     letter-spacing: 0.06em;

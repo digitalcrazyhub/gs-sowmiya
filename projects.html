@@ -14,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com/projects.html" />
     
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -53,6 +53,7 @@
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
 
     <!-- Stylesheets: Centralized Global Systems & Scoped Projects Stylesheet -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -67,7 +68,7 @@
     <!-- ==========================================================================
          01. COMMON NAVBAR (LOADED VIA COMPONENT LOADER)
          ========================================================================== -->
-    <div id="navbar"></div>
+    <div id="navbar" data-component="navbar"></div>
 
     <main id="main-content">
 
@@ -379,45 +380,19 @@
       <!-- ==========================================================================
            07. GLOBAL COMMON FINAL CTA (LOADED VIA COMPONENT LOADER)
            ========================================================================== -->
-      <section class="final-cta-section" id="final-cta" data-component="final-cta" aria-label="Call to Action">
-        <div class="cta-backdrop-image" aria-hidden="true"></div>
-        <div class="cta-gold-accent-line" aria-hidden="true"></div>
-        
-        <div class="site-container">
-          <div class="cta-content-box" data-reveal>
-            <div class="section-eyebrow eyebrow-dark">
-              <span>Initiate Your Project</span>
-            </div>
-            <h2 class="cta-title">Let’s Build Something Exceptional.</h2>
-            <p class="cta-desc">
-              Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
-            </p>
-            <div class="cta-actions">
-              <a href="/contact.html" class="btn btn-gold">
-                <span>TALK TO OUR TEAM</span>
-                <span class="btn-icon-circle">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div id="final-cta" data-component="final-cta"></div>
 
     </main>
 
     <!-- ==========================================================================
          08. COMMON FOOTER (LOADED VIA COMPONENT LOADER)
          ========================================================================== -->
-    <div id="footer"></div>
+    <div id="footer" data-component="footer"></div>
 
     <!-- ==========================================================================
          09. FLOATING ACTIONS (LOADED VIA COMPONENT LOADER)
          ========================================================================== -->
-    <div id="floating-actions"></div>
+    <div id="floating-actions" data-component="floating-actions"></div>
 
     <!-- JavaScript Page Entry Point -->
     <script type="module" src="/js/projects.js"></script>

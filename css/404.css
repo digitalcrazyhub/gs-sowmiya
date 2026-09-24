@@ -57,7 +57,7 @@
 }
 
 .error-code-giant {
-  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-family: var(--font-primary);
   font-size: clamp(6rem, 15vw, 11rem);
   font-weight: 800;
   line-height: 0.9;
@@ -102,7 +102,7 @@
 }
 
 .error-title {
-  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-family: var(--font-primary);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--text-primary, #252525);
@@ -225,7 +225,7 @@
 }
 
 .error-quick-card-title {
-  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-family: var(--font-primary);
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary, #252525);

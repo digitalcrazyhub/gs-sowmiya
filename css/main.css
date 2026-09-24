@@ -4,7 +4,7 @@
    Visual Authority: Reference Image Architecture (Ivory + Charcoal + Burgundy + Gold)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root {
     /* =========================
@@ -63,9 +63,9 @@
     --radius-pill: 9999px;
 
     --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     --container-max: 1440px;
     --container-gutter: clamp(16px, 4vw, 32px);
@@ -1152,8 +1152,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     background: #0d0d0d;
     color: var(--text-white);
-    padding: clamp(80px, 10vw, 140px) 0;
+    padding: clamp(80px, 10vw, 130px) 0;
     overflow: hidden;
+    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
 }
 
 .cta-backdrop-image {
@@ -1164,6 +1165,7 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
     opacity: 0.18;
     filter: grayscale(80%) contrast(120%);
+    pointer-events: none;
 }
 
 .cta-gold-accent-line {
@@ -1173,30 +1175,27 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(-50%);
     width: 280px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--brand-gold, #D9A24A), transparent);
 }
 
 .cta-content-box {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 1040px;
+    max-width: 960px;
     width: 100%;
     margin: 0 auto;
 }
 
 .cta-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 3.8vw, 3.5rem);
+    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+    font-size: clamp(1.85rem, 4vw, 3.25rem);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.22;
     color: var(--text-white);
     letter-spacing: -0.02em;
-    margin-bottom: 24px;
-    white-space: nowrap !important;
-    text-wrap: nowrap !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 20px;
+    text-wrap: balance;
     max-width: 100%;
 }
 
@@ -1204,10 +1203,11 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    margin-bottom: 40px;
+    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 36px;
 }
 
 .cta-actions {
@@ -1216,6 +1216,13 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+}
+
+.cta-actions .btn {
+    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 /* ==========================================================================
@@ -1662,14 +1669,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
 }
 
-/* Main Display Serif Title */
+/* Main Display Title */
 .team-hero-title,
 .page-hero-title,
 .page-banner-title,
 .contact-hero-title,
 .projects-hero-title,
 .service-hero-title {
-    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-family: var(--font-primary);
     font-size: clamp(2.5rem, 5.5vw, 4.5rem);
     font-weight: 700;
     line-height: 1.08;

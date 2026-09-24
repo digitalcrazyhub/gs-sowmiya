@@ -14,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com/about.html" />
 
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -34,6 +34,7 @@
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -84,40 +85,12 @@
     <!-- ==========================================================================
          GLOBAL COMMON NAVBAR PLACEHOLDER (LOADED VIA COMPONENT SYSTEM)
          ========================================================================== -->
-    <div id="navbar"></div>
+    <div id="navbar" data-component="navbar"></div>
 
     <!-- ==========================================================================
          GLOBAL COMMON PAGE BANNER PLACEHOLDER (LOADED VIA COMPONENT SYSTEM)
          ========================================================================== -->
-    <div id="page-banner" data-component="page-banner">
-      <section class="page-hero" aria-label="About GS Sowmiya Builders Hero">
-        <div class="page-hero-bg" id="page-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80');" aria-hidden="true"></div>
-        <div class="page-hero-overlay" aria-hidden="true"></div>
-        <div class="page-hero-grid-pattern" aria-hidden="true"></div>
-
-        <div class="site-container">
-          <div class="page-hero-content">
-            <nav class="page-breadcrumb" aria-label="Breadcrumb Navigation">
-              <a href="/">HOME</a>
-              <span class="page-breadcrumb-sep">/</span>
-              <span class="page-breadcrumb-current" id="banner-breadcrumb-current">ABOUT US</span>
-            </nav>
-
-            <!-- <div class="page-hero-eyebrow">
-              <span id="banner-eyebrow-text">CORPORATE HERITAGE &amp; ENGINEERING INTEGRITY</span>
-            </div> -->
-
-            <h1 class="page-hero-title" id="banner-title-text">
-              About Us
-            </h1>
-
-            <p class="page-hero-desc" id="banner-desc-text">
-              Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
+    <div id="page-banner" data-component="page-banner"></div>
 
     <!-- ==========================================================================
          PAGE SPECIFIC UNIQUE CONTENT
@@ -659,45 +632,19 @@
       </section>
 
       <!-- 05. Global Common Final Call to Action -->
-      <section class="final-cta-section" id="final-cta" data-component="final-cta" aria-label="Call to Action">
-        <div class="cta-backdrop-image" aria-hidden="true"></div>
-        <div class="cta-gold-accent-line" aria-hidden="true"></div>
-        
-        <div class="site-container">
-          <div class="cta-content-box" data-reveal>
-            <div class="section-eyebrow eyebrow-dark">
-              <span>Initiate Your Project</span>
-            </div>
-            <h2 class="cta-title">Let’s Build Something Exceptional.</h2>
-            <p class="cta-desc">
-              Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
-            </p>
-            <div class="cta-actions">
-              <a href="/contact.html" class="btn btn-gold">
-                <span>TALK TO OUR TEAM</span>
-                <span class="btn-icon-circle">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div id="final-cta" data-component="final-cta"></div>
 
     </main>
 
     <!-- ==========================================================================
          GLOBAL COMMON FOOTER PLACEHOLDER (LOADED VIA COMPONENT SYSTEM)
          ========================================================================== -->
-    <div id="footer"></div>
+    <div id="footer" data-component="footer"></div>
 
     <!-- ==========================================================================
          GLOBAL COMMON FLOATING ACTIONS PLACEHOLDER (LOADED VIA COMPONENT SYSTEM)
          ========================================================================== -->
-    <div id="floating-actions"></div>
+    <div id="floating-actions" data-component="floating-actions"></div>
 
     <!-- Application Script Entry Point -->
     <script type="module" src="/js/about.js"></script>

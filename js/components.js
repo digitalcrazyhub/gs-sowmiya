@@ -59,43 +59,43 @@ const COMPONENT_FALLBACKS = {
           
           <div class="nav-dropdown-menu" role="menu" aria-label="Services Menu">
             <div class="nav-dropdown-inner">
-              <a href="/services/residential-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-residential">
+              <a href="/services/residential-building-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-residential">
                 <span class="nav-dropdown-num">01</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">RESIDENTIAL BUILDING CONSTRUCTION</span>
-                  <span class="nav-dropdown-desc">Custom luxury estates, villas &amp; residences</span>
+                  <span class="nav-dropdown-desc">Independent homes, villas &amp; residential buildings</span>
                 </div>
               </a>
               
-              <a href="/services.html#service-joint-venture" class="nav-dropdown-link" role="menuitem" data-nav="service-joint-venture">
+              <a href="/services/joint-venture.html" class="nav-dropdown-link" role="menuitem" data-nav="service-joint-venture">
                 <span class="nav-dropdown-num">02</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">JOINT VENTURE</span>
-                  <span class="nav-dropdown-desc">Landowner partnerships &amp; equitable developments</span>
+                  <span class="nav-dropdown-desc">Landowner partnerships &amp; property development</span>
                 </div>
               </a>
               
-              <a href="/services.html#technical-services" class="nav-dropdown-link" role="menuitem" data-nav="service-project-management">
+              <a href="/services/project-management.html" class="nav-dropdown-link" role="menuitem" data-nav="service-project-management">
                 <span class="nav-dropdown-num">03</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">PROJECT MANAGEMENT</span>
-                  <span class="nav-dropdown-desc">Timeline coordination, quality audits &amp; site execution</span>
+                  <span class="nav-dropdown-desc">Site execution, quality checks &amp; timeline monitoring</span>
                 </div>
               </a>
               
-              <a href="/services.html#secondary-services" class="nav-dropdown-link" role="menuitem" data-nav="service-consultancy">
+              <a href="/services/consultancy-design.html" class="nav-dropdown-link" role="menuitem" data-nav="service-consultancy">
                 <span class="nav-dropdown-num">04</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">CONSULTANCY &amp; DESIGN</span>
-                  <span class="nav-dropdown-desc">Architectural planning, 2D/3D elevations &amp; approvals</span>
+                  <span class="nav-dropdown-desc">Planning, 2D/3D elevations &amp; structural guidance</span>
                 </div>
               </a>
 
-              <a href="/services/renovation-remodeling.html" class="nav-dropdown-link" role="menuitem" data-nav="service-interiors">
+              <a href="/services/interiors.html" class="nav-dropdown-link" role="menuitem" data-nav="service-interiors">
                 <span class="nav-dropdown-num">05</span>
                 <div class="nav-dropdown-info">
                   <span class="nav-dropdown-title">INTERIORS</span>
-                  <span class="nav-dropdown-desc">Bespoke interior architecture, modular spaces &amp; styling</span>
+                  <span class="nav-dropdown-desc">Custom modular woodwork, living spaces &amp; styling</span>
                 </div>
               </a>
             </div>
@@ -183,39 +183,39 @@ const COMPONENT_FALLBACKS = {
           </button>
         </div>
         <div class="mobile-nav-sublist" id="mobile-services-sub">
-          <a href="/services/residential-construction.html" class="mobile-sublink" data-nav="service-residential">
+          <a href="/services/residential-building-construction.html" class="mobile-sublink" data-nav="service-residential">
             <span class="mobile-sublink-num">01</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Residential Building Construction</span>
-              <span class="mobile-sublink-desc">Custom luxury homes &amp; villas</span>
+              <span class="mobile-sublink-desc">Independent homes, villas &amp; buildings</span>
             </div>
           </a>
-          <a href="/services.html#service-joint-venture" class="mobile-sublink" data-nav="service-joint-venture">
+          <a href="/services/joint-venture.html" class="mobile-sublink" data-nav="service-joint-venture">
             <span class="mobile-sublink-num">02</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Joint Venture</span>
-              <span class="mobile-sublink-desc">Landowner partnerships &amp; developments</span>
+              <span class="mobile-sublink-desc">Landowner partnerships &amp; development</span>
             </div>
           </a>
-          <a href="/services.html#technical-services" class="mobile-sublink" data-nav="service-project-management">
+          <a href="/services/project-management.html" class="mobile-sublink" data-nav="service-project-management">
             <span class="mobile-sublink-num">03</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Project Management</span>
-              <span class="mobile-sublink-desc">Timeline coordination &amp; site execution</span>
+              <span class="mobile-sublink-desc">Site execution &amp; timeline monitoring</span>
             </div>
           </a>
-          <a href="/services.html#secondary-services" class="mobile-sublink" data-nav="service-consultancy">
+          <a href="/services/consultancy-design.html" class="mobile-sublink" data-nav="service-consultancy">
             <span class="mobile-sublink-num">04</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Consultancy &amp; Design</span>
-              <span class="mobile-sublink-desc">Architectural planning &amp; approvals</span>
+              <span class="mobile-sublink-desc">Planning, 2D/3D elevations &amp; guidance</span>
             </div>
           </a>
-          <a href="/services/renovation-remodeling.html" class="mobile-sublink" data-nav="service-interiors">
+          <a href="/services/interiors.html" class="mobile-sublink" data-nav="service-interiors">
             <span class="mobile-sublink-num">05</span>
             <div class="mobile-sublink-text">
               <span class="mobile-sublink-title">Interiors</span>
-              <span class="mobile-sublink-desc">Bespoke interior architecture &amp; styling</span>
+              <span class="mobile-sublink-desc">Custom modular woodwork &amp; styling</span>
             </div>
           </a>
         </div>
@@ -266,9 +266,9 @@ const COMPONENT_FALLBACKS = {
         <span class="page-breadcrumb-current" id="banner-breadcrumb-current">ABOUT US</span>
       </nav>
 
-      // <div class="page-hero-eyebrow">
-      //   <span id="banner-eyebrow-text">CORPORATE HERITAGE &amp; ENGINEERING INTEGRITY</span>
-      // </div>
+      <div class="page-hero-eyebrow" id="banner-eyebrow-wrap" style="display: none;">
+        <span id="banner-eyebrow-text"></span>
+      </div>
 
       <h1 class="page-hero-title" id="banner-title-text">
         About Us
@@ -284,21 +284,21 @@ const COMPONENT_FALLBACKS = {
 
   finalCta: `
 <section class="final-cta-section" id="cta" aria-label="Call to Action">
-  <div class="cta-backdrop-image" aria-hidden="true"></div>
+  <div class="cta-backdrop-image" id="cta-backdrop-image" aria-hidden="true"></div>
   <div class="cta-gold-accent-line" aria-hidden="true"></div>
   
   <div class="site-container">
     <div class="cta-content-box" data-reveal>
-      <div class="section-eyebrow eyebrow-dark">
-        <span>Initiate Your Project</span>
+      <div class="section-eyebrow eyebrow-dark" id="cta-eyebrow-wrap">
+        <span id="cta-eyebrow-text">Initiate Your Project</span>
       </div>
-      <h2 class="cta-title">Let’s Build Something Exceptional.</h2>
-      <p class="cta-desc">
+      <h2 class="cta-title" id="cta-title-text">Let’s Build Something Exceptional.</h2>
+      <p class="cta-desc" id="cta-desc-text">
         Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
       </p>
       <div class="cta-actions">
         <a href="/contact.html" class="btn btn-gold" id="final-cta-start-btn">
-          <span>TALK TO OUR TEAM</span>
+          <span id="cta-btn-text">TALK TO OUR TEAM</span>
           <span class="btn-icon-circle" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -371,12 +371,12 @@ const COMPONENT_FALLBACKS = {
       <div>
         <h4 class="footer-col-title">Services</h4>
         <ul class="footer-links-list">
-          <li><a href="/services/residential-construction.html">Residential Construction</a></li>
-          <li><a href="/services.html#joint-ventures">Joint Venture Development</a></li>
-          <li><a href="/services.html#turnkey-contracts">Turnkey Building Contracts</a></li>
-          <li><a href="/services/renovation-remodeling.html">Renovation &amp; Remodeling</a></li>
-          <li><a href="/services.html#interior-design">Interior Design &amp; Modular Woodwork</a></li>
-          <li><a href="/services/commercial-construction.html">Commercial Construction</a></li>
+          <li><a href="/services/residential-building-construction.html">Residential Building Construction</a></li>
+          <li><a href="/services/joint-venture.html">Joint Venture Development</a></li>
+          <li><a href="/services/project-management.html">Project Management</a></li>
+          <li><a href="/services/consultancy-design.html">Consultancy &amp; Design</a></li>
+          <li><a href="/services/interiors.html">Interiors &amp; Woodwork</a></li>
+          <li><a href="/services.html">All Services Overview</a></li>
         </ul>
       </div>
 
@@ -521,9 +521,13 @@ export async function loadGlobalComponents(options = {}) {
       breadcrumbEl.textContent = bannerConfig.breadcrumb;
     }
 
+    const eyebrowWrap = bannerEl.querySelector('#banner-eyebrow-wrap');
     const eyebrowEl = bannerEl.querySelector('#banner-eyebrow-text');
-    if (eyebrowEl && bannerConfig.eyebrow) {
-      eyebrowEl.textContent = bannerConfig.eyebrow;
+    if (bannerConfig.eyebrow) {
+      if (eyebrowEl) eyebrowEl.textContent = bannerConfig.eyebrow;
+      if (eyebrowWrap) eyebrowWrap.style.display = 'inline-flex';
+    } else if (eyebrowWrap) {
+      eyebrowWrap.style.display = 'none';
     }
 
     const titleEl = bannerEl.querySelector('#banner-title-text');
@@ -547,11 +551,50 @@ export async function loadGlobalComponents(options = {}) {
   if (finalCtaEl) {
     const finalCtaHTML = await fetchComponentHTML('finalCta', '/components/final-cta.html');
     if (finalCtaHTML) {
-      if (finalCtaEl.tagName.toLowerCase() === 'div') {
-        finalCtaEl.outerHTML = finalCtaHTML;
-      } else {
-        finalCtaEl.innerHTML = finalCtaHTML;
-      }
+      finalCtaEl.innerHTML = finalCtaHTML;
+    }
+
+    // Populate dynamic CTA overrides if passed
+    const ctaConfig = options.cta || {};
+    if (ctaConfig.title) {
+      const titleEl = finalCtaEl.querySelector('#cta-title-text, .cta-title');
+      if (titleEl) titleEl.innerHTML = ctaConfig.title;
+    }
+    if (ctaConfig.desc) {
+      const descEl = finalCtaEl.querySelector('#cta-desc-text, .cta-desc');
+      if (descEl) descEl.textContent = ctaConfig.desc;
+    }
+    if (ctaConfig.eyebrow) {
+      const eyebrowEl = finalCtaEl.querySelector('#cta-eyebrow-text, .section-eyebrow span');
+      if (eyebrowEl) eyebrowEl.textContent = ctaConfig.eyebrow;
+    }
+    if (ctaConfig.buttonText) {
+      const btnTextEl = finalCtaEl.querySelector('#cta-btn-text, #final-cta-start-btn span:first-child');
+      if (btnTextEl) btnTextEl.textContent = ctaConfig.buttonText;
+    }
+    if (ctaConfig.buttonLink) {
+      const btnEl = finalCtaEl.querySelector('#final-cta-start-btn');
+      if (btnEl) btnEl.setAttribute('href', ctaConfig.buttonLink);
+    }
+    if (ctaConfig.bgImage) {
+      const bgEl = finalCtaEl.querySelector('#cta-backdrop-image, .cta-backdrop-image');
+      if (bgEl) bgEl.style.backgroundImage = `url('${ctaConfig.bgImage}')`;
+    }
+
+    // Connect IntersectionObserver for reveal animation
+    const revealBoxes = finalCtaEl.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const ctaObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealBoxes.forEach(box => ctaObserver.observe(box));
+    } else {
+      revealBoxes.forEach(box => box.classList.add('is-revealed'));
     }
   }
 

@@ -1,0 +1,951 @@
+/* ==========================================================================
+   GS SOWMIYA BUILDERS — MASTER SERVICE SUBPAGE STYLESHEET
+   Unified architectural, engineering, and UI styling for all 5 subservice pages:
+   1. Residential Building Construction
+   2. Joint Venture
+   3. Project Management
+   4. Consultancy & Design
+   5. Interiors
+   Typography: 'Plus Jakarta Sans' across all headings, body, cards & UI.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* --------------------------------------------------------------------------
+   01. Layout Containers & Base Section Spacing
+   -------------------------------------------------------------------------- */
+.service-page-wrap {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+.service-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  position: relative;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+.service-section-alt {
+  background-color: var(--bg-off-white, #FBFBFA);
+  border-top: 1px solid var(--border-light, #E8E8E6);
+  border-bottom: 1px solid var(--border-light, #E8E8E6);
+}
+
+.service-section-dark {
+  background-color: var(--bg-dark, #161616);
+  color: #FFFFFF;
+}
+
+.section-head-center {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(40px, 6vw, 64px);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-burgundy, #741719);
+  margin-bottom: 12px;
+}
+
+.section-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--brand-gold, #D9A24A);
+}
+
+.section-kicker-gold {
+  color: var(--brand-gold, #D9A24A);
+}
+
+.section-kicker-gold::before {
+  background-color: var(--brand-gold, #D9A24A);
+}
+
+.section-title-large {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary, #161616);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section-title-large.title-light {
+  color: #FFFFFF;
+}
+
+.section-desc-center {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.95rem, 1.2vw, 1.0625rem);
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.7;
+}
+
+.section-desc-center.desc-light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   02. Service Introduction Section (Editorial 2-Column)
+   -------------------------------------------------------------------------- */
+.intro-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: center;
+}
+
+.intro-editorial-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-tag {
+  display: inline-block;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-burgundy, #741719);
+  margin-bottom: 12px;
+}
+
+.intro-headline {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary, #161616);
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+}
+
+.intro-body-copy {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary, #4A4A4A);
+  margin-bottom: 18px;
+}
+
+.intro-body-copy strong {
+  color: var(--text-primary, #161616);
+  font-weight: 600;
+}
+
+.intro-key-points {
+  margin: 24px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro-key-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  color: var(--text-primary, #161616);
+  line-height: 1.5;
+}
+
+.intro-key-point-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(116, 23, 25, 0.1);
+  color: var(--brand-burgundy, #741719);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.intro-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.intro-visual-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.14);
+  border: 1px solid var(--border-light, #E8E8E6);
+}
+
+.intro-visual-card img {
+  width: 100%;
+  height: clamp(340px, 42vw, 480px);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-visual-card:hover img {
+  transform: scale(1.03);
+}
+
+.intro-visual-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(22, 22, 22, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-gold, #D9A24A);
+  color: #FFFFFF;
+}
+
+.intro-badge-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-gold, #D9A24A);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.intro-badge-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   03. What We Build / Service Scope Cards (3-Column Grid)
+   -------------------------------------------------------------------------- */
+.build-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.build-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.build-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-section-alt .build-card {
+  background: #FFFFFF;
+}
+
+.build-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  border-color: rgba(116, 23, 25, 0.3);
+}
+
+.build-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #EFEFEF;
+}
+
+.build-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.build-card:hover .build-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.build-card-num-chip {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(22, 22, 22, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--brand-gold, #D9A24A);
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(217, 162, 74, 0.35);
+}
+
+.build-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.build-card-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.build-card-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.build-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light, #E8E8E6);
+}
+
+.build-pill {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--bg-off-white, #FBFBFA);
+  border: 1px solid var(--border-light, #E8E8E6);
+  color: var(--text-primary, #161616);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   04. What We Handle (Functional Grid Cards)
+   -------------------------------------------------------------------------- */
+.handle-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.handle-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.handle-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.handle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.07);
+  border-color: rgba(116, 23, 25, 0.3);
+}
+
+.handle-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(116, 23, 25, 0.08);
+  color: var(--brand-burgundy, #741719);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.handle-card-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.handle-card-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.handle-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border-light, #E8E8E6);
+  padding-top: 14px;
+}
+
+.handle-card-list li {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  color: var(--text-secondary, #4A4A4A);
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.45;
+}
+
+.handle-card-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--brand-gold, #D9A24A);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   05. How the Work is Approached / Process Timeline (5 Steps)
+   -------------------------------------------------------------------------- */
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.process-step-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.08);
+}
+
+.process-step-num {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-gold, #D9A24A);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.process-step-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.process-step-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   06. Practical Service Details & Technical Specifications
+   -------------------------------------------------------------------------- */
+.details-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.details-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.04);
+}
+
+.details-box-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--brand-gold, #D9A24A);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-table tr {
+  border-bottom: 1px solid var(--border-light, #E8E8E6);
+}
+
+.details-table tr:last-child {
+  border-bottom: none;
+}
+
+.details-table td {
+  padding: 14px 8px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.details-table td.label-col {
+  width: 38%;
+  font-weight: 600;
+  color: var(--text-primary, #161616);
+}
+
+.details-table td.value-col {
+  color: var(--text-secondary, #4A4A4A);
+}
+
+/* --------------------------------------------------------------------------
+   07. Applications & Suitability Section
+   -------------------------------------------------------------------------- */
+.suitability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.suitability-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.suitability-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-burgundy, #741719);
+}
+
+.suitability-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(217, 162, 74, 0.15);
+  color: var(--brand-gold, #D9A24A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.suitability-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 10px;
+}
+
+.suitability-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   08. Visual Gallery Strip
+   -------------------------------------------------------------------------- */
+.gallery-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 280px;
+  background-color: #EFEFEF;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 18px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(18, 18, 18, 0.88) 100%);
+  color: #FFFFFF;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   09. FAQ Accordion Section
+   -------------------------------------------------------------------------- */
+.faq-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(116, 23, 25, 0.3);
+}
+
+.faq-item.is-open {
+  border-color: var(--brand-burgundy, #741719);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 22px 24px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+  color: var(--brand-burgundy, #741719);
+}
+
+.faq-icon-indicator {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-off-white, #FBFBFA);
+  border: 1px solid var(--border-light, #E8E8E6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary, #161616);
+  font-family: monospace;
+  font-weight: 700;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.is-open .faq-icon-indicator {
+  transform: rotate(45deg);
+  background-color: var(--brand-burgundy, #741719);
+  color: #FFFFFF;
+  border-color: var(--brand-burgundy, #741719);
+}
+
+.faq-answer-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer-inner {
+  padding: 0 24px 24px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.7;
+}
+
+.faq-answer-inner p + p {
+  margin-top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Related Services Section
+   -------------------------------------------------------------------------- */
+.related-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.related-service-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E8E8E6);
+  border-radius: 12px;
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.related-service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
+  border-color: var(--brand-burgundy, #741719);
+}
+
+.related-service-num {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--brand-gold, #D9A24A);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.related-service-title {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #161616);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.related-service-desc {
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  color: var(--text-secondary, #4A4A4A);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.related-service-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-burgundy, #741719);
+}
+
+.related-service-card:hover .related-service-link-text svg {
+  transform: translateX(4px);
+}
+
+.related-service-link-text svg {
+  transition: transform 0.2s ease;
+}
+
+/* --------------------------------------------------------------------------
+   11. Buttons & Utility Styling
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--brand-burgundy, #741719);
+  color: #FFFFFF !important;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 14px rgba(116, 23, 25, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #5c1214;
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(116, 23, 25, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--text-primary, #161616);
+  border: 1.5px solid var(--border-light, #D0D0CE);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--brand-burgundy, #741719);
+  color: var(--brand-burgundy, #741719);
+  background-color: rgba(116, 23, 25, 0.04);
+}
+
+.btn-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive Media Queries (Mobile, Tablet, Desktop)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .process-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .intro-visual-card img {
+    height: 380px;
+  }
+
+  .build-grid-3,
+  .suitability-grid,
+  .gallery-grid-3,
+  .related-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .handle-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .details-split-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .build-grid-3,
+  .build-grid-2,
+  .handle-grid-4,
+  .handle-grid-3,
+  .suitability-grid,
+  .gallery-grid-3,
+  .related-services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .details-box {
+    padding: 24px 20px;
+  }
+
+  .details-table td {
+    display: block;
+    width: 100% !important;
+    padding: 6px 0;
+  }
+
+  .details-table td.label-col {
+    padding-top: 12px;
+  }
+
+  .faq-question-btn {
+    padding: 18px 20px;
+    font-size: 1rem;
+  }
+
+  .faq-answer-inner {
+    padding: 0 20px 20px;
+  }
+}

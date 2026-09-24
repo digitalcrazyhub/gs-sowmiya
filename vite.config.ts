@@ -3,6 +3,65 @@ import path from 'path';
 import {defineConfig, Plugin} from 'vite';
 
 function custom404Plugin(): Plugin {
+  const ROUTE_ALIASES: Record<string, string> = {
+    '/privacy': '/privacy-policy.html',
+    '/privacy-policy': '/privacy-policy.html',
+    '/privacy.html': '/privacy-policy.html',
+    '/terms': '/terms-of-service.html',
+    '/terms.html': '/terms-of-service.html',
+    '/terms-of-service': '/terms-of-service.html',
+    '/terms-and-conditions': '/terms-of-service.html',
+    '/terms-and-conditions.html': '/terms-of-service.html',
+    '/terms-conditions': '/terms-of-service.html',
+    '/terms-service': '/terms-of-service.html',
+    '/service': '/services.html',
+    '/service.html': '/services.html',
+    '/services': '/services.html',
+    '/about': '/about.html',
+    '/projects': '/projects.html',
+    '/project': '/projects.html',
+    '/project.html': '/projects.html',
+    '/team': '/team.html',
+    '/contact': '/contact.html',
+    '/home': '/index.html',
+    '/home.html': '/index.html',
+    '/services/residential-building-construction': '/services/residential-building-construction.html',
+    '/services/residential-building-construction.html': '/services/residential-building-construction.html',
+    '/services/joint-venture': '/services/joint-venture.html',
+    '/services/joint-venture.html': '/services/joint-venture.html',
+    '/services/project-management': '/services/project-management.html',
+    '/services/project-management.html': '/services/project-management.html',
+    '/services/consultancy-design': '/services/consultancy-design.html',
+    '/services/consultancy-design.html': '/services/consultancy-design.html',
+    '/services/interiors': '/services/interiors.html',
+    '/services/interiors.html': '/services/interiors.html',
+    '/services/residential-construction': '/services/residential-building-construction.html',
+    '/services/residential-construction.html': '/services/residential-building-construction.html',
+    '/services/residential': '/services/residential-building-construction.html',
+    '/services/renovation-remodeling': '/services/interiors.html',
+    '/services/renovation-remodeling.html': '/services/interiors.html',
+    '/services/commercial-construction': '/services/project-management.html',
+    '/services/commercial-construction.html': '/services/project-management.html',
+    '/services/industrial-construction': '/services/project-management.html',
+    '/services/industrial-construction.html': '/services/project-management.html',
+    '/page/about.html': '/about.html',
+    '/page/about': '/about.html',
+    '/page/services.html': '/services.html',
+    '/page/services': '/services.html',
+    '/page/projects.html': '/projects.html',
+    '/page/projects': '/projects.html',
+    '/page/team.html': '/team.html',
+    '/page/team': '/team.html',
+    '/page/contact.html': '/contact.html',
+    '/page/contact': '/contact.html',
+    '/page/privacy-policy.html': '/privacy-policy.html',
+    '/page/privacy-policy': '/privacy-policy.html',
+    '/page/terms-of-service.html': '/terms-of-service.html',
+    '/page/terms-of-service': '/terms-of-service.html',
+    '/page/404.html': '/404.html',
+    '/page/404': '/404.html',
+  };
+
   return {
     name: 'custom-404-fallback',
     configureServer(server) {
@@ -31,22 +90,6 @@ function custom404Plugin(): Plugin {
           target = target.slice(0, -1);
         }
 
-        // Direct aliases for privacy policy and terms of service paths
-        const ROUTE_ALIASES: Record<string, string> = {
-          '/privacy': '/privacy-policy.html',
-          '/privacy-policy': '/privacy-policy.html',
-          '/privacy.html': '/privacy-policy.html',
-          '/terms': '/terms-of-service.html',
-          '/terms.html': '/terms-of-service.html',
-          '/terms-of-service': '/terms-of-service.html',
-          '/terms-and-conditions': '/terms-of-service.html',
-          '/terms-and-conditions.html': '/terms-of-service.html',
-          '/terms-conditions': '/terms-of-service.html',
-          '/terms-service': '/terms-of-service.html',
-          '/service': '/services.html',
-          '/service.html': '/services.html',
-        };
-
         const cleanTarget = target.startsWith('/') ? target : `/${target}`;
         if (ROUTE_ALIASES[cleanTarget]) {
           req.url = ROUTE_ALIASES[cleanTarget];
@@ -60,18 +103,29 @@ function custom404Plugin(): Plugin {
         const indexFile = path.join(rootPath, target, 'index.html');
         const publicFile = path.join(rootPath, 'public', target);
 
-        const exists =
-          target === '' ||
-          target === '/' ||
-          (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) ||
-          (fs.existsSync(htmlFile) && fs.statSync(htmlFile).isFile()) ||
-          (fs.existsSync(indexFile) && fs.statSync(indexFile).isFile()) ||
-          (fs.existsSync(publicFile) && fs.statSync(publicFile).isFile());
-
-        if (!exists) {
-          req.url = '/404.html';
+        if (target === '' || target === '/') {
+          return next();
         }
 
+        if (fs.existsSync(htmlFile) && fs.statSync(htmlFile).isFile()) {
+          req.url = `${cleanTarget}.html`;
+          return next();
+        }
+
+        if (fs.existsSync(indexFile) && fs.statSync(indexFile).isFile()) {
+          return next();
+        }
+
+        if (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) {
+          return next();
+        }
+
+        if (fs.existsSync(publicFile) && fs.statSync(publicFile).isFile()) {
+          return next();
+        }
+
+        // Route not found -> fallback to 404.html
+        req.url = '/404.html';
         next();
       });
     },
@@ -85,21 +139,6 @@ function custom404Plugin(): Plugin {
         const distPath = path.resolve(__dirname, 'dist');
         let target = urlPath.endsWith('/') && urlPath !== '/' ? urlPath.slice(0, -1) : urlPath;
 
-        const ROUTE_ALIASES: Record<string, string> = {
-          '/privacy': '/privacy-policy.html',
-          '/privacy-policy': '/privacy-policy.html',
-          '/privacy.html': '/privacy-policy.html',
-          '/terms': '/terms-of-service.html',
-          '/terms.html': '/terms-of-service.html',
-          '/terms-of-service': '/terms-of-service.html',
-          '/terms-and-conditions': '/terms-of-service.html',
-          '/terms-and-conditions.html': '/terms-of-service.html',
-          '/terms-conditions': '/terms-of-service.html',
-          '/terms-service': '/terms-of-service.html',
-          '/service': '/services.html',
-          '/service.html': '/services.html',
-        };
-
         const cleanTarget = target.startsWith('/') ? target : `/${target}`;
         if (ROUTE_ALIASES[cleanTarget]) {
           req.url = ROUTE_ALIASES[cleanTarget];
@@ -110,16 +149,24 @@ function custom404Plugin(): Plugin {
         const htmlFile = path.join(distPath, `${target}.html`);
         const indexFile = path.join(distPath, target, 'index.html');
 
-        const exists =
-          target === '' ||
-          target === '/' ||
-          (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) ||
-          (fs.existsSync(htmlFile) && fs.statSync(htmlFile).isFile()) ||
-          (fs.existsSync(indexFile) && fs.statSync(indexFile).isFile());
-
-        if (!exists) {
-          req.url = '/404.html';
+        if (target === '' || target === '/') {
+          return next();
         }
+
+        if (fs.existsSync(htmlFile) && fs.statSync(htmlFile).isFile()) {
+          req.url = `${cleanTarget}.html`;
+          return next();
+        }
+
+        if (fs.existsSync(indexFile) && fs.statSync(indexFile).isFile()) {
+          return next();
+        }
+
+        if (fs.existsSync(directFile) && fs.statSync(directFile).isFile()) {
+          return next();
+        }
+
+        req.url = '/404.html';
         next();
       });
     },
@@ -145,16 +192,12 @@ export default defineConfig(() => {
           contact: path.resolve(__dirname, 'contact.html'),
           notFound: path.resolve(__dirname, '404.html'),
           privacy: path.resolve(__dirname, 'privacy-policy.html'),
-          privacyAlias: path.resolve(__dirname, 'privacy.html'),
-          privacyDir: path.resolve(__dirname, 'privacy-policy/index.html'),
           terms: path.resolve(__dirname, 'terms-of-service.html'),
-          termsAlias: path.resolve(__dirname, 'terms.html'),
-          termsConditionsAlias: path.resolve(__dirname, 'terms-and-conditions.html'),
-          termsDir: path.resolve(__dirname, 'terms-of-service/index.html'),
-          residentialService: path.resolve(__dirname, 'services/residential-construction.html'),
-          commercialService: path.resolve(__dirname, 'services/commercial-construction.html'),
-          industrialService: path.resolve(__dirname, 'services/industrial-construction.html'),
-          renovationService: path.resolve(__dirname, 'services/renovation-remodeling.html'),
+          residentialBuildingService: path.resolve(__dirname, 'services/residential-building-construction.html'),
+          jointVentureService: path.resolve(__dirname, 'services/joint-venture.html'),
+          projectManagementService: path.resolve(__dirname, 'services/project-management.html'),
+          consultancyDesignService: path.resolve(__dirname, 'services/consultancy-design.html'),
+          interiorsService: path.resolve(__dirname, 'services/interiors.html'),
         },
       },
     },

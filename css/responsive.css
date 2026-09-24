@@ -60,10 +60,16 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .calc-range-input {
     font-size: 16px !important;
   }
+  .contact-layout-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-service-tab{
+    flex-direction: row;
+  }
 }
 
 /* Safe touch targets for touchscreens (Apple iOS & Android touch devices) */
-@media (pointer: coarse) {
+/* @media (pointer: coarse) {
   button,
   .btn,
   .nav-link,
@@ -79,7 +85,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .calc-tier-label {
     min-height: 44px;
   }
-}
+} */
 
 /* Hide floating button tooltips on touch devices to prevent sticky tooltips */
 @media (hover: none) {
@@ -154,6 +160,10 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .nav-toggle {
     width: 40px;
     height: 40px;
+  }
+
+  .contact-layout-grid{
+    grid-template-columns: 1fr;
   }
 }
 
@@ -491,8 +501,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
 @media (max-width: 480px) {
   .stats-ribbon {
-    text-align: center;
-    grid-template-columns: 2fr !important;
+    /* grid-template-columns: 1fr !important; */
     gap: 20px;
   }
 

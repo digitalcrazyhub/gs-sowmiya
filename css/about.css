@@ -51,7 +51,7 @@
 
 .about-metric-number,
 .stat-number {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-primary);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   color: var(--brand-gold, #d9a24a);
@@ -287,7 +287,7 @@
 }
 
 .value-card-title {
-  font-family: var(--font-display, 'Cinzel', serif);
+  font-family: var(--font-primary);
   font-size: clamp(1.4rem, 2vw, 1.65rem);
   font-weight: 700;
   color: var(--text-primary, #1a1a1a);
