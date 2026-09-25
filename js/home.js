@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 10. Built For Every Environment Industries Expandable Accordion
   initIndustryAccordion();
+
+  // 11. FAQ Accordion Controller
+  initFAQAccordion();
 });
 
 /**
@@ -158,35 +161,26 @@ function initProjectsSlider() {
 
     track.innerHTML = loopList.map((proj, idx) => {
       const realIdx = idx % N;
+      const categoryText = (proj.category || proj.tag || 'RESIDENTIAL').toUpperCase();
       return `
         <div class="project-card" data-project-id="${proj.id}" data-real-index="${realIdx}" style="cursor: pointer;">
-          <div class="project-card-visual">
-            <img src="${proj.image}" alt="${proj.name}" loading="lazy">
-            <span class="project-badge-tag">${proj.tag || proj.category}</span>
-          </div>
-          <div class="project-card-content">
-            <div>
-              <div class="project-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>${proj.location}</span>
+          <div class="project-card__image-wrap">
+            <img src="${proj.image}" alt="${proj.name}" class="project-card__image" loading="lazy">
+            <div class="project-card__overlay"></div>
+            <span class="project-card__badge-tag">${categoryText}</span>
+            <div class="project-card__bottom-info">
+              <h3 class="project-card__title">${proj.name}</h3>
+              <p class="project-card__subtitle">${proj.area} | ${proj.tag || proj.status}</p>
+              <div class="project-card__meta-row">
+                <div class="project-card__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>${proj.location.split(',')[0]}</span>
+                </div>
+                <span class="project-card__code">GSB-${proj.id.toUpperCase()}</span>
               </div>
-              <h3 class="project-title">${proj.name}</h3>
-              <div class="project-specs-row">
-                <span><strong>Area:</strong> ${proj.area}</span>
-                <span>•</span>
-                <span><strong>Year:</strong> ${proj.year}</span>
-              </div>
-            </div>
-            <div class="project-card-footer">
-              <span class="project-status-tag" style="color: var(--brand-burgundy); font-weight: 700; font-size: 0.8125rem;">
-                ${proj.status}
-              </span>
-              <button type="button" class="btn-text" style="font-size: 0.8125rem; font-weight: 700; color: var(--brand-gold); display: flex; align-items: center; gap: 4px;" aria-label="View specifications for ${proj.name}">
-                Specs ↗
-              </button>
             </div>
           </div>
         </div>
@@ -592,4 +586,35 @@ function initIndustryAccordion() {
   if (!hasExpanded && panels[0]) {
     setActivePanel(panels[0]);
   }
+}
+
+/**
+ * Controller for Homepage FAQ Accordion
+ */
+function initFAQAccordion() {
+  const wrap = document.querySelector('.faq-accordion-wrap');
+  if (!wrap) return;
+
+  const items = wrap.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-question-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('is-active');
+
+      items.forEach(other => {
+        other.classList.remove('is-active');
+        const otherBtn = other.querySelector('.faq-question-btn');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('is-active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }

@@ -452,38 +452,72 @@ export const BRANDED_MATERIALS = [
 export const TESTIMONIALS = [
     {
         id: "t1",
-        quote: "We booked our 2 BHK at GS Sowmiya Elite Enclave in Medavakkam. The team has been completely transparent with construction milestones, material brands, and delivery timelines. Truly making dream homes accessible!",
-        author: "Homebuyer",
-        role: "Resident",
-        company: "GS Sowmiya Elite Enclave",
-        project: "Elite Enclave, Medavakkam",
-        rating: 5
+        quote: "The process was straightforward and stress-free. Timelines, billing, and scope were clearly defined, and the final outcome matched the expectations set at the start.",
+        author: "Mr. Balaguru",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Vengaivasal",
+        rating: 5,
+        image: "/image/Balaguru.png"
     },
     {
         id: "t2",
-        quote: "GS Sowmiya Builders constructed our independent home in Manivakkam. During the housewarming, all our relatives admired the finishing and solid structural strength. Er. Suresh Kumar and his team monitored the work closely.",
-        author: "Homeowner",
-        role: "Client",
-        company: "Private Residence",
-        project: "Manivakkam Turnkey Home",
-        rating: 5
+        quote: "The process was straightforward and stress-free. Timelines, billing, and scope were clearly defined, and the final outcome matched the expectations set at the start.",
+        author: "Mr. Rajini",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Mappedu",
+        rating: 5,
+        image: "/image/Rajini.png"
     },
     {
         id: "t3",
-        quote: "Finding an honest builder in Chennai who gives you a clear BOQ without unexpected cost hikes is rare. They built our house in Vengaivasal with genuine quality materials and handed it over on schedule.",
-        author: "Homeowner Family",
-        role: "Client",
-        company: "Residential Homeowner",
-        project: "Vengaivasal Custom House",
-        rating: 5
+        quote: "A very reliable team with good technical understanding. They ensured the work was done correctly rather than rushing through the process.",
+        author: "Mr. Gurumoorthy",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Mannivakkam",
+        rating: 5,
+        image: "/image/Gurumoorthy.png"
     },
     {
         id: "t4",
-        quote: "We partnered with GS Sowmiya Builders for a joint venture project. Their legal transparency, clear documentation, and ethical approach gave our family immense confidence. Highly recommended.",
-        author: "Landowner Partner",
-        role: "Joint Venture Partner",
-        company: "Property Owner",
-        project: "Vignarajapuram Development",
-        rating: 5
+        quote: "Clear communication and strong coordination made a big difference. The team handled challenges efficiently without affecting timelines or quality.",
+        author: "Mr. Tamilrasan",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Red Hills",
+        rating: 5,
+        image: "/image/Tamilrasan.png"
+    },
+    {
+        id: "t5",
+        quote: "The quality of work was solid, but what stood out was their honesty. Every change was discussed clearly, options were explained, and decisions were never rushed.",
+        author: "Mr. Mohamed Ismath Hanees",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Pallavaram",
+        rating: 5,
+        image: "/image/Mohamed-Ismath-Hanees.png"
+    },
+    {
+        id: "t6",
+        quote: "A technically sound and dependable team. Coordination was smooth, site execution stayed on track, and commitments were consistently honored.",
+        author: "Mr. Tamilrasan",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Keelakotaiyur",
+        rating: 4.5,
+        image: "/image/Tamilrasan-Keelakotaiyur.png"
+    },
+    {
+        id: "t7",
+        quote: "Clear communication and strong coordination made a big difference. The team handled challenges efficiently without affecting timelines or quality.",
+        author: "Mr. Subramanian",
+        role: "— Client,",
+        company: " GS Sowmiya Builders Private Limited",
+        project: "Vengaivasal",
+        rating: 5,
+        image: "/image/Subramanian.png"
     }
 ];

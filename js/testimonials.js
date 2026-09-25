@@ -8,15 +8,25 @@ import gsap from 'gsap';
 
 export function initTestimonials() {
     const sliderContainer = document.querySelector('.testimonial-slider');
+    const imageContainer = document.querySelector('.testimonial-images-slider');
     const prevBtn = document.querySelector('.testi-prev-btn');
     const nextBtn = document.querySelector('.testi-next-btn');
     const counterEl = document.querySelector('.testi-counter');
 
-    if (!sliderContainer) return;
+    if (!sliderContainer || !imageContainer) return;
+
+    imageContainer.innerHTML = TESTIMONIALS.map((item, idx) => `
+        <div class="testimonial-img-slide ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
+            <img src="${item.image}" alt="${item.author} - ${item.project}" loading="lazy">
+        </div>
+    `).join('');
 
     sliderContainer.innerHTML = TESTIMONIALS.map((item, idx) => `
         <div class="testimonial-slide ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
-            <p class="testimonial-text">"${item.quote}"</p>
+            <div>
+                <div class="testimonial-quote-icon" aria-hidden="true">“</div>
+                <p class="testimonial-text">"${item.quote}"</p>
+            </div>
             <div class="testimonial-author-meta">
                 <div class="author-details">
                     <h4>${item.author}</h4>
@@ -28,6 +38,7 @@ export function initTestimonials() {
     `).join('');
 
     const slides = sliderContainer.querySelectorAll('.testimonial-slide');
+    const imgSlides = imageContainer.querySelectorAll('.testimonial-img-slide');
     let currentIndex = 0;
     const total = TESTIMONIALS.length;
 
@@ -40,6 +51,8 @@ export function initTestimonials() {
     function showSlide(index) {
         const current = slides[currentIndex];
         const next = slides[index];
+        const currentImg = imgSlides[currentIndex];
+        const nextImg = imgSlides[index];
 
         gsap.to(current, {
             opacity: 0,
@@ -54,6 +67,11 @@ export function initTestimonials() {
                 );
             }
         });
+
+        if (currentImg && nextImg) {
+            currentImg.classList.remove('is-active');
+            nextImg.classList.add('is-active');
+        }
 
         currentIndex = index;
         updateCounter(currentIndex);

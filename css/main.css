@@ -397,41 +397,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (TRANSPARENT GLASS AT TOP -> SOLID UPON SCROLL)
+   NAVIGATION BAR (SOLID WHITE BACKGROUND, STICKY TOP, NO GLASSY OVERLAY)
    ========================================================================== */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    padding: 18px 0;
-    background: rgba(16, 16, 18, 0.38);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
-    transition: background 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                padding 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9999;
+    padding: 16px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(222, 220, 215, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
 }
 
 .site-header.scrolled,
 .site-header.is-scrolled {
+    position: fixed;
+    top: 0;
     padding: 12px 0;
-    background: #FAF9F7;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: var(--shadow-soft);
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border-light, #E5E7EB);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 20px 20px;
 }
 
 .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 64px;
     padding: 0;
     background: transparent;
     border: none;
@@ -439,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all var(--transition-smooth);
 }
 
-/* Brand Logo with Dark & Light Surface Switching */
+/* Brand Logo */
 .brand-logo {
     display: inline-flex;
     align-items: center;
@@ -448,20 +447,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-    height: 48px;
+    height: 68px;
     width: auto;
-    max-height: 52px;
-    max-width: 220px;
+    max-height: 76px;
+    max-width: 300px;
     object-fit: contain;
     transition: transform var(--transition-fast), opacity 0.3s ease;
 }
 
 .site-header .logo-for-dark {
-    display: block;
+    display: none;
 }
 
 .site-header .logo-for-light {
-    display: none;
+    display: block;
 }
 
 .site-header.scrolled .logo-for-dark,
@@ -563,33 +562,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: color var(--transition-fast);
 }
 
-/* Nav links in transparent top state */
-.site-header:not(.scrolled):not(.is-scrolled) .nav-link {
-    color: rgba(255, 255, 255, 0.94);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-}
 
-.site-header:not(.scrolled):not(.is-scrolled) .nav-link:hover {
-    color: var(--brand-gold);
-}
-
-.site-header:not(.scrolled):not(.is-scrolled) .nav-link::after {
-    background: var(--brand-gold);
-}
-
-.site-header:not(.scrolled):not(.is-scrolled) .nav-dropdown-chevron {
-    stroke: rgba(255, 255, 255, 0.85);
-}
-
-/* Nav toggle button in transparent top state */
-.site-header:not(.scrolled):not(.is-scrolled) .nav-toggle {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-.site-header:not(.scrolled):not(.is-scrolled) .nav-toggle span {
-    background: #ffffff;
-}
 
 .nav-link::after {
     content: '';
@@ -1051,30 +1024,79 @@ h1, h2, h3, h4, h5, h6 {
    TESTIMONIALS (SECTION 10 - DARK CINEMATIC CAROUSEL)
    ========================================================================== */
 .testimonials-section {
-    background: var(--bg-dark-surface);
-    color: var(--text-white);
+    background: #FFFFFF;
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
 }
 
 .testimonial-stage {
-    max-width: 960px;
+    max-width: 1080px;
     margin: 48px auto 0;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid var(--border-light, #DEDCD7);
     border-radius: var(--radius-xl);
-    padding: clamp(32px, 5vw, 64px);
+    overflow: hidden;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-stage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    align-items: stretch;
+}
+
+.testimonial-stage-image-col {
+    position: relative;
+    min-height: 400px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.testimonial-images-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.testimonial-img-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-img-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.testimonial-img-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.testimonial-stage-content-col {
+    padding: clamp(32px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .testimonial-quote-icon {
     font-family: var(--font-display);
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 0.6;
     color: var(--brand-gold);
-    opacity: 0.35;
-    margin-bottom: 24px;
+    opacity: 0.45;
+    margin-bottom: 20px;
 }
 
 .testimonial-slider {
@@ -1091,6 +1113,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 }
 
 .testimonial-slide.is-active {
@@ -1101,11 +1124,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonial-text {
     font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
     line-height: 1.45;
-    color: var(--text-white);
+    color: var(--text-primary);
     font-weight: 500;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .testimonial-author-meta {
@@ -1114,35 +1137,59 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .author-details h4 {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 700;
-    color: var(--brand-gold-light);
+    color: var(--text-primary);
 }
 
 .author-details p {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-secondary);
 }
 
 .author-project-tag {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text-white);
+    background: rgba(217, 162, 74, 0.15);
+    color: var(--brand-burgundy, #2A1B12);
 }
 
 .testimonial-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 32px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-controls .hero-nav-btn {
+    background: #111111;
+    color: #FFFFFF;
+    border: 1px solid rgba(217, 162, 74, 0.4);
+}
+
+.testimonial-controls .hero-nav-btn:hover {
+    background: var(--brand-gold, #D9A24A);
+    color: #111111;
+    border-color: var(--brand-gold, #D9A24A);
+}
+
+@media (max-width: 900px) {
+    .testimonial-stage-grid {
+        grid-template-columns: 1fr;
+    }
+    .testimonial-stage-image-col {
+        min-height: 280px;
+        max-height: 320px;
+    }
 }
 
 /* ==========================================================================

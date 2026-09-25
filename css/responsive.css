@@ -69,7 +69,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 /* Safe touch targets for touchscreens (Apple iOS & Android touch devices) */
-/* @media (pointer: coarse) {
+@media (pointer: coarse) {
   button,
   .btn,
   .nav-link,
@@ -85,7 +85,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .calc-tier-label {
     min-height: 44px;
   }
-} */
+}
 
 /* Hide floating button tooltips on touch devices to prevent sticky tooltips */
 @media (hover: none) {

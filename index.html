@@ -137,158 +137,94 @@
     <main id="main-content">
 
       <!-- ==========================================================================
-           02. FULL-SCREEN ARCHITECTURAL HERO BANNER (MATCHING REFERENCE DESIGN)
+           02. PURE IMAGE CAROUSEL BANNER (1920x500 desktop, 1200x450 tablet, 768x600 mobile)
            ========================================================================== -->
-      <section class="hero-section hero" id="hero" aria-label="GS Sowmiya Builders - Reliable Construction Services">
-        
-        <!-- Full-Screen 4-Image Carousel Background Slides -->
-        <div class="hero-bg-carousel" id="hero-bg-carousel" aria-label="Hero Carousel Showcase">
-          <div class="hero-bg-slide is-active" data-index="0">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85" alt="Reliable Construction Services in Chennai - GS Sowmiya Builders" class="hero-bg-img" loading="eager" fetchpriority="high">
-          </div>
-          <div class="hero-bg-slide" data-index="1">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85" alt="Spaces Made For Living - Custom Residential Homes" class="hero-bg-img" loading="lazy">
-          </div>
-          <div class="hero-bg-slide" data-index="2">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85" alt="Equitable Joint Ventures & Commercial Developments" class="hero-bg-img" loading="lazy">
-          </div>
-          <div class="hero-bg-slide" data-index="3">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2400&q=85" alt="From Vision To Reality - Turnkey Construction Handover" class="hero-bg-img" loading="lazy">
-          </div>
-        </div>
+      <section class="hero-section hero" id="hero" aria-label="GS Sowmiya Builders - Hero Banner">
+        <!-- Full-Screen Background Video -->
+        <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <source src="/image/home-banner-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
 
-        <!-- Left Dark Gradient & Cinematic Vignette for Text Contrast (Matching Reference) -->
-        <div class="hero__overlay hero-left-gradient" aria-hidden="true"></div>
+        <!-- Cinematic Dark Veil Overlay -->
+        <div class="hero-video-overlay" aria-hidden="true"></div>
 
-        <!-- Top Right Subtle Lightbox / Fullscreen Expand Button -->
-        <button class="hero-fullscreen-btn" id="hero-lightbox-btn" type="button" aria-label="View background image in full-screen lightbox">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-          </svg>
-        </button>
-
-        <!-- Main Banner Content Container -->
-        <div class="site-container hero-container-inner">
-          <div class="hero-content-wrap">
-            
-            <!-- Brand Badge: Red Geometric Architectural Icon + Company Name (Matching Reference) -->
-            <div class="hero-brand-badge">
-              <svg class="hero-brand-icon" width="28" height="26" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M16 2L2 13.5H6.5V28H25.5V13.5H30L16 2Z" fill="#d9a24a"/>
-                <path d="M12 28V17H20V28H12Z" fill="#ffffff" fill-opacity="0.95"/>
-                <path d="M8 8.5L16 2L24 8.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-              <span class="hero-brand-name">GS Sowmiya Builders</span>
-            </div>
-
-            <!-- Main Heading (Clean, Large, Bold White Headline matching Reference) -->
-            <h1 class="hero-title">Reliable Construction<br>Services</h1>
-
-            <!-- Description Paragraph (3 clean lines matching Reference) -->
-            <p class="hero-description">
-              We provide reliable, high-quality residential construction and turnkey solutions to keep your dream home durable, safe, and built to last always.
-            </p>
-
-            <!-- Red CTA Button with double chevron arrow » (Matching Reference) -->
+        <!-- Hero Content Overlay (Reference Image Match) -->
+        <div class="hero-content-overlay">
+          <div class="site-container hero-container-inner">
+            <h1 class="hero-main-title">GS SOWMIYA BUILDERS PVT LTD</h1>
+            <p class="hero-tagline">We combine innovation, expertise, and excellence for sustainable success.</p>
             <div class="hero-cta-action">
-              <a href="#services" class="hero-primary-cta" id="hero-cta-btn">
-                <span>Our Services »</span>
+              <a href="/about.html" class="hero-contact-btn">
+                <span>Company Profile</span>
+                <span>→</span>
               </a>
             </div>
-
-          </div>
-
-          <!-- Bottom Navigation Row: Left Dots (◎ • • •) & Right Service Tabs with Active Underline -->
-          <div class="hero-bottom-nav">
-            
-            <!-- Bottom Left: Slide Dots Indicator (◎ • • •) -->
-            <div class="hero-dots-indicator" role="tablist" aria-label="Hero Slides Carousel Dots">
-              <button class="hero-dot is-active" data-index="0" role="tab" aria-selected="true" aria-label="Go to slide 1">
-                <span class="dot-inner"></span>
-              </button>
-              <button class="hero-dot" data-index="1" role="tab" aria-selected="false" aria-label="Go to slide 2">
-                <span class="dot-inner"></span>
-              </button>
-              <button class="hero-dot" data-index="2" role="tab" aria-selected="false" aria-label="Go to slide 3">
-                <span class="dot-inner"></span>
-              </button>
-              <button class="hero-dot" data-index="3" role="tab" aria-selected="false" aria-label="Go to slide 4">
-                <span class="dot-inner"></span>
-              </button>
-            </div>
-
-            <!-- Bottom Right: Horizontal Service Tabs with Active White Line Underneath (Matching Reference) -->
-            <nav class="hero-service-tabs" role="tablist" aria-label="Hero Service Categories">
-              <button class="hero-tab-item is-active" data-index="0" role="tab" aria-selected="true">
-                <span class="tab-label">Residential Construction</span>
-                <span class="tab-active-line" aria-hidden="true"></span>
-              </button>
-              <button class="hero-tab-item" data-index="1" role="tab" aria-selected="false">
-                <span class="tab-label">Living Spaces &amp; Homes</span>
-                <span class="tab-active-line" aria-hidden="true"></span>
-              </button>
-              <button class="hero-tab-item" data-index="2" role="tab" aria-selected="false">
-                <span class="tab-label">Joint Ventures</span>
-                <span class="tab-active-line" aria-hidden="true"></span>
-              </button>
-              <button class="hero-tab-item" data-index="3" role="tab" aria-selected="false">
-                <span class="tab-label">Turnkey Solutions</span>
-                <span class="tab-active-line" aria-hidden="true"></span>
-              </button>
-            </nav>
-
           </div>
         </div>
       </section>
-
-      <!-- Hero Architectural Background Lightbox Modal -->
-      <div id="hero-lightbox" class="hero-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Hero Background Architecture Photo Viewer">
-        <div class="hero-lightbox__backdrop" id="hero-lightbox-backdrop"></div>
-        <div class="hero-lightbox__dialog">
-          <div class="hero-lightbox__header">
-            <div class="hero-lightbox__badge">
-              <span class="hero-lightbox__dot"></span>
-              <span>Architecture Lightbox</span>
-            </div>
-            <div class="hero-lightbox__meta">
-              <span class="hero-lightbox__counter" id="hero-lightbox-counter">01 / 04</span>
-              <button type="button" class="hero-lightbox__close-btn" id="hero-lightbox-close" aria-label="Close Lightbox (Esc)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-          </div>
-          
-          <div class="hero-lightbox__stage">
-            <button type="button" class="hero-lightbox__nav-arrow hero-lightbox__nav-arrow--prev" id="hero-lightbox-prev" aria-label="Previous Photo">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            <div class="hero-lightbox__image-wrapper">
-              <img src="" alt="" class="hero-lightbox__img" id="hero-lightbox-img">
-            </div>
-            <button type="button" class="hero-lightbox__nav-arrow hero-lightbox__nav-arrow--next" id="hero-lightbox-next" aria-label="Next Photo">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </div>
-
-          <div class="hero-lightbox__caption">
-            <h3 class="hero-lightbox__caption-title" id="hero-lightbox-title">Building the Future</h3>
-            <p class="hero-lightbox__caption-desc" id="hero-lightbox-desc">Premium Residential Developments & Turnkey Homes across Chennai.</p>
-          </div>
-        </div>
-      </div>
 
       <!-- ==========================================================================
            03 & 04. COMPANY INTRODUCTION & EXPERIENCE STATISTICS (SECTION 02)
            ========================================================================== -->
       <section class="intro-section section-padding" id="about" aria-label="About GS Sowmiya Builders">
         <div class="site-container">
+
+          <!-- Redesigned Statistics Ribbon at Top of About Section -->
+          <div class="stats-ribbon-wrapper" id="experience-stats" data-reveal>
+            <div class="stats-ribbon-grid">
+              
+              <div class="stat-ribbon-card">
+                <div class="stat-ribbon-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 13v.01"/><path d="M9 17v.01"/></svg>
+                </div>
+                <div class="stat-ribbon-content">
+                  <div class="stat-metric-value">
+                    <span class="counter-value" data-target="985" data-suffix="+">985+</span>
+                  </div>
+                  <div class="stat-metric-label">Completed Projects</div>
+                </div>
+              </div>
+
+              <div class="stat-ribbon-card">
+                <div class="stat-ribbon-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="stat-ribbon-content">
+                  <div class="stat-metric-value">
+                    <span class="counter-value" data-target="527" data-suffix="+">527+</span>
+                  </div>
+                  <div class="stat-metric-label">Client Count</div>
+                </div>
+              </div>
+
+              <div class="stat-ribbon-card">
+                <div class="stat-ribbon-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+                </div>
+                <div class="stat-ribbon-content">
+                  <div class="stat-metric-value">
+                    <span class="counter-value" data-target="120" data-suffix="+">120+</span>
+                  </div>
+                  <div class="stat-metric-label">Awards Won</div>
+                </div>
+              </div>
+
+              <div class="stat-ribbon-card">
+                <div class="stat-ribbon-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="stat-ribbon-content">
+                  <div class="stat-metric-value">
+                    <span class="counter-value" data-target="100" data-suffix="%">100%</span>
+                  </div>
+                  <div class="stat-metric-label">Happy Clients</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <div class="intro-grid">
             
             <!-- Left Column: Editorial Content & Steps -->
@@ -351,7 +287,7 @@
             <!-- Right Column: Editorial Portrait Architectural Photo with Floating Tag -->
             <div class="intro-right" data-reveal>
               <div class="intro-image-frame" data-tilt>
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Contemporary finished residential home in Chennai by GS Sowmiya Builders" loading="lazy">
+                <img src="/image/home-about-image.png" alt="Contemporary finished residential home in Chennai by GS Sowmiya Builders" loading="lazy">
                 
                 <!-- Floating Info Badge (Reference Match) -->
                 <div class="intro-floating-stat">
@@ -364,34 +300,6 @@
               </div>
             </div>
 
-          </div>
-
-          <!-- Section 04: Animated Statistics Ribbon -->
-          <div class="stats-ribbon" id="experience-stats" data-reveal>
-            <div class="stat-metric-card">
-              <div class="stat-metric-value">
-                <span class="counter-value" data-target="985" data-suffix="+">985+</span>
-              </div>
-              <div class="stat-metric-label">Project</div>
-            </div>
-            <div class="stat-metric-card">
-              <div class="stat-metric-value">
-                <span class="counter-value" data-target="527" data-suffix="+">527+</span>
-              </div>
-              <div class="stat-metric-label">Client Count</div>
-            </div>
-            <div class="stat-metric-card">
-              <div class="stat-metric-value">
-                <span class="counter-value" data-target="120" data-suffix="+">120+</span>
-              </div>
-              <div class="stat-metric-label">Awards</div>
-            </div>
-            <div class="stat-metric-card">
-              <div class="stat-metric-value">
-                <span class="counter-value" data-target="100" data-suffix="%">100%</span>
-              </div>
-              <div class="stat-metric-label">Happy Clients</div>
-            </div>
           </div>
 
         </div>
@@ -421,107 +329,269 @@
           <!-- 8 Service Cards Grid (4 per row on desktop) -->
           <div class="services-grid">
             
-            <!-- 01 Residential Construction -->
+            <!-- 01 Home Construction -->
             <div class="service-card" data-tilt>
-              <div class="service-card-image">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Residential Construction" loading="lazy">
-                <div class="service-number-badge">01</div>
+              <div class="service-card-left">
+                <h3 class="service-card-title">Residential Construction</h3>
+                <p class="service-card-desc">
+                  We build thoughtfully planned homes combining structural strength, modern design, quality materials, and lasting comfort for every family.
+                </p>
+                <a href="/services.html#service-residential" class="service-card-btn">
+                  <span>Explore</span>
+                  <span>&gt;</span>
+                </a>
               </div>
-              <div class="service-card-body">
-                <div>
-                  <span class="service-meta-category">Living Spaces</span>
-                  <h3 class="service-card-title">Residential Construction</h3>
-                  <p class="service-card-desc">
-                    Individual homes, custom duplexes, and multi-unit 2 BHK apartment buildings built with earthquake-resistant RCC frames.
-                  </p>
-                  <div class="service-card-features">
-                    <span class="service-tag">Custom Homes</span>
-                    <span class="service-tag">2 BHK Apartments</span>
-                  </div>
-                </div>
-                <div class="service-card-footer">
-                  <a href="/services.html#service-residential" class="service-link-text">Explore Service</a>
-                  <div class="service-arrow-btn">↗</div>
-                </div>
+              <div class="service-card-right">
+                <img src="/image/Residential_Construction.png" alt="Home Construction by GS Sowmiya Builders" loading="lazy">
               </div>
             </div>
 
-            <!-- 02 Joint Venture Development -->
+            <!-- 02 Commercial Construction -->
             <div class="service-card" data-tilt>
-              <div class="service-card-image">
-                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Joint Venture Development" loading="lazy">
-                <div class="service-number-badge">02</div>
+              <div class="service-card-left">
+                <h3 class="service-card-title">Joint Venture Development</h3>
+                <p class="service-card-desc">
+                  We partner with landowners to transform valuable properties into profitable developments through transparent planning, construction expertise, and shared growth.
+                </p>
+                <a href="/services.html#service-commercial" class="service-card-btn">
+                  <span>Explore</span>
+                  <span>&gt;</span>
+                </a>
               </div>
-              <div class="service-card-body">
-                <div>
-                  <span class="service-meta-category">Landowner Partnerships</span>
-                  <h3 class="service-card-title">Joint Venture Projects</h3>
-                  <p class="service-card-desc">
-                    Collaborative development for landowners in Chennai with fair sharing ratios, statutory CMDA/DTCP clearances, and timely delivery.
-                  </p>
-                  <div class="service-card-features">
-                    <span class="service-tag">Equitable Ratios</span>
-                    <span class="service-tag">Legal Transparency</span>
-                  </div>
-                </div>
-                <div class="service-card-footer">
-                  <a href="/contact.html" class="service-link-text">Explore Service</a>
-                  <div class="service-arrow-btn">↗</div>
-                </div>
+              <div class="service-card-right">
+                <img src="/image/Joint_Venture_Development.png" alt="Commercial Construction by GS Sowmiya Builders" loading="lazy">
               </div>
             </div>
 
-            <!-- 03 Turnkey Construction Contracts -->
+            <!-- 03 Turnkey Construction -->
             <div class="service-card" data-tilt>
-              <div class="service-card-image">
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Turnkey Construction" loading="lazy">
-                <div class="service-number-badge">03</div>
+              <div class="service-card-left">
+                <h3 class="service-card-title">Professional Project Management</h3>
+                <p class="service-card-desc">
+                  We manage every construction stage, coordinating teams, timelines, budgets, materials, and quality standards for smooth and efficient project delivery.
+                </p>
+                <a href="/services.html" class="service-card-btn">
+                  <span>Explore</span>
+                  <span>&gt;</span>
+                </a>
               </div>
-              <div class="service-card-body">
-                <div>
-                  <span class="service-meta-category">End-to-End</span>
-                  <h3 class="service-card-title">Turnkey Construction</h3>
-                  <p class="service-card-desc">
-                    Single-point responsibility from foundation soil testing to turnkey key handover with itemized BOQ and zero cost escalations.
-                  </p>
-                  <div class="service-card-features">
-                    <span class="service-tag">Itemized BOQ</span>
-                    <span class="service-tag">Stage Milestone Billing</span>
-                  </div>
-                </div>
-                <div class="service-card-footer">
-                  <a href="/services.html" class="service-link-text">Explore Service</a>
-                  <div class="service-arrow-btn">↗</div>
-                </div>
+              <div class="service-card-right">
+                <img src="/image/Professional_Project_Management.png" alt="Turnkey Construction by GS Sowmiya Builders" loading="lazy">
               </div>
             </div>
 
             <!-- 04 Renovation & Remodeling -->
             <div class="service-card" data-tilt>
-              <div class="service-card-image">
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Renovation and Remodeling" loading="lazy">
-                <div class="service-number-badge">04</div>
+              <div class="service-card-left">
+                <h3 class="service-card-title">Construction Consultancy & Design</h3>
+                <p class="service-card-desc">
+                  We provide expert consultancy and innovative design solutions, helping clients make informed decisions from concept development through construction planning.
+                </p>
+                <a href="/services.html#service-renovation" class="service-card-btn">
+                  <span>Explore</span>
+                  <span>&gt;</span>
+                </a>
               </div>
-              <div class="service-card-body">
-                <div>
-                  <span class="service-meta-category">Modernization</span>
-                  <h3 class="service-card-title">Renovation &amp; Remodeling</h3>
-                  <p class="service-card-desc">
-                    Floor additions, structural strengthening, terrace waterproofing, modern kitchen and bathroom overhauls with meticulous care.
-                  </p>
-                  <div class="service-card-features">
-                    <span class="service-tag">Floor Additions</span>
-                    <span class="service-tag">Waterproofing</span>
+              <div class="service-card-right">
+                <img src="/image/Construction_Consultancy_Design.png" alt="Renovation and Remodeling by GS Sowmiya Builders" loading="lazy">
+              </div>
+            </div>
+            <!-- 05 Renovation & Remodeling -->
+            <div class="service-card" data-tilt>
+              <div class="service-card-left">
+                <h3 class="service-card-title">Interior Design & Execution</h3>
+                <p class="service-card-desc">
+                  We create functional, elegant interiors through thoughtful space planning, premium finishes, customized solutions, and meticulous execution tailored to lifestyles.
+                </p>
+                <a href="/services.html#service-renovation" class="service-card-btn">
+                  <span>Explore</span>
+                  <span>&gt;</span>
+                </a>
+              </div>
+              <div class="service-card-right">
+                <img src="/image/Interior_Design_Execution.png" alt="Renovation and Remodeling by GS Sowmiya Builders" loading="lazy">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           07. FEATURED PROJECTS (SECTION 05 - CINEMATIC SLIDER)
+           ========================================================================== -->
+      <section class="projects-section section-padding" id="projects" aria-label="Featured Projects Showcase">
+        <div class="site-container">
+          
+          <div class="section-header-flex" data-reveal>
+            <div>
+              <div class="section-eyebrow">
+                <span>Portfolio of Excellence</span>
+              </div>
+              <h2 class="section-title">Our Successful Projects</h2>
+              <p class="section-subtitle">
+                A curated selection of our flagship residential enclaves, private villas, and commercial landmarks executed across Tamil Nadu.
+              </p>
+            </div>
+            
+            <a href="#contact" class="btn btn-outline">
+              <span>View All Projects</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Horizontal Draggable & Navigable Projects Track -->
+          <div class="projects-slider-container">
+            <div class="projects-track" role="region" aria-label="Projects Carousel">
+              <!-- Rendered dynamically by /js/projects.js -->
+            </div>
+
+            <!-- Slider Controls (01 / 05 & Arrows) -->
+            <div class="projects-slider-footer">
+              <div class="slider-pagination-count" aria-live="polite">01 / 05</div>
+              <div class="projects-loop-indicators" role="tablist" aria-label="Projects carousel indicators"></div>
+              <div class="slider-nav-arrows">
+                <button class="slider-arrow-btn projects-prev-btn" type="button" aria-label="Previous Project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button class="slider-arrow-btn projects-next-btn" type="button" aria-label="Next Project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+<!-- ==========================================================================
+           03. AVAILABLE SERVICES IN MAJOR CITIES (STANDALONE SECTION)
+           ========================================================================== -->
+      <section class="city-services-standalone-section section-padding" id="cities" aria-label="Available Services in Major Cities">
+        <div class="site-container">
+          <div class="section-header-flex" style="margin-bottom: 40px;" data-reveal>
+            <div>
+              <div class="section-eyebrow">
+                <span>Regional Presence</span>
+              </div>
+              <h3 class="section-title" style="font-size: clamp(1.75rem, 2.5vw, 2.375rem);">Available Services in Major Cities</h3>
+              <p class="section-subtitle">
+                Delivering premium architectural planning, structural engineering, and turnkey construction across Tamil Nadu's leading hubs.
+              </p>
+            </div>
+          </div>
+
+          <div class="city-cards-grid">
+            <!-- Chennai -->
+            <div class="city-service-item" data-reveal>
+              <div class="city-card" data-tilt>
+                <div class="city-card-img-wrap">
+                  <img src="/image/chennai.png" alt="Construction and architectural services in Chennai by GS Sowmiya Builders" loading="lazy">
+                </div>
+              </div>
+              <div class="city-name-outer">Chennai</div>
+            </div>
+
+            <!-- Trichy -->
+            <div class="city-service-item" data-reveal>
+              <div class="city-card" data-tilt>
+                <div class="city-card-img-wrap">
+                  <img src="/image/trichy.jpg" alt="Construction and residential projects in Trichy by GS Sowmiya Builders" loading="lazy">
+                </div>
+              </div>
+              <div class="city-name-outer">Trichy</div>
+            </div>
+
+            <!-- Coimbatore -->
+            <div class="city-service-item" data-reveal>
+              <div class="city-card" data-tilt>
+                <div class="city-card-img-wrap">
+                  <img src="/image/coimbatore.png" alt="Luxury villas and construction in Coimbatore by GS Sowmiya Builders" loading="lazy">
+                </div>
+              </div>
+              <div class="city-name-outer">Coimbatore</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ==========================================================================
+           08. PRICING EVERY BUILD DESERVES (SECTION)
+           ========================================================================== -->
+      <section class="pricing-section section-padding" id="pricing" aria-label="Pricing Plans">
+        <div class="site-container">
+          
+          <div class="section-header-flex" style="margin-bottom: 40px;" data-reveal>
+            <div>
+              <div class="section-eyebrow">
+                <span>Packages</span>
+              </div>
+              <h2 class="section-title">Pricing Every Build Deserves</h2>
+            </div>
+          </div>
+
+          <div class="pricing-cards-grid">
+            
+            <!-- Card 1: Regular -->
+            <div class="pricing-card" data-tilt data-reveal>
+              <div class="pricing-card-content">
+                <div class="pricing-card-info">
+                  <h3 class="pricing-card-title">Regular</h3>
+                  <div class="pricing-rate-wrap">
+                    <span class="pricing-starting-label">STARTING AT</span>
+                    <div class="pricing-amount">₹2,300 <span class="pricing-unit">/ sq.ft</span></div>
                   </div>
                 </div>
-                <div class="service-card-footer">
-                  <a href="/services.html#service-renovation" class="service-link-text">Explore Service</a>
-                  <div class="service-arrow-btn">↗</div>
+                <div class="pricing-card-footer">
+                  <a href="#contact" class="pricing-action-btn">
+                    <span>Talk to an Expert</span>
+                    <span>&gt;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Premium -->
+            <div class="pricing-card" data-tilt data-reveal>
+              <div class="pricing-card-content">
+                <div class="pricing-card-info">
+                  <h3 class="pricing-card-title">Premium</h3>
+                  <div class="pricing-rate-wrap">
+                    <span class="pricing-starting-label">STARTING AT</span>
+                    <div class="pricing-amount">₹2,600 <span class="pricing-unit">/ sq.ft</span></div>
+                  </div>
+                </div>
+                <div class="pricing-card-footer">
+                  <a href="#contact" class="pricing-action-btn">
+                    <span>Talk to an Expert</span>
+                    <span>&gt;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3: Luxury -->
+            <div class="pricing-card" data-tilt data-reveal>
+              <div class="pricing-card-content">
+                <div class="pricing-card-info">
+                  <h3 class="pricing-card-title">Luxury</h3>
+                  <div class="pricing-rate-wrap">
+                    <span class="pricing-starting-label">STARTING AT</span>
+                    <div class="pricing-amount">₹3,000 <span class="pricing-unit">/ sq.ft</span></div>
+                  </div>
+                </div>
+                <div class="pricing-card-footer">
+                  <a href="#contact" class="pricing-action-btn">
+                    <span>Talk to an Expert</span>
+                    <span>&gt;</span>
+                  </a>
                 </div>
               </div>
             </div>
 
           </div>
+
         </div>
       </section>
 
@@ -571,13 +641,13 @@
 
             <!-- Right Side: 6 Core Engineering Principles -->
             <div data-reveal>
-              <div class="section-eyebrow eyebrow-dark">
+              <div class="section-eyebrow">
                 <span>The Engineering Standard</span>
               </div>
-              <h2 class="section-title title-white">
+              <h2 class="section-title">
                 Why Build With Us?
               </h2>
-              <p class="section-subtitle subtitle-light" style="margin-bottom: 32px;">
+              <p class="section-subtitle" style="margin-bottom: 32px;">
                 We combine deep technical mastery, strict safety governance, and obsessive craftsmanship to create enduring structural investments.
               </p>
 
@@ -664,260 +734,6 @@
       </section>
 
       <!-- ==========================================================================
-           07. FEATURED PROJECTS (SECTION 05 - CINEMATIC SLIDER)
-           ========================================================================== -->
-      <section class="projects-section section-padding" id="projects" aria-label="Featured Projects Showcase">
-        <div class="site-container">
-          
-          <div class="section-header-flex" data-reveal>
-            <div>
-              <div class="section-eyebrow">
-                <span>Portfolio of Excellence</span>
-              </div>
-              <h2 class="section-title">Our Successful Projects</h2>
-              <p class="section-subtitle">
-                A curated selection of our flagship residential enclaves, private villas, and commercial landmarks executed across Tamil Nadu.
-              </p>
-            </div>
-            
-            <a href="#contact" class="btn btn-outline">
-              <span>View All Projects</span>
-              <span>→</span>
-            </a>
-          </div>
-
-          <!-- Horizontal Draggable & Navigable Projects Track -->
-          <div class="projects-slider-container">
-            <div class="projects-track" role="region" aria-label="Projects Carousel">
-              <!-- Rendered dynamically by /js/projects.js -->
-            </div>
-
-            <!-- Slider Controls (01 / 05 & Arrows) -->
-            <div class="projects-slider-footer">
-              <div class="slider-pagination-count" aria-live="polite">01 / 05</div>
-              <div class="projects-loop-indicators" role="tablist" aria-label="Projects carousel indicators"></div>
-              <div class="slider-nav-arrows">
-                <button class="slider-arrow-btn projects-prev-btn" type="button" aria-label="Previous Project">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                  </svg>
-                </button>
-                <button class="slider-arrow-btn projects-next-btn" type="button" aria-label="Next Project">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           08. EXPERTISE / INDUSTRIES (SECTION 06 - INTERACTIVE PANELS)
-           ========================================================================== -->
-      <section class="industries-section section-padding" id="industries" aria-label="Industries and Sectors">
-        <div class="site-container">
-          
-          <div class="section-header-flex" data-reveal>
-            <div>
-              <div class="section-eyebrow">
-                <span>Sector Specialization</span>
-              </div>
-              <h2 class="section-title">Built For Every Environment</h2>
-              <p class="section-subtitle">
-                Engineered adaptability across residential living, enterprise workplaces, industrial facilities, and civic infrastructure.
-              </p>
-            </div>
-          </div>
-
-          <!-- 6 Expandable Interactive Panels -->
-          <div class="industries-accordion-wrap">
-            
-            <!-- Panel 1: Residential -->
-            <div class="industry-panel is-expanded" data-industry="residential">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">RESIDENTIAL</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Quality homes for all classes</span>
-                  <h3>Residential Living</h3>
-                  <p class="industry-desc">
-                    Individual homes, custom duplexes, and 2 BHK apartments at GS Sowmiya Elite Enclave in Medavakkam built with earthquake-resistant engineering.
-                  </p>
-                  <!-- <span class="industry-stat-tag">15+ Projects Handed Over &amp; Active</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 2: Joint Ventures -->
-            <div class="industry-panel" data-industry="joint-ventures">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">JOINT VENTURES</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Fair landowner partnerships</span>
-                  <h3>Joint Venture Development</h3>
-                  <p class="industry-desc">
-                    Collaborative development for landowners across Chennai with clear legal documentation, CMDA/DTCP approvals, and maximized returns.
-                  </p>
-                  <!-- <span class="industry-stat-tag">Equitable Sharing Ratios</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 3: Turnkey Contracts -->
-            <div class="industry-panel" data-industry="turnkey">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">TURNKEY CONTRACTS</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Complete peace of mind</span>
-                  <h3>Turnkey Construction</h3>
-                  <p class="industry-desc">
-                    End-to-end building contracts with fixed pricing, transparent bill of quantities (BOQ), verified materials, and stage-linked payments.
-                  </p>
-                  <!-- <span class="industry-stat-tag">100% Itemized BOQ Transparency</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 4: Commercial -->
-            <div class="industry-panel" data-industry="commercial">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">COMMERCIAL</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Functional enterprise spaces</span>
-                  <h3>Commercial Buildings</h3>
-                  <p class="industry-desc">
-                    Commercial shopping complexes, clinic buildings, and mixed-use rental properties engineered for durability and high rental yield.
-                  </p>
-                  <!-- <span class="industry-stat-tag">High-Utility Commercial Layouts</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 5: Renovation & Remodeling -->
-            <div class="industry-panel" data-industry="renovation">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">RENOVATION</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Modernize existing structures</span>
-                  <h3>Renovation &amp; Remodeling</h3>
-                  <p class="industry-desc">
-                    Structural strengthening, second-floor additions, terrace weather-proofing, and contemporary bathroom and kitchen transformations.
-                  </p>
-                  <!-- <span class="industry-stat-tag">Comprehensive Structural Assessment</span> -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 6: Interiors -->
-            <div class="industry-panel" data-industry="interiors">
-              <div class="industry-panel-bg" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80');"></div>
-              <div class="industry-panel-overlay"></div>
-              <div class="industry-collapsed-title">INTERIORS</div>
-              <div class="industry-panel-content">
-                <div class="industry-expanded-info">
-                  <span class="industry-tagline">Harmonious living comfort</span>
-                  <h3>Interior Finishing</h3>
-                  <p class="industry-desc">
-                    Custom modular kitchens, wardrobe carpentry, POP false ceiling layouts, ambient LED lighting, and premium vitrified tiling.
-                  </p>
-                  <!-- <span class="industry-stat-tag">Crafted Joinery &amp; Woodwork</span> -->
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           09. CERTIFICATIONS / AWARDS (SECTION 08 - LIGHT / IVORY)
-           ========================================================================== -->
-      <section class="certifications-section section-padding" id="certifications" aria-label="Recognition and Standards">
-        <div class="site-container">
-          
-          <div class="section-header-flex" data-reveal>
-            <div>
-              <div class="section-eyebrow">
-                <span>Compliance & Accreditations</span>
-              </div>
-              <h2 class="section-title">Recognition & Standards</h2>
-              <p class="section-subtitle">
-                Adherence to international structural management codes, green building practices, and state building safety mandates.
-              </p>
-            </div>
-          </div>
-
-          <div class="certs-grid">
-            
-            <!-- ISO -->
-            <div class="cert-card" data-tilt>
-              <div>
-                <span class="cert-badge-pill">ISO 9001:2015</span>
-                <h3 class="cert-card-title">Quality Management</h3>
-                <div class="cert-card-issuer">Bureau of Standards</div>
-                <p class="cert-card-desc">Certified for stringent civil engineering standards, material sourcing integrity, and project delivery fidelity.</p>
-              </div>
-            </div>
-
-            <!-- IGBC -->
-            <div class="cert-card" data-tilt>
-              <div>
-                <span class="cert-badge-pill">IGBC GOLD</span>
-                <h3 class="cert-card-title">Green Building Council</h3>
-                <div class="cert-card-issuer">Indian Green Building Council</div>
-                <p class="cert-card-desc">Accredited builder for sustainable construction methods, rainwater harvesting, and thermal efficiency.</p>
-              </div>
-            </div>
-
-            <!-- Safety -->
-            <div class="cert-card" data-tilt>
-              <div>
-                <span class="cert-badge-pill">SAFETY FIRST</span>
-                <h3 class="cert-card-title">Safety Standard</h3>
-                <div class="cert-card-issuer">National Safety Council</div>
-                <p class="cert-card-desc">Zero-accident site policy with mandatory PPE protocols, hazard audits, and certified safety officers.</p>
-              </div>
-            </div>
-
-            <!-- CREDAI -->
-            <div class="cert-card" data-tilt>
-              <div>
-                <span class="cert-badge-pill">CREDAI</span>
-                <h3 class="cert-card-title">Allied Builder Member</h3>
-                <div class="cert-card-issuer">Confederation of Real Estate</div>
-                <p class="cert-card-desc">Adherence to the highest ethical codes of consumer transparency, milestone fidelity, and construction law.</p>
-              </div>
-            </div>
-
-            <!-- Engineering Award -->
-            <div class="cert-card" data-tilt>
-              <div>
-                <span class="cert-badge-pill">EXCELLENCE</span>
-                <h3 class="cert-card-title">Structural Excellence</h3>
-                <div class="cert-card-issuer">Regional Forum 2024</div>
-                <p class="cert-card-desc">Recognized for innovative post-tensioned slab design and complex architectural cantilever execution.</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ==========================================================================
            10. COMPANY NAME SIGNATURE MARQUEE (BIG TEXT CAROUSEL)
            ========================================================================== -->
       <section class="clients-section" aria-label="GS Sowmiya Builders Signature Marquee">
@@ -964,36 +780,47 @@
         <div class="site-container">
           
           <div style="text-align: center;" data-reveal>
-            <div class="section-eyebrow eyebrow-dark">
+            <div class="section-eyebrow">
               <span>Client Endorsements</span>
             </div>
-            <h2 class="section-title title-white">What Our Clients Say</h2>
-            <p class="section-subtitle subtitle-light" style="margin: 0 auto;">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">
               Direct feedback from property owners, commercial executives, and developers who entrusted their projects to GS Sowmiya Builders.
             </p>
           </div>
 
           <!-- Carousel Container -->
           <div class="testimonial-stage" data-reveal>
-            <div class="testimonial-quote-icon" aria-hidden="true">“</div>
-            <div class="testimonial-slider" role="region" aria-label="Testimonial reviews">
-              <!-- Injected by /js/testimonials.js -->
-            </div>
+            <div class="testimonial-stage-grid">
+              <!-- Left Side Full-Height Image Column -->
+              <div class="testimonial-stage-image-col">
+                <div class="testimonial-images-slider">
+                  <!-- Injected by /js/testimonials.js -->
+                </div>
+              </div>
 
-            <!-- Controls -->
-            <div class="testimonial-controls">
-              <span class="testi-counter" style="color: var(--brand-gold); font-weight: 700; letter-spacing: 0.1em;">01 / 04</span>
-              <div style="display: flex; gap: 12px;">
-                <button class="hero-nav-btn testi-prev-btn" type="button" aria-label="Previous Testimonial">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                  </svg>
-                </button>
-                <button class="hero-nav-btn testi-next-btn" type="button" aria-label="Next Testimonial">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </button>
+              <!-- Right Side Content Column -->
+              <div class="testimonial-stage-content-col">
+                <div class="testimonial-slider" role="region" aria-label="Testimonial reviews">
+                  <!-- Injected by /js/testimonials.js -->
+                </div>
+
+                <!-- Controls -->
+                <div class="testimonial-controls">
+                  <span class="testi-counter" style="color: var(--brand-gold); font-weight: 700; letter-spacing: 0.1em;">01 / 04</span>
+                  <div style="display: flex; gap: 12px;">
+                    <button class="hero-nav-btn testi-prev-btn" type="button" aria-label="Previous Testimonial">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                    </button>
+                    <button class="hero-nav-btn testi-next-btn" type="button" aria-label="Next Testimonial">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1029,6 +856,119 @@
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           13.5. FREQUENTLY ASKED QUESTIONS (ACCORDION SECTION)
+           ========================================================================== -->
+      <section class="faq-section section-padding" id="faq" aria-label="Frequently Asked Questions">
+        <div class="site-container" style="max-width: 900px;">
+          
+          <div style="text-align: center; margin-bottom: 48px;" data-reveal>
+            <div class="section-eyebrow">
+              <span>Got Questions?</span>
+            </div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">
+              Clear answers to common questions about our construction timelines, joint venture policies, material standards, and approvals.
+            </p>
+          </div>
+
+          <div class="faq-accordion-wrap" data-reveal>
+            
+            <!-- Item 1 -->
+            <div class="faq-item is-active">
+              <button class="faq-question-btn" type="button" aria-expanded="true">
+                <span class="faq-q-text">What is your construction timeline?</span>
+                <span class="faq-icon-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-wrap">
+                <div class="faq-answer-content">
+                  Construction timelines depend on project scale and specifications. Typically, individual residential villas and independent houses are delivered within 6 to 9 months, while multi-unit 2 BHK apartment complexes range from 10 to 14 months, backed by strict CPM/PERT scheduling and weekly milestone updates.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item">
+              <button class="faq-question-btn" type="button" aria-expanded="false">
+                <span class="faq-q-text">Do you offer joint venture projects?</span>
+                <span class="faq-icon-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-wrap">
+                <div class="faq-answer-content">
+                  Yes, we actively partner with landowners in Chennai and across Tamil Nadu for joint venture developments. We provide equitable sharing ratios, complete legal transparency, and manage all statutory CMDA/DTCP clearances.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item">
+              <button class="faq-question-btn" type="button" aria-expanded="false">
+                <span class="faq-q-text">What materials and quality standards do you use?</span>
+                <span class="faq-icon-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-wrap">
+                <div class="faq-answer-content">
+                  We maintain uncompromising quality by using certified Grade-53 cement, Fe-550D TMT steel, lab-tested aggregates, and rigorous cube testing at every stage of the pour.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item">
+              <button class="faq-question-btn" type="button" aria-expanded="false">
+                <span class="faq-q-text">Do you handle CMDA and DTCP approvals?</span>
+                <span class="faq-icon-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-wrap">
+                <div class="faq-answer-content">
+                  Absolutely. Our technical and legal team handles all required municipal approvals, zoning verifications, and structural engineering compliance to ensure 100% legal peace of mind.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item">
+              <button class="faq-question-btn" type="button" aria-expanded="false">
+                <span class="faq-q-text">How does payment and billing work?</span>
+                <span class="faq-icon-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer-wrap">
+                <div class="faq-answer-content">
+                  We follow a transparent stage-by-stage milestone billing structure tied directly to physical progress (e.g., foundation completion, roof slab casting, brickwork, finishing) with zero hidden cost escalations.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
