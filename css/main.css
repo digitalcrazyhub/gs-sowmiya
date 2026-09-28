@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-subtitle {
     font-size: clamp(1rem, 1.2vw, 1.25rem);
     color: var(--text-secondary);
-    max-width: 680px;
+    /* max-width: 680px; */
     line-height: 1.6;
 }
 
@@ -1322,7 +1322,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-detail-content h4 {
-    font-size: 0.875rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1460,6 +1460,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-brand-desc {
     font-size: 0.9375rem;
     line-height: 1.65;
+    text-align: justify;
     color: #909090;
     max-width: 360px;
 }
@@ -2027,6 +2028,92 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 14px;
     border-top: 1px solid var(--border-light);
 }
+
+/* ==========================================================================
+   GLOBAL WEBSITE BACKGROUND COLOR SYSTEM — ALL PAGES & ALL SECTIONS
+   Premium Light Architectural Theme (White, Light Gray, Soft Gray, Warm Ivory)
+   ========================================================================== */
+:root {
+    --section-white: #FFFFFF;
+    --section-light: #F7F7F7;
+    --section-soft-gray: #F1F2F3;
+    --section-warm-gray: #F5F3F0;
+    --section-ivory: #FAF8F5;
+}
+
+/* Ensure no dark or black section backgrounds exist anywhere on any page */
+section:not([class*="hero"]):not([class*="banner"]):not([class*="footer"]) {
+    background-color: var(--section-white);
+    color: var(--text-primary);
+}
+
+/* Alternating background rhythm across sequential sections */
+main > section:nth-of-type(odd) {
+    background-color: var(--section-white) !important;
+}
+
+main > section:nth-of-type(even) {
+    background-color: var(--section-light) !important;
+}
+
+main > section:nth-of-type(3n) {
+    background-color: var(--section-ivory) !important;
+}
+
+main > section:nth-of-type(4n) {
+    background-color: var(--section-warm-gray) !important;
+}
+
+/* Specific Page Section Overrides for Perfect Architectural Aesthetics */
+.about-metrics-band {
+    background: var(--section-ivory) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+.about-metric-card, .stat-block {
+    background: var(--section-white) !important;
+    border: 1px solid var(--border-light) !important;
+}
+.about-metric-number, .stat-number {
+    color: var(--brand-burgundy) !important;
+}
+.about-metric-label, .stat-label {
+    color: var(--text-secondary) !important;
+}
+.about-founder-quote {
+    background: var(--section-light) !important;
+}
+
+.services-intro-section,
+.services-showcase-section,
+.service-detail-section {
+    background: var(--section-light) !important;
+}
+
+.projects-filter-section,
+.projects-grid-section {
+    background: var(--section-white) !important;
+}
+
+.team-grid-section {
+    background: var(--section-ivory) !important;
+}
+
+.contact-section {
+    background: var(--section-light) !important;
+}
+
+.final-cta-section {
+    background: var(--section-ivory) !important;
+    color: var(--text-primary) !important;
+}
+.cta-title {
+    color: var(--text-primary) !important;
+}
+.cta-desc {
+    color: var(--text-secondary) !important;
+}
+
 
 
 

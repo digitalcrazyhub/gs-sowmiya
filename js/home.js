@@ -167,7 +167,6 @@ function initProjectsSlider() {
           <div class="project-card__image-wrap">
             <img src="${proj.image}" alt="${proj.name}" class="project-card__image" loading="lazy">
             <div class="project-card__overlay"></div>
-            <span class="project-card__badge-tag">${categoryText}</span>
             <div class="project-card__bottom-info">
               <h3 class="project-card__title">${proj.name}</h3>
               <p class="project-card__subtitle">${proj.area} | ${proj.tag || proj.status}</p>

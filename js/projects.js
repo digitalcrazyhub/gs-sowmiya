@@ -402,7 +402,6 @@ function renderProjectsGrid(projectsList) {
           >
           <div class="project-card__overlay" aria-hidden="true"></div>
           <div class="project-card__gold-edge" aria-hidden="true"></div>
-          <span class="project-card__badge-tag">${project.categoryLabel}</span>
           
           <button type="button" class="project-card__zoom-btn" data-lightbox-trigger="${index}" aria-label="Enlarge ${project.name} photo">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

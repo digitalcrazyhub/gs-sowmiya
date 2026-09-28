@@ -247,10 +247,6 @@
 }
 
 .value-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   margin-bottom: 24px;
 }
 
@@ -271,19 +267,6 @@
   background: var(--brand-burgundy, #741719);
   color: #ffffff;
   transform: scale(1.06);
-}
-
-.value-card-tag {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--brand-gold, #d9a24a);
-  background: rgba(217, 162, 74, 0.12);
-  border: 1px solid rgba(217, 162, 74, 0.25);
-  padding: 4px 12px;
-  border-radius: var(--radius-pill, 9999px);
-  white-space: nowrap;
 }
 
 .value-card-title {
@@ -537,27 +520,6 @@
   margin-bottom: 12px;
 }
 
-.leader-specialty {
-  display: inline-flex;
-  align-self: flex-start;
-  background: var(--bg-off-white, #f8f6f2);
-  color: var(--text-secondary, #555555);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill, 9999px);
-  border: 1px solid var(--border-light, #e5e5e5);
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
-
-.leader-bio {
-  font-size: 0.875rem;
-  color: var(--text-secondary, #666666);
-  line-height: 1.6;
-  margin-top: auto;
-}
-
 /* Equipment Fleet & NDT Testing Lab */
 .fleet-grid {
   display: grid;
@@ -803,3 +765,113 @@
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.55;
 }
+
+/* ==========================================================================
+   FOUNDERS PORTRAIT CARDS (ABOUT STORY SECTION MATCHING REFERENCE)
+   ========================================================================== */
+.founders-cards-row {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+}
+
+.founder-portrait-card {
+  flex: 1;
+  background: var(--bg-white, #FFFFFF);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-light, #DEDCD7);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.founder-portrait-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(116, 23, 25, 0.18);
+  border-color: var(--brand-gold, #D9A24A);
+}
+
+.founder-img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+  background: #E8E7E4;
+}
+
+.founder-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-portrait-card:hover .founder-img-wrap img {
+  transform: scale(1.04);
+}
+
+.founder-banner-box {
+  background: linear-gradient(135deg, #741719, #581113);
+  padding: 16px 12px;
+  text-align: center;
+  color: #FFFFFF;
+  border-top: 2px solid var(--brand-gold, #D9A24A);
+}
+
+.founder-card-name {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.founder-card-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-gold, #D9A24A);
+  text-transform: uppercase;
+}
+
+/* Desktop Grid ordering: Content left (col 1), Visual right (col 2) */
+@media (min-width: 992px) {
+  .about-story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(36px, 6vw, 72px);
+    align-items: center;
+  }
+  .about-content-col {
+    grid-column: 1 / 2;
+    order: unset;
+  }
+  .about-visual-stack {
+    grid-column: 2 / 3;
+    order: unset;
+  }
+}
+
+/* Mobile responsive ordering: Photos first at top, Content below */
+@media (max-width: 991px) {
+  .about-story-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .about-visual-stack {
+    order: -1 !important; /* Photos come first on mobile */
+  }
+  .about-content-col {
+    order: 1 !important; /* Content comes below photos on mobile */
+  }
+  .founders-cards-row {
+    gap: 14px;
+  }
+}
+

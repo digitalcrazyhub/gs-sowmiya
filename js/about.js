@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // eyebrow: 'Corporate Heritage & Engineering Integrity',
             breadcrumb: 'ABOUT US',
             desc: 'Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.',
-            bgImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80'
+            bgImage: '/image/about-page-banner.png'
         }
     });
 
