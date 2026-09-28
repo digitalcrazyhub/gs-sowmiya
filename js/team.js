@@ -467,10 +467,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 1. Ensure all items visible immediately
     ensureAllItemsVisible();
 
-    // 2. Load centralized global components (common Navbar with ABOUT dropdown active, Footer, Floating Actions)
+    // 2. Load centralized global components (common Navbar with ABOUT dropdown active, Page Banner, Footer, Floating Actions)
     await loadGlobalComponents({
         activeNav: 'team',
-        banner: null // Team page uses its custom cinematic architectural hero
+        banner: {
+            breadcrumb: 'OUR TEAM',
+            eyebrow: 'EXECUTIVE LEADERSHIP',
+            title: 'The People Behind The Work.',
+            bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1920&q=85'
+        }
     });
 
     // 3. Initialize Department Filter Bar (all items visible by default)

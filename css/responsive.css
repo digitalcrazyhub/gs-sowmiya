@@ -68,24 +68,6 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   }
 }
 
-/* Safe touch targets for touchscreens (Apple iOS & Android touch devices) */
-@media (pointer: coarse) {
-  button,
-  .btn,
-  .nav-link,
-  .mobile-nav-link,
-  .floating-btn,
-  .project-filter-tab,
-  .projects-tab-btn,
-  .nav-toggle,
-  .modal-close-btn,
-  .project-modal-close,
-  .project-lightbox__close,
-  .hero-nav-btn,
-  .calc-tier-label {
-    min-height: 44px;
-  }
-}
 
 /* Hide floating button tooltips on touch devices to prevent sticky tooltips */
 @media (hover: none) {
@@ -636,7 +618,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   }
 
   .leader-img-wrap {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 4;
   }
 }
 
@@ -1153,8 +1135,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
   .cta-title {
     font-size: clamp(1.35rem, 4vw, 2.75rem) !important;
-    white-space: nowrap !important;
-    text-wrap: nowrap !important;
+    white-space: normal !important;
+    text-wrap: balance !important;
   }
 }
 
@@ -1194,8 +1176,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
   .cta-title {
     font-size: clamp(1.1rem, 4.4vw, 1.85rem) !important;
-    white-space: nowrap !important;
-    text-wrap: nowrap !important;
+    white-space: normal !important;
+    text-wrap: balance !important;
   }
 
   .cta-actions {
@@ -1228,10 +1210,11 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   }
 
   .cta-title {
-    font-size: clamp(0.88rem, 4.3vw, 1.05rem) !important;
-    white-space: nowrap !important;
-    text-wrap: nowrap !important;
-    letter-spacing: -0.025em !important;
+    font-size: clamp(0.88rem, 4.2vw, 1.05rem) !important;
+    white-space: normal !important;
+    text-wrap: balance !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.35 !important;
   }
 
   .hero-title {

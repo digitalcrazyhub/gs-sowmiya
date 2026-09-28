@@ -667,9 +667,6 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .leader-img-wrap {
-    aspect-ratio: 4 / 3;
-  }
 }
 
 @media (max-width: 480px) {
@@ -688,8 +685,8 @@
    CONSTRUCTION PROCESS (DARK TIMELINE SECTION)
    ========================================================================== */
 .process-section {
-  background: var(--bg-dark, #121212);
-  color: var(--text-white, #ffffff);
+  background: #FAF8F5 !important;
+  color: var(--text-primary, #1a1a1a) !important;
   position: relative;
   overflow: hidden;
 }
@@ -709,7 +706,7 @@
   left: 40px;
   right: 40px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--border-light, #e5e5e5) !important;
   z-index: 1;
 }
 
@@ -724,24 +721,24 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--bg-dark-card, #1c1c1c);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: #FFFFFF !important;
+  border: 2px solid var(--border-light, #e5e5e5) !important;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
   font-weight: 800;
-  color: var(--brand-gold, #d9a24a);
+  color: var(--brand-burgundy, #741719) !important;
   margin-bottom: 24px;
   transition: all var(--transition-smooth, 0.3s ease);
-  box-shadow: 0 0 0 6px var(--bg-dark, #121212);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
 }
 
 .process-stage-item:hover .process-node-circle {
-  background: var(--brand-gold, #d9a24a);
-  color: #1a1a1a;
-  border-color: var(--brand-gold, #d9a24a);
-  box-shadow: 0 0 20px var(--brand-gold, #d9a24a), 0 0 0 6px var(--bg-dark, #121212);
+  background: var(--brand-burgundy, #741719) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand-burgundy, #741719) !important;
+  box-shadow: 0 8px 20px rgba(116, 23, 25, 0.2) !important;
 }
 
 .process-stage-phase {
@@ -756,13 +753,13 @@
 .process-stage-name {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--text-white, #ffffff);
+  color: var(--text-primary, #1a1a1a) !important;
   margin-bottom: 8px;
 }
 
 .process-stage-desc {
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary, #666666) !important;
   line-height: 1.55;
 }
 
@@ -825,7 +822,7 @@
 
 .founder-card-name {
   font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.0625rem;
+  font-size: 1.0425rem;
   font-weight: 700;
   color: #FFFFFF;
   margin-bottom: 2px;
@@ -834,7 +831,6 @@
 .founder-card-title {
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
   color: var(--brand-gold, #D9A24A);
   text-transform: uppercase;
 }

@@ -2049,7 +2049,7 @@ section:not([class*="hero"]):not([class*="banner"]):not([class*="footer"]) {
 
 /* Alternating background rhythm across sequential sections */
 main > section:nth-of-type(odd) {
-    background-color: var(--section-white) !important;
+    background-color: #ebebeb !important;
 }
 
 main > section:nth-of-type(even) {

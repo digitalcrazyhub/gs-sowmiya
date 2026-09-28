@@ -21,9 +21,17 @@ const CONTACT_FORM_ENDPOINT = "";
  * Initialize page components and interactions
  */
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Load Navbar, Footer, and Floating Action Buttons
+    // 1. Load Navbar, Page Banner, Footer, and Floating Action Buttons
     try {
-        await loadGlobalComponents({ activeNav: 'contact' });
+        await loadGlobalComponents({
+            activeNav: 'contact',
+            banner: {
+                breadcrumb: 'CONTACT US',
+                eyebrow: 'GET IN TOUCH',
+                title: "Let's Build Stronger Together.",
+                bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85'
+            }
+        });
     } catch (err) {
         console.warn('Component auto-loader notice:', err);
     }

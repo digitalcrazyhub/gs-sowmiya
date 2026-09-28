@@ -392,6 +392,7 @@
     min-height: 420px;
     max-height: 520px;
     object-fit: cover;
+    object-position: center 10%;
     display: block;
     filter: contrast(105%);
 }
@@ -481,7 +482,7 @@
 /* 3-Column Leadership Grid */
 .team-leadership-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(20px, 3vw, 32px);
 }
 
@@ -511,28 +512,13 @@
 .team-card-img-wrap img {
     width: 100%;
     height: 100%;
+    object-position: center 10%;
     object-fit: cover;
     transition: transform var(--transition-cinematic);
 }
 
 .team-card:hover .team-card-img-wrap img {
     transform: scale(1.05);
-}
-
-.team-card-dept-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(8px);
-    color: var(--brand-gold-light);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid rgba(217, 162, 74, 0.4);
 }
 
 .team-card-body {
@@ -968,23 +954,16 @@
    -------------------------------------------------------------------------- */
 .team-culture-section {
     padding: clamp(80px, 11vw, 130px) 0;
-    background-color: var(--brand-burgundy-dark);
-    background-image: 
-        radial-gradient(circle at 85% 15%, rgba(217, 162, 74, 0.22) 0%, transparent 50%),
-        radial-gradient(circle at 15% 85%, rgba(18, 18, 18, 0.6) 0%, transparent 60%);
-    color: var(--text-white);
+    background-color: #F5F3F0;
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .team-culture-pattern {
-    position: absolute;
-    inset: 0;
-    background-size: 48px 48px;
-    background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    pointer-events: none;
+    display: none;
 }
 
 .team-culture-header {
@@ -995,15 +974,15 @@
 }
 
 .team-culture-header .team-section-eyebrow {
-    color: var(--brand-gold-light);
+    color: var(--brand-burgundy);
 }
 
 .team-culture-header .team-section-title {
-    color: var(--text-white);
+    color: var(--text-primary);
 }
 
 .team-culture-header .team-section-desc {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     font-size: 1.125rem;
 }
 
@@ -1016,29 +995,29 @@
 }
 
 .team-culture-card {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-md);
     padding: clamp(24px, 3vw, 32px);
     display: flex;
     flex-direction: column;
     transition: all var(--transition-smooth);
     position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
 }
 
 .team-culture-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--brand-gold);
+    background: var(--bg-white);
+    border-color: var(--brand-burgundy);
     transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
 .team-culture-card-num {
     font-family: var(--font-display);
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--brand-gold-light);
+    color: var(--brand-burgundy);
     margin-bottom: 16px;
     line-height: 1;
 }
@@ -1047,7 +1026,7 @@
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-white);
+    color: var(--text-primary);
     letter-spacing: 0.02em;
     margin-bottom: 12px;
 }
@@ -1055,7 +1034,7 @@
 .team-culture-card-text {
     font-size: 0.875rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--text-secondary);
 }
 
 /* --------------------------------------------------------------------------

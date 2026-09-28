@@ -275,9 +275,15 @@ let currentLightboxIndex = 0;
  * Initialize Projects Page on DOMContentLoaded
  */
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Load Global Common Components (Navbar, Footer, Floating Actions)
+  // 1. Load Global Common Components (Navbar, Page Banner, Footer, Floating Actions)
   await loadGlobalComponents({
-    activeNav: 'projects'
+    activeNav: 'projects',
+    banner: {
+      breadcrumb: 'PROJECTS',
+      eyebrow: 'PORTFOLIO OF EXCELLENCE',
+      title: 'Projects That Speak For Themselves.',
+      bgImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=85'
+    }
   });
 
   // 2. Initialize Category Badges with dynamic counts

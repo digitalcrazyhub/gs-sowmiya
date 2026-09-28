@@ -3437,4 +3437,180 @@
     color: var(--text-secondary) !important;
 }
 
+/* ==========================================================================
+   WHY BUILD WITH US SECTION (NEW REDESIGNED EDITORIAL BENTO STYLE)
+   ========================================================================== */
+.why-build-section {
+    background: #0F172A !important;
+    color: #F8FAFC !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-redesign-header {
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+.why-redesign-header .section-eyebrow span {
+    background: rgba(217, 119, 6, 0.15);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.why-redesign-title {
+    color: #FFFFFF !important;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.why-redesign-subtitle {
+    color: #94A3B8 !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.why-redesign-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.why-redesign-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px 24px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-redesign-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #D97706, #F59E0B);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.why-redesign-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.why-redesign-card:hover::before {
+    opacity: 1;
+}
+
+.why-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.why-card-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #334155;
+    font-family: monospace;
+    transition: color 0.3s ease;
+}
+
+.why-redesign-card:hover .why-card-num {
+    color: #F59E0B;
+}
+
+.why-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-card-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.why-card-text {
+    font-size: 0.925rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.why-featured-banner {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(30, 41, 59, 0.9));
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 24px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.why-banner-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.why-banner-content h3 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* Responsive Breakpoints for Redesign */
+@media (max-width: 1200px) {
+    .why-redesign-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .why-redesign-grid {
+        grid-template-columns: 1fr;
+    }
+    .why-featured-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+    }
+    .why-banner-content h3 {
+        font-size: 1.25rem;
+    }
+}
+
+
 
