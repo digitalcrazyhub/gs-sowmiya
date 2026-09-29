@@ -26,11 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadGlobalComponents({
     activeNav: 'services',
     banner: {
-      eyebrow: 'OUR SERVICES',
-      title: 'Construction Services<br>For Tamil Nadu.',
+      title: 'Our Primary Services',
       breadcrumb: 'SERVICES',
       desc: 'GS Sowmiya Builders Private Limited provides construction, project management, consultancy, joint venture and interior solutions for residential and development projects.',
-      bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1800&q=80'
+      bgImage: '/image/page-banner.png'
     }
   });
 

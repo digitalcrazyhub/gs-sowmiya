@@ -32,7 +32,7 @@ const prefersReducedMotion = typeof window !== 'undefined' &&
  */
 export function initScrollReveal() {
   const revealElements = document.querySelectorAll(
-    '[data-reveal], .reveal-on-scroll, [data-scroll-reveal], .section-eyebrow, .section-title, .section-subtitle'
+    '[data-reveal], .reveal-on-scroll, [data-scroll-reveal], .section-title, .section-subtitle'
   );
   
   if (!revealElements.length) return;
@@ -205,7 +205,7 @@ export function initHeroDepth() {
     frame.dataset.depthActive = 'true';
 
     const bgLayer = frame.querySelector('.hero-slider, .hero-slide.is-active .hero-slide-bg, .projects-hero-bg, .contact-hero-bg, .page-banner-bg');
-    const badge = frame.querySelector('.hero-badge-pill, .hero-counter, .projects-hero-eyebrow, .page-banner-eyebrow');
+    const badge = frame.querySelector('.hero-badge-pill, .hero-counter');
     const featuredCard = frame.querySelector('.hero-featured-card');
 
     if (!bgLayer) return;

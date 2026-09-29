@@ -7,7 +7,7 @@
 
 import { loadGlobalComponents } from './components.js';
 import { initHeroSlider } from './hero.js';
-import { initTestimonials } from './testimonials.js';
+import { initTestimonials, initTestimonialsTouchSwipe } from './testimonials.js';
 import { initProjectModal } from './project-modal.js';
 import { initScrollReveal, initCounterAnimation, initCardTilt, initHeroDepth } from './animations.js';
 import { FEATURED_PROJECTS } from './config.js';
@@ -19,8 +19,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 2. Cinematic Architectural 4-Slide Hero Slider
   initHeroSlider();
 
-  // 3. Testimonials Carousel
+  // 3. Testimonials Carousel & Mobile Touch-Enabled Swipe Navigation
   initTestimonials();
+  initTestimonialsTouchSwipe();
 
   // 4. Architectural Project Case Studies Modal
   initProjectModal();
@@ -617,3 +618,5 @@ function initFAQAccordion() {
     });
   });
 }
+
+

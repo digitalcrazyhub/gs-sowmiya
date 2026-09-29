@@ -1,5 +1,5 @@
 /**
- * Project Management Page Controller
+ * Residential Building Construction Page Controller
  * GS Sowmiya Builders Private Limited
  */
 import { loadGlobalComponents } from '../components.js';
@@ -7,20 +7,19 @@ import { loadGlobalComponents } from '../components.js';
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     await loadGlobalComponents({
-      activeNav: 'service-project-management',
+      activeNav: 'service-residential',
       banner: {
-        title: 'Construction Project Management',
-        eyebrow: '03 / Management & Execution',
-        breadcrumb: 'PROJECT MANAGEMENT',
-        desc: 'End-to-end site supervision, contractor coordination, material quality verification, timeline monitoring, and transparent stage-wise reporting across Chennai.',
-        bgImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85'
+        title: 'Residential Construction',
+        breadcrumb: 'RESIDENTIAL CONSTRUCTION',
+        desc: 'Comprehensive planning, structural execution, and custom residential construction for independent houses, luxury villas, and multi-floor homes across Chennai.',
+        bgImage: '/image/residential_construction.png'
       }
     });
 
     initFaqAccordion();
     initScrollReveals();
   } catch (err) {
-    console.error('Error initializing Project Management page:', err);
+    console.error('Error initializing Residential Construction page:', err);
   }
 });
 
@@ -33,6 +32,7 @@ function initFaqAccordion() {
 
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
+      // Close other items
       faqItems.forEach(other => {
         if (other !== item && other.classList.contains('is-open')) {
           other.classList.remove('is-open');
@@ -43,6 +43,7 @@ function initFaqAccordion() {
         }
       });
 
+      // Toggle current
       if (isOpen) {
         item.classList.remove('is-open');
         btn.setAttribute('aria-expanded', 'false');

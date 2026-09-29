@@ -1,5 +1,5 @@
 /**
- * Residential Building Construction Page Controller
+ * Joint Venture Page Controller
  * GS Sowmiya Builders Private Limited
  */
 import { loadGlobalComponents } from '../components.js';
@@ -7,20 +7,19 @@ import { loadGlobalComponents } from '../components.js';
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     await loadGlobalComponents({
-      activeNav: 'service-residential',
+      activeNav: 'service-joint-venture',
       banner: {
-        title: 'Residential Building Construction',
-        eyebrow: '01 / Construction Services',
-        breadcrumb: 'RESIDENTIAL BUILDING CONSTRUCTION',
-        desc: 'Comprehensive planning, structural execution, and custom residential construction for independent houses, luxury villas, and multi-floor homes across Chennai.',
-        bgImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85'
+        title: 'Joint Venture Development',
+        breadcrumb: 'JOINT VENTURE DEVELOPMENT',
+        desc: 'Partnering with landowners in Chennai for transparent property development, clear legal structuring, maximum FSI utilization, and high-quality construction execution.',
+        bgImage: '/image/joint_venture_development.png'
       }
     });
 
     initFaqAccordion();
     initScrollReveals();
   } catch (err) {
-    console.error('Error initializing Residential Construction page:', err);
+    console.error('Error initializing Joint Venture page:', err);
   }
 });
 
@@ -33,7 +32,6 @@ function initFaqAccordion() {
 
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
-      // Close other items
       faqItems.forEach(other => {
         if (other !== item && other.classList.contains('is-open')) {
           other.classList.remove('is-open');
@@ -44,7 +42,6 @@ function initFaqAccordion() {
         }
       });
 
-      // Toggle current
       if (isOpen) {
         item.classList.remove('is-open');
         btn.setAttribute('aria-expanded', 'false');

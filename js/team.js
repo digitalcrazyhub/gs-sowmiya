@@ -238,7 +238,7 @@ export const TEAM_MEMBERS = [
  */
 function ensureAllItemsVisible() {
     const allCards = document.querySelectorAll(
-        '.team-card, .team-card-engineering, .team-card-site, .team-placeholder-card, .team-pm-row-card, .team-culture-card, .team-leader-hero-card, .team-section-header, .final-cta-section, .cta-content-box, .final-cta-section [data-reveal]'
+        '.team-card, .team-card-engineering, .team-card-site, .team-placeholder-card, .team-pm-row-card, .team-culture-card, .team-leader-hero-card, .team-section-header'
     );
     allCards.forEach(el => {
         el.style.opacity = '1';
@@ -343,18 +343,21 @@ function initTeamAnimations() {
         ScrollTrigger.refresh();
     }
 
-    // Hero Text Entrance with clearProps
-    gsap.fromTo('.team-hero-content > *', 
-        { y: 24, opacity: 0.3 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'power2.out',
-            clearProps: 'opacity,transform'
-        }
-    );
+    // Hero / Page Banner Text Entrance with clearProps
+    const heroElements = document.querySelectorAll('.page-banner-container > *, .team-hero-content > *');
+    if (heroElements.length > 0) {
+        gsap.fromTo(heroElements, 
+            { y: 24, opacity: 0.3 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform'
+            }
+        );
+    }
 
     // Section headings reveal
     const headers = document.querySelectorAll('.team-section-header');
@@ -472,9 +475,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         activeNav: 'team',
         banner: {
             breadcrumb: 'OUR TEAM',
-            eyebrow: 'EXECUTIVE LEADERSHIP',
-            title: 'The People Behind The Work.',
-            bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1920&q=85'
+            title: 'Our Team',
+            bgImage: '/image/page-banner.png'
         }
     });
 

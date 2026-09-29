@@ -235,12 +235,6 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     font-size: 1.75rem;
     word-break: break-word;
   }
-
-  .page-banner-eyebrow {
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    margin-bottom: 10px;
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -323,11 +317,6 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     gap: 40px;
   }
 
-  .intro-image-frame {
-    aspect-ratio: 16 / 10;
-    max-height: 420px;
-  }
-
   .calc-grid {
     grid-template-columns: 1fr !important;
     gap: 32px;
@@ -339,6 +328,12 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 768px) {
+  .pricing-card-body{
+    padding: 28px 0;
+  }
+  p{
+    text-align: justify;
+  }
   .hero-container-inner {
     padding-top: 90px;
     padding-bottom: 20px;
@@ -638,21 +633,21 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 /* --------------------------------------------------------------------------
    07. SERVICES OVERVIEW PAGE RESPONSIVE OVERRIDES
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .services-intro-grid,
   .why-services-grid,
   .services-faq-grid {
     grid-template-columns: 1fr !important;
-    gap: 40px;
+    gap: 36px;
   }
 
   .why-services-visual-sticky,
   .services-faq-sidebar {
-    position: static;
+    position: static !important;
   }
 
   .technical-services-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 20px;
   }
 
@@ -665,18 +660,61 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px;
   }
+
+  .process-timeline-line {
+    display: none !important;
+  }
+
+  .process-timeline-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 28px 20px;
+  }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 767px) {
   .primary-service-item,
   .primary-service-item.reversed {
     grid-template-columns: 1fr !important;
-    gap: 28px;
+    gap: 24px;
+    direction: ltr !important;
+  }
+
+  .primary-service-item.reversed > * {
     direction: ltr !important;
   }
 
   .technical-services-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .industries-panels-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-intro-accent-box {
+    position: static;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .process-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .process-timeline-line {
+    display: block !important;
+    top: 16px !important;
+    bottom: 58px !important;
+    left: 52px !important;
+    width: 2px !important;
+    height: auto !important;
+    right: auto !important;
   }
 
   .process-timeline-track {
@@ -685,47 +723,24 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   }
 
   .process-step {
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
-    gap: 18px;
+    display: flex !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 16px !important;
+    padding: 0 !important;
   }
 
   .process-step-node {
-    margin: 0;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-  }
-}
-
-@media (max-width: 640px) {
-  .technical-services-grid {
-    grid-template-columns: 1fr !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 0.9375rem !important;
   }
 
-  .industries-panels-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .packages-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .services-cta-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .services-cta-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .services-intro-accent-box {
-    position: static;
-    margin-top: 16px;
-    width: 100%;
+  .process-step-content {
+    flex: 1;
+    padding-top: 4px;
   }
 }
 
@@ -1126,17 +1141,6 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .footer-top-grid {
     grid-template-columns: 1.5fr 1fr 1fr !important;
     gap: 36px;
-  }
-
-  .cta-content-box {
-    padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 44px);
-    max-width: 100% !important;
-  }
-
-  .cta-title {
-    font-size: clamp(1.35rem, 4vw, 2.75rem) !important;
-    white-space: normal !important;
-    text-wrap: balance !important;
   }
 }
 

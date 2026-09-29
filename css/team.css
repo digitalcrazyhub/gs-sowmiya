@@ -87,26 +87,6 @@
     font-size: 0.75rem;
 }
 
-.team-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-gold);
-    margin-bottom: 16px;
-}
-
-.team-hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--brand-gold);
-}
-
 .team-hero-title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 5.5vw, 4.5rem);
@@ -203,26 +183,6 @@
     max-width: 650px;
 }
 
-.team-intro-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-gold-dark);
-    margin-bottom: 14px;
-}
-
-.team-intro-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 2px;
-    background: var(--brand-gold);
-}
-
 .team-intro-title {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 3.8vw, 3.25rem);
@@ -298,26 +258,6 @@
     max-width: 800px;
 }
 
-.team-section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-gold-dark);
-    margin-bottom: 12px;
-}
-
-.team-section-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 18px;
-    height: 2px;
-    background: var(--brand-gold);
-}
-
 .team-section-title {
     font-family: var(--font-display);
     font-size: clamp(2.1rem, 3.5vw, 3rem);
@@ -334,11 +274,6 @@
     color: var(--text-secondary);
 }
 
-/* Dark mode section headers */
-.team-section-dark .team-section-eyebrow {
-    color: var(--brand-gold-light);
-}
-
 .team-section-dark .team-section-title {
     color: var(--text-white);
 }
@@ -352,7 +287,7 @@
    -------------------------------------------------------------------------- */
 .team-leadership-section {
     padding: clamp(70px, 10vw, 110px) 0;
-    background: var(--bg-off-white);
+    background: #FFFFFF;
 }
 
 .team-leader-hero-card {
@@ -679,25 +614,19 @@
    -------------------------------------------------------------------------- */
 .team-engineering-section {
     padding: clamp(80px, 11vw, 120px) 0;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
+    background-color: #FFFFFF;
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
 }
 
 .team-engineering-blueprint-bg {
-    position: absolute;
-    inset: 0;
-    background-size: 40px 40px;
-    background-image: 
-        linear-gradient(to right, rgba(217, 162, 74, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(217, 162, 74, 0.08) 1px, transparent 1px);
-    pointer-events: none;
+    display: none;
 }
 
 .team-card-engineering {
-    background: var(--bg-dark-surface);
-    border: 1px solid var(--border-dark);
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: all var(--transition-smooth);
@@ -718,36 +647,36 @@
 .team-card-engineering:hover {
     border-color: var(--brand-gold);
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
 .team-card-engineering .team-placeholder-img-frame {
-    background: #1c1c1c;
-    border-bottom: 1px solid var(--border-dark);
+    background: var(--bg-white, #FFFFFF);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .team-card-engineering .team-placeholder-icon-ring {
-    background: #252525;
+    background: rgba(217, 162, 74, 0.12);
     border-color: var(--brand-gold);
-    color: var(--brand-gold-light);
+    color: var(--brand-gold-dark, #b58231);
 }
 
 .team-card-engineering .team-placeholder-tag {
     background: rgba(217, 162, 74, 0.12);
-    color: var(--brand-gold-light);
+    color: var(--brand-gold-dark, #b58231);
 }
 
 .team-card-engineering .team-placeholder-name {
-    color: var(--text-white);
+    color: var(--text-primary);
 }
 
 .team-card-engineering .team-placeholder-role {
-    color: var(--brand-gold);
+    color: var(--brand-burgundy);
 }
 
 .team-card-engineering .team-placeholder-desc {
-    color: rgba(255, 255, 255, 0.5);
-    border-top: 1px solid var(--border-dark);
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-light);
 }
 
 /* --------------------------------------------------------------------------
@@ -755,7 +684,7 @@
    -------------------------------------------------------------------------- */
 .team-pm-section {
     padding: clamp(70px, 10vw, 110px) 0;
-    background: var(--bg-off-white);
+    background: #FFFFFF;
     border-top: 1px solid var(--border-light);
 }
 
@@ -785,15 +714,6 @@
 
 .team-pm-feature-content {
     padding: 32px;
-}
-
-.team-pm-feature-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--brand-gold-dark);
-    margin-bottom: 8px;
 }
 
 .team-pm-feature-title {
@@ -973,10 +893,6 @@
     z-index: 2;
 }
 
-.team-culture-header .team-section-eyebrow {
-    color: var(--brand-burgundy);
-}
-
 .team-culture-header .team-section-title {
     color: var(--text-primary);
 }
@@ -1042,7 +958,7 @@
    -------------------------------------------------------------------------- */
 .team-cta-section {
     padding: clamp(80px, 10vw, 120px) 0;
-    background: var(--bg-off-white);
+    background: #FFFFFF;
 }
 
 .team-cta-box {
@@ -1067,26 +983,6 @@
     width: 6px;
     height: 100%;
     background: linear-gradient(180deg, var(--brand-burgundy) 0%, var(--brand-gold) 100%);
-}
-
-.team-cta-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-burgundy);
-    margin-bottom: 12px;
-}
-
-.team-cta-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 18px;
-    height: 2px;
-    background: var(--brand-burgundy);
 }
 
 .team-cta-title {
@@ -1208,22 +1104,7 @@
 .team-pm-row-card,
 .team-culture-card,
 .team-leader-hero-card,
-.team-section-header,
-.final-cta-section,
-.cta-content-box {
+.team-section-header {
     opacity: 1 !important;
     visibility: visible !important;
-}
-
-.final-cta-section {
-    display: block !important;
-    position: relative;
-    z-index: 5;
-    background: #0d0d0d;
-}
-
-.final-cta-section [data-reveal],
-.final-cta-section .cta-content-box {
-    opacity: 1 !important;
-    transform: none !important;
 }

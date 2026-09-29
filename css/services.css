@@ -1,79 +1,54 @@
 /* ==========================================================================
    GS SOWMIYA BUILDERS — SERVICES PAGE STYLESHEET
-   File: asset/css/services.css
-   Purely scoped to the Services page (.services-page) and its components.
-   Reuses existing global variables without redefining them.
+   File: css/services.css
+   Authoritative styling layer scoped to the Services page (body.services-page).
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   01. SERVICES PAGE ROOT & UTILITIES
+   01. SERVICES PAGE ROOT & COMMON BANNER
    -------------------------------------------------------------------------- */
-.services-page {
-  background-color: var(--bg-white);
+body.services-page {
+  background-color: #FFFFFF;
   color: var(--text-primary);
   overflow-x: hidden;
   position: relative;
 }
 
-.services-container {
+/* Page Banner background config for Services */
+body.services-page #page-banner-bg {
+  background-image: url('/image/page-banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.services-page .services-container {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: var(--container-max, 1280px);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
 }
 
-.services-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--brand-burgundy);
-  margin-bottom: 14px;
-}
-
-.services-eyebrow.eyebrow-dark {
-  color: var(--brand-gold);
-}
-
-.services-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background-color: currentColor;
-}
-
-.services-heading-xl {
+body.services-page .services-heading-xl {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  color: var(--text-primary) !important;
+  margin-bottom: 16px;
 }
 
-.services-heading-xl.text-white {
-  color: var(--text-white);
+body.services-page .services-lead-text {
+  font-size: clamp(0.95rem, 1.2vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--text-secondary) !important;
 }
 
-.services-lead-text {
-  font-size: clamp(1rem, 1.2vw, 1.125rem);
-  line-height: 1.75;
-  color: var(--text-secondary);
-}
-
-.services-lead-text.text-light {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.services-badge {
+body.services-page .services-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -89,19 +64,34 @@
 }
 
 /* --------------------------------------------------------------------------
-   02. SERVICES INTRODUCTION SECTION
+   02. UNIFIED WHITE BACKGROUNDS & STANDARDIZED SECTION SPACING
+   Desktop: 60px 0 | Tablet: 50px 0 | Mobile: 40px 0
+   -------------------------------------------------------------------------- */
+body.services-page .primary-services-section,
+body.services-page .secondary-services-section,
+body.services-page .technical-services-section,
+body.services-page .process-section,
+body.services-page .why-services-section,
+body.services-page .industries-served-section,
+body.services-page .services-faq-section,
+body.services-page .services-intro-section {
+  padding: 60px 0;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   03. SERVICES INTRODUCTION SECTION (IF USED)
    -------------------------------------------------------------------------- */
 .services-intro-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background-color: var(--bg-white);
   border-bottom: 1px solid var(--border-light);
-  position: relative;
 }
 
 .services-intro-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
 }
 
@@ -111,20 +101,20 @@
 
 .services-intro-h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .services-intro-p {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--text-secondary);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .services-intro-p:last-of-type {
@@ -156,11 +146,11 @@
 
 .services-intro-accent-box {
   position: absolute;
-  bottom: -24px;
-  left: -20px;
+  bottom: -20px;
+  left: -16px;
   background-color: var(--brand-burgundy);
   color: #ffffff;
-  padding: 24px 28px;
+  padding: 20px 24px;
   border-radius: var(--radius-md);
   box-shadow: 0 16px 36px rgba(116, 23, 25, 0.35);
   max-width: 260px;
@@ -185,25 +175,23 @@
 }
 
 /* --------------------------------------------------------------------------
-   03. PRIMARY SERVICES SECTION (ALTERNATING EDITORIAL PANELS)
+   04. PRIMARY SERVICES SECTION (EDITORIAL ALTERNATING LAYOUT)
    -------------------------------------------------------------------------- */
-.primary-services-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: var(--bg-off-white);
-  position: relative;
+body.services-page .primary-services-section {
+  border-bottom: 1px solid var(--border-light);
 }
 
 .primary-services-header {
-  margin-bottom: clamp(48px, 6vw, 80px);
+  margin-bottom: 40px;
   max-width: 720px;
 }
 
 .primary-service-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
-  padding: clamp(48px, 6vw, 72px) 0;
+  padding: 48px 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -212,7 +200,7 @@
   padding-bottom: 0;
 }
 
-/* Alternating rows */
+/* Alternating rows for desktop */
 .primary-service-item.reversed {
   direction: rtl;
 }
@@ -227,7 +215,7 @@
 
 .primary-service-num {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 800;
   line-height: 1;
   color: rgba(116, 23, 25, 0.12);
@@ -241,7 +229,7 @@
 
 .primary-service-title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
@@ -250,18 +238,18 @@
 }
 
 .primary-service-tagline {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--brand-burgundy);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: block;
 }
 
 .primary-service-desc {
   font-size: 0.9375rem;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .primary-service-includes-title {
@@ -287,7 +275,7 @@
 .primary-service-includes-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px 0;
+  margin: 0 0 24px 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px 16px;
@@ -313,10 +301,10 @@
 .primary-service-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--brand-burgundy);
   transition: all 0.3s ease;
@@ -328,41 +316,43 @@
 }
 
 .primary-service-cta:hover {
-  color: var(--brand-gold-dark);
+  color: var(--brand-gold-dark, #b58231);
 }
 
 .primary-service-cta:hover svg {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .primary-service-visual {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg, 12px);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card, 0 8px 30px rgba(0, 0, 0, 0.06));
   aspect-ratio: 16 / 11;
-  background-color: var(--bg-gray);
+  background-color: var(--bg-gray, #F1F5F9);
+  width: 100%;
 }
 
 .primary-service-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .primary-service-item:hover .primary-service-visual img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .primary-service-overlay-badge {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(18, 18, 18, 0.85);
+  background: rgba(18, 18, 18, 0.82);
   backdrop-filter: blur(8px);
   color: var(--brand-gold);
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 700;
@@ -372,18 +362,314 @@
 }
 
 /* --------------------------------------------------------------------------
-   04. SECONDARY SERVICES SECTION (DARK CINEMATIC ROWS)
+   05. TECHNICAL SERVICES SECTION (RESPONSIVE GRID)
    -------------------------------------------------------------------------- */
-.secondary-services-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: #151515;
-  color: #ffffff;
+body.services-page .technical-services-section {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.technical-services-header {
+  margin-bottom: 36px;
+  text-align: left;
+}
+
+body.services-page .technical-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.technical-service-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light, #E2E8F0);
+  border-radius: var(--radius-md, 8px);
+  padding: 32px 24px;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.technical-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card, 0 10px 30px rgba(0, 0, 0, 0.08));
+  border-color: var(--border-gold, #D9A24A);
+}
+
+.technical-service-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.technical-service-num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-burgundy);
+}
+
+.technical-service-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(217, 162, 74, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-gold-dark, #b58231);
+}
+
+.technical-service-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.technical-service-desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   06. SERVICE PROCESS SECTION (CLEAN LIGHT THEME & RESPONSIVE TRACK)
+   -------------------------------------------------------------------------- */
+body.services-page .process-section {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+body.services-page .process-section::before {
+  display: none !important;
+}
+
+.process-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 40px auto;
+  position: relative;
+  z-index: 1;
+}
+
+body.services-page .process-section .services-heading-xl,
+body.services-page .process-section h2,
+body.services-page .process-section .text-white {
+  color: var(--text-primary) !important;
+}
+
+body.services-page .process-section .services-lead-text,
+body.services-page .process-section p,
+body.services-page .process-section .text-light {
+  color: var(--text-secondary) !important;
+}
+
+.process-timeline {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop Horizontal Timeline */
+.process-timeline-track {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.process-timeline-line {
+  position: absolute;
+  top: 32px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: var(--border-light, #DEDCD7);
+  z-index: 0;
+}
+
+.process-timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-burgundy));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.process-step-node {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid var(--border-light, #DEDCD7);
+  color: var(--brand-burgundy, #741719);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s ease;
+}
+
+.process-step:hover .process-step-node,
+.process-step.is-active .process-step-node {
+  border-color: var(--brand-gold);
+  background-color: var(--brand-burgundy);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(116, 23, 25, 0.25);
+}
+
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.process-step-desc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   07. FAQ SECTION (ACCESSIBLE ACCORDION & SIDEBAR)
+   -------------------------------------------------------------------------- */
+body.services-page .services-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: flex-start;
+}
+
+.services-faq-sidebar {
+  position: sticky;
+  top: 110px;
+}
+
+.services-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.services-faq-item {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-faq-item.is-open {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-soft, 0 4px 20px rgba(0, 0, 0, 0.05));
+}
+
+.services-faq-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.services-faq-button:hover {
+  color: var(--brand-burgundy);
+}
+
+.services-faq-button:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: -2px;
+}
+
+.services-faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-off-white, #F8FAFC);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--brand-burgundy);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.services-faq-item.is-open .services-faq-icon {
+  transform: rotate(45deg);
+  background-color: var(--brand-burgundy);
+  color: #ffffff;
+}
+
+.services-faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-faq-item.is-open .services-faq-content {
+  grid-template-rows: 1fr;
+}
+
+.services-faq-inner {
+  overflow: hidden;
+}
+
+.services-faq-body {
+  padding: 0 24px 20px 24px;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   08. SECONDARY SERVICES SECTION (LIGHT THEME ROWS)
+   -------------------------------------------------------------------------- */
+body.services-page .secondary-services-section {
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-light);
 }
 
 .secondary-services-header {
-  margin-bottom: clamp(40px, 5vw, 64px);
+  margin-bottom: 36px;
 }
 
 .secondary-services-list {
@@ -396,14 +682,14 @@
   grid-template-columns: 80px 1.2fr 2fr 48px;
   gap: clamp(20px, 4vw, 40px);
   align-items: center;
-  padding: 32px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  border-top: 1px solid var(--border-light);
   position: relative;
   transition: background-color 0.3s ease;
 }
 
 .secondary-service-row:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .secondary-service-row::before {
@@ -425,8 +711,8 @@
   font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--brand-gold);
-  opacity: 0.65;
+  color: var(--brand-burgundy);
+  opacity: 0.8;
   transition: opacity 0.3s ease;
 }
 
@@ -436,234 +722,40 @@
 
 .secondary-service-title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .secondary-service-desc {
   font-size: 0.9375rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .secondary-service-indicator {
   display: flex;
   justify-content: flex-end;
-  color: var(--brand-gold);
-  opacity: 0.4;
+  color: var(--brand-burgundy);
+  opacity: 0.5;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .secondary-service-row:hover .secondary-service-indicator {
   opacity: 1;
-  transform: translateX(6px);
+  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
-   05. TECHNICAL SERVICES SECTION (ARCHITECTURAL GRID)
+   09. WHY CHOOSE OUR SERVICES SECTION (IF USED)
    -------------------------------------------------------------------------- */
-.technical-services-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: var(--bg-off-white);
-  position: relative;
-}
-
-.technical-services-header {
-  margin-bottom: clamp(40px, 5vw, 64px);
-  text-align: left;
-}
-
-.technical-services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.technical-service-card {
-  background-color: var(--bg-white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 36px 30px;
-  position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-}
-
-.technical-service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card);
-  border-color: var(--border-gold);
-}
-
-.technical-service-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.technical-service-num {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--brand-burgundy);
-}
-
-.technical-service-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(217, 162, 74, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--brand-gold-dark);
-}
-
-.technical-service-title {
-  font-family: var(--font-display);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.technical-service-desc {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-/* --------------------------------------------------------------------------
-   06. SERVICE PROCESS SECTION (CINEMATIC TIMELINE)
-   -------------------------------------------------------------------------- */
-.process-section {
-  padding: clamp(80px, 10vw, 130px) 0;
-  background: linear-gradient(180deg, #440D0F 0%, #29080A 100%);
-  color: #ffffff;
-  position: relative;
-  overflow: hidden;
-}
-
-.process-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(217, 162, 74, 0.12), transparent 60%);
-  pointer-events: none;
-}
-
-.process-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto clamp(50px, 7vw, 80px) auto;
-  position: relative;
-  z-index: 1;
-}
-
-.process-timeline {
-  position: relative;
-  z-index: 1;
-}
-
-/* Desktop Horizontal Timeline */
-.process-timeline-track {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  position: relative;
-}
-
-.process-timeline-line {
-  position: absolute;
-  top: 32px;
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.15);
-  z-index: 0;
-}
-
-.process-timeline-progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light));
-  transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.process-step {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 0 8px;
-}
-
-.process-step-node {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-color: #2D090B;
-  border: 2px solid rgba(217, 162, 74, 0.4);
-  color: var(--brand-gold);
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 24px auto;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s ease;
-}
-
-.process-step:hover .process-step-node,
-.process-step.is-active .process-step-node {
-  border-color: var(--brand-gold);
-  background-color: var(--brand-burgundy);
-  color: #ffffff;
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(217, 162, 74, 0.4);
-}
-
-.process-step-title {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-.process-step-desc {
-  font-size: 0.8125rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
-  margin: 0;
-}
-
-/* --------------------------------------------------------------------------
-   07. WHY CHOOSE OUR SERVICES (EDITORIAL SPLIT)
-   -------------------------------------------------------------------------- */
-.why-services-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: var(--bg-white);
-  position: relative;
-}
-
 .why-services-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(32px, 5vw, 64px);
   align-items: flex-start;
 }
 
@@ -717,13 +809,13 @@
 .why-services-points-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .why-services-point-item {
   display: flex;
-  gap: 24px;
-  padding-bottom: 28px;
+  gap: 20px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -743,10 +835,10 @@
 
 .why-services-point-content h3 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .why-services-point-content p {
@@ -757,16 +849,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   08. INDUSTRIES / PROJECT TYPES SECTION (EXPANDING PANELS)
+   10. INDUSTRIES SERVED SECTION (IF USED)
    -------------------------------------------------------------------------- */
-.industries-served-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: var(--bg-off-white);
-  position: relative;
-}
-
 .industries-served-header {
-  margin-bottom: clamp(40px, 5vw, 64px);
+  margin-bottom: 36px;
   max-width: 760px;
 }
 
@@ -778,7 +864,7 @@
 
 .industry-panel {
   position: relative;
-  height: clamp(380px, 50vh, 500px);
+  height: clamp(340px, 45vh, 460px);
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
@@ -813,7 +899,7 @@
 .industry-panel-content {
   position: absolute;
   inset: 0;
-  padding: 32px 24px;
+  padding: 28px 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -831,9 +917,9 @@
 
 .industry-panel-title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: -0.01em;
 }
 
@@ -870,197 +956,33 @@
 }
 
 /* --------------------------------------------------------------------------
-   09. FAQ SECTION (ACCESSIBLE ACCORDION)
+   11. SERVICES RESPONSIVE OVERRIDES (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
-.services-faq-section {
-  padding: clamp(70px, 9vw, 120px) 0;
-  background-color: var(--bg-white);
-  position: relative;
-}
+/* Tablet Breakpoint (768px – 1023px) */
+@media (max-width: 1023px) {
+  body.services-page .primary-services-section,
+  body.services-page .secondary-services-section,
+  body.services-page .technical-services-section,
+  body.services-page .process-section,
+  body.services-page .why-services-section,
+  body.services-page .industries-served-section,
+  body.services-page .services-faq-section,
+  body.services-page .services-intro-section {
+    padding: 50px 0;
+  }
 
-.services-faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: flex-start;
-}
+  .primary-services-header,
+  .technical-services-header,
+  .process-header,
+  .secondary-services-header {
+    margin-bottom: 32px;
+  }
 
-.services-faq-sidebar {
-  position: sticky;
-  top: 110px;
-}
-
-.services-faq-accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.services-faq-item {
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  background-color: var(--bg-white);
-  overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.services-faq-item.is-open {
-  border-color: var(--border-gold);
-  box-shadow: var(--shadow-soft);
-}
-
-.services-faq-button {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 22px 24px;
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.4;
-  transition: color 0.3s ease;
-}
-
-.services-faq-button:hover {
-  color: var(--brand-burgundy);
-}
-
-.services-faq-button:focus-visible {
-  outline: 2px solid var(--brand-gold);
-  outline-offset: -2px;
-}
-
-.services-faq-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--bg-off-white);
-  border: 1px solid var(--border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--brand-burgundy);
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.services-faq-item.is-open .services-faq-icon {
-  transform: rotate(45deg);
-  background-color: var(--brand-burgundy);
-  color: #ffffff;
-}
-
-.services-faq-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.services-faq-item.is-open .services-faq-content {
-  grid-template-rows: 1fr;
-}
-
-.services-faq-inner {
-  overflow: hidden;
-}
-
-.services-faq-body {
-  padding: 0 24px 24px 24px;
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--text-secondary);
-}
-
-/* --------------------------------------------------------------------------
-   10. FINAL CONVERSION CTA SECTION
-   -------------------------------------------------------------------------- */
-.services-cta-section {
-  position: relative;
-  padding: clamp(90px, 12vw, 150px) 0;
-  background-color: #121212;
-  color: #ffffff;
-  overflow: hidden;
-  text-align: center;
-}
-
-.services-cta-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.22;
-  filter: grayscale(40%) contrast(110%);
-}
-
-.services-cta-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(116, 23, 25, 0.5) 0%, rgba(18, 18, 18, 0.95) 80%);
-}
-
-.services-cta-content {
-  position: relative;
-  z-index: 2;
-  max-width: 820px;
-  margin: 0 auto;
-}
-
-.services-cta-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.services-cta-subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  color: var(--brand-gold);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.services-cta-desc {
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.82);
-  margin-bottom: 40px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.services-cta-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-/* --------------------------------------------------------------------------
-   11. SERVICES RESPONSIVE OVERRIDES
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
   .services-intro-grid,
   .why-services-grid,
-  .services-faq-grid {
+  body.services-page .services-faq-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
   }
 
   .why-services-visual-sticky,
@@ -1070,38 +992,56 @@
 
   .why-services-image-frame {
     aspect-ratio: 16 / 9;
-    max-height: 400px;
+    max-height: 380px;
   }
 
-  .technical-services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  body.services-page .technical-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 
   .industries-panels-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .industry-panel {
-    height: 380px;
+    height: 360px;
   }
 
   .industry-panel-items {
     max-height: 180px;
     opacity: 1;
   }
+
+  /* Process Timeline on Tablet: Balanced 3x2 Grid */
+  body.services-page .process-timeline-line {
+    display: none;
+  }
+
+  body.services-page .process-timeline-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+
+  body.services-page .process-step {
+    text-align: center;
+  }
+
+  body.services-page .process-step-node {
+    margin: 0 auto 16px auto;
+  }
 }
 
+/* Intermediate screen compaction (below 860px) */
 @media (max-width: 860px) {
-  .primary-service-item,
-  .primary-service-item.reversed {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    direction: ltr;
+  body.services-page .primary-service-item {
+    gap: 32px;
   }
 
   .secondary-service-row {
     grid-template-columns: 50px 1fr;
-    gap: 12px 20px;
+    gap: 12px 18px;
   }
 
   .secondary-service-desc {
@@ -1111,64 +1051,155 @@
   .secondary-service-indicator {
     display: none;
   }
-
-  /* Process Timeline on Mobile / Tablet: Vertical Stacking */
-  .process-timeline-line {
-    display: none;
-  }
-
-  .process-timeline-track {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .process-step {
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
-    gap: 20px;
-  }
-
-  .process-step-node {
-    margin: 0;
-    flex-shrink: 0;
-    width: 52px;
-    height: 52px;
-    font-size: 1rem;
-  }
-
-  .process-step-content {
-    flex: 1;
-  }
 }
 
-@media (max-width: 640px) {
-  .technical-services-grid {
-    grid-template-columns: 1fr;
+/* Mobile Breakpoint (<=767px) */
+@media (max-width: 767px) {
+  body.services-page .primary-services-section,
+  body.services-page .secondary-services-section,
+  body.services-page .technical-services-section,
+  body.services-page .process-section,
+  body.services-page .why-services-section,
+  body.services-page .industries-served-section,
+  body.services-page .services-faq-section,
+  body.services-page .services-intro-section {
+    padding: 40px 0;
   }
 
+  body.services-page .services-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .primary-services-header,
+  .technical-services-header,
+  .process-header,
+  .secondary-services-header {
+    margin-bottom: 24px;
+  }
+
+  /* One-column primary services layout */
+  body.services-page .primary-service-item,
+  body.services-page .primary-service-item.reversed {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    direction: ltr !important;
+    padding: 28px 0;
+  }
+
+  body.services-page .primary-service-item.reversed > * {
+    direction: ltr !important;
+  }
+
+  body.services-page .primary-service-visual {
+    aspect-ratio: 16 / 11;
+    width: 100%;
+  }
+
+  body.services-page .primary-service-title {
+    font-size: 1.5rem;
+  }
+
+  body.services-page .primary-service-num {
+    font-size: 2.25rem;
+  }
+
+  /* One-column technical services cards */
+  body.services-page .technical-services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.services-page .technical-service-card {
+    padding: 24px 20px;
+  }
+
+  /* One-column industries */
   .industries-panels-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .industry-panel {
-    height: 320px;
-  }
-
-  .services-cta-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .services-cta-actions .btn {
-    width: 100%;
-    justify-content: center;
+    height: 300px;
   }
 
   .services-intro-accent-box {
     position: static;
     margin-top: 16px;
     max-width: 100%;
+  }
+
+  /* Vertical Process Timeline on Mobile */
+  body.services-page .process-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  body.services-page .process-timeline-line {
+    display: block !important;
+    top: 16px;
+    bottom: 16px;
+    left: 27px;
+    width: 2px;
+    height: auto;
+    right: auto;
+  }
+
+  body.services-page .process-timeline-track {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  body.services-page .process-step {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+    padding: 0;
+  }
+
+  body.services-page .process-step-node {
+    margin: 0;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    font-size: 0.9375rem;
+    z-index: 2;
+    position: relative;
+    background-color: #FFFFFF;
+  }
+
+  body.services-page .process-step-content {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  body.services-page .process-step-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  /* FAQ Accordion Mobile Spacing */
+  body.services-page .services-faq-button {
+    padding: 16px 18px;
+    font-size: clamp(0.875rem, 0.82rem + 0.25vw, 0.95rem);
+  }
+
+  body.services-page .services-faq-body {
+    padding: 0 18px 16px 18px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Small Mobile Screens (<=480px) */
+@media (max-width: 480px) {
+  body.services-page .primary-service-includes-list {
+    grid-template-columns: 1fr;
+  }
+
+  body.services-page .services-heading-xl {
+    font-size: 1.75rem;
   }
 }
 

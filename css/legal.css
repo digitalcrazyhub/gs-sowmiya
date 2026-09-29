@@ -84,26 +84,6 @@
     font-size: 0.75rem;
 }
 
-.legal-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-gold);
-    margin-bottom: 16px;
-}
-
-.legal-hero-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--brand-gold);
-}
-
 .legal-hero-title {
     font-family: var(--font-display);
     font-size: clamp(2.25rem, 5vw, 3.75rem);
@@ -153,7 +133,7 @@
    -------------------------------------------------------------------------- */
 .legal-main-section {
     padding: clamp(60px, 8vw, 100px) 0 clamp(80px, 10vw, 120px);
-    background-color: var(--bg-off-white);
+    background-color: #FFFFFF;
 }
 
 .legal-layout-grid {

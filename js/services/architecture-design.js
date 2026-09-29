@@ -1,5 +1,5 @@
 /**
- * Interiors Page Controller
+ * Architecture & Design Page Controller
  * GS Sowmiya Builders Private Limited
  */
 import { loadGlobalComponents } from '../components.js';
@@ -7,20 +7,19 @@ import { loadGlobalComponents } from '../components.js';
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     await loadGlobalComponents({
-      activeNav: 'service-interiors',
+      activeNav: 'service-architecture',
       banner: {
-        title: 'Residential Interiors & Woodwork',
-        eyebrow: '05 / Interior Execution',
-        breadcrumb: 'INTERIORS',
-        desc: 'Custom modular kitchens, wardrobe systems, false ceilings, lighting design, and precision woodwork integrated seamlessly with residential building construction in Chennai.',
-        bgImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85'
+        title: 'Architecture & Design',
+        breadcrumb: 'ARCHITECTURE & DESIGN',
+        desc: 'Comprehensive architectural concepts, intelligent 2D space planning, 3D photorealistic elevations, and structural engineering blueprints tailored to lifestyles across Chennai.',
+        bgImage: '/image/architecture_design.png'
       }
     });
 
     initFaqAccordion();
     initScrollReveals();
   } catch (err) {
-    console.error('Error initializing Interiors page:', err);
+    console.error('Error initializing Architecture & Design page:', err);
   }
 });
 
@@ -33,6 +32,7 @@ function initFaqAccordion() {
 
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
+      // Close other items
       faqItems.forEach(other => {
         if (other !== item && other.classList.contains('is-open')) {
           other.classList.remove('is-open');
@@ -43,6 +43,7 @@ function initFaqAccordion() {
         }
       });
 
+      // Toggle current
       if (isOpen) {
         item.classList.remove('is-open');
         btn.setAttribute('aria-expanded', 'false');

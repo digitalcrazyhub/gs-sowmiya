@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         activeNav: 'about',
         banner: {
             title: 'About Us',
-            // eyebrow: 'Corporate Heritage & Engineering Integrity',
             breadcrumb: 'ABOUT US',
             desc: 'Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.',
             bgImage: '/image/page-banner.png'

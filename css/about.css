@@ -11,9 +11,9 @@
 
 /* Key Performance Metrics Band */
 .about-metrics-band {
-  background: #141414;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(32px, 5vw, 52px) 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-light, #DEDCD7);
+  padding: clamp(36px, 5vw, 60px) 0;
   position: relative;
   z-index: 2;
 }
@@ -30,8 +30,8 @@
 .stat-block {
   text-align: center;
   padding: clamp(18px, 2.5vw, 24px) 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #DEDCD7);
   border-radius: var(--radius-md, 8px);
   display: flex;
   flex-direction: column;
@@ -39,13 +39,14 @@
   align-items: center;
   transition: transform var(--transition-smooth, 0.3s ease), 
               border-color var(--transition-smooth, 0.3s ease),
-              background var(--transition-smooth, 0.3s ease);
+              box-shadow var(--transition-smooth, 0.3s ease);
 }
 
 .about-metric-card:hover,
 .stat-block:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(217, 162, 74, 0.35);
+  background: #FFFFFF;
+  border-color: rgba(217, 162, 74, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -54,7 +55,7 @@
   font-family: var(--font-primary);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
-  color: var(--brand-gold, #d9a24a);
+  color: var(--brand-burgundy, #741719);
   line-height: 1.1;
   margin-bottom: 8px;
   letter-spacing: 0.02em;
@@ -65,7 +66,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary, #66615C);
   font-weight: 600;
   line-height: 1.45;
   max-width: 220px;
@@ -187,10 +188,6 @@
   text-align: center;
   max-width: 760px;
   margin: 0 auto clamp(36px, 5vw, 56px);
-}
-
-.about-values-header .section-eyebrow {
-  margin-bottom: 12px;
 }
 
 .about-values-header .section-title {
@@ -423,7 +420,7 @@
    EXECUTIVE LEADERSHIP & ADVISORY (about-leadership-section)
    ========================================================================== */
 .about-leadership-section {
-  background: var(--bg-off-white, #f8f6f2);
+  background: #FFFFFF;
   border-top: 1px solid var(--border-light, #e5e5e5);
   position: relative;
 }
@@ -685,7 +682,7 @@
    CONSTRUCTION PROCESS (DARK TIMELINE SECTION)
    ========================================================================== */
 .process-section {
-  background: #FAF8F5 !important;
+  background: #FFFFFF !important;
   color: var(--text-primary, #1a1a1a) !important;
   position: relative;
   overflow: hidden;

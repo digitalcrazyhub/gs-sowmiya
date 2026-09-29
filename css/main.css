@@ -89,7 +89,7 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--bg-off-white);
+    background-color: #FFFFFF;
     color: var(--text-primary);
     overflow-x: hidden;
 }
@@ -98,7 +98,7 @@ body {
     font-family: var(--font-primary);
     font-weight: 400;
     line-height: 1.6;
-    background-color: var(--bg-off-white);
+    background-color: #FFFFFF;
     color: var(--text-primary);
     overflow-x: hidden;
     position: relative;
@@ -155,6 +155,7 @@ ul, ol {
     list-style: none;
 }
 
+
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
@@ -170,29 +171,6 @@ h1, h2, h3, h4, h5, h6 {
 .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
-}
-
-.section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    background: var(--bg-light);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-light);
-    margin-bottom: 16px;
-    width: fit-content;
-}
-
-.section-eyebrow.eyebrow-dark {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-    color: var(--brand-gold-light);
 }
 
 .section-title {
@@ -232,17 +210,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-    padding-top: clamp(64px, 7vw, 120px);
-    padding-bottom: clamp(64px, 7vw, 120px);
+    padding-top: clamp(32px, 3.5vw, 60px);
+    padding-bottom: clamp(32px, 3.5vw, 60px);
 }
 
-.section-padding-top {
+/* .section-padding-top {
     padding-top: clamp(64px, 7vw, 120px);
 }
 
 .section-padding-bottom {
     padding-bottom: clamp(64px, 7vw, 120px);
-}
+} */
 
 /* ==========================================================================
    BUTTONS & CTA
@@ -1039,6 +1017,9 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     position: relative;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .testimonial-stage-grid {
@@ -1081,6 +1062,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     object-fit: cover;
     display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .testimonial-stage-content-col {
@@ -1187,96 +1172,66 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
     .testimonial-stage-image-col {
-        min-height: 280px;
+        /* min-height: 280px; */
         max-height: 320px;
     }
 }
 
-/* ==========================================================================
-   FINAL CTA (SECTION 11 - FULL-WIDTH DARK CINEMATIC)
-   ========================================================================== */
-.final-cta-section {
-    position: relative;
-    background: #0d0d0d;
-    color: var(--text-white);
-    padding: clamp(80px, 10vw, 130px) 0;
-    overflow: hidden;
-    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
+@media (max-width: 767px) {
+    .testimonial-stage {
+        margin-top: 28px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: var(--radius-lg, 16px);
+    }
+    .testimonial-stage-content-col {
+        padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 24px);
+    }
+    .testimonial-text {
+        font-size: clamp(1rem, 3.8vw, 1.2rem);
+        line-height: 1.48;
+        margin-bottom: 18px;
+    }
+    .testimonial-quote-icon {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+    }
+    .testimonial-author-meta {
+        padding-top: 14px;
+        gap: 12px;
+    }
+    .testimonial-controls {
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+    .testimonial-controls .hero-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
 }
 
-.cta-backdrop-image {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.18;
-    filter: grayscale(80%) contrast(120%);
-    pointer-events: none;
+@media (max-width: 375px) {
+    .testimonial-stage-content-col {
+        padding: 18px 14px 14px;
+    }
+    .author-details h4 {
+        font-size: 0.95rem;
+    }
+    .author-details p {
+        font-size: 0.75rem;
+    }
+    .author-project-tag {
+        font-size: 0.6875rem;
+        padding: 4px 8px;
+    }
 }
 
-.cta-gold-accent-line {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 280px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--brand-gold, #D9A24A), transparent);
-}
-
-.cta-content-box {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.cta-title {
-    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-    font-size: clamp(1.85rem, 4vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1.22;
-    color: var(--text-white);
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-    text-wrap: balance;
-    max-width: 100%;
-}
-
-.cta-desc {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.7;
-    margin-bottom: 36px;
-}
-
-.cta-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.cta-actions .btn {
-    font-family: var(--font-primary, 'Plus Jakarta Sans', sans-serif);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
 
 /* ==========================================================================
    CONTACT PREVIEW (SECTION 12 - LIGHT / IVORY)
    ========================================================================== */
 .contact-section {
-    background: var(--bg-off-white);
+    background: #FFFFFF;
 }
 
 .contact-layout-grid {
@@ -1332,7 +1287,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-detail-content p, 
 .contact-detail-content a {
-    font-size: 1.0625rem;
+    font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.0625rem);
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -1437,7 +1392,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .site-footer {
     background: #111111;
-    color: #a0a0a0;
+    color: #bdbdbd;
     padding-top: clamp(64px, 8vw, 96px);
     padding-bottom: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1461,7 +1416,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9375rem;
     line-height: 1.65;
     text-align: justify;
-    color: #909090;
+    color: #bdbdbd;
     max-width: 360px;
 }
 
@@ -1508,7 +1463,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-links-list a {
     font-size: 0.875rem;
-    color: #888888;
+    color: #bdbdbd;
     transition: all var(--transition-fast);
 }
 
@@ -1523,7 +1478,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     padding-top: 32px;
     font-size: 0.8125rem;
-    color: #777;
+    color: #bdbdbd;
     flex-wrap: wrap;
     gap: 16px;
 }
@@ -1566,15 +1521,17 @@ h1, h2, h3, h4, h5, h6 {
 .page-banner-bg,
 .contact-hero-bg,
 .projects-hero-bg,
-.service-hero-bg {
+.service-hero-bg,
+#page-banner-bg {
     position: absolute;
     inset: 0;
     z-index: 1;
+    background-image: url('/image/page-banner.png');
     background-size: cover;
     background-position: center 35%;
     background-repeat: no-repeat;
-    opacity: 0.28;
-    filter: grayscale(35%) contrast(110%);
+    opacity: 0.45;
+    filter: brightness(0.85) contrast(110%);
     transform: scale(1.04);
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1597,12 +1554,11 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0;
     z-index: 2;
-    /* background: linear-gradient(180deg, 
-                rgba(18, 18, 18, 0.82) 0%, 
-                rgba(18, 18, 18, 0.94) 65%, 
-                var(--bg-dark, #121212) 100%); */
-                background-color: #000;
-                opacity: 5%;
+    background: linear-gradient(180deg, 
+                rgba(14, 14, 14, 0.55) 0%, 
+                rgba(14, 14, 14, 0.80) 65%, 
+                var(--bg-dark, #121212) 100%);
+    opacity: 1;
 }
 
 .team-hero-grid-pattern,
@@ -1685,36 +1641,6 @@ h1, h2, h3, h4, h5, h6 {
 .breadcrumb-item.active {
     color: var(--brand-gold-light, #E8BE70);
     font-weight: 700;
-}
-
-/* Eyebrow with Luxury Gold Horizontal Bar */
-.team-hero-eyebrow,
-.page-hero-eyebrow,
-.page-banner-eyebrow,
-.contact-hero-eyebrow,
-.projects-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--brand-gold, #D9A24A);
-    margin-bottom: 16px;
-}
-
-.team-hero-eyebrow::before,
-.page-hero-eyebrow::before,
-.page-banner-eyebrow::before,
-.contact-hero-eyebrow::before,
-.projects-hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--brand-gold, #D9A24A);
-    flex-shrink: 0;
 }
 
 /* Main Display Title */
@@ -2030,48 +1956,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   GLOBAL WEBSITE BACKGROUND COLOR SYSTEM — ALL PAGES & ALL SECTIONS
-   Premium Light Architectural Theme (White, Light Gray, Soft Gray, Warm Ivory)
+   GLOBAL WEBSITE SECTION BACKGROUND & SPACING SYSTEM — ALL PAGES & ALL SECTIONS
+   Clean Pure White (#FFFFFF) Architecture Across All Content Sections
    ========================================================================== */
 :root {
     --section-white: #FFFFFF;
-    --section-light: #F7F7F7;
-    --section-soft-gray: #F1F2F3;
-    --section-warm-gray: #F5F3F0;
-    --section-ivory: #FAF8F5;
+    --section-bg: #FFFFFF;
 }
 
-/* Ensure no dark or black section backgrounds exist anywhere on any page */
-section:not([class*="hero"]):not([class*="banner"]):not([class*="footer"]) {
-    background-color: var(--section-white);
+/* Ensure ALL normal website sections use ONLY WHITE (#FFFFFF) as their background */
+section:not([class*="hero"]):not([class*="page-banner"]):not([class*="footer"]):not([class*="site-footer"]),
+main > section,
+.site-main > section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     color: var(--text-primary);
 }
 
-/* Alternating background rhythm across sequential sections */
-main > section:nth-of-type(odd) {
-    background-color: #ebebeb !important;
-}
-
-main > section:nth-of-type(even) {
-    background-color: var(--bg-dark) !important;
-}
-
-main > section:nth-of-type(3n) {
-    background-color: var(--section-ivory) !important;
-}
-
-main > section:nth-of-type(4n) {
-    background-color: var(--section-warm-gray) !important;
-}
-
-/* Specific Page Section Overrides for Perfect Architectural Aesthetics */
+/* Specific Section Cleanups to Pure White */
 .about-metrics-band {
-    background: var(--section-ivory) !important;
+    background: #FFFFFF !important;
     color: var(--text-primary) !important;
     border-bottom: 1px solid var(--border-light) !important;
+    padding: clamp(40px, 5vw, 64px) 0 !important;
 }
 .about-metric-card, .stat-block {
-    background: var(--section-white) !important;
+    background: #FFFFFF !important;
     border: 1px solid var(--border-light) !important;
 }
 .about-metric-number, .stat-number {
@@ -2081,38 +1991,47 @@ main > section:nth-of-type(4n) {
     color: var(--text-secondary) !important;
 }
 .about-founder-quote {
-    background: var(--section-light) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-light) !important;
+    border-left: 4px solid var(--brand-burgundy) !important;
 }
 
 .services-intro-section,
 .services-showcase-section,
-.service-detail-section {
-    background: var(--section-light) !important;
+.service-detail-section,
+.primary-services-section,
+.technical-services-section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
 }
 
 .projects-filter-section,
-.projects-grid-section {
-    background: var(--section-white) !important;
+.projects-grid-section,
+.projects-gallery-section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
 }
 
-.team-grid-section {
-    background: var(--section-ivory) !important;
-}
-
-.contact-section {
-    background: var(--section-light) !important;
-}
-
-.final-cta-section {
-    background: var(--section-ivory) !important;
+.team-grid-section,
+.team-leadership-section,
+.team-culture-section,
+.team-engineering-section,
+.team-pm-section,
+.team-cta-section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     color: var(--text-primary) !important;
 }
-.cta-title {
-    color: var(--text-primary) !important;
+
+.contact-section,
+.contact-info-section,
+.contact-enquiry-section,
+.contact-map-section,
+.contact-social-section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
 }
-.cta-desc {
-    color: var(--text-secondary) !important;
-}
+
 
 
 

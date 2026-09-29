@@ -25,25 +25,35 @@ function custom404Plugin(): Plugin {
     '/contact': '/contact.html',
     '/home': '/index.html',
     '/home.html': '/index.html',
-    '/services/residential-building-construction': '/services/residential-building-construction.html',
-    '/services/residential-building-construction.html': '/services/residential-building-construction.html',
-    '/services/joint-venture': '/services/joint-venture.html',
-    '/services/joint-venture.html': '/services/joint-venture.html',
-    '/services/project-management': '/services/project-management.html',
-    '/services/project-management.html': '/services/project-management.html',
-    '/services/consultancy-design': '/services/consultancy-design.html',
-    '/services/consultancy-design.html': '/services/consultancy-design.html',
-    '/services/interiors': '/services/interiors.html',
-    '/services/interiors.html': '/services/interiors.html',
-    '/services/residential-construction': '/services/residential-building-construction.html',
-    '/services/residential-construction.html': '/services/residential-building-construction.html',
-    '/services/residential': '/services/residential-building-construction.html',
-    '/services/renovation-remodeling': '/services/interiors.html',
-    '/services/renovation-remodeling.html': '/services/interiors.html',
-    '/services/commercial-construction': '/services/project-management.html',
-    '/services/commercial-construction.html': '/services/project-management.html',
-    '/services/industrial-construction': '/services/project-management.html',
-    '/services/industrial-construction.html': '/services/project-management.html',
+    '/services/residential-construction': '/services/residential-construction.html',
+    '/services/residential-construction.html': '/services/residential-construction.html',
+    '/services/residential-building-construction': '/services/residential-construction.html',
+    '/services/residential-building-construction.html': '/services/residential-construction.html',
+    '/services/residential': '/services/residential-construction.html',
+    '/services/joint-venture-development': '/services/joint-venture-development.html',
+    '/services/joint-venture-development.html': '/services/joint-venture-development.html',
+    '/services/joint-venture': '/services/joint-venture-development.html',
+    '/services/joint-venture.html': '/services/joint-venture-development.html',
+    '/services/living-spaces-homes': '/services/living-spaces-homes.html',
+    '/services/living-spaces-homes.html': '/services/living-spaces-homes.html',
+    '/services/project-management': '/services/living-spaces-homes.html',
+    '/services/project-management.html': '/services/living-spaces-homes.html',
+    '/services/construction-consultancy-design': '/services/construction-consultancy-design.html',
+    '/services/construction-consultancy-design.html': '/services/construction-consultancy-design.html',
+    '/services/consultancy-design': '/services/construction-consultancy-design.html',
+    '/services/consultancy-design.html': '/services/construction-consultancy-design.html',
+    '/services/interior-design-execution': '/services/interior-design-execution.html',
+    '/services/interior-design-execution.html': '/services/interior-design-execution.html',
+    '/services/interiors': '/services/interior-design-execution.html',
+    '/services/interiors.html': '/services/interior-design-execution.html',
+    '/services/architecture-design': '/services/architecture-design.html',
+    '/services/architecture-design.html': '/services/architecture-design.html',
+    '/services/renovation-remodeling': '/services/interior-design-execution.html',
+    '/services/renovation-remodeling.html': '/services/interior-design-execution.html',
+    '/services/commercial-construction': '/services/living-spaces-homes.html',
+    '/services/commercial-construction.html': '/services/living-spaces-homes.html',
+    '/services/industrial-construction': '/services/living-spaces-homes.html',
+    '/services/industrial-construction.html': '/services/living-spaces-homes.html',
     '/page/about.html': '/about.html',
     '/page/about': '/about.html',
     '/page/services.html': '/services.html',
@@ -97,7 +107,7 @@ function custom404Plugin(): Plugin {
         }
 
         // Check root-level or nested HTML / file existence
-        const rootPath = path.resolve(__dirname);
+        const rootPath = path.resolve(import.meta.dirname);
         const directFile = path.join(rootPath, target);
         const htmlFile = path.join(rootPath, `${target}.html`);
         const indexFile = path.join(rootPath, target, 'index.html');
@@ -136,7 +146,7 @@ function custom404Plugin(): Plugin {
         if (/\.(css|js|ts|tsx|jsx|json|svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|mp4|webm)$/i.test(urlPath)) {
           return next();
         }
-        const distPath = path.resolve(__dirname, 'dist');
+        const distPath = path.resolve(import.meta.dirname, 'dist');
         let target = urlPath.endsWith('/') && urlPath !== '/' ? urlPath.slice(0, -1) : urlPath;
 
         const cleanTarget = target.startsWith('/') ? target : `/${target}`;
@@ -178,26 +188,27 @@ export default defineConfig(() => {
     plugins: [custom404Plugin()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     build: {
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, 'index.html'),
-          about: path.resolve(__dirname, 'about.html'),
-          services: path.resolve(__dirname, 'services.html'),
-          projects: path.resolve(__dirname, 'projects.html'),
-          team: path.resolve(__dirname, 'team.html'),
-          contact: path.resolve(__dirname, 'contact.html'),
-          notFound: path.resolve(__dirname, '404.html'),
-          privacy: path.resolve(__dirname, 'privacy-policy.html'),
-          terms: path.resolve(__dirname, 'terms-of-service.html'),
-          residentialBuildingService: path.resolve(__dirname, 'services/residential-building-construction.html'),
-          jointVentureService: path.resolve(__dirname, 'services/joint-venture.html'),
-          projectManagementService: path.resolve(__dirname, 'services/project-management.html'),
-          consultancyDesignService: path.resolve(__dirname, 'services/consultancy-design.html'),
-          interiorsService: path.resolve(__dirname, 'services/interiors.html'),
+          main: path.resolve(import.meta.dirname, 'index.html'),
+          about: path.resolve(import.meta.dirname, 'about.html'),
+          services: path.resolve(import.meta.dirname, 'services.html'),
+          projects: path.resolve(import.meta.dirname, 'projects.html'),
+          team: path.resolve(import.meta.dirname, 'team.html'),
+          contact: path.resolve(import.meta.dirname, 'contact.html'),
+          notFound: path.resolve(import.meta.dirname, '404.html'),
+          privacy: path.resolve(import.meta.dirname, 'privacy-policy.html'),
+          terms: path.resolve(import.meta.dirname, 'terms-of-service.html'),
+          residentialConstructionService: path.resolve(import.meta.dirname, 'services/residential-construction.html'),
+          jointVentureDevelopmentService: path.resolve(import.meta.dirname, 'services/joint-venture-development.html'),
+          livingSpacesHomesService: path.resolve(import.meta.dirname, 'services/living-spaces-homes.html'),
+          constructionConsultancyDesignService: path.resolve(import.meta.dirname, 'services/construction-consultancy-design.html'),
+          interiorDesignExecutionService: path.resolve(import.meta.dirname, 'services/interior-design-execution.html'),
+          architectureDesignService: path.resolve(import.meta.dirname, 'services/architecture-design.html'),
         },
       },
     },

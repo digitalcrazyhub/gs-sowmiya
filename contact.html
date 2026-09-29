@@ -38,9 +38,9 @@
 
     <!-- Stylesheets (Relative paths from asset/page/ per architecture specification) -->
     <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/contact.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -106,9 +106,6 @@
         <div class="site-container">
           
           <div class="contact-section-header">
-            <div class="contact-section-eyebrow">
-              <span>CONTACT</span>
-            </div>
             <h2 class="contact-section-title">
               Let's Talk About Your Project.
             </h2>
@@ -233,9 +230,6 @@
             
             <!-- Left Side: Content & Visual Panel -->
             <div class="enquiry-left-panel">
-              <div class="contact-section-eyebrow">
-                <span>START A CONVERSATION</span>
-              </div>
               <h2 class="contact-section-title">
                 Tell Us About<br>Your Project.
               </h2>
@@ -246,7 +240,7 @@
               <!-- Editorial Photo Frame -->
               <div class="enquiry-visual-frame" aria-hidden="true">
                 <img 
-                  src="https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1000&q=80" 
+                  src="/image/contact_bottom.png" 
                   alt="GS Sowmiya Builders architectural planning and construction review" 
                   loading="lazy"
                 />
@@ -396,13 +390,12 @@
                         aria-describedby="contact-service-error"
                       >
                         <option value="" disabled selected>Select a Service</option>
-                        <option value="Residential Construction">Residential Construction (Villas / Apartments)</option>
-                        <option value="Joint Venture Development">Joint Venture Land Development</option>
-                        <option value="Turnkey Building Contracts">Turnkey Building Contracts</option>
-                        <option value="Renovation & Remodeling">Renovation &amp; Remodeling</option>
-                        <option value="Interior Design & Woodwork">Interior Design &amp; Modular Woodwork</option>
-                        <option value="CMDA / DTCP Plan Approvals">CMDA / DTCP Approvals &amp; Vaastu Plans</option>
-                        <option value="Commercial Construction">Commercial &amp; Retail Buildings</option>
+                        <option value="Residential Construction">Residential Construction</option>
+                        <option value="Joint Venture Development">Joint Venture Development</option>
+                        <option value="Living Spaces & Homes">Living Spaces & Homes</option>
+                        <option value="Construction Consultancy & Design">Construction Consultancy & Design</option>
+                        <option value="Interior Design & Execution">Interior Design & Execution</option>
+                        <option value="Architecture & Design">Architecture & Design</option>
                       </select>
                     </div>
                     <span class="form-error-msg" id="contact-service-error" role="alert"></span>
@@ -470,9 +463,6 @@
         <div class="site-container">
           
           <div class="contact-section-header">
-            <div class="contact-section-eyebrow">
-              <span>FIND US</span>
-            </div>
             <h2 class="contact-section-title">
               Visit Our Office.
             </h2>
@@ -578,9 +568,6 @@
         <div class="site-container">
           
           <div class="contact-section-header" style="text-align: center; margin-left: auto; margin-right: auto;">
-            <div class="contact-section-eyebrow" style="justify-content: center;">
-              <span>FOLLOW OUR WORK</span>
-            </div>
             <h2 class="contact-section-title">
               Connect With GS Sowmiya Builders.
             </h2>
@@ -595,11 +582,7 @@
             <!-- Instagram -->
             <a href="https://www.instagram.com/gs_sowmiya_builders?igsi=eG1oNDJhcjAxN2hq" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Follow GS Sowmiya Builders on Instagram">
               <div class="social-card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
+                <img class="social-card-instagram-img" src="/image/instagram.svg" alt="Instagram" width="24" height="24">
               </div>
               <div class="social-card-meta">
                 <span class="social-card-platform">Instagram</span>
@@ -616,9 +599,7 @@
             <!-- Facebook -->
             <a href="https://www.facebook.com/share/1A3vYczzvJ/" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Connect with GS Sowmiya Builders on Facebook">
               <div class="social-card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
+                <img class="social-card-facebook-img" src="/image/facebook.svg" alt="facebook" width="24" height="24">
               </div>
               <div class="social-card-meta">
                 <span class="social-card-platform">Facebook</span>
@@ -635,9 +616,7 @@
             <!-- WhatsApp -->
             <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Chat with GS Sowmiya Builders on WhatsApp">
               <div class="social-card-icon" style="color: #25D366;" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-                </svg>
+                <img class="social-card-whatsapp-img" src="/image/whatsapp.svg" alt="whatsapp" width="24" height="24">
               </div>
               <div class="social-card-meta">
                 <span class="social-card-platform">WhatsApp</span>
@@ -654,10 +633,7 @@
             <!-- YouTube -->
             <a href="https://youtube.com/@sowmiyaconstruction6689?si=HtmzhtXbHHGSQuVm" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Subscribe to GS Sowmiya Builders on YouTube">
               <div class="social-card-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
+                <img class="social-card-youtube-img" src="/image/youtube.svg" alt="youtube" width="24" height="24">
               </div>
               <div class="social-card-meta">
                 <span class="social-card-platform">YouTube</span>
@@ -673,37 +649,6 @@
 
           </div>
 
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           06. FINAL CTA (FULL-WIDTH DARK CINEMATIC)
-           ========================================================================== -->
-      <section class="final-cta-section" id="cta" aria-label="Call to Action">
-        <div class="cta-backdrop-image" aria-hidden="true"></div>
-        <div class="cta-gold-accent-line" aria-hidden="true"></div>
-        
-        <div class="site-container">
-          <div class="cta-content-box" data-reveal>
-            <div class="section-eyebrow eyebrow-dark">
-              <span>Initiate Your Project</span>
-            </div>
-            <h2 class="cta-title">Let’s Build Something Exceptional.</h2>
-            <p class="cta-desc">
-              Have an architectural villa, commercial hub, or turnkey development in mind? Discuss your vision with our senior engineering directors.
-            </p>
-            <div class="cta-actions">
-              <a href="#enquiry-section" class="btn btn-gold" data-action="scroll-to-enquiry">
-                <span>TALK TO OUR TEAM</span>
-                <span class="btn-icon-circle">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 

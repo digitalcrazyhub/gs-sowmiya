@@ -280,8 +280,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     activeNav: 'projects',
     banner: {
       breadcrumb: 'PROJECTS',
-      eyebrow: 'PORTFOLIO OF EXCELLENCE',
-      title: 'Projects That Speak For Themselves.',
+      title: 'Our Successful Projects',
       bgImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=85'
     }
   });
@@ -673,41 +672,33 @@ function initScrollEffects() {
 
   window.gsap.registerPlugin(window.ScrollTrigger);
 
-  // Intro section reveal
-  window.gsap.from('.projects-intro-visual', {
-    scrollTrigger: {
-      trigger: '.projects-intro-section',
-      start: 'top 80%',
-      once: true
-    },
-    opacity: 0,
-    x: -30,
-    duration: 0.8,
-    ease: 'power2.out'
-  });
+  const filterSection = document.querySelector('.projects-filter-section');
+  if (filterSection) {
+    window.gsap.from(filterSection, {
+      scrollTrigger: {
+        trigger: filterSection,
+        start: 'top 85%',
+        once: true
+      },
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  }
 
-  window.gsap.from('.projects-intro-content', {
-    scrollTrigger: {
-      trigger: '.projects-intro-section',
-      start: 'top 80%',
-      once: true
-    },
-    opacity: 0,
-    x: 30,
-    duration: 0.8,
-    ease: 'power2.out'
-  });
-
-  // CTA Section reveal
-  window.gsap.from('.projects-cta-content', {
-    scrollTrigger: {
-      trigger: '.projects-cta-section',
-      start: 'top 85%',
-      once: true
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    ease: 'power2.out'
-  });
+  const gallerySection = document.querySelector('.projects-gallery-section');
+  if (gallerySection) {
+    window.gsap.from(gallerySection, {
+      scrollTrigger: {
+        trigger: gallerySection,
+        start: 'top 85%',
+        once: true
+      },
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  }
 }

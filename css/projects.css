@@ -119,27 +119,6 @@
   color: var(--brand-gold, #D9A24A);
 }
 
-.projects-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--brand-gold, #D9A24A);
-  margin-bottom: 16px;
-}
-
-.projects-hero-eyebrow-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--brand-gold, #D9A24A);
-  box-shadow: 0 0 10px var(--brand-gold, #D9A24A);
-  display: inline-block;
-}
-
 .projects-hero-title {
   font-family: var(--font-primary);
   font-size: clamp(2.4rem, 5.5vw, 4.5rem);
@@ -304,26 +283,6 @@
   flex-direction: column;
 }
 
-.projects-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brand-burgundy, #741719);
-  margin-bottom: 14px;
-}
-
-.projects-eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 28px;
-  height: 2px;
-  background-color: var(--brand-gold, #D9A24A);
-}
-
 .projects-intro-title {
   font-family: var(--font-primary);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
@@ -375,7 +334,7 @@
    ========================================================================== */
 .projects-filter-section {
   padding: clamp(60px, 8vw, 90px) 0 30px;
-  background-color: var(--bg-off-white, #FAF9F7);
+  background-color: #FFFFFF;
   border-top: 1px solid var(--border-light, #DEDCD7);
   position: relative;
 }
@@ -511,7 +470,7 @@
    ========================================================================== */
 .projects-gallery-section {
   padding: 30px 0 clamp(70px, 9vw, 110px);
-  background-color: var(--bg-off-white, #FAF9F7);
+  background-color: #FFFFFF;
 }
 
 .projects-gallery-container {
@@ -1032,28 +991,6 @@
   position: relative;
   z-index: 2;
   text-align: center;
-}
-
-.projects-cta-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--brand-gold, #D9A24A);
-  margin-bottom: 20px;
-}
-
-.projects-cta-eyebrow::before,
-.projects-cta-eyebrow::after {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 1px;
-  background-color: var(--brand-gold, #D9A24A);
-  opacity: 0.6;
 }
 
 .projects-cta-title {

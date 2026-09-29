@@ -9,11 +9,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadGlobalComponents({
       activeNav: 'service-consultancy',
       banner: {
-        title: 'Consultancy & Design',
-        eyebrow: '04 / Planning & Engineering',
-        breadcrumb: 'CONSULTANCY & DESIGN',
+        title: 'Construction Consultancy & Design',
+        breadcrumb: 'CONSTRUCTION CONSULTANCY & DESIGN',
         desc: 'Practical construction planning, 2D functional layouts, 3D elevations, structural coordination, and clear cost estimations tailored for residential plots in Chennai.',
-        bgImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85'
+        bgImage: '/image/construction_consultancy_design.png'
       }
     });
 

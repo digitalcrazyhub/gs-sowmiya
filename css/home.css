@@ -130,7 +130,7 @@
     }
 }
 
-/* Brand Eyebrow Badge: Red Roof/Building Icon + Company Name */
+/* Brand Badge: Red Roof/Building Icon + Company Name */
 .hero-brand-badge {
     display: inline-flex;
     align-items: center;
@@ -755,7 +755,7 @@
    COMPANY INTRODUCTION (SECTION 02 - REFERENCE STYLE)
    ========================================================================== */
 .intro-section {
-    background: var(--bg-off-white);
+    background: #FFFFFF;
     position: relative;
 }
 
@@ -995,7 +995,7 @@
    CORE SERVICES (SECTION 03 - WHAT WE BUILD)
    ========================================================================== */
 .services-section {
-    background: var(--bg-light);
+    background: #FFFFFF;
     position: relative;
 }
 
@@ -1322,7 +1322,7 @@
    FEATURED PROJECTS (SECTION 05 - REFERENCE STYLE SLIDER)
    ========================================================================== */
 .projects-section {
-    background: var(--bg-off-white);
+    background: #FFFFFF;
     position: relative;
     overflow: hidden;
 }
@@ -1797,8 +1797,8 @@
    CONSTRUCTION PROCESS (SECTION 07 - DARK TIMELINE)
    ========================================================================== */
 .process-section {
-    background: var(--bg-dark);
-    color: var(--text-white);
+    background: #FFFFFF;
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
 }
@@ -1879,7 +1879,7 @@
    CERTIFICATIONS & AWARDS (SECTION 08 - LIGHT / IVORY)
    ========================================================================== */
 .certifications-section {
-    background: var(--bg-off-white);
+    background: #FFFFFF;
 }
 
 .certs-grid {
@@ -1944,7 +1944,7 @@
    COMPANY NAME SIGNATURE MARQUEE (BIG TEXT CAROUSEL)
    ========================================================================== */
 .clients-section {
-    background: var(--bg-off-white, #f8f7f5);
+    background: #FFFFFF;
     padding-top: 24px;
     padding-bottom: 24px;
     border-top: 1px solid var(--border-light);
@@ -2417,7 +2417,7 @@
    CONSTRUCTION ESTIMATOR & FEASIBILITY CALCULATOR
    ========================================================================== */
 .calculator-section {
-    background: var(--bg-off-white);
+    background: #FFFFFF;
     position: relative;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
@@ -2821,7 +2821,7 @@
    FAQ ACCORDION SECTION
    ========================================================================== */
 .faq-section {
-    background: var(--bg-off-white, #FAF9F7);
+    background: #FFFFFF;
 }
 
 .faq-accordion-wrap {
@@ -2858,7 +2858,7 @@
 }
 
 .faq-q-text {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.01em;
@@ -2913,11 +2913,9 @@
    CONSTRUCTION PACKAGES / PRICING SECTION (REDESIGNED)
    ========================================================================== */
 .pricing-section {
-    background: #FAF7F2;
+    background: #FFFFFF;
     position: relative;
     overflow: hidden;
-    background-image: radial-gradient(rgba(217, 162, 74, 0.08) 1px, transparent 1px);
-    background-size: 32px 32px;
 }
 
 .pricing-header-layout {
@@ -3035,6 +3033,7 @@
 .pricing-card-img-wrap img {
     width: 100%;
     height: 100%;
+    border-radius: 9px;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -3218,7 +3217,6 @@
 
     .section-title,
     .section-subtitle,
-    .section-eyebrow,
     .services-intro-h1,
     .services-intro-p,
     .primary-services-header h2,
@@ -3366,28 +3364,36 @@
 }
 
 /* ==========================================================================
-   PREMIUM LIGHT THEME SECTION BACKGROUND SYSTEM
+   HOMEPAGE SECTION BACKGROUND & SPACING SYSTEM — ALL SECTIONS PURE WHITE (#FFFFFF)
    ========================================================================== */
-#about {
-    background: #FFFFFF !important;
-}
-
-.services-section {
-    background: #F7F7F7 !important;
-}
-
+#about,
+.intro-section,
+#services,
+.services-section,
 #projects,
-.projects-section {
-    background: #FFFFFF !important;
-}
-
+.projects-section,
+.city-services-standalone-section,
 #why-us,
-.why-section {
-    background: #F5F3F0 !important;
+.why-section,
+.why-build-section,
+.process-section,
+#pricing,
+.pricing-section,
+.clients-section,
+#testimonials,
+.testimonials-section,
+#faq,
+.faq-section,
+#contact,
+.contact-section,
+.calculator-section,
+.certifications-section {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
 }
 
 .process-section {
-    background: #FAF8F5 !important;
     color: var(--text-primary) !important;
 }
 .process-timeline-horizontal::before {
@@ -3406,61 +3412,14 @@
     color: var(--text-secondary) !important;
 }
 
-.pricing-section {
-    background: #FAF8F5 !important;
-}
-
-.testimonials-section {
-    background: #FFFFFF !important;
-}
-
-.faq-section {
-    background: #F7F7F7 !important;
-}
-
-.contact-section {
-    background: #FAF8F5 !important;
-}
-
-.final-cta-section {
-    background: #FAF8F5 !important;
-    color: var(--text-primary) !important;
-}
-.cta-backdrop-image {
-    opacity: 0.08 !important;
-    filter: grayscale(100%) !important;
-}
-.cta-title {
-    color: #ffffff !important;
-}
-.cta-desc {
-    color: #ffffff !important;
-}
-
-/* ==========================================================================
-   WHY BUILD WITH US SECTION (NEW REDESIGNED EDITORIAL BENTO STYLE)
-   ========================================================================== */
-.why-build-section {
-    background: #0F172A !important;
-    color: #F8FAFC !important;
-    position: relative;
-    overflow: hidden;
-}
-
 .why-redesign-header {
     max-width: 700px;
     margin: 0 auto 60px auto;
     text-align: center;
 }
 
-.why-redesign-header .section-eyebrow span {
-    background: rgba(217, 119, 6, 0.15);
-    color: #F59E0B;
-    border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
 .why-redesign-title {
-    color: #FFFFFF !important;
+    color: var(--text-primary) !important;
     font-size: clamp(2.25rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -3468,7 +3427,7 @@
 }
 
 .why-redesign-subtitle {
-    color: #94A3B8 !important;
+    color: var(--text-secondary) !important;
     font-size: 1.1rem;
     line-height: 1.6;
 }
@@ -3481,11 +3440,11 @@
 }
 
 .why-redesign-card {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
     border-radius: 24px;
     padding: 32px 24px;
-    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;

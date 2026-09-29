@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             activeNav: 'contact',
             banner: {
                 breadcrumb: 'CONTACT US',
-                eyebrow: 'GET IN TOUCH',
-                title: "Let's Build Stronger Together.",
+                title: "Contact Us",
                 bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85'
             }
         });

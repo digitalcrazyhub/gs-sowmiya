@@ -1,5 +1,5 @@
 /**
- * Joint Venture Page Controller
+ * Interiors Page Controller
  * GS Sowmiya Builders Private Limited
  */
 import { loadGlobalComponents } from '../components.js';
@@ -7,20 +7,19 @@ import { loadGlobalComponents } from '../components.js';
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     await loadGlobalComponents({
-      activeNav: 'service-joint-venture',
+      activeNav: 'service-interiors',
       banner: {
-        title: 'Joint Venture Property Development',
-        eyebrow: '02 / Development Partnerships',
-        breadcrumb: 'JOINT VENTURE',
-        desc: 'Partnering with landowners in Chennai for transparent property development, clear legal structuring, maximum FSI utilization, and high-quality construction execution.',
-        bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85'
+        title: 'Interior Design & Execution',
+        breadcrumb: 'INTERIOR DESIGN & EXECUTION',
+        desc: 'Custom modular kitchens, wardrobe systems, false ceilings, lighting design, and precision woodwork integrated seamlessly with residential building construction in Chennai.',
+        bgImage: '/image/interior_design_execution.png'
       }
     });
 
     initFaqAccordion();
     initScrollReveals();
   } catch (err) {
-    console.error('Error initializing Joint Venture page:', err);
+    console.error('Error initializing Interiors page:', err);
   }
 });
 

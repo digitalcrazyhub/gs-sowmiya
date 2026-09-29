@@ -99,7 +99,6 @@ export function initProjectModal() {
                 <!-- Right: Detailed Architectural & Structural Specs -->
                 <div class="modal-info-col">
                     <div class="modal-header-meta">
-                        <span class="section-eyebrow" style="margin-bottom: 4px;">Architectural Case Study</span>
                         <h2 class="modal-project-title">${proj.name}</h2>
                         <p class="modal-client-line"><strong>Client:</strong> ${proj.client || 'Private Client'}</p>
                     </div>
