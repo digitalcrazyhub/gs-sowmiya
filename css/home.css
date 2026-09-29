@@ -3431,10 +3431,10 @@
     filter: grayscale(100%) !important;
 }
 .cta-title {
-    color: var(--text-primary) !important;
+    color: #ffffff !important;
 }
 .cta-desc {
-    color: var(--text-secondary) !important;
+    color: #ffffff !important;
 }
 
 /* ==========================================================================

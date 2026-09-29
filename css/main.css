@@ -2053,7 +2053,7 @@ main > section:nth-of-type(odd) {
 }
 
 main > section:nth-of-type(even) {
-    background-color: var(--section-light) !important;
+    background-color: var(--bg-dark) !important;
 }
 
 main > section:nth-of-type(3n) {
