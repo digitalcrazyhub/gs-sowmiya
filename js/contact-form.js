@@ -9,8 +9,10 @@
 
 import { SITE_CONFIG } from '/js/config.js';
 
-// Configuration endpoint (Leave empty for instant verified client-side submission handshake)
-const CONTACT_FORM_ENDPOINT = "";
+// Configurable backend API endpoint (points to /backend/api/contact.php)
+const CONTACT_FORM_ENDPOINT = (typeof window !== 'undefined' && window.GS_CONTACT_API_ENDPOINT)
+  ? window.GS_CONTACT_API_ENDPOINT
+  : "/backend/api/contact.php";
 
 /**
  * Initializes validation, accessibility, and submit behavior for any contact form
@@ -206,6 +208,18 @@ export function initContactFormHandler(formTarget, options = {}) {
       return;
     }
 
+    // Fetch reCAPTCHA v3 token if configured
+    let recaptchaToken = '';
+    const siteKey = (typeof window !== 'undefined') ? (window.RECAPTCHA_SITE_KEY || '') : '';
+    if (typeof window !== 'undefined' && window.grecaptcha && siteKey) {
+      try {
+        await new Promise((resolve) => window.grecaptcha.ready(resolve));
+        recaptchaToken = await window.grecaptcha.execute(siteKey, { action: 'submit_enquiry' });
+      } catch (rcErr) {
+        console.warn('reCAPTCHA execution note:', rcErr);
+      }
+    }
+
     // Construct submission payload
     const formData = {
       name: fields.name.el?.value.trim() || '',
@@ -215,6 +229,7 @@ export function initContactFormHandler(formTarget, options = {}) {
       service: fields.service.el?.value || '',
       message: fields.message.el?.value.trim() || '',
       source: sourceInput ? sourceInput.value : defaultSource,
+      recaptcha_token: recaptchaToken,
       timestamp: new Date().toISOString()
     };
 
@@ -229,25 +244,22 @@ export function initContactFormHandler(formTarget, options = {}) {
     }
 
     try {
-      if (CONTACT_FORM_ENDPOINT) {
-        const response = await fetch(CONTACT_FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-        if (!response.ok) throw new Error("Failed to submit enquiry.");
-      } else {
-        // Verified Client-Side Handshake
-        await new Promise((resolve) => setTimeout(resolve, 800));
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-        // Save to local session log for audit/backup
-        try {
-          const submissions = JSON.parse(localStorage.getItem('gs_enquiries') || '[]');
-          submissions.push(formData);
-          localStorage.setItem('gs_enquiries', JSON.stringify(submissions));
-        } catch (storageErr) {
-          // Ignore quota limits
-        }
+      const resData = await response.json().catch(() => null);
+
+      if (!response.ok || !resData || !resData.success) {
+        const errorMsg = resData?.message || (response.status === 429
+          ? "Too many enquiries submitted from this network. Please wait a few minutes."
+          : "Unable to submit your enquiry at this moment. Please call us directly.");
+        throw new Error(errorMsg);
       }
 
       // Success State Transition
@@ -256,7 +268,8 @@ export function initContactFormHandler(formTarget, options = {}) {
         statusBox.className = 'form-status-box is-success';
         if (statusTitle) statusTitle.textContent = "THANK YOU";
         if (statusDesc) {
-          statusDesc.textContent = "Your enquiry has been received. Our team will review your requirements and get in touch with you soon.";
+          const leadRef = resData.lead_id ? ` (Reference ID: ${resData.lead_id})` : '';
+          statusDesc.textContent = (resData.message || "Your enquiry has been received. Our team will review your requirements and get in touch with you soon.") + leadRef;
         }
         statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -268,7 +281,8 @@ export function initContactFormHandler(formTarget, options = {}) {
         if (statusTitle) statusTitle.textContent = "SUBMISSION NOTICE";
         if (statusDesc) {
           const phoneNum = SITE_CONFIG?.contact?.phone || '+91 90431 56670';
-          statusDesc.textContent = `We encountered a temporary network issue. Please call us directly at ${phoneNum} or contact us via WhatsApp.`;
+          const defaultErr = `We encountered a temporary network issue. Please call us directly at ${phoneNum} or contact us via WhatsApp.`;
+          statusDesc.textContent = (submitErr instanceof Error && submitErr.message) ? submitErr.message : defaultErr;
         }
         statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }

@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+/backend/.env*
+!/backend/.env.example
+/backend/config/private/*
+!/backend/config/private/.gitkeep
+/backend/logs/*.log
+/backend/vendor/

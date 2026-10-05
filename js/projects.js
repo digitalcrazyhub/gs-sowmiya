@@ -334,9 +334,9 @@ function renderProjectsGrid(projectsList) {
               <span>${project.location}</span>
             </div>
             <div class="project-card__specs">
-              <span>Land: ${project.landArea}</span>
+              <span>Land Area: ${project.landArea}</span>
               <span class="project-card__specs-dot">•</span>
-              <span>Built-up: ${project.builtUpArea}</span>
+              <span>Built-up Area: ${project.builtUpArea}</span>
             </div>
           </div>
         </div>
