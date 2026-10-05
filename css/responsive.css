@@ -874,13 +874,11 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     gap: 20px;
   }
 
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px;
-  }
-
-  .project-card--large {
-    grid-column: span 2 !important;
+  .projects-grid,
+  .projects-grid.projects-masonry {
+    display: block !important;
+    column-count: 2 !important;
+    column-gap: 20px !important;
   }
 }
 
@@ -919,13 +917,11 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     font-size: 0.8125rem;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-
-  .project-card--large {
-    grid-column: span 1 !important;
+  .projects-grid,
+  .projects-grid.projects-masonry {
+    display: block !important;
+    column-count: 1 !important;
+    column-gap: 16px !important;
   }
 
   .projects-cta-actions {

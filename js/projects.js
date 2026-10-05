@@ -15,6 +15,7 @@
 
 import { loadGlobalComponents } from '/js/components.js';
 import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
+import { initProjectsMasonryGallery } from '/js/projects-masonry-gallery.js';
 
 // Respect system accessibility setting
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -23,246 +24,150 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
  * Verified GS Sowmiya Builders Project Data Repository
  * Only contains authentic project information derived directly from the master codebase.
  */
+/**
+ * GS Sowmiya Builders Master Residential Projects Repository
+ * Exactly 9 verified residential projects across Chennai & Tamil Nadu
+ */
 export const PROJECTS_DATA = [
   {
-    id: "p0",
-    name: "GS Sowmiya Elite Enclave",
-    location: "Medavakkam, Chennai",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "2 BHK Premium Apartments",
-    area: "Medavakkam Prime",
-    year: "2024 - 2025",
-    status: "Completed / Ongoing",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85",
-    description: "Our signature residential development in Medavakkam offering thoughtfully engineered 2 BHK homes with covered car parking, automatic lift, 24/7 CCTV surveillance, and 100% Vaastu compliance.",
-    link: "#"
-  },
-  {
     id: "p1",
-    name: "Vaibhavam Grande",
-    location: "Thirukalukundram",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "Flagship Estate",
-    area: "55,000 Sq.Ft.",
+    name: "2 & 3 BHK Stilt + 2 Residential Apartment Building with 5 Units",
+    location: "Vengaivasel, Chennai",
+    bhk: ["2 BHK", "3 BHK"],
+    bhkFilter: ["2bhk", "3bhk"],
+    units: 5,
+    landArea: "2,305 sq.ft",
+    builtUpArea: "6,010 sq.ft",
     year: "2024",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=85",
-    description: "A contemporary gated residential enclave balancing climate-responsive ventilation, post-tensioned flat slabs, and private central green courtyards.",
-    link: "#"
+    image: "/image/residential_building_10.jpeg",
+    aspectRatio: "16/10",
+    description: "Modern Stilt + 2 residential apartment building in Vengaivasel featuring 5 spacious 2 & 3 BHK units, stilt parking, RCC frame structure, and premium finishes."
   },
   {
     id: "p2",
-    name: "TVS Avenue",
-    location: "Chennai",
-    category: "commercial",
-    categoryLabel: "Commercial",
-    type: "Corporate Tower",
-    area: "120,000 Sq.Ft.",
-    year: "2023",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
-    description: "A modern glass-and-composite commercial landmark featuring a double-height atrium reception and expansive column-free office floor plates.",
-    link: "#"
+    name: "4 BHK G+2 Residential Building",
+    location: "Vengaivasel, Chennai",
+    bhk: ["4 BHK"],
+    bhkFilter: ["4bhk"],
+    units: 1,
+    landArea: "1,700 sq.ft",
+    builtUpArea: "2,300 sq.ft",
+    year: "2024",
+    image: "/image/residential_building_2.jpeg",
+    aspectRatio: "3/4",
+    description: "Spacious 4 BHK G+2 independent residential home in Vengaivasel engineered with earthquake-resistant structural design, double-height living room, and private terrace."
   },
   {
     id: "p3",
-    name: "Nolumbur Green Woods",
-    location: "Chennai",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "Luxury Living",
-    area: "42,000 Sq.Ft.",
+    name: "2 BHK Stilt + 2 Elite Enclave Residential Apartment with 2 Units",
+    location: "Vengaivasel, Chennai",
+    bhk: ["2 BHK"],
+    bhkFilter: ["2bhk"],
+    units: 2,
+    landArea: "1,015 sq.ft",
+    builtUpArea: "2,100 sq.ft",
     year: "2024",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85",
-    description: "Harmonious biophilic apartment community engineered with rooftop solar-harvesting canopies and expansive perimeter landscaped gardens.",
-    link: "#"
+    image: "/image/residential_building_1.jpeg",
+    aspectRatio: "1/1",
+    description: "Bespoke 2 BHK Stilt + 2 residential enclave in Vengaivasel offering 2 exclusive apartment units with automated lift, covered parking, and 100% Vaastu planning."
   },
   {
     id: "p4",
-    name: "Perambur Bharath House",
-    location: "Chennai",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "Private Villa",
-    area: "18,500 Sq.Ft.",
+    name: "3 BHK G+1 Residential Villa",
+    location: "Vengaivasel, Chennai",
+    bhk: ["3 BHK"],
+    bhkFilter: ["3bhk"],
+    units: 1,
+    landArea: "800 sq.ft",
+    builtUpArea: "1,100 sq.ft",
     year: "2023",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
-    description: "A private architectural masterpiece crafted with board-formed exposed architectural concrete, teakwood louvers, and reflecting pools.",
-    link: "#"
+    image: "/image/residential_building_3.jpeg",
+    aspectRatio: "16/9",
+    description: "Elegantly designed 3 BHK G+1 independent residential villa in Vengaivasel optimizing space utilization, natural illumination, and premium civil construction."
   },
   {
     id: "p5",
-    name: "OOTY Love Dale",
-    location: "Ooty",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "Hill Estate",
-    area: "12,000 Sq.Ft.",
-    year: "2024",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1400&q=85",
-    description: "Perched along the scenic slopes of the Nilgiris, built with reinforced soil nail mechanics, radiant underfloor heating, and panoramic glass facades.",
-    link: "#"
+    name: "3 BHK G+1 Individual Villa",
+    location: "Kaspapuram, Mappedu",
+    bhk: ["3 BHK"],
+    bhkFilter: ["3bhk"],
+    units: 1,
+    landArea: "1,300 sq.ft",
+    builtUpArea: "1,300 sq.ft",
+    year: "2023",
+    image: "/image/residential_building_6.jpeg",
+    aspectRatio: "3/4",
+    description: "Contemporary 3 BHK G+1 individual villa in Kaspapuram, Mappedu built with high-grade steel and cement, custom architectural detailing, and landscaped yard."
   },
   {
     id: "p6",
-    name: "Mogappair Skywood",
-    location: "Chennai",
-    category: "residential",
-    categoryLabel: "Residential",
-    type: "Premium High-Rise",
-    area: "85,000 Sq.Ft.",
-    year: "2025",
-    status: "In Finishing",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
-    description: "Vertical living redefined with high-grade seismic dampening shear cores, cantilevered infinity sky decks, and thermal-barrier fenestration.",
-    link: "#"
+    name: "2 BHK G+2 Apartment",
+    location: "Kavangarai, Redhills",
+    bhk: ["2 BHK"],
+    bhkFilter: ["2bhk"],
+    units: 6,
+    landArea: "2,000 sq.ft",
+    builtUpArea: "5,300 sq.ft",
+    year: "2024",
+    image: "/image/residential_building_4.jpeg",
+    aspectRatio: "16/9",
+    description: "Well-ventilated 2 BHK G+2 apartment complex in Kavangarai, Redhills built over 2,000 sq.ft plot with robust foundation engineering and turn-key handover."
   },
   {
     id: "p7",
-    name: "Anna Nagar Tech Square",
-    location: "Chennai",
-    category: "commercial",
-    categoryLabel: "Commercial",
-    type: "Grade-A IT Tower",
-    area: "75,000 Sq.Ft.",
+    name: "3 BHK G+1 Duplex Villa",
+    location: "Vengaivasel, Chennai",
+    bhk: ["3 BHK"],
+    bhkFilter: ["3bhk"],
+    units: 1,
+    landArea: "880 sq.ft",
+    builtUpArea: "1,300 sq.ft",
     year: "2024",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85",
-    description: "Multi-tenant Grade-A corporate workplace with energy-efficient insulated glazed envelope, VRV climate control, and high-speed core lifts.",
-    link: "#"
+    image: "/image/residential_building_8.jpeg",
+    aspectRatio: "4/3",
+    description: "Compact luxury 3 BHK G+1 duplex villa in Vengaivasel featuring smart spatial planning, modular interior provisions, and premium exterior elevation."
   },
   {
     id: "p8",
-    name: "OMR Retail Hub",
-    location: "Chennai",
-    category: "commercial",
-    categoryLabel: "Commercial",
-    type: "Retail Plaza",
-    area: "45,000 Sq.Ft.",
-    year: "2023",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&w=1400&q=85",
-    description: "Boutique retail and culinary destination along the IT Corridor featuring double-height storefront glazing and seamless pedestrian courtyard flow.",
-    link: "#"
+    name: "5 BHK G+2 Semi-Independent House",
+    location: "Pallavaram, Chennai",
+    bhk: ["5 BHK"],
+    bhkFilter: ["5bhk"],
+    units: 1,
+    landArea: "1,400 sq.ft",
+    builtUpArea: "2,600 sq.ft",
+    year: "2024",
+    image: "/image/residential_building_7.jpeg",
+    aspectRatio: "3/4",
+    description: "Grand 5 BHK G+2 semi-independent multi-family residence in Pallavaram crafted for multi-generational living with extensive balcony spaces and covered parking."
   },
   {
     id: "p9",
-    name: "Sriperumbudur Logistics Park",
-    location: "Sriperumbudur",
-    category: "industrial",
-    categoryLabel: "Industrial",
-    type: "High-Bay PEB Warehouse",
-    area: "250,000 Sq.Ft.",
-    year: "2024",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=85",
-    description: "State-of-the-art pre-engineered logistics facility with 12m clear heights, laser-screeded FM2 high-tolerance flooring, and automated docking bays.",
-    link: "#"
+    name: "3 BHK G+2 Semi-Independent House / Apartment with 3 Units",
+    location: "Thirumalisai, Chennai",
+    bhk: ["3 BHK"],
+    bhkFilter: ["3bhk"],
+    units: 3,
+    landArea: "1,800 sq.ft",
+    builtUpArea: "3,200 sq.ft",
+    year: "2023",
+    image: "/image/residential_building_9.jpeg",
+    aspectRatio: "16/10",
+    description: "Versatile 3 BHK G+2 semi-independent residential apartment building in Thirumalisai featuring 3 distinct housing units with individual utility metering."
   },
   {
     id: "p10",
-    name: "Oragadam Auto Ancillary Plant",
-    location: "Oragadam",
-    category: "industrial",
-    categoryLabel: "Industrial",
-    type: "Manufacturing Plant",
-    area: "180,000 Sq.Ft.",
+    name: "3 BHK G+2 Semi-Independent House / Apartment",
+    location: "Thirumalisai, Chennai",
+    bhk: ["3 BHK"],
+    bhkFilter: ["3bhk"],
+    units: 3,
+    landArea: "1,800 sq.ft",
+    builtUpArea: "3,200 sq.ft",
     year: "2023",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85",
-    description: "Heavy precision manufacturing facility featuring isolated vibration machine foundation pads and 50T heavy gantry crane runway girders.",
-    link: "#"
-  },
-  {
-    id: "p11",
-    name: "Gummidipoondi Heavy Fabrication Shed",
-    location: "Gummidipoondi",
-    category: "industrial",
-    categoryLabel: "Industrial",
-    type: "Heavy Industrial Facility",
-    area: "95,000 Sq.Ft.",
-    year: "2024",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=85",
-    description: "Heavy structural steel fabrication plant equipped with continuous natural ridge ventilators, overhead cranes, and reinforced concrete apron slabs.",
-    link: "#"
-  },
-  {
-    id: "p12",
-    name: "ECR Coastal Access Elevated Corridor",
-    location: "Chennai ECR",
-    category: "infrastructure",
-    categoryLabel: "Infrastructure",
-    type: "Elevated Road & Retaining Wall",
-    area: "4.2 KM Corridor",
-    year: "2024",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=1200&q=85",
-    description: "Deep pile foundations, reinforced soil walls, and storm-surge civil containment engineered for severe marine atmospheric exposure.",
-    link: "#"
-  },
-  {
-    id: "p13",
-    name: "Oragadam Industrial Drainage & Culvert Network",
-    location: "Oragadam",
-    category: "infrastructure",
-    categoryLabel: "Infrastructure",
-    type: "Heavy Civil Works",
-    area: "12,500 R.Mtr.",
-    year: "2023",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=85",
-    description: "Sub-surface industrial runoff culvert system and reinforced concrete retention reservoirs designed for 100-year flood resistance.",
-    link: "#"
-  },
-  {
-    id: "p14",
-    name: "Madhavaram Technical & Training Academy Complex",
-    location: "Chennai",
-    category: "institutional",
-    categoryLabel: "Institutional",
-    type: "Educational Campus",
-    area: "68,000 Sq.Ft.",
-    year: "2024",
-    status: "Completed",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85",
-    description: "Multi-tiered academic facility featuring vibration-dampened structural labs, acoustic lecture halls, and turnkey interior fit-outs.",
-    link: "#"
-  },
-  {
-    id: "p15",
-    name: "Anna Nagar Civic Community Center & Cultural Annex",
-    location: "Anna Nagar, Chennai",
-    category: "institutional",
-    categoryLabel: "Institutional",
-    type: "Public Institution",
-    area: "34,000 Sq.Ft.",
-    year: "2023",
-    status: "Completed",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85",
-    description: "Column-free auditorium with spatial acoustic modeling, post-tensioned roofing spans, and sustainable greywater recycling.",
-    link: "#"
+    image: "/image/residential_building_5.jpeg",
+    aspectRatio: "16/10",
+    description: "Versatile 3 BHK G+2 semi-independent residential apartment building in Thirumalisai featuring 3 distinct housing units with individual utility metering."
   }
 ];
 
@@ -270,6 +175,7 @@ export const PROJECTS_DATA = [
 let currentCategory = "ALL";
 let currentFilteredProjects = [...PROJECTS_DATA];
 let currentLightboxIndex = 0;
+let masonryInstance = null;
 
 /**
  * Initialize Projects Page on DOMContentLoaded
@@ -285,19 +191,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // 2. Initialize Category Badges with dynamic counts
+  // 2. Initialize BHK Category Badges with dynamic counts
   updateCategoryBadges();
 
   // 3. Render Initial Project Grid (All Projects)
   renderProjectsGrid(currentFilteredProjects);
 
-  // 4. Attach Category Filter Event Listeners
+  // 4. Initialize Masonry Gallery Manager
+  masonryInstance = initProjectsMasonryGallery('#projects-grid');
+
+  // 5. Attach Category Filter Event Listeners
   initCategoryFilters();
 
-  // 5. Initialize Lightbox Modal System
+  // 6. Initialize Lightbox Modal System
   initProjectLightbox();
 
-  // 6. Scroll Trigger Animations & Numeric Counters
+  // 7. Scroll Trigger Animations & Numeric Counters
   initScrollReveal();
   initCounterAnimation();
   initScrollEffects();
@@ -305,16 +214,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Computes and updates dynamic category counts
+ * Computes and updates dynamic category counts for BHK filter tabs
  */
 function updateCategoryBadges() {
   const counts = {
     ALL: PROJECTS_DATA.length,
-    residential: PROJECTS_DATA.filter(p => p.category === 'residential').length,
-    commercial: PROJECTS_DATA.filter(p => p.category === 'commercial').length,
-    industrial: PROJECTS_DATA.filter(p => p.category === 'industrial').length,
-    infrastructure: PROJECTS_DATA.filter(p => p.category === 'infrastructure').length,
-    institutional: PROJECTS_DATA.filter(p => p.category === 'institutional').length
+    "2bhk": PROJECTS_DATA.filter(p => p.bhkFilter.includes('2bhk')).length,
+    "3bhk": PROJECTS_DATA.filter(p => p.bhkFilter.includes('3bhk')).length,
+    "4bhk": PROJECTS_DATA.filter(p => p.bhkFilter.includes('4bhk')).length,
+    "5bhk": PROJECTS_DATA.filter(p => p.bhkFilter.includes('5bhk')).length
   };
 
   document.querySelectorAll('[data-category-badge]').forEach(badge => {
@@ -326,7 +234,7 @@ function updateCategoryBadges() {
 }
 
 /**
- * Renders project cards into the architectural grid
+ * Renders project cards into the masonry architectural gallery
  */
 function renderProjectsGrid(projectsList) {
   const gridContainer = document.getElementById('projects-grid');
@@ -337,8 +245,8 @@ function renderProjectsGrid(projectsList) {
   if (countDisplay) {
     if (projectsList.length > 0) {
       const categoryTitle = currentCategory === 'ALL' 
-        ? 'All Categories' 
-        : currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+        ? 'All Configurations' 
+        : currentCategory.toUpperCase();
       countDisplay.innerHTML = `Showing <span class="projects-count-highlight">${projectsList.length}</span> of ${PROJECTS_DATA.length} Projects (${categoryTitle})`;
     } else {
       countDisplay.innerHTML = `Showing <span class="projects-count-highlight">0</span> Projects`;
@@ -349,20 +257,20 @@ function renderProjectsGrid(projectsList) {
   if (projectsList.length === 0) {
     const emptyCategoryName = currentCategory.toUpperCase();
     gridContainer.innerHTML = `
-      <div class="projects-empty-state" role="region" aria-label="No projects available in this category">
+      <div class="projects-empty-state" role="region" aria-label="No projects available in this configuration">
         <div class="projects-empty-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
         </div>
-        <h3 class="projects-empty-title">PROJECT DETAILS WILL BE UPDATED SOON</h3>
+        <h3 class="projects-empty-title">NO ${emptyCategoryName} PROJECTS CURRENTLY LISTED</h3>
         <p class="projects-empty-desc">
-          Our ${emptyCategoryName} commissions are currently undergoing structural documentation and client confidentiality clearance. Detailed engineering qualifications, architectural plans, and comprehensive project dossiers are available upon direct confidential consultation.
+          New residential developments in this configuration are currently in engineering review or land acquisition stage. Detailed architectural plans and floor layouts are available upon direct consultation.
         </p>
         <div class="projects-empty-actions">
           <a href="/contact.html" class="btn btn-gold">
-            <span>REQUEST PROJECT DOSSIER</span>
+            <span>SCHEDULE CONSULTATION</span>
             <span class="btn-icon-circle">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -387,27 +295,24 @@ function renderProjectsGrid(projectsList) {
     return;
   }
 
-  // Build Project Cards HTML with an asymmetric architectural rhythm
+  // Build Masonry Project Cards HTML with image content below
   const cardsHTML = projectsList.map((project, index) => {
-    // Large feature styling for designated projects or first card in filtered views
-    const isLarge = project.featured && (index % 3 === 0 || projectsList.length <= 4);
-    const cardClass = isLarge ? "project-card project-card--large" : "project-card";
+    const bhkBadges = project.bhk.join(' • ');
 
     return `
-      <article class="${cardClass}" data-id="${project.id}" data-category="${project.category}" id="project-${project.id}">
-        <div class="project-card__image-wrap" data-lightbox-trigger="${index}" role="button" tabindex="0" aria-label="View enlarged image for ${project.name}">
+      <article class="project-card" data-id="${project.id}" data-category="${project.bhkFilter.join(' ')}" id="project-${project.id}">
+        <div class="project-card__image-wrap" data-lightbox-trigger="${index}" role="button" tabindex="0" aria-label="View enlarged photo for ${project.name}">
           <img 
             src="${project.image}" 
-            alt="${project.name} – ${project.type} in ${project.location}" 
+            alt="${project.name} – ${project.bhk.join(', ')} in ${project.location}" 
             class="project-card__image" 
             loading="${index < 3 ? 'eager' : 'lazy'}" 
             decoding="async"
-            width="800"
-            height="500"
           >
-          <div class="project-card__overlay" aria-hidden="true"></div>
           <div class="project-card__gold-edge" aria-hidden="true"></div>
           
+          <span class="project-card__badge-tag">${bhkBadges}</span>
+
           <button type="button" class="project-card__zoom-btn" data-lightbox-trigger="${index}" aria-label="Enlarge ${project.name} photo">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 3 21 3 21 9"></polyline>
@@ -419,40 +324,20 @@ function renderProjectsGrid(projectsList) {
         </div>
 
         <div class="project-card__content">
-          <div>
-            <div class="project-card__header-meta">
-              <div class="project-card__location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>${project.location}</span>
-              </div>
-              <span class="project-card__year">${project.year}</span>
-            </div>
-
-            <h3 class="project-card__title">
-              <a href="${project.link}" class="project-card__link" style="color: inherit; text-decoration: none;">
-                ${project.name}
-              </a>
-            </h3>
-
-            <p class="project-card__desc">${project.description}</p>
-          </div>
-
-          <div class="project-card__footer">
-            <div class="project-card__specs">
-              <span class="project-card__type">${project.type}</span>
-              <span class="project-card__specs-dot">•</span>
-              <span>${project.area}</span>
-            </div>
-
-            <a href="${project.link}" class="project-card__btn" aria-label="View architectural details for ${project.name}">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
+          <h3 class="project-card__title">${project.name}</h3>
+          <div class="project-card__meta">
+            <div class="project-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
               </svg>
-            </a>
+              <span>${project.location}</span>
+            </div>
+            <div class="project-card__specs">
+              <span>Land: ${project.landArea}</span>
+              <span class="project-card__specs-dot">•</span>
+              <span>Built-up: ${project.builtUpArea}</span>
+            </div>
           </div>
         </div>
       </article>
@@ -468,8 +353,8 @@ function renderProjectsGrid(projectsList) {
   if (window.gsap && !prefersReducedMotion) {
     window.gsap.fromTo(
       gridContainer.querySelectorAll('.project-card'),
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "power2.out" }
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }
     );
   }
 
@@ -478,7 +363,7 @@ function renderProjectsGrid(projectsList) {
 }
 
 /**
- * Initializes category filtering interactions
+ * Initializes category filtering interactions for BHK tabs
  */
 function initCategoryFilters() {
   const filterButtons = document.querySelectorAll('.projects-tab-btn');
@@ -499,11 +384,11 @@ function initCategoryFilters() {
 
       currentCategory = selectedCategory;
 
-      // Filter projects array
+      // Filter projects array based on BHK filter
       if (selectedCategory === 'ALL') {
         currentFilteredProjects = [...PROJECTS_DATA];
       } else {
-        currentFilteredProjects = PROJECTS_DATA.filter(p => p.category === selectedCategory);
+        currentFilteredProjects = PROJECTS_DATA.filter(p => p.bhkFilter.includes(selectedCategory));
       }
 
       // Smooth transition
@@ -654,7 +539,8 @@ function updateLightboxContent() {
   }
 
   if (metaEl) {
-    metaEl.textContent = `${project.type} • ${project.location} • ${project.area} • Completed ${project.year}`;
+    const unitsStr = project.units && project.units > 1 ? ` • ${project.units} Units` : '';
+    metaEl.textContent = `${project.bhk.join(' • ')} • ${project.location} • Land: ${project.landArea} • Built-up: ${project.builtUpArea}${unitsStr}`;
   }
 
   if (counterEl) {

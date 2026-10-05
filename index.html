@@ -14,9 +14,9 @@
     <link rel="canonical" href="https://gssowmiyabuilders.com" />
 
     <!-- Favicon & Web Icons -->
-    <link rel="icon" type="image/png" href="/image/favicon.png" />
-    <link rel="alternate icon" href="/image/favicon.png" />
-    <link rel="apple-touch-icon" href="/image/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
@@ -344,7 +344,7 @@
                 </a>
               </div>
               <div class="service-card-right">
-                <img src="/image/Residential_Construction.png" alt="Residential Construction" loading="lazy">
+                <img src="/image/residential_construction.png" alt="Residential Construction" loading="lazy">
               </div>
             </div>
 
@@ -361,7 +361,7 @@
                 </a>
               </div>
               <div class="service-card-right">
-                <img src="/image/Joint_Venture_Development.png" alt="Joint Venture Development" loading="lazy">
+                <img src="/image/joint_venture_development.png" alt="Joint Venture Development" loading="lazy">
               </div>
             </div>
 
@@ -395,7 +395,7 @@
                 </a>
               </div>
               <div class="service-card-right">
-                <img src="/image/Construction_Consultancy_Design.png" alt="Construction Consultancy & Design" loading="lazy">
+                <img src="/image/construction_consultancy_design.png" alt="Construction Consultancy & Design" loading="lazy">
               </div>
             </div>
             <!-- 05 Interior Design & Execution -->
@@ -411,7 +411,7 @@
                 </a>
               </div>
               <div class="service-card-right">
-                <img src="/image/Interior_Design_Execution.png" alt="Interior Design & Execution" loading="lazy">
+                <img src="/image/interior_design_execution.png" alt="Interior Design & Execution" loading="lazy">
               </div>
             </div>
             <!-- 06 Architecture & Design -->
@@ -1122,56 +1122,72 @@
               </p>
 
               <form id="project-enquiry-form" novalidate>
+                <input type="hidden" name="source" value="home">
                 <div class="form-grid">
                   
                   <div class="form-group">
                     <label for="client-name" class="form-label">Full Name *</label>
-                    <input type="text" id="client-name" name="name" class="form-input" placeholder="e.g. Senthil Nathan" required>
+                    <input type="text" id="client-name" name="name" class="form-input" placeholder="e.g. Senthil Nathan" required autocomplete="name">
+                    <span class="form-error-msg" id="client-name-error" role="alert"></span>
                   </div>
 
                   <div class="form-group">
                     <label for="client-phone" class="form-label">Phone Number *</label>
-                    <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                    <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required autocomplete="tel">
+                    <span class="form-error-msg" id="client-phone-error" role="alert"></span>
                   </div>
 
                   <div class="form-group">
                     <label for="client-email" class="form-label">Email Address *</label>
-                    <input type="email" id="client-email" name="email" class="form-input" placeholder="name@domain.com" required>
+                    <input type="email" id="client-email" name="email" class="form-input" placeholder="name@domain.com" required autocomplete="email">
+                    <span class="form-error-msg" id="client-email-error" role="alert"></span>
                   </div>
 
                   <div class="form-group">
                     <label for="project-type" class="form-label">Project Category *</label>
-                    <select id="project-type" name="projectType" class="form-select" required>
-                      <option value="">Select Category</option>
+                    <select id="project-type" name="service" class="form-select" required>
+                      <option value="" disabled selected>Select Category</option>
                       <option value="Residential Construction">Residential Construction</option>
-                      <option value="Joint Venture">Joint Venture</option>
-                      <option value="Project Management">Project Management</option>
-                      <option value="Consultancy & Design">Consultancy & Design</option>
-                      <option value="Interiors">Interiors</option>
-                      <option value="Other">Other</option>
+                      <option value="Joint Venture Development">Joint Venture Development</option>
+                      <option value="Living Spaces & Homes">Living Spaces & Homes</option>
+                      <option value="Construction Consultancy & Design">Construction Consultancy & Design</option>
+                      <option value="Interior Design & Execution">Interior Design & Execution</option>
+                      <option value="Architecture & Design">Architecture & Design</option>
                     </select>
+                    <span class="form-error-msg" id="project-type-error" role="alert"></span>
                   </div>
 
                   <div class="form-group form-group-full">
                     <label for="project-location" class="form-label">Site Location *</label>
                     <input type="text" id="project-location" name="location" class="form-input" placeholder="e.g. Pallikaranai, Chennai" required>
+                    <span class="form-error-msg" id="project-location-error" role="alert"></span>
                   </div>
 
                   <div class="form-group form-group-full">
                     <label for="project-message" class="form-label">Message *</label>
-                    <textarea id="project-message" name="message" class="form-textarea" placeholder="Tell us about your requirements, plot size, or timeline..." required></textarea>
+                    <textarea id="project-message" name="message" class="form-textarea" placeholder="Tell us about your requirements, plot size, or timeline..." rows="4" required></textarea>
+                    <span class="form-error-msg" id="project-message-error" role="alert"></span>
                   </div>
 
                 </div>
 
-                <div class="form-feedback" role="status" aria-live="polite"></div>
-
                 <div style="margin-top: 24px;">
                   <button type="submit" class="btn btn-burgundy" style="width: 100%;">
-                    <span>SEND ENQUIRY →</span>
+                    <span class="submit-btn-text">SEND ENQUIRY →</span>
                   </button>
                 </div>
               </form>
+
+              <!-- Submission Status Box -->
+              <div id="home-form-status-box" class="form-status-box" role="status" aria-live="polite">
+                <h3 class="form-status-title" id="home-status-title">Thank You</h3>
+                <p class="form-status-desc" id="home-status-desc">
+                  Your enquiry has been received. Our team will get in touch with you soon.
+                </p>
+                <button type="button" class="btn-reset-form" id="home-form-reset-btn">
+                  <span>← BACK TO FORM</span>
+                </button>
+              </div>
             </div>
 
           </div>

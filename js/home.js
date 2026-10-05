@@ -11,6 +11,7 @@ import { initTestimonials, initTestimonialsTouchSwipe } from './testimonials.js'
 import { initProjectModal } from './project-modal.js';
 import { initScrollReveal, initCounterAnimation, initCardTilt, initHeroDepth } from './animations.js';
 import { FEATURED_PROJECTS } from './config.js';
+import { initContactFormHandler } from './contact-form.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Load Centralized Global Components (Navbar, Footer, Floating Actions)
@@ -28,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 5. Featured Projects Slider & Filter
   initProjectsSlider();
+
+  // 6. Home Contact Form System Standardization
+  initContactFormHandler('#project-enquiry-form', { source: 'home' });
 
   // 7. Scroll Reveals & Animated Metric Counters
   initScrollReveal();

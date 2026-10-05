@@ -1387,6 +1387,89 @@ h1, h2, h3, h4, h5, h6 {
     color: #c92a2a;
 }
 
+/* Global Form Error & Status Box Styles */
+.form-group.has-error .form-input,
+.form-group.has-error .form-select,
+.form-group.has-error .form-textarea,
+.form-field-group.has-error .form-input,
+.form-field-group.has-error .form-select,
+.form-field-group.has-error .form-textarea {
+    border-color: #d32f2f !important;
+    background-color: #fff8f8;
+}
+
+.form-error-msg {
+    font-size: 0.75rem;
+    color: #d32f2f;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+}
+
+.form-group.has-error .form-error-msg,
+.form-field-group.has-error .form-error-msg {
+    display: block;
+}
+
+.form-status-box {
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: var(--radius-md);
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.form-status-box.is-success {
+    display: block;
+    background: #F4F8F4;
+    border: 1px solid #C8E6C9;
+    color: #1B5E20;
+    text-align: center;
+}
+
+.form-status-box.is-error {
+    display: block;
+    background: #FDF4F4;
+    border: 1px solid #FFCDD2;
+    color: #B71C1C;
+    text-align: center;
+}
+
+.form-status-title {
+    font-family: var(--font-primary);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.form-status-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.btn-reset-form {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    background: var(--text-primary);
+    color: var(--text-white);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.btn-reset-form:hover {
+    background: var(--brand-burgundy);
+}
+
 /* ==========================================================================
    FOOTER (SECTION 13 - DARK GRAPHITE)
    ========================================================================== */
