@@ -21,13 +21,24 @@ class RecaptchaService {
 
         $config = require dirname(__DIR__) . '/config/recaptcha.php';
 
-        // In development or when disabled, allow safe bypass
-        if (!$config['enabled'] || empty($config['secret_key'])) {
+        // Explicitly disabled reCAPTCHA may bypass verification (for local/dev environments).
+        // When enabled, a missing secret key is a configuration error and must fail closed.
+        if (!$config['enabled']) {
             return [
                 'success' => true,
-                'score' => 1.0,
-                'action' => $config['expected_action'] ?? 'submit_enquiry',
+                'score' => null,
+                'action' => null,
                 'error' => null,
+            ];
+        }
+
+        if (empty($config['secret_key'])) {
+            error_log('reCAPTCHA is enabled but RECAPTCHA_SECRET_KEY is not configured.');
+            return [
+                'success' => false,
+                'score' => 0.0,
+                'action' => null,
+                'error' => 'Security verification is temporarily unavailable. Please try again later.',
             ];
         }
 
@@ -77,12 +88,11 @@ class RecaptchaService {
 
         if ($responseBody === false || $responseBody === '') {
             error_log('reCAPTCHA siteverify unreachable.');
-            // Allow submission if Google siteverify is unreachable rather than rejecting legitimate customers
             return [
-                'success' => true,
-                'score' => 0.7,
-                'action' => $config['expected_action'],
-                'error' => null,
+                'success' => false,
+                'score' => 0.0,
+                'action' => null,
+                'error' => 'Security verification is temporarily unavailable. Please try again later.',
             ];
         }
 
@@ -114,8 +124,14 @@ class RecaptchaService {
         $action = (string)($data['action'] ?? '');
         $expectedAction = (string)($config['expected_action'] ?? 'submit_enquiry');
 
-        if ($expectedAction !== '' && $action !== '' && strcasecmp($action, $expectedAction) !== 0) {
+        if ($expectedAction !== '' && strcasecmp($action, $expectedAction) !== 0) {
             error_log("reCAPTCHA action mismatch: '{$action}' vs expected '{$expectedAction}'");
+            return [
+                'success' => false,
+                'score' => $score,
+                'action' => $action,
+                'error' => 'Security verification failed. Please try again.',
+            ];
         }
 
         return [

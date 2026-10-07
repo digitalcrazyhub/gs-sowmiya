@@ -80,18 +80,18 @@ function initProjectsSlider() {
     if (currentCategory === 'ALL') return FEATURED_PROJECTS;
     if (currentCategory.toLowerCase() === 'residential') {
       return FEATURED_PROJECTS.filter(p => 
-        p.category.toLowerCase().includes('residential') || 
-        p.category.toLowerCase().includes('living') ||
-        p.category.toLowerCase().includes('individual') ||
-        p.category.toLowerCase().includes('apartment') ||
-        p.category.toLowerCase().includes('custom')
+        (p.category || "").toLowerCase().includes('residential') || 
+        (p.category || "").toLowerCase().includes('living') ||
+        (p.category || "").toLowerCase().includes('individual') ||
+        (p.category || "").toLowerCase().includes('apartment') ||
+        (p.category || "").toLowerCase().includes('custom')
       );
     }
     if (currentCategory.toLowerCase() === 'commercial') {
       return FEATURED_PROJECTS.filter(p => 
-        p.category.toLowerCase().includes('commercial') || 
-        p.category.toLowerCase().includes('joint') ||
-        p.category.toLowerCase().includes('turnkey')
+        (p.category || "").toLowerCase().includes('commercial') || 
+        (p.category || "").toLowerCase().includes('joint') ||
+        (p.category || "").toLowerCase().includes('turnkey')
       );
     }
     return FEATURED_PROJECTS;

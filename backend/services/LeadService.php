@@ -277,12 +277,19 @@ class LeadService {
         $pdo = Database::getConnection();
 
         $sql = 'SELECT * FROM `leads`
-                WHERE `processing_status` IN ("pending", "processing")
-                   OR (
-                       `processing_status` = "failed"
-                       AND `processing_attempts` < 5
-                       AND (`next_attempt_at` IS NULL OR `next_attempt_at` <= NOW())
-                   )
+                WHERE (
+                    `processing_status` = "pending"
+                    OR (
+                        `processing_status` = "failed"
+                        AND `processing_attempts` < 5
+                        AND (`next_attempt_at` IS NULL OR `next_attempt_at` <= NOW())
+                    )
+                    OR (
+                        `processing_status` = "processing"
+                        AND `last_attempt_at` IS NOT NULL
+                        AND `last_attempt_at` < DATE_SUB(NOW(), INTERVAL 15 MINUTE)
+                    )
+                )
                 ORDER BY `id` ASC
                 LIMIT :limit';
 
@@ -291,6 +298,32 @@ class LeadService {
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    /**
+     * Atomically claim a lead for processing so two workers cannot send duplicate messages.
+     */
+    public static function claimLead(int $id): bool {
+        $pdo = Database::getConnection();
+
+        $sql = 'UPDATE `leads`
+                SET `processing_status` = "processing",
+                    `last_attempt_at` = NOW(),
+                    `updated_at` = NOW()
+                WHERE `id` = :id
+                  AND (
+                      `processing_status` IN ("pending", "failed")
+                      OR (
+                          `processing_status` = "processing"
+                          AND `last_attempt_at` IS NOT NULL
+                          AND `last_attempt_at` < DATE_SUB(NOW(), INTERVAL 15 MINUTE)
+                      )
+                  )';
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+
+        return $stmt->rowCount() === 1;
     }
 
     /**

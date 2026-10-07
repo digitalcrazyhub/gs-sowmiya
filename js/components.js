@@ -19,7 +19,7 @@ const COMPONENT_FALLBACKS = {
   <div class="site-container">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo" aria-label="GS Sowmiya Builders Home">
-        <img src="/gssb-logo.svg" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="180" height="48" />
+        <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="180" height="48" />
       </a>
 
       <nav class="nav-menu" aria-label="Primary Navigation">
@@ -142,7 +142,7 @@ const COMPONENT_FALLBACKS = {
   <div class="mobile-nav-top">
     <div class="mobile-drawer-header">
       <a href="/" class="brand-logo mobile-drawer-logo" aria-label="GS Sowmiya Builders Home">
-        <img src="/Gssb_logo.jpg" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="160" height="42" />
+        <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="160" height="42" />
       </a>
       <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu" type="button">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -298,7 +298,7 @@ const COMPONENT_FALLBACKS = {
     <div class="footer-top-grid">
       <div class="footer-brand-col">
         <a href="/" class="brand-logo footer-brand-logo" aria-label="GS Sowmiya Builders Home">
-          <img src="/gssb-logo-dark.svg" alt="GS Sowmiya Builders Pvt. Ltd" class="footer-logo-img" width="220" height="68" />
+          <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="footer-logo-img" width="220" height="68" />
         </a>
         <p class="footer-brand-desc">
           GS Sowmiya Builders Private Limited is a second-generation builder in Chennai dedicated to making dream homes accessible to all classes of people, backed by 15+ years of building contracting excellence.
@@ -438,6 +438,18 @@ async function fetchComponentHTML(componentName, filePath) {
       if (res.ok) {
         const html = await res.text();
         if (html && html.trim().length > 0) {
+          if (componentName === 'footer') {
+            const footerDocument = new DOMParser().parseFromString(html, 'text/html');
+            const footerGrid = footerDocument.querySelector('.footer-top-grid');
+            const hasAllFooterColumns =
+              footerGrid?.querySelector('.footer-brand-col') &&
+              footerGrid.querySelectorAll('.footer-col-title').length >= 3;
+
+            if (!hasAllFooterColumns) {
+              continue;
+            }
+          }
+
           return html;
         }
       }

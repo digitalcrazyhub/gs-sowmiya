@@ -133,7 +133,7 @@ export const CORE_SERVICES = [
         description: "Comprehensive home makeovers, floor additions, structural strengthening, terrace waterproofing, and modern space reconfigurations.",
         image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80",
         features: ["Vertical Floor Extensions", "Terrace Waterproofing", "Kitchen & Bathroom Overhauls"],
-        link: "/services/renovation-remodeling.html"
+        link: "/services.html"
     },
     {
         number: "05",
@@ -151,7 +151,7 @@ export const CORE_SERVICES = [
         description: "Neighborhood commercial buildings, retail shop complexes, and commercial floors built for durable business operations and strong rental returns.",
         image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?auto=format&fit=crop&w=800&q=80",
         features: ["Optimized Retail Floor Plates", "Heavy-Duty Flooring & Shutters", "Commercial Municipal Sanctions"],
-        link: "/services/commercial-construction.html"
+        link: "/services.html"
     }
 ];
 
@@ -160,7 +160,7 @@ export const FEATURED_PROJECTS = [
         id: "p1",
         name: "GS Sowmiya Elite Enclave",
         location: "Medavakkam, Chennai",
-        // category: "Residential Apartments",
+        category: "Residential Apartments",
         area: "2 BHK Apartments (916 Sq.Ft.)",
         year: "2024 - 2025",
         status: "In Finishing / Possession July 2025",
@@ -184,7 +184,7 @@ export const FEATURED_PROJECTS = [
         id: "p2",
         name: "Vengaivasal Custom Residences",
         location: "Ponni Amman Koil St, Vengaivasal, Chennai",
-        // category: "Individual Homes & Contracts",
+        category: "Individual Homes & Contracts",
         area: "1,400 to 2,600 Sq.Ft.",
         year: "2023 - 2024",
         status: "Completed & Handed Over",
@@ -208,7 +208,7 @@ export const FEATURED_PROJECTS = [
         id: "p3",
         name: "Manivakkam Turnkey Enclave",
         location: "Manivakkam, Chennai (Tambaram Sector)",
-        // category: "Turnkey Residential",
+        category: "Turnkey Residential",
         area: "1,200 to 2,200 Sq.Ft.",
         year: "2023 - 2024",
         status: "Completed & Occupied",
@@ -232,7 +232,7 @@ export const FEATURED_PROJECTS = [
         id: "p4",
         name: "Vignarajapuram Joint Venture",
         location: "Vignarajapuram, Medavakkam Sector, Chennai",
-        // category: "Joint Venture Development",
+        category: "Joint Venture Development",
         area: "Residential Development",
         year: "2024 - 2025",
         status: "Planning & Land Approval in Progress",
@@ -256,7 +256,7 @@ export const FEATURED_PROJECTS = [
         id: "p5",
         name: "Kamarajapuram Turnkey Contracts",
         location: "Kamarajapuram, Chennai",
-        // category: "Residential Contracts",
+        category: "Residential Contracts",
         area: "1,500 to 2,400 Sq.Ft.",
         year: "2024 - 2025",
         status: "Under Construction",

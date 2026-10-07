@@ -44,9 +44,11 @@ if ($origin !== '') {
     $parsedOrigin = parse_url($origin, PHP_URL_HOST);
     $parsedAllowed = parse_url($allowedOrigin, PHP_URL_HOST);
 
+    $allowedSchemesMatch = parse_url($origin, PHP_URL_SCHEME) === parse_url($allowedOrigin, PHP_URL_SCHEME);
+    $allowedHostsMatch = $parsedOrigin !== false && $parsedAllowed !== false && strcasecmp((string)$parsedOrigin, (string)$parsedAllowed) === 0;
+
     if (
-        $origin === $allowedOrigin ||
-        ($parsedOrigin && $parsedAllowed && str_ends_with($parsedOrigin, $parsedAllowed)) ||
+        ($allowedSchemesMatch && $allowedHostsMatch && (int)parse_url($origin, PHP_URL_PORT) === (int)parse_url($allowedOrigin, PHP_URL_PORT)) ||
         $origin === 'http://localhost:3000' ||
         $origin === 'http://127.0.0.1:3000'
     ) {
@@ -73,13 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Extract Client IP address safely
+// Use the actual TCP peer address for rate limiting. Do not trust spoofable forwarding headers.
 $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
-if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) { // Cloudflare Support
-    $clientIp = $_SERVER['HTTP_CF_CONNECTING_IP'];
-} elseif (!empty($_SERVER['HTTP_X_REAL_IP'])) {
-    $clientIp = $_SERVER['HTTP_X_REAL_IP'];
-}
 
 $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
@@ -213,6 +210,12 @@ exit;
 function processSecondaryServices(array $leadRecord): void {
     $leadId = (int)$leadRecord['id'];
     $updates = [];
+
+    // The queue worker and the API may run concurrently. Only the process that
+    // successfully claims the row is allowed to call external services.
+    if (!LeadService::claimLead($leadId)) {
+        return;
+    }
 
     // A. Company Notification Email
     try {

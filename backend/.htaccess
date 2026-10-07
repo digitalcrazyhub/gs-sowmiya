@@ -1,25 +1,17 @@
-# ==============================================================================
-# GS SOWMIYA BUILDERS — BACKEND SECURITY CONFIGURATION (.htaccess)
-# Ensures only public API endpoints can be accessed via HTTP.
-# Blocks direct access to configuration, database, internal services, queue, and logs.
-# ==============================================================================
-
-# Disable directory browsing
+# GS SOWMIYA BUILDERS — BACKEND HTTP ACCESS RULES
 Options -Indexes
 
-# Prevent access to sensitive dot files and environment configs
-<FilesMatch "^\.|\.env|composer\.(json|lock)|README\.md|schema\.sql|\.sql$|\.log$">
-    Order allow,deny
-    Deny from all
+# Never expose secrets, dependency manifests, documentation, logs, or SQL files.
+<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log)$">
+    Require all denied
 </FilesMatch>
 
-# Protect internal directories: config, database, services, queue, logs
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Allow direct access to the public API
+    # Public endpoint only.
     RewriteRule ^api/contact\.php$ - [L]
 
-    # Block direct HTTP access to all internal subdirectories
-    RewriteRule ^(config|database|services|queue|logs|vendor)/ - [F,L]
+    # Everything else under backend is internal.
+    RewriteRule ^(?:config|database|services|queue|logs|vendor)/ - [F,L]
 </IfModule>
