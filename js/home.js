@@ -10,8 +10,10 @@ import { initHeroSlider } from './hero.js';
 import { initTestimonials, initTestimonialsTouchSwipe } from './testimonials.js';
 import { initProjectModal } from './project-modal.js';
 import { initScrollReveal, initCounterAnimation, initCardTilt, initHeroDepth } from './animations.js';
-import { FEATURED_PROJECTS } from './config.js';
+import { PROJECTS_DATA } from './projects-data.js';
 import { initContactFormHandler } from './contact-form.js';
+
+const HOME_PROJECTS = PROJECTS_DATA.slice(0, 5);
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Load Centralized Global Components (Navbar, Footer, Floating Actions)
@@ -77,24 +79,8 @@ function initProjectsSlider() {
   let resizeDebounce = null;
 
   function getFilteredProjects() {
-    if (currentCategory === 'ALL') return FEATURED_PROJECTS;
-    if (currentCategory.toLowerCase() === 'residential') {
-      return FEATURED_PROJECTS.filter(p => 
-        (p.category || "").toLowerCase().includes('residential') || 
-        (p.category || "").toLowerCase().includes('living') ||
-        (p.category || "").toLowerCase().includes('individual') ||
-        (p.category || "").toLowerCase().includes('apartment') ||
-        (p.category || "").toLowerCase().includes('custom')
-      );
-    }
-    if (currentCategory.toLowerCase() === 'commercial') {
-      return FEATURED_PROJECTS.filter(p => 
-        (p.category || "").toLowerCase().includes('commercial') || 
-        (p.category || "").toLowerCase().includes('joint') ||
-        (p.category || "").toLowerCase().includes('turnkey')
-      );
-    }
-    return FEATURED_PROJECTS;
+    if (currentCategory.toLowerCase() === 'commercial') return [];
+    return HOME_PROJECTS;
   }
 
   function getStepWidth() {
@@ -166,7 +152,7 @@ function initProjectsSlider() {
 
     track.innerHTML = loopList.map((proj, idx) => {
       const realIdx = idx % N;
-      const categoryText = (proj.category || proj.tag || 'RESIDENTIAL').toUpperCase();
+      const unitText = proj.units === 1 ? '1 Unit' : `${proj.units} Units`;
       return `
         <div class="project-card" data-project-id="${proj.id}" data-real-index="${realIdx}" style="cursor: pointer;">
           <div class="project-card__image-wrap">
@@ -174,7 +160,7 @@ function initProjectsSlider() {
             <div class="project-card__overlay"></div>
             <div class="project-card__bottom-info">
               <h3 class="project-card__title">${proj.name}</h3>
-              <p class="project-card__subtitle">${proj.area} | ${proj.tag || proj.status}</p>
+              <p class="project-card__subtitle">${proj.bhk.join(' & ')} | ${unitText} | ${proj.year}</p>
               <div class="project-card__meta-row">
                 <div class="project-card__location">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -622,5 +608,3 @@ function initFAQAccordion() {
     });
   });
 }
-
-

@@ -14,258 +14,6 @@ import { initFloatingActions } from './floating-actions.js';
 
 // Pre-compiled component templates as guaranteed zero-latency fallbacks
 const COMPONENT_FALLBACKS = {
-  navbar: `
-<header class="site-header" id="site-header">
-  <div class="site-container">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo" aria-label="GS Sowmiya Builders Home">
-        <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="180" height="48" />
-      </a>
-
-      <nav class="nav-menu" aria-label="Primary Navigation">
-        <a href="/" class="nav-link" data-nav="home">HOME</a>
-        
-        <!-- About Us Dropdown -->
-        <div class="nav-item-dropdown" data-dropdown="about">
-          <a href="/about.html" class="nav-link nav-dropdown-trigger" data-nav="about">
-            <span>ABOUT US</span>
-            <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </a>
-          
-          <div class="nav-dropdown-menu" role="menu" aria-label="About Menu">
-            <div class="nav-dropdown-inner">
-              <a href="/team.html" class="nav-dropdown-link" role="menuitem" data-nav="team">
-                <span class="nav-dropdown-num">01</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">OUR TEAM</span>
-                  <span class="nav-dropdown-desc">Meet our senior engineering directors</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Services Dropdown -->
-        <div class="nav-item-dropdown" data-dropdown="services">
-          <a href="/services.html" class="nav-link nav-dropdown-trigger" data-nav="services">
-            <span>SERVICE</span>
-            <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </a>
-          
-          <div class="nav-dropdown-menu" role="menu" aria-label="Services Menu">
-            <div class="nav-dropdown-inner">
-              <a href="/services/residential-construction.html" class="nav-dropdown-link" role="menuitem" data-nav="service-residential">
-                <span class="nav-dropdown-num">01</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Residential Construction</span>
-                  <span class="nav-dropdown-desc">Independent homes, villas &amp; residential buildings</span>
-                </div>
-              </a>
-              
-              <a href="/services/joint-venture-development.html" class="nav-dropdown-link" role="menuitem" data-nav="service-joint-venture">
-                <span class="nav-dropdown-num">02</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Joint Venture Development</span>
-                  <span class="nav-dropdown-desc">Landowner partnerships &amp; property development</span>
-                </div>
-              </a>
-              
-              <a href="/services/living-spaces-homes.html" class="nav-dropdown-link" role="menuitem" data-nav="service-living-spaces">
-                <span class="nav-dropdown-num">03</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Living Spaces &amp; Homes</span>
-                  <span class="nav-dropdown-desc">Thoughtful layouts, practical comfort &amp; turnkey spaces</span>
-                </div>
-              </a>
-              
-              <a href="/services/construction-consultancy-design.html" class="nav-dropdown-link" role="menuitem" data-nav="service-consultancy">
-                <span class="nav-dropdown-num">04</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Construction Consultancy &amp; Design</span>
-                  <span class="nav-dropdown-desc">Planning, technical coordination &amp; structural guidance</span>
-                </div>
-              </a>
-
-              <a href="/services/interior-design-execution.html" class="nav-dropdown-link" role="menuitem" data-nav="service-interiors">
-                <span class="nav-dropdown-num">05</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Interior Design &amp; Execution</span>
-                  <span class="nav-dropdown-desc">Custom modular woodwork, interior concepts &amp; fit-outs</span>
-                </div>
-              </a>
-
-              <a href="/services/architecture-design.html" class="nav-dropdown-link" role="menuitem" data-nav="service-architecture">
-                <span class="nav-dropdown-num">06</span>
-                <div class="nav-dropdown-info">
-                  <span class="nav-dropdown-title">Architecture &amp; Design</span>
-                  <span class="nav-dropdown-desc">Building concepts, floor plans &amp; 3D architectural elevations</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <a href="/projects.html" class="nav-link" data-nav="projects">PROJECTS</a>
-        <a href="/contact.html" class="nav-link" data-nav="contact">CONTACT US</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a href="https://wa.me/917010517729?text=Hello%20GS%20Sowmiya%20Builders%2C%20I%20would%20like%20to%20discuss%20an%20upcoming%20construction%20project." 
-           class="btn btn-whatsapp-nav btn-quote-desktop" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           aria-label="Contact GS Sowmiya Builders via WhatsApp on +91 70105 17729">
-          <span class="whatsapp-icon-wrap" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-            </svg>
-          </span>
-          <span class="whatsapp-nav-text">+91 70105 17729</span>
-        </a>
-        
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer" type="button">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-<aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
-  <div class="mobile-nav-top">
-    <div class="mobile-drawer-header">
-      <a href="/" class="brand-logo mobile-drawer-logo" aria-label="GS Sowmiya Builders Home">
-        <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="brand-logo-img" width="160" height="42" />
-      </a>
-      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu" type="button">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <nav class="mobile-nav-links" aria-label="Mobile Menu Links">
-      <a href="/" class="mobile-nav-link" data-nav="home">
-        <span>HOME</span>
-        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
-      </a>
-      
-      <!-- Mobile Submenu Accordion for About Us -->
-      <div class="mobile-nav-accordion" id="mobile-about-accordion">
-        <div class="mobile-accordion-header">
-          <a href="/about.html" class="mobile-nav-link" data-nav="about">
-            <span>ABOUT US</span>
-          </a>
-          <button type="button" class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-about-sub" aria-label="Toggle About Us submenu">
-            <span class="mobile-accordion-icon" aria-hidden="true">+</span>
-          </button>
-        </div>
-        <div class="mobile-nav-sublist" id="mobile-about-sub">
-          <a href="/team.html" class="mobile-sublink" data-nav="team">
-            <span class="mobile-sublink-num">01</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Our Team</span>
-              <span class="mobile-sublink-desc">Meet the engineering directors</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Mobile Submenu Accordion for Services -->
-      <div class="mobile-nav-accordion" id="mobile-services-accordion">
-        <div class="mobile-accordion-header">
-          <a href="/services.html" class="mobile-nav-link" data-nav="services">
-            <span>SERVICE</span>
-          </a>
-          <button type="button" class="mobile-accordion-btn" aria-expanded="false" aria-controls="mobile-services-sub" aria-label="Toggle Service submenu">
-            <span class="mobile-accordion-icon" aria-hidden="true">+</span>
-          </button>
-        </div>
-        <div class="mobile-nav-sublist" id="mobile-services-sub">
-          <a href="/services/residential-construction.html" class="mobile-sublink" data-nav="service-residential">
-            <span class="mobile-sublink-num">01</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Residential Construction</span>
-              <span class="mobile-sublink-desc">Independent homes, villas &amp; buildings</span>
-            </div>
-          </a>
-          <a href="/services/joint-venture-development.html" class="mobile-sublink" data-nav="service-joint-venture">
-            <span class="mobile-sublink-num">02</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Joint Venture Development</span>
-              <span class="mobile-sublink-desc">Landowner partnerships &amp; development</span>
-            </div>
-          </a>
-          <a href="/services/living-spaces-homes.html" class="mobile-sublink" data-nav="service-living-spaces">
-            <span class="mobile-sublink-num">03</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Living Spaces &amp; Homes</span>
-              <span class="mobile-sublink-desc">Thoughtful layouts, comfort &amp; turnkey spaces</span>
-            </div>
-          </a>
-          <a href="/services/construction-consultancy-design.html" class="mobile-sublink" data-nav="service-consultancy">
-            <span class="mobile-sublink-num">04</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Construction Consultancy &amp; Design</span>
-              <span class="mobile-sublink-desc">Planning, 2D/3D elevations &amp; guidance</span>
-            </div>
-          </a>
-          <a href="/services/interior-design-execution.html" class="mobile-sublink" data-nav="service-interiors">
-            <span class="mobile-sublink-num">05</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Interior Design &amp; Execution</span>
-              <span class="mobile-sublink-desc">Custom modular woodwork &amp; styling</span>
-            </div>
-          </a>
-          <a href="/services/architecture-design.html" class="mobile-sublink" data-nav="service-architecture">
-            <span class="mobile-sublink-num">06</span>
-            <div class="mobile-sublink-text">
-              <span class="mobile-sublink-title">Architecture &amp; Design</span>
-              <span class="mobile-sublink-desc">Concepts, plans &amp; 3D architectural elevations</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <a href="/projects.html" class="mobile-nav-link" data-nav="projects">
-        <span>PROJECTS</span>
-        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
-      </a>
-      <a href="/contact.html" class="mobile-nav-link" data-nav="contact">
-        <span>CONTACT US</span>
-        <span class="mobile-nav-arrow" aria-hidden="true">→</span>
-      </a>
-    </nav>
-  </div>
-  <div class="mobile-nav-footer">
-    <a href="https://wa.me/917010517729?text=Hello%20GS%20Sowmiya%20Builders%2C%20I%20would%20like%20to%20discuss%20an%20upcoming%20construction%20project." 
-       class="btn btn-whatsapp-drawer" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-      </svg>
-      <span>WHATSAPP: +91 70105 17729</span>
-    </a>
-    <a href="tel:+919043156670" style="display: block; text-align: center; color: var(--gold-light, #d9a24a); font-size: 0.875rem; margin-top: 10px; font-weight: 600; text-decoration: none;">
-      CALL: +91 90431 56670
-    </a>
-    <p style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.4;">
-      No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.
-    </p>
-  </div>
-</aside>
-`,
-
   pageBanner: `
 <section class="page-hero" id="global-page-banner" aria-label="Hero Banner">
   <div class="page-hero-bg" id="page-banner-bg" style="background-image: url('/image/page-banner.png');" aria-hidden="true"></div>
@@ -323,9 +71,10 @@ const COMPONENT_FALLBACKS = {
             </svg>
           </a>
           <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer" aria-label="GS Sowmiya Builders on WhatsApp" class="social-icon-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="#fff">
+                    <path
+                      d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.1-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.6 66.4 14 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                  </svg>
           </a>
           <a href="mailto:md@sowmiyabuilders.com" aria-label="Email GS Sowmiya Builders" class="social-icon-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -364,15 +113,14 @@ const COMPONENT_FALLBACKS = {
         <h4 class="footer-col-title">Registered Office</h4>
         <ul class="footer-links-list">
           <li>
-            <span style="color: #777; font-size: 0.8125rem; display: block; margin-bottom: 2px;">Address:</span>
+            <span style=" font-size: 0.8125rem; display: block; margin-bottom: 2px;">Address:</span>
             No 106, Nallasamy Tower, Velachery Main Road, Pallikaranai, Chennai - 600 100.
             <a href="https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7" target="_blank" rel="noopener noreferrer" style="color: #d9a24a; display: block; margin-top: 4px; font-size: 0.8125rem;">View on Google Maps →</a>
           </li>
-          <li><span style="color: #777; font-size: 0.8125rem;">Phone:</span> <a href="tel:+919043156670">+91 90431 56670</a></li>
-          <li><span style="color: #777; font-size: 0.8125rem;">WhatsApp:</span> <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer">+91 70105 17729</a></li>
-          <li><span style="color: #777; font-size: 0.8125rem;">Email:</span> <a href="mailto:md@sowmiyabuilders.com">md@sowmiyabuilders.com</a></li>
-          <li><span style="color: #777; font-size: 0.8125rem;">Website:</span> <a href="https://gssowmiyabuilders.com" target="_blank" rel="noopener noreferrer">gssowmiyabuilders.com</a></li>
-          <li><span style="color: #777; font-size: 0.8125rem;">CIN:</span> U43299TN2023PTC161774</li>
+          <li><span style=" font-size: 0.8125rem;">Phone:</span> <a href="tel:+919043156670">+91 90431 56670</a></li>
+          <li><span style=" font-size: 0.8125rem;">WhatsApp:</span> <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer">+91 70105 17729</a></li>
+          <li><span style=" font-size: 0.8125rem;">Email:</span> <a href="mailto:md@sowmiyabuilders.com">md@sowmiyabuilders.com</a></li>
+          <li><span style=" font-size: 0.8125rem;">Website:</span> <a href="https://gssowmiyabuilders.com" target="_blank" rel="noopener noreferrer">gssowmiyabuilders.com</a></li>
         </ul>
       </div>
     </div>
@@ -431,6 +179,7 @@ async function fetchComponentHTML(componentName, filePath) {
     filePath.replace('/asset/components/', '/components/'),
     filePath.replace('/components/', '/asset/components/')
   ];
+  let lastError;
 
   for (const p of candidatePaths) {
     try {
@@ -452,10 +201,17 @@ async function fetchComponentHTML(componentName, filePath) {
 
           return html;
         }
+        lastError = new Error(`Empty component response from ${p}`);
+      } else {
+        lastError = new Error(`Component request failed with status ${res.status}: ${p}`);
       }
     } catch (err) {
-      // try next path
+      lastError = err;
     }
+  }
+
+  if (componentName === 'navbar') {
+    console.error('Unable to load the shared navbar component.', lastError);
   }
 
   return COMPONENT_FALLBACKS[componentName] || '';

@@ -1252,8 +1252,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   }
 
   .mobile-nav-drawer {
-    padding-top: 70px !important;
-    padding-bottom: 24px !important;
+    padding-top: max(16px, calc(var(--safe-area-top) + 12px)) !important;
+    padding-bottom: max(16px, calc(var(--safe-area-bottom) + 12px)) !important;
   }
 
   .project-modal-dialog,
