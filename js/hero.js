@@ -2,7 +2,7 @@
  * GS SOWMIYA BUILDERS - PURE IMAGE CAROUSEL HERO CONTROLLER (1920x500)
  * 4 Carousel images with navigation arrows only. No text, no lightbox, no gradient.
  */
-import gsap from 'gsap';
+import gsap from 'https://esm.sh/gsap@3.13.0?bundle';
 
 export function initHeroSlider() {
     const heroSection = document.querySelector('.hero-section');

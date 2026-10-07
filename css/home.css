@@ -894,11 +894,6 @@
     color: var(--text-primary);
 }
 
-.stat-label-sub {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
 /* Redesigned Statistics Ribbon at Top of About Section */
 .stats-ribbon-wrapper {
     margin-bottom: 56px;

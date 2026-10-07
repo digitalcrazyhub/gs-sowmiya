@@ -45,6 +45,12 @@ $successCount = 0;
 
 foreach ($pendingLeads as $lead) {
     $leadId = (int)$lead['id'];
+
+    // Claim atomically before sending any external notification.
+    if (!LeadService::claimLead($leadId)) {
+        continue;
+    }
+
     $attempts = (int)($lead['processing_attempts'] ?? 0) + 1;
     $updates = [
         'processing_attempts' => $attempts,

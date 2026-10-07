@@ -1135,8 +1135,8 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .footer-top-grid {
-    grid-template-columns: 1.5fr 1fr 1fr !important;
-    gap: 36px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px;
   }
 }
 

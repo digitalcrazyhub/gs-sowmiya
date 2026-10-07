@@ -5,7 +5,7 @@
  */
 
 import { TESTIMONIALS } from './config.js';
-import gsap from 'gsap';
+import gsap from 'https://esm.sh/gsap@3.13.0?bundle';
 
 export function initTestimonials() {
     const sliderContainer = document.querySelector('.testimonial-slider');

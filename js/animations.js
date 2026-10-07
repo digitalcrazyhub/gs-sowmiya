@@ -10,8 +10,8 @@
  * 6. Smooth Architectural Parallax Accents
  */
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'https://esm.sh/gsap@3.13.0?bundle';
+import { ScrollTrigger } from 'https://esm.sh/gsap@3.13.0/ScrollTrigger?bundle';
 
 // Register ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
