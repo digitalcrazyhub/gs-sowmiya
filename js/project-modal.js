@@ -4,7 +4,8 @@
  * and seamless inquiry connection.
  */
 
-import { FEATURED_PROJECTS, SITE_CONFIG } from './config.js';
+import { SITE_CONFIG } from './config.js';
+import { PROJECTS_DATA } from './projects-data.js';
 
 export function initProjectModal() {
     let modalOverlay = document.getElementById('project-case-modal');
@@ -54,88 +55,45 @@ export function initProjectModal() {
 
     // Function to open project details
     window.openProjectDetails = function(projectId) {
-        const proj = FEATURED_PROJECTS.find(p => p.id === projectId) || FEATURED_PROJECTS[0];
+        const proj = PROJECTS_DATA.find(p => p.id === projectId);
         if (!proj) return;
-
-        const highlightsHtml = (proj.highlights || [
-            "Engineered seismic resilience conforming to IS 1893:2016",
-            "High-density thermal acoustic floor dampening",
-            "Climate-responsive architectural fenestration"
-        ]).map(h => `
-            <li class="modal-highlight-item">
-                <span class="highlight-bullet"></span>
-                <span>${h}</span>
-            </li>
-        `).join('');
 
         modalContent.innerHTML = `
             <div class="project-modal-grid">
-                <!-- Left: Visual & Quick Stats -->
                 <div class="modal-visual-col">
                     <div class="modal-img-wrap">
                         <img src="${proj.image}" alt="${proj.name}" class="modal-main-img" loading="eager">
-                        <span class="modal-tag-badge">${proj.tag}</span>
+                        <span class="modal-tag-badge">${proj.bhk.join(' & ')}</span>
                     </div>
                     <div class="modal-spec-cards-grid">
                         <div class="modal-spec-card">
                             <span class="spec-card-lbl">BUILT-UP AREA</span>
-                            <strong class="spec-card-val">${proj.area}</strong>
+                            <strong class="spec-card-val">${proj.builtUpArea}</strong>
                         </div>
                         <div class="modal-spec-card">
                             <span class="spec-card-lbl">LOCATION</span>
                             <strong class="spec-card-val">${proj.location}</strong>
                         </div>
                         <div class="modal-spec-card">
-                            <span class="spec-card-lbl">CATEGORY</span>
-                            <strong class="spec-card-val">${proj.category}</strong>
+                            <span class="spec-card-lbl">LAND AREA</span>
+                            <strong class="spec-card-val">${proj.landArea}</strong>
                         </div>
                         <div class="modal-spec-card">
-                            <span class="spec-card-lbl">COMPLETION</span>
-                            <strong class="spec-card-val">${proj.year} Handover</strong>
+                            <span class="spec-card-lbl">YEAR</span>
+                            <strong class="spec-card-val">${proj.year}</strong>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Detailed Architectural & Structural Specs -->
                 <div class="modal-info-col">
                     <div class="modal-header-meta">
                         <h2 class="modal-project-title">${proj.name}</h2>
-                        <p class="modal-client-line"><strong>Client:</strong> ${proj.client || 'Private Client'}</p>
                     </div>
 
-                    <p class="modal-extended-desc">${proj.extendedDesc || proj.description}</p>
-
-                    <div class="modal-eng-box">
-                        <h4 class="modal-subheading">STRUCTURAL ENGINEERING BENCHMARKS</h4>
-                        <div class="eng-spec-table">
-                            <div class="eng-spec-row">
-                                <span class="eng-spec-key">Structural System</span>
-                                <span class="eng-spec-val">${proj.structuralSystem || 'Post-Tensioned Monolithic Frame'}</span>
-                            </div>
-                            <div class="eng-spec-row">
-                                <span class="eng-spec-key">Concrete Specification</span>
-                                <span class="eng-spec-val">${proj.concreteGrade || 'M35 / M40 Ready-Mix'}</span>
-                            </div>
-                            <div class="eng-spec-row">
-                                <span class="eng-spec-key">Steel Grade</span>
-                                <span class="eng-spec-val">${proj.steelGrade || 'Fe-550D High-Ductility TMT'}</span>
-                            </div>
-                            <div class="eng-spec-row">
-                                <span class="eng-spec-key">Execution Duration</span>
-                                <span class="eng-spec-val">${proj.completionTime || 'On-Schedule Delivery'}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-highlights-box">
-                        <h4 class="modal-subheading">ARCHITECTURAL HIGHLIGHTS</h4>
-                        <ul class="modal-highlights-list">
-                            ${highlightsHtml}
-                        </ul>
-                    </div>
+                    <p class="modal-extended-desc">${proj.description}</p>
 
                     <div class="modal-actions-row">
-                        <button type="button" class="btn btn-burgundy modal-enquire-btn" data-project-name="${proj.name}" data-category="${proj.category}">
+                        <button type="button" class="btn btn-burgundy modal-enquire-btn" data-project-name="${proj.name}">
                             <span>ENQUIRE FOR SIMILAR PROJECT</span>
                             <span class="btn-icon-circle">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -161,17 +119,11 @@ export function initProjectModal() {
             const contactSection = document.getElementById('contact');
 
             if (projectTypeSelect) {
-                if (proj.category.toLowerCase().includes('res')) {
-                    projectTypeSelect.value = 'Residential Villa / Estate';
-                } else if (proj.category.toLowerCase().includes('com')) {
-                    projectTypeSelect.value = 'Commercial Office / Hub';
-                } else {
-                    projectTypeSelect.value = 'Turnkey Construction';
-                }
+                projectTypeSelect.value = 'Residential Construction';
             }
 
             if (messageTextarea && !messageTextarea.value.includes(proj.name)) {
-                messageTextarea.value = `I would like to enquire about a project similar in scale and architectural styling to ${proj.name} (${proj.area}, ${proj.location}).\n\n`;
+                messageTextarea.value = `I would like to enquire about a project similar to ${proj.name} (${proj.builtUpArea}, ${proj.location}).\n\n`;
             }
 
             contactSection?.scrollIntoView({ behavior: 'smooth' });
