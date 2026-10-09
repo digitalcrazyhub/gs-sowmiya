@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Residential Construction',
         breadcrumb: 'RESIDENTIAL CONSTRUCTION',
         desc: 'Comprehensive planning, structural execution, and custom residential construction for independent houses, luxury villas, and multi-floor homes across Chennai.',
-        bgImage: '/image/residential_construction.png'
+        bgImage: '../image/residential_construction.png'
       }
     });
 

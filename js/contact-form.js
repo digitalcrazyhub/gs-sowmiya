@@ -7,7 +7,7 @@
  * ==========================================================================
  */
 
-import { SITE_CONFIG } from '/js/config.js';
+import { SITE_CONFIG } from './config.js';
 
 // Configurable backend API endpoint (points to /backend/api/contact.php)
 const CONTACT_FORM_ENDPOINT = (typeof window !== 'undefined' && window.GS_CONTACT_API_ENDPOINT)

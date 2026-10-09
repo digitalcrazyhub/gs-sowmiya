@@ -1,3 +1,4 @@
+import { resolveAssetPath } from './site-paths.js';
 /**
  * Consultancy & Design Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Construction Consultancy & Design',
         breadcrumb: 'CONSTRUCTION CONSULTANCY & DESIGN',
         desc: 'Practical construction planning, 2D functional layouts, 3D elevations, structural coordination, and clear cost estimations tailored for residential plots in Chennai.',
-        bgImage: '/image/construction_consultancy_design.png'
+        bgImage: resolveAssetPath('/image/construction_consultancy_design.png')
       }
     });
 

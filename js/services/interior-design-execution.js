@@ -1,3 +1,4 @@
+import { resolveAssetPath } from './site-paths.js';
 /**
  * Interiors Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Interior Design & Execution',
         breadcrumb: 'INTERIOR DESIGN & EXECUTION',
         desc: 'Custom modular kitchens, wardrobe systems, false ceilings, lighting design, and precision woodwork integrated seamlessly with residential building construction in Chennai.',
-        bgImage: '/image/interior_design_execution.png'
+        bgImage: resolveAssetPath('/image/interior_design_execution.png')
       }
     });
 

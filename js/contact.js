@@ -10,10 +10,10 @@
  * ==========================================================================
  */
 
-import { loadGlobalComponents } from '/js/components.js';
-import { SITE_CONFIG } from '/js/config.js';
-import { initScrollReveal, initCardTilt } from '/js/animations.js';
-import { initContactFormHandler } from '/js/contact-form.js';
+import { loadGlobalComponents } from './components.js';
+import { SITE_CONFIG } from './config.js';
+import { initScrollReveal, initCardTilt } from './animations.js';
+import { initContactFormHandler } from './contact-form.js';
 
 /**
  * Initialize page components and interactions

@@ -11,8 +11,8 @@
  * ==========================================================================
  */
 
-import { loadGlobalComponents } from '/js/components.js';
-import { initCardTilt, initCounterAnimation, initScrollReveal } from '/js/animations.js';
+import { loadGlobalComponents, resolveAssetPath } from './site-paths.js';
+import { initCardTilt, initCounterAnimation, initScrollReveal } from './animations.js';
 
 // Respect user accessibility preference
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         banner: {
             breadcrumb: 'OUR TEAM',
             title: 'Our Team',
-            bgImage: '/image/page-banner.png'
+            bgImage: resolveAssetPath('/image/page-banner.png')
         }
     });
 

@@ -6,6 +6,8 @@
  * Mission: To make dream homes accessible to all classes of people.
  */
 
+import { resolveSitePath } from './site-paths.js';
+
 export const SITE_CONFIG = {
   brand: {
     name: "GS SOWMIYA BUILDERS",
@@ -79,7 +81,7 @@ export const HERO_SLIDES = [
     buttons: [
       {
         text: "Our Services »",
-        href: "/services/residential-construction.html",
+        href: resolveSitePath('/services/residential-construction.html'),
         primary: true,
       },
     ],
@@ -95,7 +97,7 @@ export const HERO_SLIDES = [
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85",
     buttons: [
-      { text: "Our Services »", href: "/services.html", primary: true },
+      { text: "Our Services »", href: resolveSitePath('/services.html'), primary: true },
     ],
   },
   {
@@ -108,7 +110,7 @@ export const HERO_SLIDES = [
       "From architectural planning and structural engineering to turnkey interior handover, delivered on schedule with direct principal site supervision.",
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2400&q=85",
-    buttons: [{ text: "Our Services »", href: "/contact.html", primary: true }],
+    buttons: [{ text: "Our Services »", href: resolveSitePath('/contact.html'), primary: true }],
   },
 ];
 
@@ -126,7 +128,7 @@ export const CORE_SERVICES = [
       "Earthquake-Resistant RCC Framing",
       "Branded Material Specifications",
     ],
-    link: "/services/residential-construction.html",
+    link: resolveSitePath('/services/residential-construction.html'),
   },
   {
     number: "02",
@@ -141,7 +143,7 @@ export const CORE_SERVICES = [
       "CMDA / DTCP Sanctions",
       "Active Projects in Vengaivasal & Vignarajapuram",
     ],
-    link: "/services.html",
+    link: resolveSitePath('/services.html'),
   },
   {
     number: "03",
@@ -156,7 +158,7 @@ export const CORE_SERVICES = [
       "Weekly Digital Progress Updates",
       "Proven Turnkey Contracts in Chennai",
     ],
-    link: "/services.html",
+    link: resolveSitePath('/services.html'),
   },
   {
     number: "04",
@@ -171,7 +173,7 @@ export const CORE_SERVICES = [
       "Terrace Waterproofing",
       "Kitchen & Bathroom Overhauls",
     ],
-    link: "/services.html",
+    link: resolveSitePath('/services.html'),
   },
   {
     number: "05",
@@ -186,7 +188,7 @@ export const CORE_SERVICES = [
       "Full-Height Wardrobes",
       "Designer False Ceilings",
     ],
-    link: "/services.html",
+    link: resolveSitePath('/services.html'),
   },
   {
     number: "06",
@@ -201,7 +203,7 @@ export const CORE_SERVICES = [
       "Heavy-Duty Flooring & Shutters",
       "Commercial Municipal Sanctions",
     ],
-    link: "/services.html",
+    link: resolveSitePath('/services.html'),
   },
 ];
 
@@ -415,7 +417,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Vengaivasal",
     rating: 5,
-    image: "/image/Balaguru.png",
+    image: resolveSitePath('/image/Balaguru.png'),
   },
   {
     id: "t2",
@@ -426,7 +428,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Mappedu",
     rating: 5,
-    image: "/image/Rajini.png",
+    image: resolveSitePath('/image/Rajini.png'),
   },
   {
     id: "t3",
@@ -437,7 +439,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Mannivakkam",
     rating: 5,
-    image: "/image/Gurumoorthy.png",
+    image: resolveSitePath('/image/Gurumoorthy.png'),
   },
   {
     id: "t4",
@@ -448,7 +450,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Red Hills",
     rating: 5,
-    image: "/image/Tamilrasan.png",
+    image: resolveSitePath('/image/Tamilrasan.png'),
   },
   {
     id: "t5",
@@ -459,7 +461,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Pallavaram",
     rating: 5,
-    image: "/image/Mohamed-Ismath-Hanees.png",
+    image: resolveSitePath('/image/Mohamed-Ismath-Hanees.png'),
   },
   {
     id: "t6",
@@ -470,7 +472,7 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Keelakotaiyur",
     rating: 4.5,
-    image: "/image/Tamilrasan-Keelakotaiyur.png",
+    image: resolveSitePath('/image/Tamilrasan-Keelakotaiyur.png'),
   },
   {
     id: "t7",
@@ -481,6 +483,6 @@ export const TESTIMONIALS = [
     company: " GS Sowmiya Builders Private Limited",
     project: "Vengaivasal",
     rating: 5,
-    image: "/image/Subramanian.png",
+    image: resolveSitePath('/image/Subramanian.png'),
   },
 ];
