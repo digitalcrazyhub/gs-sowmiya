@@ -5,6 +5,7 @@
  */
 
 import { loadGlobalComponents } from './components.js';
+import { resolveAssetPath } from './site-paths.js';
 import { 
     initScrollReveal, 
     initCounterAnimation, 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             title: 'About Us',
             breadcrumb: 'ABOUT US',
             desc: 'Backed by 30+ years of on-site building contracting wisdom, GS Sowmiya Builders Private Limited delivers residential homes, modern apartments, and fair joint ventures across Chennai.',
-            bgImage: '/image/page-banner.png'
+            bgImage: resolveAssetPath('/image/page-banner.png')
         }
     });
 

@@ -12,8 +12,8 @@
  * ==========================================================================
  */
 
-import { loadGlobalComponents } from '/js/components.js';
-import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
+import { loadGlobalComponents, resolveAssetPath } from './site-paths.js';
+import { initCardTilt, initScrollReveal, initCounterAnimation } from './animations.js';
 
 // Respect system accessibility setting
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       title: 'Our Primary Services',
       breadcrumb: 'SERVICES',
       desc: 'GS Sowmiya Builders Private Limited provides construction, project management, consultancy, joint venture and interior solutions for residential and development projects.',
-      bgImage: '/image/page-banner.png'
+      bgImage: resolveAssetPath('/image/page-banner.png')
     }
   });
 

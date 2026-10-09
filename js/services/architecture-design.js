@@ -1,3 +1,4 @@
+import { resolveAssetPath } from './site-paths.js';
 /**
  * Architecture & Design Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Architecture & Design',
         breadcrumb: 'ARCHITECTURE & DESIGN',
         desc: 'Comprehensive architectural concepts, intelligent 2D space planning, 3D photorealistic elevations, and structural engineering blueprints tailored to lifestyles across Chennai.',
-        bgImage: '/image/architecture_design.png'
+        bgImage: resolveAssetPath('/image/architecture_design.png')
       }
     });
 

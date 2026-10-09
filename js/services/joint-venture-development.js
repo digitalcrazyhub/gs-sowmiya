@@ -1,3 +1,4 @@
+import { resolveAssetPath } from './site-paths.js';
 /**
  * Joint Venture Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Joint Venture Development',
         breadcrumb: 'JOINT VENTURE DEVELOPMENT',
         desc: 'Partnering with landowners in Chennai for transparent property development, clear legal structuring, maximum FSI utilization, and high-quality construction execution.',
-        bgImage: '/image/joint_venture_development.png'
+        bgImage: resolveAssetPath('/image/joint_venture_development.png')
       }
     });
 

@@ -11,19 +11,20 @@
 
 import { initNavbar } from './navbar.js';
 import { initFloatingActions } from './floating-actions.js';
+import { resolveSitePath, applySitePathFixes } from './site-paths.js';
 
 // Pre-compiled component templates as guaranteed zero-latency fallbacks
 const COMPONENT_FALLBACKS = {
   pageBanner: `
 <section class="page-hero" id="global-page-banner" aria-label="Hero Banner">
-  <div class="page-hero-bg" id="page-banner-bg" style="background-image: url('/image/page-banner.png');" aria-hidden="true"></div>
+  <div class="page-hero-bg" id="page-banner-bg" style="background-image: url('${resolveSitePath('/image/page-banner.png')}');" aria-hidden="true"></div>
   <div class="page-hero-overlay" aria-hidden="true"></div>
   <div class="page-hero-grid-pattern" aria-hidden="true"></div>
 
   <div class="site-container">
     <div class="page-hero-content">
       <nav class="page-breadcrumb" aria-label="Breadcrumb Navigation">
-        <a href="/">HOME</a>
+        <a href="${resolveSitePath('/')}">HOME</a>
         <span class="page-breadcrumb-sep">/</span>
         <span class="page-breadcrumb-current" id="banner-breadcrumb-current">ABOUT US</span>
       </nav>
@@ -45,8 +46,8 @@ const COMPONENT_FALLBACKS = {
   <div class="site-container">
     <div class="footer-top-grid">
       <div class="footer-brand-col">
-        <a href="/" class="brand-logo footer-brand-logo" aria-label="GS Sowmiya Builders Home">
-          <img src="/image/Gssb_home_logo.png" alt="GS Sowmiya Builders Pvt. Ltd" class="footer-logo-img" width="220" height="68" />
+        <a href="${resolveSitePath('/')}" class="brand-logo footer-brand-logo" aria-label="GS Sowmiya Builders Home">
+          <img src="${resolveSitePath('/image/Gssb_home_logo.png')}" alt="GS Sowmiya Builders Pvt. Ltd" class="footer-logo-img" width="220" height="68" />
         </a>
         <p class="footer-brand-desc">
           GS Sowmiya Builders Private Limited is a second-generation builder in Chennai dedicated to making dream homes accessible to all classes of people, backed by 15+ years of building contracting excellence.
@@ -88,24 +89,24 @@ const COMPONENT_FALLBACKS = {
       <div>
         <h4 class="footer-col-title">Quick Links</h4>
         <ul class="footer-links-list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/team.html">Our Team</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/projects.html">Projects</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="${resolveSitePath('/')}">Home</a></li>
+          <li><a href="${resolveSitePath('/about.html')}">About Us</a></li>
+          <li><a href="${resolveSitePath('/team.html')}">Our Team</a></li>
+          <li><a href="${resolveSitePath('/services.html')}">Services</a></li>
+          <li><a href="${resolveSitePath('/projects.html')}">Projects</a></li>
+          <li><a href="${resolveSitePath('/contact.html')}">Contact Us</a></li>
         </ul>
       </div>
 
       <div>
         <h4 class="footer-col-title">Services</h4>
         <ul class="footer-links-list">
-          <li><a href="/services/residential-construction.html">Residential Construction</a></li>
-          <li><a href="/services/joint-venture-development.html">Joint Venture Development</a></li>
-          <li><a href="/services/living-spaces-homes.html">Living Spaces &amp; Homes</a></li>
-          <li><a href="/services/construction-consultancy-design.html">Construction Consultancy &amp; Design</a></li>
-          <li><a href="/services/interior-design-execution.html">Interior Design &amp; Execution</a></li>
-          <li><a href="/services/architecture-design.html">Architecture &amp; Design</a></li>
+          <li><a href="${resolveSitePath('/services/residential-construction.html')}">Residential Construction</a></li>
+          <li><a href="${resolveSitePath('/services/joint-venture-development.html')}">Joint Venture Development</a></li>
+          <li><a href="${resolveSitePath('/services/living-spaces-homes.html')}">Living Spaces &amp; Homes</a></li>
+          <li><a href="${resolveSitePath('/services/construction-consultancy-design.html')}">Construction Consultancy &amp; Design</a></li>
+          <li><a href="${resolveSitePath('/services/interior-design-execution.html')}">Interior Design &amp; Execution</a></li>
+          <li><a href="${resolveSitePath('/services/architecture-design.html')}">Architecture &amp; Design</a></li>
         </ul>
       </div>
 
@@ -118,8 +119,7 @@ const COMPONENT_FALLBACKS = {
             <a href="https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7" target="_blank" rel="noopener noreferrer" style="color: #d9a24a; display: block; margin-top: 4px; font-size: 0.8125rem;">View on Google Maps →</a>
           </li>
           <li><span style=" font-size: 0.8125rem;">Phone:</span> <a href="tel:+919043156670">+91 90431 56670</a></li>
-          <li><span style=" font-size: 0.8125rem;">WhatsApp:</span> <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer">+91 70105 17729</a></li>
-          <li><span style=" font-size: 0.8125rem;">Email:</span> <a href="mailto:md@sowmiyabuilders.com">md@sowmiyabuilders.com</a></li>
+          <li><span style=" font-size: 0.8125rem;">WhatsApp:</span> <a href="https://wa.me/917010517729" target="_blank" rel="noopener noreferrer">+91 70105 17729</a></li>          <li><span style=" font-size: 0.8125rem;">Email:</span> <a href="mailto:md@sowmiyabuilders.com">md@sowmiyabuilders.com</a></li>
           <li><span style=" font-size: 0.8125rem;">Website:</span> <a href="https://gssowmiyabuilders.com" target="_blank" rel="noopener noreferrer">gssowmiyabuilders.com</a></li>
         </ul>
       </div>
@@ -128,9 +128,9 @@ const COMPONENT_FALLBACKS = {
     <div class="footer-bottom-bar">
       <p>© <span class="dynamic-copyright-year">2026</span> GS Sowmiya Builders Private Limited. All Rights Reserved.</p>
       <div class="footer-legal-links">
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms-of-service.html">Terms of Service</a>
-        <a href="/contact.html">RERA Compliance</a>
+        <a href="${resolveSitePath('/privacy-policy.html')}">Privacy Policy</a>
+        <a href="${resolveSitePath('/terms-of-service.html')}">Terms of Service</a>
+        <a href="${resolveSitePath('/contact.html')}">RERA Compliance</a>
       </div>
     </div>
   </div>
@@ -229,8 +229,9 @@ export async function loadGlobalComponents(options = {}) {
   // 1. NAVBAR
   const navbarEl = document.getElementById('navbar') || document.querySelector('[data-component="navbar"]');
   if (navbarEl) {
-    const navbarHTML = await fetchComponentHTML('navbar', '/components/navbar.html');
+    const navbarHTML = await fetchComponentHTML('navbar', resolveSitePath('/components/navbar.html'));
     navbarEl.innerHTML = navbarHTML;
+    applySitePathFixes(navbarEl);
 
     // Set active link in desktop & mobile navs
     const activeLinks = navbarEl.querySelectorAll(`[data-nav="${activeNav}"]`);
@@ -258,8 +259,9 @@ export async function loadGlobalComponents(options = {}) {
   // 2. PAGE BANNER (Inner pages)
   const bannerEl = document.getElementById('page-banner') || document.querySelector('[data-component="page-banner"]');
   if (bannerEl) {
-    const bannerHTML = await fetchComponentHTML('pageBanner', '/components/page-banner.html');
+    const bannerHTML = await fetchComponentHTML('pageBanner', resolveSitePath('/components/page-banner.html'));
     bannerEl.innerHTML = bannerHTML;
+    applySitePathFixes(bannerEl);
 
     // Populate dynamic inner content
     const bannerConfig = options.banner || {};
@@ -281,7 +283,7 @@ export async function loadGlobalComponents(options = {}) {
 
     const bgEl = bannerEl.querySelector('#page-banner-bg');
     if (bgEl) {
-      const bgImg = bannerConfig.bgImage || '/image/page-banner.png';
+      const bgImg = resolveSitePath(bannerConfig.bgImage || '/image/page-banner.png');
       bgEl.style.backgroundImage = `url('${bgImg}')`;
     }
   }
@@ -289,8 +291,9 @@ export async function loadGlobalComponents(options = {}) {
   // 3. FOOTER
   const footerEl = document.getElementById('footer') || document.querySelector('[data-component="footer"]');
   if (footerEl) {
-    const footerHTML = await fetchComponentHTML('footer', '/components/footer.html');
+    const footerHTML = await fetchComponentHTML('footer', resolveSitePath('/components/footer.html'));
     footerEl.innerHTML = footerHTML;
+    applySitePathFixes(footerEl);
 
     // Dynamic Copyright Year calculation
     const currentYear = new Date().getFullYear().toString();
@@ -303,8 +306,9 @@ export async function loadGlobalComponents(options = {}) {
   // 4. FLOATING ACTIONS (WhatsApp, Phone, Scroll-To-Top)
   const floatingActionsEl = document.getElementById('floating-actions') || document.querySelector('[data-component="floating-actions"]');
   if (floatingActionsEl) {
-    const floatingHTML = await fetchComponentHTML('floatingActions', '/components/floating-actions.html');
+    const floatingHTML = await fetchComponentHTML('floatingActions', resolveSitePath('/components/floating-actions.html'));
     floatingActionsEl.innerHTML = floatingHTML;
+    applySitePathFixes(floatingActionsEl);
 
     // Initialize floating actions functionality
     initFloatingActions();

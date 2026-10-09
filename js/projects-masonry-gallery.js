@@ -10,7 +10,7 @@
  * - Preserves 3D interactive card tilt and .project-card__zoom-btn lightbox interaction
  */
 
-import { initCardTilt } from '/js/animations.js';
+import { initCardTilt } from './animations.js';
 
 export class ProjectsMasonryGallery {
   constructor(gridSelector = '#projects-grid') {

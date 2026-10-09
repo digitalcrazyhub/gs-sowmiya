@@ -13,10 +13,10 @@
  * ==========================================================================
  */
 
-import { loadGlobalComponents } from '/js/components.js';
-import { initCardTilt, initScrollReveal, initCounterAnimation } from '/js/animations.js';
-import { initProjectsMasonryGallery } from '/js/projects-masonry-gallery.js';
-import { PROJECTS_DATA } from '/js/projects-data.js';
+import { loadGlobalComponents } from './components.js';
+import { initCardTilt, initScrollReveal, initCounterAnimation } from './animations.js';
+import { initProjectsMasonryGallery } from './projects-masonry-gallery.js';
+import { PROJECTS_DATA } from './projects-data.js';
 
 // Respect system accessibility setting
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -119,7 +119,7 @@ function renderProjectsGrid(projectsList) {
           New residential developments in this configuration are currently in engineering review or land acquisition stage. Detailed architectural plans and floor layouts are available upon direct consultation.
         </p>
         <div class="projects-empty-actions">
-          <a href="/contact.html" class="btn btn-gold">
+          <a href="./contact.html" class="btn btn-gold">
             <span>SCHEDULE CONSULTATION</span>
             <span class="btn-icon-circle">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

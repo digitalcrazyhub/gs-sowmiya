@@ -1,3 +1,4 @@
+import { resolveAssetPath } from './site-paths.js';
 /**
  * Project Management Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Living Spaces & Homes',
         breadcrumb: 'LIVING SPACES & HOMES',
         desc: 'Thoughtfully planned residential spaces, turnkey home construction, and end-to-end management delivering comfortable, enduring homes across Chennai.',
-        bgImage: '/image/living_spaces_homes.png'
+        bgImage: resolveAssetPath('/image/living_spaces_homes.png')
       }
     });
 
