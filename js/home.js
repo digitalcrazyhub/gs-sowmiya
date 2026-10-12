@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initProjectsSlider();
 
   // 6. Home Contact Form System Standardization
-  initContactFormHandler('#project-enquiry-form', { source: 'home' });
+  initContactFormHandler('#project-enquiry-form', { source: 'homepage_contact' });
 
   // 7. Scroll Reveals & Animated Metric Counters
   initScrollReveal();

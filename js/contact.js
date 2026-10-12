@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 2. Initialize Enquiry Form System
-    initContactFormHandler('#contact-enquiry-form', { source: 'contact' });
+    initContactFormHandler('#contact-enquiry-form', { source: 'contact_page' });
 
     // 3. Initialize Interactive Triggers & Smooth Scrolling
     initInteractionTriggers();

@@ -1,4 +1,4 @@
-import { resolveAssetPath } from './site-paths.js';
+import { resolveAssetPath } from '../site-paths.js';
 /**
  * Consultancy & Design Page Controller
  * GS Sowmiya Builders Private Limited

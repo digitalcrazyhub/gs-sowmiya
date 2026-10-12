@@ -926,3 +926,27 @@
         font-size: 0.875rem;
     }
 }
+
+/* ==========================================================================
+   GOOGLE reCAPTCHA v3 BADGE VISIBILITY & FLOATING ACTIONS CLEARANCE
+   Ensures the reCAPTCHA v3 badge remains 100% visible according to Google's
+   display terms, and positions the floating quick actions stack cleanly above
+   the badge to prevent overlap or click obstruction.
+   ========================================================================== */
+.grecaptcha-badge {
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
+}
+
+/* Elevate floating actions stack above bottom-right reCAPTCHA badge on contact page */
+.floating-actions-stack {
+    bottom: 85px !important;
+}
+
+@media (max-width: 768px) {
+    .floating-actions-stack {
+        bottom: 80px !important;
+    }
+}
+

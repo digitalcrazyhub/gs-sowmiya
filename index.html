@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#121212" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="format-detection" content="telephone=no" />
 
@@ -1180,34 +1179,35 @@
               Tell us about your project and we'll get in touch.
             </p>
 
-            <form id="project-enquiry-form" novalidate>
+            <form id="project-enquiry-form" novalidate aria-label="Project Consultation Form">
               <input type="hidden" name="source" value="homepage_contact">
               <div class="form-grid">
 
                 <div class="form-group">
                   <label for="client-name" class="form-label">Full Name *</label>
                   <input type="text" id="client-name" name="name" class="form-input" placeholder="e.g. Senthil Nathan"
-                    required autocomplete="name">
+                    required autocomplete="name" aria-describedby="client-name-error">
                   <span class="form-error-msg" id="client-name-error" role="alert"></span>
                 </div>
 
                 <div class="form-group">
                   <label for="client-phone" class="form-label">Phone Number *</label>
                   <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="+91 99887 76655"
-                    required autocomplete="tel">
+                    required autocomplete="tel" aria-describedby="client-phone-error">
                   <span class="form-error-msg" id="client-phone-error" role="alert"></span>
                 </div>
 
                 <div class="form-group">
                   <label for="client-email" class="form-label">Email Address *</label>
                   <input type="email" id="client-email" name="email" class="form-input" placeholder="name@domain.com"
-                    required autocomplete="email">
+                    required autocomplete="email" aria-describedby="client-email-error">
                   <span class="form-error-msg" id="client-email-error" role="alert"></span>
                 </div>
 
                 <div class="form-group">
                   <label for="project-type" class="form-label">Project Category *</label>
-                  <select id="project-type" name="service" class="form-select" required>
+                  <select id="project-type" name="service" class="form-select" required
+                    aria-describedby="project-type-error">
                     <option value="" disabled selected>Select Category</option>
                     <option value="Residential Construction">Residential Construction</option>
                     <option value="Joint Venture Development">Joint Venture Development</option>
@@ -1222,15 +1222,15 @@
                 <div class="form-group form-group-full">
                   <label for="project-location" class="form-label">Site Location *</label>
                   <input type="text" id="project-location" name="location" class="form-input"
-                    placeholder="e.g. Pallikaranai, Chennai" required>
+                    placeholder="e.g. Pallikaranai, Chennai" required aria-describedby="project-location-error">
                   <span class="form-error-msg" id="project-location-error" role="alert"></span>
                 </div>
 
                 <div class="form-group form-group-full">
                   <label for="project-message" class="form-label">Message *</label>
                   <textarea id="project-message" name="message" class="form-textarea"
-                    placeholder="Tell us about your requirements, plot size, or timeline..." rows="4"
-                    required></textarea>
+                    placeholder="Tell us about your requirements, plot size, or timeline..." rows="4" required
+                    aria-describedby="project-message-error"></textarea>
                   <span class="form-error-msg" id="project-message-error" role="alert"></span>
                 </div>
 
@@ -1271,6 +1271,12 @@
          GLOBAL COMMON FLOATING ACTIONS PLACEHOLDER (LOADED VIA COMPONENT SYSTEM)
          ========================================================================== -->
   <div id="floating-actions" data-component="floating-actions"></div>
+
+  <!-- Google reCAPTCHA v3 API & Site Key Configuration -->
+  <script>
+    window.RECAPTCHA_SITE_KEY = '6LfAneYtAAAAANU3bIRTPAEF0n4f-TYEPmhxYsP7';
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfAneYtAAAAANU3bIRTPAEF0n4f-TYEPmhxYsP7"></script>
 
   <!-- JavaScript Application Entry Point -->
   <script type="module" src="./js/home.js"></script>

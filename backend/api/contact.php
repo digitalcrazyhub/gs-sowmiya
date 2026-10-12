@@ -46,16 +46,17 @@ if ($origin !== '') {
 
     $allowedSchemesMatch = parse_url($origin, PHP_URL_SCHEME) === parse_url($allowedOrigin, PHP_URL_SCHEME);
     $allowedHostsMatch = $parsedOrigin !== false && $parsedAllowed !== false && strcasecmp((string)$parsedOrigin, (string)$parsedAllowed) === 0;
+    $isLocalOrigin = ($parsedOrigin === 'localhost' || $parsedOrigin === '127.0.0.1');
 
     if (
         ($allowedSchemesMatch && $allowedHostsMatch && (int)parse_url($origin, PHP_URL_PORT) === (int)parse_url($allowedOrigin, PHP_URL_PORT)) ||
-        $origin === 'http://localhost:3000' ||
-        $origin === 'http://127.0.0.1:3000'
+        $isLocalOrigin
     ) {
         header("Access-Control-Allow-Origin: {$origin}");
         header('Access-Control-Allow-Methods: POST, OPTIONS');
         header('Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With');
         header('Access-Control-Max-Age: 86400');
+        header('Vary: Origin');
     }
 }
 
@@ -157,10 +158,7 @@ $validData = $validation['data'];
 try {
     $leadRecord = LeadService::createLead(
         validData: $validData,
-        ip: $clientIp,
-        userAgent: $userAgent,
-        recaptchaScore: $recaptchaResult['score'],
-        recaptchaAction: $recaptchaResult['action']
+        userAgent: $userAgent
     );
 } catch (\Throwable $dbErr) {
     http_response_code(500);
@@ -176,10 +174,13 @@ try {
 $responsePayload = [
     'success' => true,
     'message' => 'Your enquiry has been received. Our team will review your requirements and get in touch with you soon.',
-    'lead_id' => $leadRecord['lead_id'],
 ];
 
 http_response_code(200);
+
+// Prevent script interruption if customer closes connection immediately
+ignore_user_abort(true);
+@set_time_limit(60);
 
 // If running in FastCGI, finish the HTTP response immediately so the user sees instant success!
 if (function_exists('fastcgi_finish_request')) {
@@ -222,40 +223,56 @@ function processSecondaryServices(array $leadRecord): void {
         $mailRes = EmailService::sendCompanyNotification($leadRecord);
         $updates['company_email_status'] = $mailRes['success'] ? 'success' : 'failed';
         if (!$mailRes['success'] && !empty($mailRes['error'])) {
-            $updates['last_error'] = 'Company Mail: ' . $mailRes['error'];
+            error_log('Company Mail Error: ' . $mailRes['error']);
         }
     } catch (\Throwable $e) {
         $updates['company_email_status'] = 'failed';
-        $updates['last_error'] = 'Company Mail Exception: ' . $e->getMessage();
+        error_log('Company Mail Exception: ' . $e->getMessage());
     }
 
     // B. Customer Confirmation Email
     try {
         $custMailRes = EmailService::sendCustomerConfirmation($leadRecord);
         $updates['customer_email_status'] = $custMailRes['success'] ? 'success' : 'failed';
+        if (!$custMailRes['success'] && !empty($custMailRes['error'])) {
+            error_log('Customer Mail Error: ' . $custMailRes['error']);
+        }
     } catch (\Throwable $e) {
         $updates['customer_email_status'] = 'failed';
+        error_log('Customer Mail Exception: ' . $e->getMessage());
     }
 
     // C. Google Sheets Synchronization
     try {
         $sheetRes = GoogleSheetsService::appendLead($leadRecord);
-        $updates['google_sheet_status'] = $sheetRes['success'] ? 'success' : 'failed';
+        $updates['google_sheet_status'] = !empty($sheetRes['skipped']) ? 'skipped' : ($sheetRes['success'] ? 'success' : 'failed');
         if (!$sheetRes['success'] && !empty($sheetRes['error'])) {
-            $updates['last_error'] = ($updates['last_error'] ?? '') . ' | Sheets: ' . $sheetRes['error'];
+            error_log('Sheets Sync Error: ' . $sheetRes['error']);
         }
     } catch (\Throwable $e) {
         $updates['google_sheet_status'] = 'failed';
+        error_log('Sheets Exception: ' . $e->getMessage());
     }
 
     // Determine overall processing status
-    $isComplete = ($updates['company_email_status'] ?? '') === 'success' &&
-                 ($updates['customer_email_status'] ?? '') === 'success' &&
-                 ($updates['google_sheet_status'] ?? '') === 'success';
+    $isSheetDone = in_array($updates['google_sheet_status'] ?? '', ['success', 'skipped'], true);
+    $hasFailure = ($updates['company_email_status'] ?? '') === 'failed' ||
+                  ($updates['customer_email_status'] ?? '') === 'failed' ||
+                  ($updates['google_sheet_status'] ?? '') === 'failed';
 
-    $updates['processing_status'] = $isComplete ? 'completed' : 'processing';
+    $isComplete = ($updates['company_email_status'] ?? '') === 'success' &&
+                  ($updates['customer_email_status'] ?? '') === 'success' &&
+                  $isSheetDone;
+
+    if ($isComplete) {
+        $updates['processing_status'] = 'completed';
+    } elseif ($hasFailure) {
+        $updates['processing_status'] = 'failed';
+    } else {
+        $updates['processing_status'] = 'processing';
+    }
+
     $updates['last_attempt_at'] = date('Y-m-d H:i:s');
-    $updates['processing_attempts'] = 1;
 
     try {
         LeadService::updateLeadStatuses($leadId, $updates);

@@ -1,8 +1,8 @@
 # GS SOWMIYA BUILDERS — BACKEND HTTP ACCESS RULES
 Options -Indexes
 
-# Never expose secrets, dependency manifests, documentation, logs, or SQL files.
-<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log)$">
+# Never expose secrets, dependency manifests, documentation, logs, config, or SQL files.
+<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log|json|yml|yaml|ini)$">
     Require all denied
 </FilesMatch>
 

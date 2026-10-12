@@ -16,8 +16,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
 return [
     'host' => (string)env('DB_HOST', 'localhost'),
     'port' => (int)env('DB_PORT', 3306),
-    'dbname' => (string)env('DB_NAME', ''),
-    'username' => (string)env('DB_USER', ''),
+    'dbname' => (string)env('DB_NAME', 'testmail_db'),
+    'username' => (string)env('DB_USER', 'root'),
     'password' => (string)env('DB_PASSWORD', ''),
     'charset' => (string)env('DB_CHARSET', 'utf8mb4'),
     'options' => [

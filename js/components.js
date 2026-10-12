@@ -174,11 +174,11 @@ const COMPONENT_FALLBACKS = {
  * Loads an external HTML component file, falling back to alternative root path or template
  */
 async function fetchComponentHTML(componentName, filePath) {
-  const candidatePaths = [
+  const candidatePaths = Array.from(new Set([
     filePath,
-    filePath.replace('/asset/components/', '/components/'),
-    filePath.replace('/components/', '/asset/components/')
-  ];
+    filePath.startsWith('./') ? filePath.replace(/^\.\//, '/') : `./${filePath.replace(/^\//, '')}`,
+    filePath.replace('/asset/components/', '/components/')
+  ]));
   let lastError;
 
   for (const p of candidatePaths) {
@@ -239,7 +239,7 @@ export async function loadGlobalComponents(options = {}) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     });
-    if (activeNav === 'about-us' || activeNav === 'about') {
+    if (activeNav === 'about-us' || activeNav === 'about' || activeNav === 'team') {
       navbarEl.querySelectorAll('[data-nav="about"]').forEach(link => {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');

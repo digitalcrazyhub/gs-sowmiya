@@ -51,9 +51,7 @@ foreach ($pendingLeads as $lead) {
         continue;
     }
 
-    $attempts = (int)($lead['processing_attempts'] ?? 0) + 1;
     $updates = [
-        'processing_attempts' => $attempts,
         'last_attempt_at' => date('Y-m-d H:i:s'),
     ];
 
@@ -120,28 +118,13 @@ foreach ($pendingLeads as $lead) {
         $updates['google_sheet_status'] = $lead['google_sheet_status'] ?? 'skipped';
     }
 
-    // Determine final status & exponential retry backoff
+    // Determine final status
     if (!$hasErrors) {
         $updates['processing_status'] = 'completed';
-        $updates['next_attempt_at'] = null;
-        $updates['last_error'] = null;
         $successCount++;
     } else {
-        if ($attempts >= $maxAttempts) {
-            $updates['processing_status'] = 'failed';
-            $updates['next_attempt_at'] = null; // Do not retry further
-        } else {
-            // Exponential backoff: 2min, 5min, 15min, 60min
-            $backoffMinutes = match ($attempts) {
-                1 => 2,
-                2 => 5,
-                3 => 15,
-                default => 60,
-            };
-            $updates['processing_status'] = 'processing';
-            $updates['next_attempt_at'] = date('Y-m-d H:i:s', strtotime("+{$backoffMinutes} minutes"));
-        }
-        $updates['last_error'] = implode(' | ', $errorMessages);
+        $updates['processing_status'] = 'failed';
+        error_log('Queue processing errors for Lead #' . $leadId . ': ' . implode(' | ', $errorMessages));
     }
 
     LeadService::updateLeadStatuses($leadId, $updates);

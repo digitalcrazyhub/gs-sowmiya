@@ -170,7 +170,7 @@ export function initNavbar() {
         accordionParent.classList.add('is-expanded');
         btn.setAttribute('aria-expanded', 'true');
         const icon = btn.querySelector('.mobile-accordion-icon');
-        if (icon) icon.textContent = '−';
+        if (icon) icon.textContent = '\u2212';
       }
     });
   });
