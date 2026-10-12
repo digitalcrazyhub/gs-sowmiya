@@ -17,7 +17,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
 /**
  * Lightweight .env file loader for Hostinger / Apache / CLI environments
  */
-function loadEnv(string $envPath): void {
+if (!function_exists(__NAMESPACE__ . '\\loadEnv')) {
+    function loadEnv(string $envPath): void {
     if (!file_exists($envPath) || !is_readable($envPath)) {
         return;
     }
@@ -41,6 +42,14 @@ function loadEnv(string $envPath): void {
         $key = trim(substr($line, 0, $pos));
         $val = trim(substr($line, $pos + 1));
 
+        // Strip inline comments if value is not quoted
+        if (!str_starts_with($val, '"') && !str_starts_with($val, "'")) {
+            $commentPos = strpos($val, ' #');
+            if ($commentPos !== false) {
+                $val = trim(substr($val, 0, $commentPos));
+            }
+        }
+
         // Strip surrounding quotes
         if (
             (str_starts_with($val, '"') && str_ends_with($val, '"')) ||
@@ -57,13 +66,16 @@ function loadEnv(string $envPath): void {
     }
 }
 
+}
+
 // Auto-load .env from /backend/.env if exists
 loadEnv(dirname(__DIR__) . '/.env');
 
 /**
  * Safe environment getter with fallback default
  */
-function env(string $key, mixed $default = null): mixed {
+if (!function_exists(__NAMESPACE__ . '\\env')) {
+    function env(string $key, mixed $default = null): mixed {
     $val = getenv($key);
     if ($val === false) {
         $val = $_ENV[$key] ?? $_SERVER[$key] ?? $default;
@@ -80,6 +92,8 @@ function env(string $key, mixed $default = null): mixed {
         'empty', '(empty)' => '',
         default => $val,
     };
+}
+
 }
 
 // Timezone setup

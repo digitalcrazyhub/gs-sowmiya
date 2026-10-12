@@ -1,3 +1,4 @@
+import { resolveAssetPath } from '../site-paths.js';
 /**
  * Residential Building Construction Page Controller
  * GS Sowmiya Builders Private Limited
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         title: 'Residential Construction',
         breadcrumb: 'RESIDENTIAL CONSTRUCTION',
         desc: 'Comprehensive planning, structural execution, and custom residential construction for independent houses, luxury villas, and multi-floor homes across Chennai.',
-        bgImage: '../image/residential_construction.png'
+        bgImage: resolveAssetPath('/image/residential_construction.png')
       }
     });
 

@@ -12,7 +12,8 @@
  * ==========================================================================
  */
 
-import { loadGlobalComponents, resolveAssetPath } from './site-paths.js';
+import { loadGlobalComponents } from './components.js';
+import { resolveAssetPath } from './site-paths.js';
 import { initCardTilt, initScrollReveal, initCounterAnimation } from './animations.js';
 
 // Respect system accessibility setting

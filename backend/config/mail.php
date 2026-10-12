@@ -16,7 +16,7 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
 return [
     'smtp_host' => (string)env('SMTP_HOST', 'smtp.hostinger.com'),
     'smtp_port' => (int)env('SMTP_PORT', 465),
-    'smtp_username' => (string)env('SMTP_USERNAME', ''),
+    'smtp_username' => (string)env('SMTP_USERNAME', 'digitalcrazyhub2020@gmail.com'),
     'smtp_password' => (string)env('SMTP_PASSWORD', ''),
     'smtp_encryption' => (string)env('SMTP_ENCRYPTION', 'ssl'), // 'ssl' or 'tls'
 

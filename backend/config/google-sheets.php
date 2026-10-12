@@ -13,10 +13,16 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
     exit('Access Denied');
 }
 
-$credentialsPath = (string)env(
-    'GOOGLE_SERVICE_ACCOUNT_PATH',
-    dirname(__DIR__) . '/config/private/google-service-account.json'
-);
+$rawCredentialsPath = trim((string)env('GOOGLE_SERVICE_ACCOUNT_PATH', ''));
+if ($rawCredentialsPath === '') {
+    $credentialsPath = dirname(__DIR__) . '/config/private/google-service-account.json';
+} elseif (str_starts_with($rawCredentialsPath, '/backend/')) {
+    $credentialsPath = dirname(__DIR__) . substr($rawCredentialsPath, 8);
+} elseif (!file_exists($rawCredentialsPath) && file_exists(dirname(__DIR__) . '/' . ltrim($rawCredentialsPath, '/\\'))) {
+    $credentialsPath = dirname(__DIR__) . '/' . ltrim($rawCredentialsPath, '/\\');
+} else {
+    $credentialsPath = $rawCredentialsPath;
+}
 
 return [
     'enabled' => (bool)env('GOOGLE_SHEETS_ENABLED', false),

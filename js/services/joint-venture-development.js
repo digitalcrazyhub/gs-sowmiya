@@ -1,4 +1,4 @@
-import { resolveAssetPath } from './site-paths.js';
+import { resolveAssetPath } from '../site-paths.js';
 /**
  * Joint Venture Page Controller
  * GS Sowmiya Builders Private Limited

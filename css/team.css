@@ -13,7 +13,7 @@
     padding: clamp(140px, 18vw, 190px) 0 clamp(60px, 8vw, 90px);
     background-color: var(--bg-dark);
     background-image: radial-gradient(circle at 80% 20%, rgba(116, 23, 25, 0.45) 0%, transparent 60%),
-                      radial-gradient(circle at 20% 80%, rgba(217, 162, 74, 0.12) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(217, 162, 74, 0.12) 0%, transparent 50%);
     overflow: hidden;
     color: var(--text-white);
     display: flex;
@@ -37,10 +37,10 @@
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: linear-gradient(180deg, 
-                rgba(18, 18, 18, 0.82) 0%, 
-                rgba(18, 18, 18, 0.94) 65%, 
-                var(--bg-dark) 100%);
+    background: linear-gradient(180deg,
+            rgba(18, 18, 18, 0.82) 0%,
+            rgba(18, 18, 18, 0.94) 65%,
+            var(--bg-dark) 100%);
 }
 
 .team-hero-grid-pattern {
@@ -48,7 +48,7 @@
     inset: 0;
     z-index: 3;
     background-size: 40px 40px;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     pointer-events: none;
@@ -417,7 +417,7 @@
 /* 3-Column Leadership Grid */
 .team-leadership-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(20px, 3vw, 32px);
 }
 
@@ -439,7 +439,7 @@
 
 .team-card-img-wrap {
     position: relative;
-    aspect-ratio: 4/3.8;
+    aspect-ratio: 4/4.8;
     overflow: hidden;
     background: var(--bg-light);
 }
@@ -519,10 +519,10 @@
 .team-placeholder-img-frame {
     aspect-ratio: 4/3.2;
     background: #F7F5F2;
-    background-image: 
+    background-image:
         radial-gradient(circle, rgba(116, 23, 25, 0.05) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 20px 20px, 40px 40px, 40px 40px;
     display: flex;
     flex-direction: column;
@@ -544,7 +544,7 @@
     color: var(--brand-burgundy);
     background: var(--bg-white);
     margin-bottom: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .team-placeholder-tag {
@@ -1045,6 +1045,7 @@
 }
 
 @media (max-width: 640px) {
+
     .team-leadership-grid,
     .team-grid-3,
     .team-site-grid,

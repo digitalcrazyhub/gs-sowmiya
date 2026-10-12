@@ -3,6 +3,20 @@ function getSiteRootPath() {
     return '/';
   }
 
+  // 1. Authoritative module self-location
+  try {
+    if (typeof import.meta !== 'undefined' && import.meta.url) {
+      const rootUrl = new URL('..', import.meta.url);
+      const rootPath = rootUrl.pathname.replace(/\\/g, '/');
+      if (rootPath) {
+        return rootPath.endsWith('/') ? rootPath : `${rootPath}/`;
+      }
+    }
+  } catch (_) {
+    // Continue with script tag detection
+  }
+
+  // 2. Fallback via script tag
   try {
     const scriptTag = document && document.currentScript ? document.currentScript : null;
     const fallbackScript = scriptTag || Array.from(document?.scripts || []).find((script) => /site-paths\.js(?:\?|$)/i.test(script.src));
@@ -11,15 +25,21 @@ function getSiteRootPath() {
       const scriptUrl = new URL(fallbackScript.src, window.location.href);
       const rootUrl = new URL('..', scriptUrl);
       const rootPath = rootUrl.pathname.replace(/\\/g, '/');
-      if (rootPath && rootPath !== '/') {
+      if (rootPath) {
         return rootPath.endsWith('/') ? rootPath : `${rootPath}/`;
       }
     }
   } catch (error) {
-    // Fall through to the pathname-based fallback below.
+    // Fall through to pathname-based fallback below.
   }
 
+  // 3. Pathname fallback: If the pathname contains '/services/', the root is the portion before '/services/'
   const currentPath = (window.location.pathname || '/').replace(/\\/g, '/');
+  const servicesIdx = currentPath.indexOf('/services/');
+  if (servicesIdx !== -1) {
+    return currentPath.substring(0, servicesIdx + 1);
+  }
+
   const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath.substring(0, currentPath.lastIndexOf('/') + 1)}`;
   return normalizedPath || '/';
 }
@@ -58,6 +78,11 @@ export function normalizeSitePath(targetPath) {
   }
 
   if (/^(?:[a-z]+:)?\/\//i.test(trimmed) || trimmed.startsWith('data:') || trimmed.startsWith('mailto:') || trimmed.startsWith('tel:') || trimmed.startsWith('#') || trimmed.startsWith('?')) {
+    return trimmed;
+  }
+
+  // If already relative, do not prepend base path again
+  if (trimmed.startsWith('./') || trimmed.startsWith('../')) {
     return trimmed;
   }
 
@@ -110,3 +135,5 @@ if (typeof document !== 'undefined') {
     applySitePathFixes(document);
   }, { once: true });
 }
+
+export { loadGlobalComponents } from './components.js';

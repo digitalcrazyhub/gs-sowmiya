@@ -8,11 +8,12 @@
  */
 
 import { SITE_CONFIG } from './config.js';
+import { resolveSitePath } from './site-paths.js';
 
 // Configurable backend API endpoint (points to /backend/api/contact.php)
 const CONTACT_FORM_ENDPOINT = (typeof window !== 'undefined' && window.GS_CONTACT_API_ENDPOINT)
   ? window.GS_CONTACT_API_ENDPOINT
-  : "/backend/api/contact.php";
+  : resolveSitePath('/backend/api/contact.php');
 
 /**
  * Initializes validation, accessibility, and submit behavior for any contact form
@@ -23,7 +24,13 @@ export function initContactFormHandler(formTarget, options = {}) {
   const form = typeof formTarget === 'string' ? document.querySelector(formTarget) : formTarget;
   if (!form) return;
 
-  const defaultSource = options.source || (form.id.includes('home') ? 'home' : 'contact');
+  // Prevent duplicate initialization on the same form element
+  if (form.dataset.contactFormInitialized === 'true') {
+    return;
+  }
+  form.dataset.contactFormInitialized = 'true';
+
+  const defaultSource = options.source || (form.id.includes('home') ? 'homepage_contact' : 'contact_page');
 
   // Locate or create hidden source input
   let sourceInput = form.querySelector('input[name="source"]');
@@ -118,8 +125,16 @@ export function initContactFormHandler(formTarget, options = {}) {
       errorEl = document.createElement('span');
       errorEl.className = 'form-error-msg';
       errorEl.setAttribute('role', 'alert');
+      if (item.el.id) {
+        errorEl.id = `${item.el.id}-error`;
+      }
       group.appendChild(errorEl);
     }
+
+    if (errorEl && errorEl.id && !item.el.hasAttribute('aria-describedby')) {
+      item.el.setAttribute('aria-describedby', errorEl.id);
+    }
+
     item.errorEl = errorEl;
     item.group = group;
   });
@@ -154,12 +169,21 @@ export function initContactFormHandler(formTarget, options = {}) {
     const item = fields[key];
     if (!item.el) return;
 
-    item.el.addEventListener('input', () => {
+    const clearFieldError = () => {
       if (item.group && item.group.classList.contains('has-error')) {
         item.group.classList.remove('has-error');
         item.el.removeAttribute('aria-invalid');
         if (item.errorEl) item.errorEl.textContent = '';
       }
+      // If error status box was active, hide it as user edits
+      if (statusBox && statusBox.classList.contains('is-error')) {
+        statusBox.className = 'form-status-box';
+        statusBox.style.display = 'none';
+      }
+    };
+
+    ['input', 'change'].forEach((evt) => {
+      item.el.addEventListener(evt, clearFieldError);
     });
 
     item.el.addEventListener('blur', () => {
@@ -172,12 +196,20 @@ export function initContactFormHandler(formTarget, options = {}) {
     });
   });
 
+  let isSubmitting = false;
+
   // Handle Form Submission
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Prevent double submission if already sending
-    if (submitBtn && submitBtn.disabled) return;
+    // Prevent duplicate submissions if already submitting or disabled
+    if (isSubmitting || (submitBtn && submitBtn.disabled)) return;
+
+    // Reset any previous status box state
+    if (statusBox) {
+      statusBox.className = 'form-status-box';
+      statusBox.style.display = 'none';
+    }
 
     let hasErrors = false;
     let firstInvalidField = null;
@@ -208,19 +240,42 @@ export function initContactFormHandler(formTarget, options = {}) {
       return;
     }
 
+    isSubmitting = true;
+
     // Fetch reCAPTCHA v3 token if configured
     let recaptchaToken = '';
-    const siteKey = (typeof window !== 'undefined') ? (window.RECAPTCHA_SITE_KEY || '') : '';
-    if (typeof window !== 'undefined' && window.grecaptcha && siteKey) {
-      try {
-        await new Promise((resolve) => window.grecaptcha.ready(resolve));
-        recaptchaToken = await window.grecaptcha.execute(siteKey, { action: 'submit_enquiry' });
-      } catch (rcErr) {
-        console.warn('reCAPTCHA execution note:', rcErr);
+    const siteKey = (typeof window !== 'undefined' && window.RECAPTCHA_SITE_KEY)
+      ? window.RECAPTCHA_SITE_KEY
+      : (SITE_CONFIG?.recaptcha?.siteKey || '');
+    if (typeof window !== 'undefined' && !window.RECAPTCHA_SITE_KEY && siteKey) {
+      window.RECAPTCHA_SITE_KEY = siteKey;
+    }
+    if (typeof window !== 'undefined' && siteKey) {
+      if (!window.grecaptcha) {
+        const existingScript = document.querySelector('script[src*="recaptcha/api.js"]');
+        if (!existingScript) {
+          const rcScript = document.createElement('script');
+          rcScript.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+          rcScript.async = true;
+          document.head.appendChild(rcScript);
+          await new Promise((resolve) => {
+            rcScript.onload = resolve;
+            rcScript.onerror = resolve;
+            setTimeout(resolve, 3000);
+          });
+        }
+      }
+      if (window.grecaptcha) {
+        try {
+          await new Promise((resolve) => window.grecaptcha.ready(resolve));
+          recaptchaToken = await window.grecaptcha.execute(siteKey, { action: 'submit_enquiry' });
+        } catch (rcErr) {
+          console.warn('reCAPTCHA execution note:', rcErr);
+        }
       }
     }
 
-    // Construct submission payload
+    // Construct standardized submission payload
     const formData = {
       name: fields.name.el?.value.trim() || '',
       phone: fields.phone.el?.value.trim() || '',
@@ -256,27 +311,47 @@ export function initContactFormHandler(formTarget, options = {}) {
       const resData = await response.json().catch(() => null);
 
       if (!response.ok || !resData || !resData.success) {
+        // If server provided field-level validation errors, show them on the fields
+        if (resData?.errors && typeof resData.errors === 'object') {
+          let firstServerErrorField = null;
+          Object.keys(resData.errors).forEach((errKey) => {
+            const item = fields[errKey];
+            if (item && item.group) {
+              item.group.classList.add('has-error');
+              item.el?.setAttribute('aria-invalid', 'true');
+              if (item.errorEl) item.errorEl.textContent = resData.errors[errKey];
+              if (!firstServerErrorField && item.el) firstServerErrorField = item.el;
+            }
+          });
+          if (firstServerErrorField) {
+            firstServerErrorField.focus();
+          }
+        }
+
         const errorMsg = resData?.message || (response.status === 429
           ? "Too many enquiries submitted from this network. Please wait a few minutes."
           : "Unable to submit your enquiry at this moment. Please call us directly.");
         throw new Error(errorMsg);
       }
 
-      // Success State Transition
+      // Success State Transition: Hide form, display success status box
       form.style.display = 'none';
       if (statusBox) {
+        statusBox.style.display = '';
         statusBox.className = 'form-status-box is-success';
         if (statusTitle) statusTitle.textContent = "THANK YOU";
         if (statusDesc) {
-          const leadRef = resData.lead_id ? ` (Reference ID: ${resData.lead_id})` : '';
-          statusDesc.textContent = (resData.message || "Your enquiry has been received. Our team will review your requirements and get in touch with you soon.") + leadRef;
+          statusDesc.textContent = resData.message || "Your enquiry has been received. Our team will review your requirements and get in touch with you soon.";
         }
+        if (resetBtn) resetBtn.style.display = 'inline-flex';
         statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
     } catch (submitErr) {
       console.error('Submission error:', submitErr);
+      // On failure: Keep form visible so user can adjust and retry!
       if (statusBox) {
+        statusBox.style.display = '';
         statusBox.className = 'form-status-box is-error';
         if (statusTitle) statusTitle.textContent = "SUBMISSION NOTICE";
         if (statusDesc) {
@@ -284,9 +359,12 @@ export function initContactFormHandler(formTarget, options = {}) {
           const defaultErr = `We encountered a temporary network issue. Please call us directly at ${phoneNum} or contact us via WhatsApp.`;
           statusDesc.textContent = (submitErr instanceof Error && submitErr.message) ? submitErr.message : defaultErr;
         }
+        // Hide reset button on error so user doesn't accidentally erase inputs
+        if (resetBtn) resetBtn.style.display = 'none';
         statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     } finally {
+      isSubmitting = false;
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = initialBtnHTML;
@@ -294,12 +372,15 @@ export function initContactFormHandler(formTarget, options = {}) {
     }
   });
 
-  // Reset Form Action
+  // Reset Form Action (Used only after success to allow submitting another enquiry)
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       form.reset();
       form.style.display = 'block';
-      if (statusBox) statusBox.className = 'form-status-box';
+      if (statusBox) {
+        statusBox.className = 'form-status-box';
+        statusBox.style.display = 'none';
+      }
       Object.keys(fields).forEach((key) => {
         const item = fields[key];
         if (item.group) item.group.classList.remove('has-error');

@@ -27,11 +27,14 @@ html {
   scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
   width: 100%;
   max-width: 100vw;
@@ -39,20 +42,29 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
 /* Prevent iOS text selection quirks on buttons and interactive tabs */
-button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
+button,
+.btn,
+.nav-link,
+.project-filter-tab,
+.projects-tab-btn {
   -webkit-touch-callout: none;
   touch-action: manipulation;
 }
 
 /* Apple iOS Input Auto-Zoom Prevention: Inputs MUST have font-size >= 16px */
 @media (max-width: 768px) {
+
   input,
   select,
   textarea,
@@ -60,10 +72,12 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
   .calc-range-input {
     font-size: 16px !important;
   }
-  .contact-layout-grid{
+
+  .contact-layout-grid {
     grid-template-columns: 1fr;
   }
-  .hero-service-tab{
+
+  .hero-service-tab {
     flex-direction: row;
   }
 }
@@ -93,17 +107,17 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 /* Floating Actions Stack Safe Area for iOS Home Indicator */
-.floating-actions-stack {
+/* .floating-actions-stack {
   bottom: max(24px, calc(var(--safe-area-bottom) + 14px)) !important;
   right: max(20px, calc(var(--safe-area-right) + 14px)) !important;
-}
+} */
 
 /* Laptop & Desktop Navigation Transition (1081px - 1280px) */
 @media (max-width: 1280px) {
   .nav-menu {
     gap: clamp(10px, 1.3vw, 18px);
   }
-  
+
   .nav-link {
     font-size: 0.8125rem;
     padding: 6px 2px;
@@ -118,6 +132,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 
 /* Tablet Transition Breakpoint: Switch cleanly to Hamburger Menu at <= 1080px */
 @media (max-width: 1080px) {
+
   .nav-menu,
   .btn-quote-desktop {
     display: none !important;
@@ -138,13 +153,13 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     max-height: 40px;
     max-width: 155px;
   }
-  
+
   .nav-toggle {
     width: 40px;
     height: 40px;
   }
 
-  .contact-layout-grid{
+  .contact-layout-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -328,12 +343,14 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 768px) {
-  .pricing-card-body{
+  .pricing-card-body {
     padding: 28px 0;
   }
-  p{
+
+  p {
     text-align: justify;
   }
+
   .hero-container-inner {
     padding-top: 90px;
     padding-bottom: 20px;
@@ -523,6 +540,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
    06. ABOUT PAGE RESPONSIVE OVERRIDES
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
+
   .about-story-grid,
   .about-grid {
     grid-template-columns: 1fr !important;
@@ -586,6 +604,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 640px) {
+
   .about-metrics-grid,
   .hero-stats-band {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -618,6 +637,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 480px) {
+
   .about-metrics-grid,
   .hero-stats-band {
     grid-template-columns: 1fr !important;
@@ -634,6 +654,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
    07. SERVICES OVERVIEW PAGE RESPONSIVE OVERRIDES
    -------------------------------------------------------------------------- */
 @media (max-width: 1023px) {
+
   .services-intro-grid,
   .why-services-grid,
   .services-faq-grid {
@@ -672,6 +693,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 767px) {
+
   .primary-service-item,
   .primary-service-item.reversed {
     grid-template-columns: 1fr !important;
@@ -679,7 +701,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     direction: ltr !important;
   }
 
-  .primary-service-item.reversed > * {
+  .primary-service-item.reversed>* {
     direction: ltr !important;
   }
 
@@ -748,6 +770,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
    08. DEDICATED SERVICE PAGES (RESIDENTIAL, COMMERCIAL, INDUSTRIAL, RENOVATION)
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
+
   .build-grid-5,
   .scope-grid-6,
   .quality-principles-grid {
@@ -994,6 +1017,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
 }
 
 @media (max-width: 640px) {
+
   .team-leadership-grid,
   .team-grid-3,
   .team-site-grid,
@@ -1056,7 +1080,7 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
     gap: 32px !important;
   }
 
-  .contact-map-grid > * {
+  .contact-map-grid>* {
     min-width: 0 !important;
     max-width: 100% !important;
   }
@@ -1266,7 +1290,10 @@ button, .btn, .nav-link, .project-filter-tab, .projects-tab-btn {
    15. ACCESSIBILITY & PREFERS-REDUCED-MOTION
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

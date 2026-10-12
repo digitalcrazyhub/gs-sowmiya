@@ -1,0 +1,36 @@
+# ==============================================================================
+# GS SOWMIYA BUILDERS — ROOT HTTP SERVER CONFIGURATION & SECURITY POLICY
+# ==============================================================================
+
+# Disable directory browsing across the entire site
+Options -Indexes
+
+# Block direct access to hidden files, git repository, environment and config files
+<FilesMatch "^\.|^\.git|^\.env|.*\.(sql|log|md|bak|swp)$">
+    Require all denied
+</FilesMatch>
+
+# Prevent access to .git and private directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to git directory
+    RewriteRule ^\.git - [F,L]
+
+    # Block access to internal backend directories directly from root
+    RewriteRule ^backend/(?:config|database|services|queue|logs|vendor)/ - [F,L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Static Asset Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>

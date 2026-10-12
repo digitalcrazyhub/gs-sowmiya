@@ -11,6 +11,17 @@ namespace GSSowmiya\Backend\Services;
 
 class GoogleSheetsService {
     /**
+     * Prevent spreadsheet formula injection by prefixing triggering characters
+     */
+    private static function sanitizeCellForSheets(mixed $val): string {
+        $str = (string)$val;
+        if ($str !== '' && in_array($str[0], ['=', '+', '-', '@'], true)) {
+            return "'" . $str;
+        }
+        return $str;
+    }
+
+    /**
      * Append a lead record to the configured Google Sheet
      * @return array{success: bool, error: ?string}
      */
@@ -22,7 +33,7 @@ class GoogleSheetsService {
         $config = require dirname(__DIR__) . '/config/google-sheets.php';
 
         if (!$config['enabled']) {
-            return ['success' => true, 'error' => null]; // Skipped intentionally
+            return ['success' => true, 'skipped' => true, 'error' => null];
         }
 
         if (empty($config['spreadsheet_id']) || !$config['credentials_exist']) {
@@ -32,12 +43,12 @@ class GoogleSheetsService {
             ];
         }
 
-        $createdAt = $lead['created_at'] ?? date('Y-m-d H:i:s');
+        $createdAt = date('Y-m-d H:i:s');
         $datePart = date('Y-m-d', strtotime($createdAt));
         $timePart = date('H:i:s', strtotime($createdAt));
 
-        $rowValues = [
-            $lead['lead_id'] ?? 'N/A',
+        $rawRowValues = [
+            $lead['id'] ?? 'N/A',
             $datePart,
             $timePart,
             $lead['source'] ?? 'contact_page',
@@ -51,6 +62,8 @@ class GoogleSheetsService {
             $lead['customer_email_status'] ?? 'pending',
             $createdAt,
         ];
+
+        $rowValues = array_map([self::class, 'sanitizeCellForSheets'], $rawRowValues);
 
         // 1. Try via official Google API Client if composer dependencies installed
         $autoloadPath = dirname(__DIR__) . '/vendor/autoload.php';

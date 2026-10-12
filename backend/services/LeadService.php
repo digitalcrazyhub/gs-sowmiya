@@ -28,17 +28,9 @@ class LeadService {
     public const VALID_SOURCES = [
         'homepage_contact',
         'contact_page',
+        'home',
+        'contact',
     ];
-
-    /**
-     * Generate unique, human-readable reference Lead ID (e.g. GS-20261005-AB12CD)
-     */
-    public static function generateLeadId(): string {
-        $datePart = date('Ymd');
-        $bytes = random_bytes(3);
-        $randomPart = strtoupper(bin2hex($bytes));
-        return sprintf('GS-%s-%s', $datePart, $randomPart);
-    }
 
     /**
      * Validate and sanitize client submission payload
@@ -200,36 +192,53 @@ class LeadService {
      */
     public static function createLead(
         array $validData,
-        ?string $ip,
-        ?string $userAgent,
+        ?string $userAgent = null,
+        ?string $ip = null,
         ?float $recaptchaScore = null,
         ?string $recaptchaAction = null
     ): array {
         $pdo = Database::getConnection();
 
-        $leadId = self::generateLeadId();
+        // Idempotency check: return existing record if identical submission within 60 seconds
+        try {
+            $dupStmt = $pdo->prepare('SELECT `id`, `updated_at` FROM `leads` WHERE `email` = :email AND `phone` = :phone AND `updated_at` >= DATE_SUB(NOW(), INTERVAL 60 SECOND) ORDER BY `id` DESC LIMIT 1');
+            $dupStmt->execute([':email' => $validData['email'], ':phone' => $validData['phone']]);
+            $existing = $dupStmt->fetch();
+            if ($existing) {
+                return [
+                    'id' => (int)$existing['id'],
+                    'source' => $validData['source'],
+                    'name' => $validData['name'],
+                    'email' => $validData['email'],
+                    'phone' => $validData['phone'],
+                    'service' => $validData['service'],
+                    'location' => $validData['location'],
+                    'message' => $validData['message'],
+                ];
+            }
+        } catch (\Throwable $dupErr) {
+            // Table might not exist yet or connection error; proceed to insert
+        }
+
 
         // Begin transaction to ensure atomic insertion
         $pdo->beginTransaction();
 
         try {
             $sql = 'INSERT INTO `leads` (
-                        `lead_id`, `source`, `name`, `email`, `phone`, `service`,
-                        `location`, `message`, `ip_address`, `user_agent`,
-                        `recaptcha_score`, `recaptcha_action`,
+                        `source`, `name`, `email`, `phone`, `service`,
+                        `location`, `message`, `user_agent`,
                         `processing_status`, `google_sheet_status`, `company_email_status`, `customer_email_status`,
-                        `created_at`, `updated_at`
+                        `updated_at`
                     ) VALUES (
-                        :lead_id, :source, :name, :email, :phone, :service,
-                        :location, :message, :ip_address, :user_agent,
-                        :recaptcha_score, :recaptcha_action,
+                        :source, :name, :email, :phone, :service,
+                        :location, :message, :user_agent,
                         "pending", "pending", "pending", "pending",
-                        NOW(), NOW()
+                        NOW()
                     )';
 
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
-                ':lead_id' => $leadId,
                 ':source' => $validData['source'],
                 ':name' => $validData['name'],
                 ':email' => $validData['email'],
@@ -237,10 +246,7 @@ class LeadService {
                 ':service' => $validData['service'],
                 ':location' => $validData['location'],
                 ':message' => $validData['message'],
-                ':ip_address' => $ip ? substr($ip, 0, 45) : null,
                 ':user_agent' => $userAgent ? substr($userAgent, 0, 500) : null,
-                ':recaptcha_score' => $recaptchaScore,
-                ':recaptcha_action' => $recaptchaAction,
             ]);
 
             $id = (int)$pdo->lastInsertId();
@@ -250,7 +256,6 @@ class LeadService {
 
             return [
                 'id' => $id,
-                'lead_id' => $leadId,
                 'source' => $validData['source'],
                 'name' => $validData['name'],
                 'email' => $validData['email'],
@@ -258,7 +263,6 @@ class LeadService {
                 'service' => $validData['service'],
                 'location' => $validData['location'],
                 'message' => $validData['message'],
-                'created_at' => date('Y-m-d H:i:s'),
             ];
         } catch (\Throwable $e) {
             if ($pdo->inTransaction()) {
@@ -281,8 +285,7 @@ class LeadService {
                     `processing_status` = "pending"
                     OR (
                         `processing_status` = "failed"
-                        AND `processing_attempts` < 5
-                        AND (`next_attempt_at` IS NULL OR `next_attempt_at` <= NOW())
+                        AND (`last_attempt_at` IS NULL OR `last_attempt_at` < DATE_SUB(NOW(), INTERVAL 5 MINUTE))
                     )
                     OR (
                         `processing_status` = "processing"
@@ -337,10 +340,7 @@ class LeadService {
             'google_sheet_status',
             'company_email_status',
             'customer_email_status',
-            'processing_attempts',
             'last_attempt_at',
-            'next_attempt_at',
-            'last_error',
         ];
 
         $setParts = [];
