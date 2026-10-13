@@ -55,7 +55,7 @@
     --bg-dark-surface: #181818;
     --bg-dark-card: #202020;
     --border-dark: rgba(255, 255, 255, 0.1);
-    
+
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -69,7 +69,7 @@
 
     --container-max: 1440px;
     --container-gutter: clamp(16px, 4vw, 32px);
-    
+
     --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-cinematic: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -78,7 +78,9 @@
 /* ==========================================================================
    CSS RESET & BASE
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -127,12 +129,15 @@ body {
     transition: top 0.2s ease;
     text-decoration: none;
 }
+
 .skip-to-content:focus {
     top: 0;
     outline: 2px solid var(--brand-gold);
 }
 
-img, video, svg {
+img,
+video,
+svg {
     display: block;
     max-width: 100%;
     height: auto;
@@ -151,7 +156,8 @@ button {
     background: none;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -159,7 +165,12 @@ ul, ol {
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-primary);
     color: var(--text-primary);
     line-height: 1.15;
@@ -1173,6 +1184,7 @@ h1, h2, h3, h4, h5, h6 {
     .testimonial-stage-grid {
         grid-template-columns: 1fr;
     }
+
     .testimonial-stage-image-col {
         /* min-height: 280px; */
         max-height: 320px;
@@ -1186,26 +1198,32 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 100%;
         border-radius: var(--radius-lg, 16px);
     }
+
     .testimonial-stage-content-col {
         padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 24px);
     }
+
     .testimonial-text {
         font-size: clamp(1rem, 3.8vw, 1.2rem);
         line-height: 1.48;
         margin-bottom: 18px;
     }
+
     .testimonial-quote-icon {
         font-size: 2.8rem;
         margin-bottom: 10px;
     }
+
     .testimonial-author-meta {
         padding-top: 14px;
         gap: 12px;
     }
+
     .testimonial-controls {
         margin-top: 20px;
         padding-top: 16px;
     }
+
     .testimonial-controls .hero-nav-btn {
         width: 40px;
         height: 40px;
@@ -1216,12 +1234,15 @@ h1, h2, h3, h4, h5, h6 {
     .testimonial-stage-content-col {
         padding: 18px 14px 14px;
     }
+
     .author-details h4 {
         font-size: 0.95rem;
     }
+
     .author-details p {
         font-size: 0.75rem;
     }
+
     .author-project-tag {
         font-size: 0.6875rem;
         padding: 4px 8px;
@@ -1287,7 +1308,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 4px;
 }
 
-.contact-detail-content p, 
+.contact-detail-content p,
 .contact-detail-content a {
     font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.0625rem);
     font-weight: 600;
@@ -1348,7 +1369,9 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
 }
 
-.form-input, .form-select, .form-textarea {
+.form-input,
+.form-select,
+.form-textarea {
     width: 100%;
     padding: 14px 18px;
     border-radius: var(--radius-md);
@@ -1360,7 +1383,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: all var(--transition-fast);
 }
 
-.form-input:focus, .form-select:focus, .form-textarea:focus {
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
     outline: none;
     border-color: var(--brand-burgundy);
     background: var(--bg-white);
@@ -1639,10 +1664,10 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: linear-gradient(180deg, 
-                rgba(14, 14, 14, 0.55) 0%, 
-                rgba(14, 14, 14, 0.80) 65%, 
-                var(--bg-dark, #121212) 100%);
+    background: linear-gradient(180deg,
+            rgba(14, 14, 14, 0.55) 0%,
+            rgba(14, 14, 14, 0.80) 65%,
+            var(--bg-dark, #121212) 100%);
     opacity: 1;
 }
 
@@ -1656,7 +1681,7 @@ h1, h2, h3, h4, h5, h6 {
     inset: 0;
     z-index: 3;
     background-size: 40px 40px;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     pointer-events: none;
@@ -1912,7 +1937,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     margin-top: 48px;
     perspective: 1200px;
@@ -1955,7 +1980,7 @@ h1, h2, h3, h4, h5, h6 {
 .award-img-wrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 6 / 6;
     overflow: hidden;
     background: var(--bg-dark-surface);
     transform: translateZ(10px);
@@ -2031,13 +2056,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--brand-burgundy);
 }
 
-.award-card-desc {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 18px;
-    flex-grow: 1;
-}
 
 .award-card-footer {
     display: flex;
@@ -2063,8 +2081,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Ensure ALL normal website sections use ONLY WHITE (#FFFFFF) as their background */
 section:not([class*="hero"]):not([class*="page-banner"]):not([class*="footer"]):not([class*="site-footer"]),
-main > section,
-.site-main > section {
+main>section,
+.site-main>section {
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
     color: var(--text-primary);
@@ -2077,16 +2095,23 @@ main > section,
     border-bottom: 1px solid var(--border-light) !important;
     padding: clamp(40px, 5vw, 64px) 0 !important;
 }
-.about-metric-card, .stat-block {
+
+.about-metric-card,
+.stat-block {
     background: #FFFFFF !important;
     border: 1px solid var(--border-light) !important;
 }
-.about-metric-number, .stat-number {
+
+.about-metric-number,
+.stat-number {
     color: var(--brand-burgundy) !important;
 }
-.about-metric-label, .stat-label {
+
+.about-metric-label,
+.stat-label {
     color: var(--text-secondary) !important;
 }
+
 .about-founder-quote {
     background: #FFFFFF !important;
     border: 1px solid var(--border-light) !important;
@@ -2128,7 +2153,3 @@ main > section,
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
 }
-
-
-
-

@@ -11,7 +11,7 @@ export const PROJECTS_DATA = [
     landArea: "2,305 sq.ft",
     builtUpArea: "6,010 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_10.jpeg'),
+    image: resolveAssetPath('/image/residential_building_10.png'),
     aspectRatio: "16/10",
     description: "Modern Stilt + 2 residential apartment building in Vengaivasel featuring 5 spacious 2 & 3 BHK units, stilt parking, RCC frame structure, and premium finishes."
   },
@@ -25,7 +25,7 @@ export const PROJECTS_DATA = [
     landArea: "1,700 sq.ft",
     builtUpArea: "2,300 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_2.jpeg'),
+    image: resolveAssetPath('/image/residential_building_2.png'),
     aspectRatio: "3/4",
     description: "Spacious 4 BHK G+2 independent residential home in Vengaivasel engineered with earthquake-resistant structural design, double-height living room, and private terrace."
   },
@@ -39,7 +39,7 @@ export const PROJECTS_DATA = [
     landArea: "1,015 sq.ft",
     builtUpArea: "2,100 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_1.jpeg'),
+    image: resolveAssetPath('/image/residential_building_1.png'),
     aspectRatio: "1/1",
     description: "Bespoke 2 BHK Stilt + 2 residential enclave in Vengaivasel offering 2 exclusive apartment units with automated lift, covered parking, and 100% Vaastu planning."
   },
@@ -53,7 +53,7 @@ export const PROJECTS_DATA = [
     landArea: "800 sq.ft",
     builtUpArea: "1,100 sq.ft",
     year: "2023",
-    image: resolveAssetPath('/image/residential_building_3.jpeg'),
+    image: resolveAssetPath('/image/residential_building_3.png'),
     aspectRatio: "16/9",
     description: "Elegantly designed 3 BHK G+1 independent residential villa in Vengaivasel optimizing space utilization, natural illumination, and premium civil construction."
   },
@@ -67,7 +67,7 @@ export const PROJECTS_DATA = [
     landArea: "1,300 sq.ft",
     builtUpArea: "1,300 sq.ft",
     year: "2023",
-    image: resolveAssetPath('/image/residential_building_6.jpeg'),
+    image: resolveAssetPath('/image/residential_building_6.png'),
     aspectRatio: "3/4",
     description: "Contemporary 3 BHK G+1 individual villa in Kaspapuram, Mappedu built with high-grade steel and cement, custom architectural detailing, and landscaped yard."
   },
@@ -81,7 +81,7 @@ export const PROJECTS_DATA = [
     landArea: "2,000 sq.ft",
     builtUpArea: "5,300 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_4.jpeg'),
+    image: resolveAssetPath('/image/residential_building_4.png'),
     aspectRatio: "16/9",
     description: "Well-ventilated 2 BHK G+2 apartment complex in Kavangarai, Redhills built over 2,000 sq.ft plot with robust foundation engineering and turn-key handover."
   },
@@ -95,7 +95,7 @@ export const PROJECTS_DATA = [
     landArea: "880 sq.ft",
     builtUpArea: "1,300 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_8.jpeg'),
+    image: resolveAssetPath('/image/residential_building_8.png'),
     aspectRatio: "4/3",
     description: "Compact luxury 3 BHK G+1 duplex villa in Vengaivasel featuring smart spatial planning, modular interior provisions, and premium exterior elevation."
   },
@@ -109,7 +109,7 @@ export const PROJECTS_DATA = [
     landArea: "1,400 sq.ft",
     builtUpArea: "2,600 sq.ft",
     year: "2024",
-    image: resolveAssetPath('/image/residential_building_7.jpeg'),
+    image: resolveAssetPath('/image/residential_building_7.png'),
     aspectRatio: "3/4",
     description: "Grand 5 BHK G+2 semi-independent multi-family residence in Pallavaram crafted for multi-generational living with extensive balcony spaces and covered parking."
   },
@@ -123,7 +123,7 @@ export const PROJECTS_DATA = [
     landArea: "1,800 sq.ft",
     builtUpArea: "3,200 sq.ft",
     year: "2023",
-    image: resolveAssetPath('/image/residential_building_9.jpeg'),
+    image: resolveAssetPath('/image/residential_building_9.png'),
     aspectRatio: "16/10",
     description: "Versatile 3 BHK G+2 semi-independent residential apartment building in Thirumalisai featuring 3 distinct housing units with individual utility metering."
   },
@@ -137,7 +137,7 @@ export const PROJECTS_DATA = [
     landArea: "1,800 sq.ft",
     builtUpArea: "3,200 sq.ft",
     year: "2023",
-    image: resolveAssetPath('/image/residential_building_5.jpeg'),
+    image: resolveAssetPath('/image/residential_building_5.png'),
     aspectRatio: "16/10",
     description: "Versatile 3 BHK G+2 semi-independent residential apartment building in Thirumalisai featuring 3 distinct housing units with individual utility metering."
   }

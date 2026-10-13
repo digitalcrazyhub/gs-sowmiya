@@ -168,6 +168,7 @@
 }
 
 @media (max-width: 1439px) {
+
   .projects-grid,
   .projects-grid.projects-masonry {
     column-count: 3;
@@ -176,6 +177,7 @@
 }
 
 @media (max-width: 1023px) {
+
   .projects-grid,
   .projects-grid.projects-masonry {
     column-count: 2;
@@ -184,6 +186,7 @@
 }
 
 @media (max-width: 767px) {
+
   .projects-grid,
   .projects-grid.projects-masonry {
     column-count: 1;
@@ -207,8 +210,8 @@
   border: 1px solid var(--border-light, #DEDCD7);
   box-shadow: var(--shadow-soft, 0 10px 35px rgba(0, 0, 0, 0.06));
   transition: transform var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1)),
-              border-color var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1)),
-              box-shadow var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1));
+    border-color var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1)),
+    box-shadow var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1));
   opacity: 1;
 }
 
@@ -443,7 +446,7 @@
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.63s ease, visibility 0.3s ease;
   padding: 24px;
 }
 
@@ -611,6 +614,7 @@
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   .project-card,
   .project-card__image,
   .project-card__gold-edge,
