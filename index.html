@@ -24,8 +24,8 @@
   <meta property="og:title" content="GS Sowmiya Builders | Second-Generation Construction & Apartments in Chennai" />
   <meta property="og:description"
     content="Dedicated to making dream homes accessible to all classes of people. Backed by 35+ years of building contracting excellence in Chennai. Explore GS Sowmiya Elite Enclave in Medavakkam, custom homes & joint ventures." />
-  <meta property="og:image"
-    content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" />
+  <!-- <meta property="og:image"
+    content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" /> -->
   <meta property="og:site_name" content="GS Sowmiya Builders" />
 
   <!-- Twitter Card Metadata -->
@@ -306,6 +306,7 @@
 
       </div>
     </section>
+    <hr style="opacity: 30%;">
 
     <!-- ==========================================================================
            05. CORE SERVICES (SECTION 03 - WHAT WE BUILD)
@@ -779,8 +780,8 @@
           <!-- Left Side: Residential Works Image Showcase with Quality Badges -->
           <div class="why-residential-visual" data-reveal>
             <div class="why-residential-img-wrap">
-              <img src="./image/home_page_why_buil_us.png"
-                alt="Residential Construction Works in Chennai - GS Sowmiya Builders" loading="lazy">
+              <img src="./image/why_build_with_us.png" alt="Residential Construction Works in Chennai - GS Sowmiya
+                Builders" loading="lazy">
             </div>
 
           </div>
@@ -1259,6 +1260,53 @@
 
       </div>
     </section>
+
+    <!-- ==========================================================================
+           08. PROJECT LIGHTBOX MODAL (VANILLA JS VIEWER)
+           Reference: projects.html lightbox viewer
+           ========================================================================== -->
+    <div id="project-lightbox" class="project-lightbox" role="dialog" aria-modal="true" aria-hidden="true"
+      aria-label="Project Architectural Photo Viewer">
+      <div class="project-lightbox__dialog">
+
+        <button type="button" class="project-lightbox__close-btn" aria-label="Close Lightbox Viewer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="project-lightbox__stage">
+          <button type="button" class="project-lightbox__arrow project-lightbox__arrow--prev"
+            aria-label="Previous Project Photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <img src="" alt="" class="project-lightbox__img">
+
+          <button type="button" class="project-lightbox__arrow project-lightbox__arrow--next"
+            aria-label="Next Project Photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="project-lightbox__caption">
+          <div>
+            <h4 class="project-lightbox__caption-title">Project Title</h4>
+            <div class="project-lightbox__caption-meta">Project Metadata</div>
+          </div>
+          <div class="project-lightbox__caption-counter">01 / 05</div>
+        </div>
+
+      </div>
+    </div>
 
   </main>
 

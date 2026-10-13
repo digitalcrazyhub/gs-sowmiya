@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTestimonials();
   initTestimonialsTouchSwipe();
 
-  // 4. Architectural Project Case Studies Modal
+  // 4. Architectural Project Case Studies Modal & Lightbox System
   initProjectModal();
+  initProjectLightbox();
 
   // 5. Featured Projects Slider & Filter
   initProjectsSlider();
@@ -155,9 +156,18 @@ function initProjectsSlider() {
       const unitText = proj.units === 1 ? '1 Unit' : `${proj.units} Units`;
       return `
         <div class="project-card" data-project-id="${proj.id}" data-real-index="${realIdx}" style="cursor: pointer;">
-          <div class="project-card__image-wrap">
-            <img src="${proj.image}" alt="${proj.name}" class="project-card__image" loading="lazy">
+          <div class="project-card__image-wrap" data-lightbox-trigger="${realIdx}" role="button" tabindex="0" aria-label="View enlarged photo for ${proj.name}">
+            <img src="${proj.image}" alt="${proj.name}" class="project-card__image" data-lightbox-trigger="${realIdx}" loading="lazy">
             <div class="project-card__overlay"></div>
+            <span class="project-card__badge-tag">${proj.bhk.join(' & ')}</span>
+            <button type="button" class="project-card__zoom-btn" data-lightbox-trigger="${realIdx}" aria-label="Enlarge ${proj.name} photo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+            </button>
             <div class="project-card__bottom-info">
               <h3 class="project-card__title">${proj.name}</h3>
               <p class="project-card__subtitle">${proj.bhk.join(' & ')} | ${unitText} | ${proj.year}</p>
@@ -169,7 +179,7 @@ function initProjectsSlider() {
                   </svg>
                   <span>${proj.location.split(',')[0]}</span>
                 </div>
-                <span class="project-card__code">GSB-${proj.id.toUpperCase()}</span>
+                <span class="project-card__code">GSSB-${proj.id.toUpperCase()}</span>
               </div>
             </div>
           </div>
@@ -177,7 +187,7 @@ function initProjectsSlider() {
       `;
     }).join('');
 
-    // Attach click handlers to open project modal (guarded against drag)
+    // Attach click and keyboard handlers to open project lightbox preview
     track.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', (e) => {
         if (hasDragged) {
@@ -185,10 +195,30 @@ function initProjectsSlider() {
           e.stopPropagation();
           return;
         }
-        const id = card.getAttribute('data-project-id');
-        if (typeof window.openProjectDetails === 'function') {
-          window.openProjectDetails(id);
+        const realIdx = parseInt(card.getAttribute('data-real-index'), 10);
+        openLightbox(!isNaN(realIdx) ? realIdx : 0);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const realIdx = parseInt(card.getAttribute('data-real-index'), 10);
+          openLightbox(!isNaN(realIdx) ? realIdx : 0);
         }
+      });
+    });
+
+    // Specifically handle clicks on the image and zoom triggers
+    track.querySelectorAll('[data-lightbox-trigger]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+        e.stopPropagation();
+        const realIdx = parseInt(trigger.getAttribute('data-lightbox-trigger'), 10);
+        openLightbox(!isNaN(realIdx) ? realIdx : 0);
       });
     });
 
@@ -223,7 +253,7 @@ function initProjectsSlider() {
       track.style.transition = 'none';
       applyPosition(0);
       void track.offsetHeight; // Force reflow
-    } 
+    }
     // If we scrolled before the middle set into Set 0
     else if (currentIndex < N) {
       currentIndex = currentIndex + N;
@@ -338,43 +368,54 @@ function initProjectsSlider() {
     }
   }
 
-  // Pointer Drag & Touch Handling
+  // Pointer Drag & Touch Handling with click-friendly capture
+  let isPointerCaptured = false;
+  let pointerDownCard = null;
+
   container.addEventListener('pointerenter', () => { isHovered = true; stopAutoplay(); });
-  container.addEventListener('pointerleave', () => { 
-    isHovered = false; 
-    if (!isDragging) startAutoplay(); 
+  container.addEventListener('pointerleave', () => {
+    isHovered = false;
+    if (!isDragging) startAutoplay();
   });
 
   track.addEventListener('pointerdown', (e) => {
     if (e.button !== 0 && e.pointerType === 'mouse') return;
     isDragging = true;
     hasDragged = false;
+    isPointerCaptured = false;
+    pointerDownCard = e.target.closest('.project-card');
     startX = e.clientX;
     currentDragDelta = 0;
     stopAutoplay();
     track.style.transition = 'none';
-    track.style.cursor = 'grabbing';
-    try {
-      track.setPointerCapture(e.pointerId);
-    } catch (_) {}
   });
 
   track.addEventListener('pointermove', (e) => {
     if (!isDragging) return;
     currentDragDelta = e.clientX - startX;
-    if (Math.abs(currentDragDelta) > 6) {
+    if (Math.abs(currentDragDelta) > 8) {
       hasDragged = true;
+      track.style.cursor = 'grabbing';
+      if (!isPointerCaptured) {
+        try {
+          track.setPointerCapture(e.pointerId);
+          isPointerCaptured = true;
+        } catch (_) { }
+      }
+      applyPosition(currentDragDelta);
     }
-    applyPosition(currentDragDelta);
   });
 
   const endDrag = (e) => {
     if (!isDragging) return;
     isDragging = false;
     track.style.cursor = 'grab';
-    try {
-      track.releasePointerCapture(e.pointerId);
-    } catch (_) {}
+    if (isPointerCaptured) {
+      try {
+        track.releasePointerCapture(e.pointerId);
+      } catch (_) { }
+      isPointerCaptured = false;
+    }
 
     track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
     const threshold = 45;
@@ -390,7 +431,8 @@ function initProjectsSlider() {
 
     setTimeout(() => {
       hasDragged = false;
-    }, 50);
+      pointerDownCard = null;
+    }, 80);
 
     if (!isHovered) {
       startAutoplay();
@@ -399,6 +441,22 @@ function initProjectsSlider() {
 
   track.addEventListener('pointerup', endDrag);
   track.addEventListener('pointercancel', endDrag);
+
+  // Delegated click handler on track (guarantees click triggers even if target is shifted)
+  track.addEventListener('click', (e) => {
+    if (hasDragged) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    const card = e.target.closest('.project-card') || pointerDownCard;
+    if (card) {
+      const realIdx = parseInt(card.getAttribute('data-real-index'), 10);
+      if (!isNaN(realIdx)) {
+        openLightbox(realIdx);
+      }
+    }
+  });
 
   // Keyboard navigation
   container.setAttribute('tabindex', '0');
@@ -608,3 +666,195 @@ function initFAQAccordion() {
     });
   });
 }
+
+/**
+ * ==========================================================================
+ * HOMEPAGE PROJECT LIGHTBOX SYSTEM (VANILLA JS VIEWER)
+ * Reference: js/projects.js & projects.html lightbox modal
+ * ==========================================================================
+ */
+let currentLightboxIndex = 0;
+
+function initProjectLightbox() {
+  let lightbox = document.getElementById('project-lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'project-lightbox';
+    lightbox.className = 'project-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('aria-label', 'Project Architectural Photo Viewer');
+    lightbox.innerHTML = `
+      <div class="project-lightbox__dialog">
+        <button type="button" class="project-lightbox__close-btn" aria-label="Close Lightbox Viewer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="project-lightbox__stage">
+          <button type="button" class="project-lightbox__arrow project-lightbox__arrow--prev"
+            aria-label="Previous Project Photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <img src="" alt="" class="project-lightbox__img">
+          <button type="button" class="project-lightbox__arrow project-lightbox__arrow--next"
+            aria-label="Next Project Photo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="project-lightbox__caption">
+          <div>
+            <h4 class="project-lightbox__caption-title">Project Title</h4>
+            <div class="project-lightbox__caption-meta">Project Metadata</div>
+          </div>
+          <div class="project-lightbox__caption-counter">01 / 05</div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+  }
+
+  const closeBtn = lightbox.querySelector('.project-lightbox__close-btn');
+  const prevBtn = lightbox.querySelector('.project-lightbox__arrow--prev');
+  const nextBtn = lightbox.querySelector('.project-lightbox__arrow--next');
+
+  // Close when clicking close button
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  // Close when clicking outer backdrop
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Next & Prev arrows
+  prevBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateLightbox(-1);
+  });
+
+  nextBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateLightbox(1);
+  });
+
+  // Keyboard navigation (ESC, Left, Right)
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      navigateLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+      navigateLightbox(1);
+    }
+  });
+
+  // Touch Swipe Navigation on Mobile
+  let touchStartX = 0;
+  const stage = lightbox.querySelector('.project-lightbox__stage');
+  stage?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  stage?.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        navigateLightbox(-1);
+      } else {
+        navigateLightbox(1);
+      }
+    }
+  }, { passive: true });
+
+  window.openProjectLightbox = openLightbox;
+  window.closeProjectLightbox = closeLightbox;
+}
+
+function openLightbox(index) {
+  let lightbox = document.getElementById('project-lightbox');
+  if (!lightbox) {
+    initProjectLightbox();
+    lightbox = document.getElementById('project-lightbox');
+  }
+  if (!lightbox || HOME_PROJECTS.length === 0) return;
+
+  currentLightboxIndex = (index >= 0 && index < HOME_PROJECTS.length) ? index : 0;
+  updateLightboxContent();
+
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  const closeBtn = lightbox.querySelector('.project-lightbox__close-btn');
+  closeBtn?.focus();
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('project-lightbox');
+  if (!lightbox) return;
+
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function navigateLightbox(direction) {
+  if (HOME_PROJECTS.length <= 1) return;
+
+  currentLightboxIndex += direction;
+  if (currentLightboxIndex < 0) {
+    currentLightboxIndex = HOME_PROJECTS.length - 1;
+  } else if (currentLightboxIndex >= HOME_PROJECTS.length) {
+    currentLightboxIndex = 0;
+  }
+
+  updateLightboxContent();
+}
+
+function updateLightboxContent() {
+  const lightbox = document.getElementById('project-lightbox');
+  if (!lightbox) return;
+
+  const project = HOME_PROJECTS[currentLightboxIndex];
+  if (!project) return;
+
+  const imgEl = lightbox.querySelector('.project-lightbox__img');
+  const titleEl = lightbox.querySelector('.project-lightbox__caption-title');
+  const metaEl = lightbox.querySelector('.project-lightbox__caption-meta');
+  const counterEl = lightbox.querySelector('.project-lightbox__caption-counter');
+
+  if (imgEl) {
+    imgEl.src = project.image;
+    imgEl.alt = `${project.name} – ${project.location}`;
+  }
+
+  if (titleEl) {
+    titleEl.textContent = project.name;
+  }
+
+  if (metaEl) {
+    const unitsStr = project.units && project.units > 1 ? ` • ${project.units} Units` : '';
+    metaEl.textContent = `${project.bhk.join(' • ')} • ${project.location} • Land: ${project.landArea} • Built-up: ${project.builtUpArea}${unitsStr}`;
+  }
+
+  if (counterEl) {
+    const current = String(currentLightboxIndex + 1).padStart(2, '0');
+    const total = String(HOME_PROJECTS.length).padStart(2, '0');
+    counterEl.textContent = `${current} / ${total}`;
+  }
+}
+
