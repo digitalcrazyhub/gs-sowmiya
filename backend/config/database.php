@@ -13,6 +13,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
     exit('Access Denied');
 }
 
+require_once __DIR__ . '/app.php';
+
 return [
     'host' => (string)env('DB_HOST', 'localhost'),
     'port' => (int)env('DB_PORT', 3306),

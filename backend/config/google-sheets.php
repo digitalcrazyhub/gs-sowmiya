@@ -13,6 +13,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
     exit('Access Denied');
 }
 
+require_once __DIR__ . '/app.php';
+
 $rawCredentialsPath = trim((string)env('GOOGLE_SERVICE_ACCOUNT_PATH', ''));
 if ($rawCredentialsPath === '') {
     $credentialsPath = dirname(__DIR__) . '/config/private/google-service-account.json';

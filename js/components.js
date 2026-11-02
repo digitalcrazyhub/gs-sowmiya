@@ -139,7 +139,7 @@ const COMPONENT_FALLBACKS = {
 
   floatingActions: `
 <div class="floating-actions-stack" aria-label="Quick Actions">
-  <a href="https://wa.me/917010517729?text=Hello%20GS%20Sowmiya%20Builders%2C%20I%20would%20like%20to%20enquire%20about%20a%20construction%20project." 
+  <a href="https://wa.me/917010517729?text=Hello%20GS%20Sowmiya%20Builders%2C%20I%20saw%20your%20website%20and%20would%20like%20to%20get%20more%20details%20about%20your%20construction%20services." 
      class="floating-btn floating-whatsapp" 
      aria-label="Chat on WhatsApp" 
      target="_blank" 
@@ -265,7 +265,7 @@ export async function loadGlobalComponents(options = {}) {
 
     // Populate dynamic inner content
     const bannerConfig = options.banner || {};
-    
+
     const breadcrumbEl = bannerEl.querySelector('#banner-breadcrumb-current');
     if (breadcrumbEl && bannerConfig.breadcrumb) {
       breadcrumbEl.textContent = bannerConfig.breadcrumb;

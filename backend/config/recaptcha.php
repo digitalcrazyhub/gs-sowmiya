@@ -13,6 +13,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
     exit('Access Denied');
 }
 
+require_once __DIR__ . '/app.php';
+
 return [
     'enabled' => (bool)env('RECAPTCHA_ENABLED', false), // Set true in production after configuring both keys.
     'site_key' => (string)env('RECAPTCHA_SITE_KEY', ''),

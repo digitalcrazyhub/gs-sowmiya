@@ -19,14 +19,14 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
  */
 if (!function_exists(__NAMESPACE__ . '\\loadEnv')) {
     function loadEnv(string $envPath): void {
-    if (!file_exists($envPath) || !is_readable($envPath)) {
-        return;
-    }
+        if (!file_exists($envPath)) {
+            return;
+        }
 
-    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    if ($lines === false) {
-        return;
-    }
+        $lines = @file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if ($lines === false) {
+            return;
+        }
 
     foreach ($lines as $line) {
         $line = trim($line);
