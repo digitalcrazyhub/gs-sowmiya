@@ -1,17 +1,28 @@
-# GS SOWMIYA BUILDERS — BACKEND HTTP ACCESS RULES
+# ==============================================================================
+# GS SOWMIYA BUILDERS — BACKEND HTTP ACCESS & HARDENING RULES
+# File: /backend/.htaccess
+# ==============================================================================
+
 Options -Indexes
 
-# Never expose secrets, dependency manifests, documentation, logs, config, or SQL files.
-<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log|json|yml|yaml|ini)$">
-    Require all denied
+# 1. Deny direct web access to sensitive files, manifests, logs, and backups
+<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log|json|yml|yaml|ini|bak|swp|dist)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
+# 2. Strict directory routing
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Public endpoint only.
+    # Allow public contact API endpoint only
     RewriteRule ^api/contact\.php$ - [L]
 
-    # Everything else under backend is internal.
-    RewriteRule ^(?:config|database|services|queue|logs|vendor)/ - [F,L]
+    # Block direct web access to all internal directories
+    RewriteRule ^(?:config|database|services|queue|logs|vendor|_backups)/ - [F,L]
 </IfModule>

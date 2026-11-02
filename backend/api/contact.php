@@ -34,6 +34,9 @@ $appConfig = require dirname(__DIR__) . '/config/app.php';
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: SAMEORIGIN');
 header('X-XSS-Protection: 1; mode=block');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
 header('Content-Type: application/json; charset=UTF-8');
 
 // CORS Policy: Allow same-origin, or configured site URL
@@ -174,6 +177,7 @@ try {
 $responsePayload = [
     'success' => true,
     'message' => 'Your enquiry has been received. Our team will review your requirements and get in touch with you soon.',
+    'lead_id' => (int)$leadRecord['id'],
 ];
 
 http_response_code(200);
