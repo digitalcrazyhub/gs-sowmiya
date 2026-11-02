@@ -14,19 +14,21 @@ namespace GSSowmiya\Backend\Queue;
 
 define('GS_BACKEND_INIT', true);
 
-// Prevent execution via direct web request if possible
+// 1. Initialize Application Configuration and Environment Variables FIRST
+require_once dirname(__DIR__) . '/config/app.php';
+
+// 2. Prevent unauthorized execution via direct web request
 if (php_sapi_name() !== 'cli' && !defined('GS_ALLOW_WEB_CRON')) {
     // If triggered via HTTP secret token for external web cron (e.g. cron-job.org)
-    $cronSecret = getenv('CRON_SECRET') ?: '';
-    $incomingSecret = $_GET['secret'] ?? '';
+    $cronSecret = (string)\GSSowmiya\Backend\env('CRON_SECRET', '');
+    $incomingSecret = (string)($_GET['secret'] ?? '');
 
-    if ($cronSecret === '' || $incomingSecret !== $cronSecret) {
+    if ($cronSecret === '' || !hash_equals($cronSecret, $incomingSecret)) {
         http_response_code(403);
         exit('Access Denied. CLI or valid CRON_SECRET required.');
     }
 }
 
-require_once dirname(__DIR__) . '/config/app.php';
 require_once dirname(__DIR__) . '/services/Database.php';
 require_once dirname(__DIR__) . '/services/LeadService.php';
 require_once dirname(__DIR__) . '/services/EmailService.php';

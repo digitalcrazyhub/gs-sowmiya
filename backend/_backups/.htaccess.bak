@@ -1,0 +1,17 @@
+# GS SOWMIYA BUILDERS — BACKEND HTTP ACCESS RULES
+Options -Indexes
+
+# Never expose secrets, dependency manifests, documentation, logs, config, or SQL files.
+<FilesMatch "^\.|^\.env|composer\.(json|lock)$|README\.md|.*\.(sql|log|json|yml|yaml|ini)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Public endpoint only.
+    RewriteRule ^api/contact\.php$ - [L]
+
+    # Everything else under backend is internal.
+    RewriteRule ^(?:config|database|services|queue|logs|vendor)/ - [F,L]
+</IfModule>
