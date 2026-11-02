@@ -13,6 +13,8 @@ if (!defined('GS_BACKEND_INIT') && php_sapi_name() !== 'cli') {
     exit('Access Denied');
 }
 
+require_once __DIR__ . '/app.php';
+
 return [
     'smtp_host' => (string)env('SMTP_HOST', 'smtp.hostinger.com'),
     'smtp_port' => (int)env('SMTP_PORT', 465),
