@@ -53,7 +53,7 @@ export const SITE_CONFIG = {
     officeLocation: "https://maps.app.goo.gl/HmbHVh8q1EZVrsqi7",
   },
   recaptcha: {
-    siteKey: "6LfAneYtAAAAANU3bIRTPAEF0n4f-TYEPmhxYsP7",
+    siteKey: "your-site-key",
     action: "submit_enquiry",
   },
 };
